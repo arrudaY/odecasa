@@ -1,0 +1,33 @@
+.navBarContainer
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Roboto";
+}
+
+.navBarLogo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navBarBotoes{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navBarLogoImg{
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.navBarBtn{
+  height: 40px;
+  width: 120px;
+  margin: 5px;
+}
