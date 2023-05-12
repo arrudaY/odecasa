@@ -4,7 +4,7 @@ const Body = () => {
 
   return (
       <body>
-        <div className={`back-color-3 ${styles.bodyContainer}`}>
+        <div className={styles.bodyContainer}>
             <h1>Body aqui!</h1>
         </div>
       </body>

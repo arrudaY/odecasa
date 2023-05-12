@@ -4,4 +4,27 @@
     justify-content: space-evenly;
     font-family: "Roboto";
     align-items: center;
+    background-color: var(--color-2);
+}
+
+.buscadorInputs{
+    display: flex;
+    flex-direction: row;
+}
+
+.buscadorTxt{
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.buscadorBtn{
+    width: 150px;
+    height: 40px;
+    margin: 10px;
+    background-color: var(--color-4);
+    border-radius: 5px;
+    border-color: var(--color-4);
+    color: white;
 }

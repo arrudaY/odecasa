@@ -6,31 +6,11 @@
 }
 
 :root {
-    --color-1: green;
-    --color-2: blueviolet;
-    --color-3: white;
-    --color-4: blue;
-    --color-5: red;
-}
-
-.back-color-1{
-    background-color: var(--color-1);
-}
-
-.back-color-2{
-    background-color: var(--color-2);
-}
-
-.back-color-3{
-    background-color: var(--color-3);
-}
-
-.back-color-4{
-    background-color: var(--color-4);
-}
-
-.back-color-5{
-    background-color: var(--color-5);
+    --color-1: #54469C;
+    --color-2: #569A97;
+    --color-3: #EADBD2;
+    --color-4: #DEA677;
+    --color-5: #D0585D;
 }
 
 .sticky-top{

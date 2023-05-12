@@ -1,14 +1,14 @@
 import styles from "./Footer.module.css";
-import facebook from "../Data/no_image.png"
-import linkedin from "../Data/no_image.png"
-import twiter from "../Data/no_image.png"
-import instagram from "../Data/no_image.png"
+import facebook from "../Data/facebook.png"
+import linkedin from "../Data/linkedin.png"
+import twiter from "../Data/twiter.png"
+import instagram from "../Data/instagram.png"
 
 const Footer = () => {
 
   return (
       <footer className="sticky-bottom">
-        <div className={`back-color-4 ${styles.footerContainer}`}>
+        <div className={styles.footerContainer}>
           <p className={styles.footerCopyright}>Copyright e ano</p>
           <div className={styles.footerRedes}>
             <img className={styles.footerRedesImg} src={facebook}/>

@@ -4,8 +4,13 @@ const Buscador = () => {
 
   return (
       <div>
-        <div className={`back-color-2 ${styles.buscadorContainer}`}>
-            <h1>Buscador aqui!</h1>
+        <div className={styles.buscadorContainer}>
+            <h1>Buscar acomodações</h1>
+            <div className={styles.buscadorInputs}>
+              <input className={styles.buscadorTxt} type="text" placeholder="Local"></input>
+              <input className={styles.buscadorTxt} type="text" placeholder="Datas"></input>
+              <button className={styles.buscadorBtn}>Buscar</button>
+            </div>
         </div>
       </div>
   );

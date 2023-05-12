@@ -4,6 +4,7 @@
     justify-content: space-between;
     font-family: "Roboto";
     align-items: center;
+    background-color: var(--color-4);
 }
 
 .footerRedes{

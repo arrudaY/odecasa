@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: space-between;
   font-family: "Roboto";
+  background-color: var(--color-1);
 }
 
 .navBarLogo{
@@ -30,4 +31,8 @@
   height: 40px;
   width: 120px;
   margin: 5px;
+  background-color: var(--color-4);
+  border-radius: 5px;
+  border-color: var(--color-4);
+  color: white;
 }
