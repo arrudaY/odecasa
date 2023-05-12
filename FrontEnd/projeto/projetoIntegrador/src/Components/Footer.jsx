@@ -7,7 +7,7 @@ import instagram from "../Data/no_image.png"
 const Footer = () => {
 
   return (
-      <footer>
+      <footer className="sticky-bottom">
         <div className={`back-color-4 ${styles.footerContainer}`}>
           <p className={styles.footerCopyright}>Copyright e ano</p>
           <div className={styles.footerRedes}>
