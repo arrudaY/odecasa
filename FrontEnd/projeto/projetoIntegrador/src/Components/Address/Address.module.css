@@ -1,0 +1,17 @@
+
+
+svg {
+    width: 10px;
+    height: 14px;
+}
+
+.link {
+    display: flex;
+    gap: 0.5em;
+    width: 334px;
+    height: 32px;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 16px;
+    margin-top: 17px;
+}
