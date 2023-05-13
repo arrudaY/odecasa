@@ -1,0 +1,95 @@
+.title {
+    font-size: 24px;
+    color: var(--color-1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 448px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--color-6);
+    border: 0 none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+input:focus {
+    box-shadow: 0px 1.5px 5px var(--color-1);
+    border: 0 none;
+    outline: 1px;
+} 
+
+input[type=text], input[type=password], input[type=email] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.password {
+    position: relative;
+}
+
+.password span {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.password span svg {
+    width: 18px;
+    opacity: 0.8;
+}
+
+label {
+    font-size: 12px;
+    margin-bottom: 0.2em;
+    line-height: 14px;
+    opacity: 0.8;
+}
+
+.name {
+    display: flex;
+    gap: 0.7em;
+}
+
+.name input {
+    width: 218px;
+}
+
+button {
+    width: 206px;
+    height: 40px;
+    background-color: var(--color-1);
+    color: var(--color-6);
+    border-radius: 5px;
+    transition: all 0.5s;
+    border: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.float {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.confirm {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.confirm p {
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+.error {
+    display: block;
+    color: red;
+    font-size: 10px;
+}
