@@ -9,7 +9,7 @@ const Footer = () => {
   return (
       <footer className="sticky-bottom">
         <div className={styles.footerContainer}>
-          <p className={styles.footerCopyright}>Copyright e ano</p>
+          <p className={styles.footerCopyright}>© 2023 - Digital Booking</p>
           <div className={styles.footerRedes}>
             <img className={styles.footerRedesImg} src={facebook}/>
             <img className={styles.footerRedesImg} src={linkedin}/>
