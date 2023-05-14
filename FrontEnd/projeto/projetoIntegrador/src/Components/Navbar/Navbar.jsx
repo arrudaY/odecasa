@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
-import logo from "../Data/no_image.png"
+import logo from "../../Data/no_image.png"
 
 const Navbar = () => {
 

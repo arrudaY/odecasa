@@ -1,8 +1,8 @@
 import styles from "./Footer.module.css";
-import facebook from "../Data/facebook.png"
-import linkedin from "../Data/linkedin.png"
-import twiter from "../Data/twiter.png"
-import instagram from "../Data/instagram.png"
+import facebook from "../../Data/facebook.png"
+import linkedin from "../../Data/linkedin.png"
+import twiter from "../../Data/twiter.png"
+import instagram from "../../Data/instagram.png"
 
 const Footer = () => {
 

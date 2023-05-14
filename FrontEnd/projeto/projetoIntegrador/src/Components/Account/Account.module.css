@@ -1,11 +1,15 @@
-.title {
+.accountContainer{
+    z-index:5;
+}
+
+.accountTitle {
     font-size: 24px;
     color: var(--color-1);
     text-align: center;
     margin-bottom: 30px;
 }
 
-input {
+.accountTxt {
     width: 448px;
     height: 40px;
     border-radius: 5px;
@@ -15,50 +19,41 @@ input {
     transition: all 0.6s;
 }
 
-input:focus {
+.accountTxt:focus {
     box-shadow: 0px 1.5px 5px var(--color-1);
     border: 0 none;
     outline: 1px;
 } 
 
-input[type=text], input[type=password], input[type=email] {
+.accountTxt[type=text], .accountTxt[type=password], .accountTxt[type=email] {
     padding: 10px;
     box-sizing: border-box;
 }
 
-.password {
+.accountPassword {
     position: relative;
 }
 
-.password span {
+.accountPassword span {
     position: absolute;
     top: 12px;
     right: 10px;
     cursor: pointer;
 }
 
-.password span svg {
+.accountPassword span svg {
     width: 18px;
     opacity: 0.8;
 }
 
-label {
+.accountLabel {
     font-size: 12px;
     margin-bottom: 0.2em;
     line-height: 14px;
     opacity: 0.8;
 }
 
-.name {
-    display: flex;
-    gap: 0.7em;
-}
-
-.name input {
-    width: 218px;
-}
-
-button {
+.accountBtn {
     width: 206px;
     height: 40px;
     background-color: var(--color-1);
@@ -68,27 +63,27 @@ button {
     border: none;
 }
 
-button:hover {
+.accountBtn:hover {
     opacity: 0.8;
 }
 
-.float {
+.accountFloat {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-.confirm {
+.accountConfirm {
     margin-top: 50px;
     text-align: center;
 }
 
-.confirm p {
+.accountConfirm p {
     font-size: 12px;
     margin-top: 18px;
 }
 
-.error {
+.accountError {
     display: block;
     color: red;
     font-size: 10px;

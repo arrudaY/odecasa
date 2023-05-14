@@ -1,7 +1,7 @@
-import Body from "./Components/Body"
-import Buscador from "./Components/Buscador"
-import Footer from "./Components/Footer"
-import Navbar from "./Components/Navbar"
+import Body from "./Components/Body/Body"
+import Buscador from "./Components/Buscador/Buscador"
+import Footer from "./Components/Footer/Footer"
+import Navbar from "./Components/Navbar/Navbar"
 
 function App() {
 

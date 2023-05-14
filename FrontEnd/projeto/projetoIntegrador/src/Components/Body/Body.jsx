@@ -1,4 +1,4 @@
-import Account from "./Account/Account";
+import Account from "../Account/Account";
 import styles from "./Body.module.css";
 
 const Body = () => {
