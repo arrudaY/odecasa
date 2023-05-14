@@ -5,6 +5,7 @@
   justify-content: space-between;
   font-family: "Roboto";
   background-color: var(--color-1);
+  height: 60px;
 }
 
 .navBarLogo{
@@ -12,6 +13,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.navBarLogo h2{
+  color: black;
 }
 
 .navBarBotoes{

@@ -7,7 +7,6 @@ const Body = () => {
       <body>
         <div className={styles.bodyContainer}>
             <h1>Body aqui!</h1>
-            <Account />
         </div>
       </body>
   );

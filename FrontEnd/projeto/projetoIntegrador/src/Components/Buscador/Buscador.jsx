@@ -3,7 +3,7 @@ import styles from "./Buscador.module.css";
 const Buscador = () => {
 
   return (
-      <div>
+      <div className="sticky-buscador">
         <div className={styles.buscadorContainer}>
             <h1>Buscar acomodações</h1>
             <div className={styles.buscadorInputs}>

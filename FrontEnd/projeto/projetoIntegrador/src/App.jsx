@@ -1,18 +1,23 @@
-import Body from "./Components/Body/Body"
-import Buscador from "./Components/Buscador/Buscador"
 import Footer from "./Components/Footer/Footer"
 import Navbar from "./Components/Navbar/Navbar"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Routes/Home";
+import Cadastro from "./Routes/Cadastro";
 
 function App() {
 
   return (
     <div className="App">
-      <div className="sticky-top">
+      <BrowserRouter>
         <Navbar />
-        <Buscador />
-      </div>
-      <Body />
-      <Footer />
+        <main className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
     </div>
   )
 }

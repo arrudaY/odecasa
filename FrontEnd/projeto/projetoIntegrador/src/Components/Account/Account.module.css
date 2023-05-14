@@ -1,5 +1,11 @@
 .accountContainer{
     z-index:5;
+    background-color: var(--color-3);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto";
+    align-items: center;
 }
 
 .accountTitle {
