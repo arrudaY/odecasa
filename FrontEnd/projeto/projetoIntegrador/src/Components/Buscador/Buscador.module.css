@@ -5,6 +5,8 @@
     font-family: "Roboto";
     align-items: center;
     background-color: var(--color-2);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .buscadorInputs{
@@ -27,4 +29,5 @@
     border-radius: 5px;
     border-color: var(--color-4);
     color: white;
+    box-shadow: 1px 1px 2px grey;
 }

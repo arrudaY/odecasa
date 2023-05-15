@@ -1,9 +1,7 @@
 .bodyContainer{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     font-family: "Roboto";
-    align-items: center;
     height: 1500px;
     background-color: var(--color-3);
     z-index: 5;
