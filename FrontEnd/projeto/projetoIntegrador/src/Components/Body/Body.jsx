@@ -1,4 +1,5 @@
 import Account from "../Account/Account";
+import Categorias from "../Categorias/Categorias";
 import styles from "./Body.module.css";
 
 const Body = () => {
@@ -6,7 +7,8 @@ const Body = () => {
   return (
       <body>
         <div className={styles.bodyContainer}>
-            <h1>Body aqui!</h1>
+          <Categorias />
+          <h2>Recomendações</h2>
         </div>
       </body>
   );

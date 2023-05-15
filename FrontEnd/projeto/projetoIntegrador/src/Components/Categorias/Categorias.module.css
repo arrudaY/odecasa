@@ -1,0 +1,44 @@
+.categoriasContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: "Roboto";
+    background-color: var(--color-3);
+}
+
+.categoriasContainer h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.categoriasCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Roboto";
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.categoriasCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: "Roboto";
+    background-color: var(--color-6);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.categoriasImg{
+    width: 350px;
+    height: 300px;
+    border-radius: 10px 10px 0 0;
+}
+
+.categoriasCard p{
+    color: rgb(80, 78, 78);
+    margin-left: 10px;
+}

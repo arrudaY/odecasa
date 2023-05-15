@@ -40,4 +40,5 @@
   border-radius: 5px;
   border-color: var(--color-4);
   color: white;
+  box-shadow: 1px 1px 2px grey;
 }
