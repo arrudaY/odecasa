@@ -10,6 +10,10 @@ const Navbar = () => {
     navigate("/cadastro");
   }
 
+  function logar() {
+    navigate("/login");
+  }
+
   return (
       <nav className="sticky-top">
         <div className={styles.navBarContainer}>
@@ -23,7 +27,7 @@ const Navbar = () => {
             </div>
           <div className={styles.navBarBotoes}>
             <button onClick={cadastrar} className={styles.navBarBtn}>Criar conta</button>
-            <button className={styles.navBarBtn}>Iniciar sessão</button>
+            <button onClick={logar} className={styles.navBarBtn}>Iniciar sessão</button>
           </div>
         </div>
       </nav>

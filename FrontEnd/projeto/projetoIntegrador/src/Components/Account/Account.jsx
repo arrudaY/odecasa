@@ -1,5 +1,7 @@
 import styles from './Account.module.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Account = () => {
     const [nome, setNome] = useState('');
@@ -140,7 +142,7 @@ const Account = () => {
                 </div>
                 <div className={styles.accountConfirm}>
                     <button className={styles.accountBtn} type="submit">Criar Conta</button>
-                    <p>Já tem uma conta? <a href="">Iniciar sessão</a> </p>
+                    <p>Já tem uma conta? <Link to={"/login"}>Iniciar sessão </Link> </p>
                 </div>
             </form>
         </div>

@@ -1,0 +1,96 @@
+.loginContainer{
+    z-index:5;
+    background-color: var(--color-3);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto";
+    align-items: center;
+}
+
+.loginTitle {
+    font-size: 24px;
+    color: var(--color-1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.loginTxt {
+    width: 448px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--color-6);
+    border: 0 none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+.loginTxt:focus {
+    box-shadow: 0px 1.5px 5px var(--color-1);
+    border: 0 none;
+    outline: 1px;
+} 
+
+.loginTxt[type=text], .loginTxt[type=password], .loginTxt[type=email] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.loginPassword {
+    position: relative;
+}
+
+.loginPassword span {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.loginPassword span svg {
+    width: 18px;
+    opacity: 0.8;
+}
+
+.loginLabel {
+    font-size: 12px;
+    margin-bottom: 0.2em;
+    line-height: 14px;
+    opacity: 0.8;
+}
+
+.loginBtn {
+    width: 206px;
+    height: 40px;
+    background-color: var(--color-1);
+    color: var(--color-6);
+    border-radius: 5px;
+    transition: all 0.5s;
+    border: none;
+}
+
+.loginBtn:hover {
+    opacity: 0.8;
+}
+
+.loginFloat {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.loginConfirm {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.loginConfirm p {
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+.loginError {
+    display: block;
+    color: red;
+    font-size: 10px;
+}

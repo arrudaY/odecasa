@@ -1,9 +1,9 @@
-import Account from "../Components/Account/Account";
+import Session from "../Components/Login/Login";
 
 const Login = () => {
   return (
     <>
-        <Account />
+      <Session />
     </>
   );
 };

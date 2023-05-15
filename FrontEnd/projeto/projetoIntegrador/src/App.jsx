@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar/Navbar"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
 import Cadastro from "./Routes/Cadastro";
+import Login from "./Routes/Login";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
         <Footer />
