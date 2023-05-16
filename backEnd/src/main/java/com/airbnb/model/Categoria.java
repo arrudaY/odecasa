@@ -9,7 +9,6 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Categoria

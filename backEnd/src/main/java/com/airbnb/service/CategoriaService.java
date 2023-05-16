@@ -30,12 +30,23 @@ public class CategoriaService
 		return repositorio.findAll();
 	}
 	
-	public List<Categoria> buscarTodas()
+	public Categoria alterar(Categoria categoria)
 	{
-		List<Categoria> categorias = new ArrayList<>();
-		categorias.add(new Categoria(12, "desc", "url"));
-		categorias.add(new Categoria(13, "desc2", "url2"));
-		categorias.add(new Categoria(14, "desc3", "url3"));
-		return categorias;
+		long id = categoria.getId();
+		if(repositorio.existsById(id))
+		{
+			return repositorio.save(categoria);
+		}
+		return new Categoria();
+	}
+	
+	public boolean excluirId(long id)
+	{
+		if(repositorio.existsById(id))
+		{
+			repositorio.deleteById(id);
+			return !repositorio.existsById(id);
+		}
+		return false;
 	}
 }

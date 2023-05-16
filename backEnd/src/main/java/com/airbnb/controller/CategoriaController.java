@@ -6,17 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-@Controller
+@RestController
 @RequestMapping(value="/categoria")
 public class CategoriaController
 {
@@ -33,5 +30,25 @@ public class CategoriaController
 	public ResponseEntity salvar(@RequestBody Categoria categoria)
 	{
 		return new ResponseEntity(service.salvar(categoria), HttpStatus.OK);
+	}
+	
+	@PatchMapping
+	public ResponseEntity alterar(@RequestBody Categoria categoria)
+	{
+		categoria = service.alterar(categoria);
+		if (categoria.getId() <= 0)
+		{
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+		else
+		{
+			return new ResponseEntity(service.alterar(categoria), HttpStatus.OK);
+		}
+	}
+	
+	@DeleteMapping
+	public ResponseEntity excluir(@RequestParam long id)
+	{
+		return new ResponseEntity(service.excluirId(id) ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 }
