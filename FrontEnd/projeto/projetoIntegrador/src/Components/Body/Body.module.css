@@ -6,3 +6,15 @@
     background-color: var(--color-3);
     z-index: 5;
 }
+
+.bodyContainer h2{
+    margin-left: 10px;
+}
+
+.bodyCards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+}

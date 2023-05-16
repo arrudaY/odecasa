@@ -1,0 +1,31 @@
+.cardBuscaContainer{
+    display: flex;
+    flex-direction: row;
+    font-family: "Roboto";
+    background-color: var(--color-6);
+    z-index: 5;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cardBuscaImg{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px 0 0 10px;
+}
+
+.cardBuscaInfo{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardBuscaInfo h2{
+    margin: 5px 0;
+}
+
+.cardBuscaInfo h3{
+    color: var(--color-7);
+}
