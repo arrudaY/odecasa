@@ -16,8 +16,15 @@
     border-radius: 10px 0 0 10px;
 }
 
-.cardBuscaInfo{
+.cardBuscaDetalhes{
+    width: 400px;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardBuscaInfo{
     display: flex;
     flex-direction: column;
 }
@@ -28,4 +35,20 @@
 
 .cardBuscaInfo h3{
     color: var(--color-7);
+}
+
+.cardBuscaDescricao{
+    margin-top: 30px;
+}
+
+.cardBuscaBtn{
+    bottom: 10px;
+    width: 90%;
+    height: 40px;
+    margin-left: 5%;
+    background-color: var(--color-4);
+    border-radius: 5px;
+    border-color: var(--color-4);
+    color: white;
+    box-shadow: 1px 1px 2px grey;
 }
