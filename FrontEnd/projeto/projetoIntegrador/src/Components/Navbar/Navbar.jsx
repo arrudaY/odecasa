@@ -2,16 +2,29 @@ import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../Data/no_image.png"
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const Navbar = () => {
+  const { removeUserStorage, stsLogin, setEstadoLogin } = useContext(AuthContext); 
   const navigate = useNavigate();
 
-  function cadastrar() {
-    navigate("/cadastro");
+  function cadastrarEncerrar() {
+    if(stsLogin === "Login")
+    {
+      navigate("/cadastro");
+    }
+    else
+    {
+      removeUserStorage();
+      setEstadoLogin("Login");
+      navigate("/");
+    }
   }
 
   function logar() {
-    navigate("/login");
+    if(stsLogin === "Login")
+      navigate("/login");
   }
 
   return (
@@ -26,8 +39,9 @@ const Navbar = () => {
               </Link>
             </div>
           <div className={styles.navBarBotoes}>
-            <button onClick={cadastrar} className={styles.navBarBtn}>Criar conta</button>
-            <button onClick={logar} className={styles.navBarBtn}>Iniciar sessão</button>
+            <button onClick={cadastrarEncerrar} className={styles.navBarBtn}>{stsLogin === "Login" ? "Criar conta" : "Finalizar sessao"}</button>
+            <button onClick={logar} className={stsLogin === "Login" ? styles.navBarBtn : styles.navBarAvatar}>
+              {stsLogin === "Login" ? "Iniciar sessão" : "Olá Fulana"}</button>
           </div>
         </div>
       </nav>
