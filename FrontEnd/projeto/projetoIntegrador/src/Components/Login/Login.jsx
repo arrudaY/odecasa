@@ -102,7 +102,7 @@ const Login = () => {
                     {errors.senha && <span className={styles.loginError}>{errors.senha}</span>}
                 </div>
                 <div className={styles.loginConfirm}>
-                    <button className={styles.loginBtn} type="submit">Criar Conta</button>
+                    <button className={styles.loginBtn} type="submit">Entrar</button>
                     <p>Ainda não tem conta? <Link to={"/cadastro"}>Registre-se</Link> </p>
                 </div>
             </form>

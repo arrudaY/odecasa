@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
-import logo from "../../Data/no_image.png"
+import logo from "../../Data/logo.png"
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -53,7 +53,7 @@ const Navbar = () => {
                 <img className={styles.navBarLogoImg} src={logo}/>
               </Link>
               <Link className="link" to="/">
-                <h2>Tralala</h2>
+                <h2>Digital Booking</h2>
               </Link>
             </div>
             {windowWidth <= 414 ? (

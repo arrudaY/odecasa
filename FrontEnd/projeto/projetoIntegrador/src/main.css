@@ -7,11 +7,11 @@
 }
 
 :root {
-    --color-1: #54469C;
-    --color-2: #569A97;
-    --color-3: #EADBD2;
-    --color-4: #DEA677;
-    --color-5: #D0585D;
+    --color-1: black;
+    --color-2: #fc9049;
+    --color-3: white;
+    --color-4: #ff7c00;
+    --color-5: black;
     --color-6: #FFFFFF;
     --color-7: rgb(80, 78, 78);
 }
@@ -43,4 +43,13 @@
 
 button{
     font-size: 16px;
+}
+
+.login-centralizado{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
