@@ -1,0 +1,21 @@
+.container {
+    background-color: var(--color-1);
+    position: fixed;
+    height: 100%;
+    top: 10px;
+    right: 0px;
+    width: 300px;
+    animation: showSidebar .4s;
+}
+
+@keyframes showSidebar {
+    from {
+      opacity: 0;
+      width: 0;
+    }
+    to {
+      opacity: 1;
+      width: 300px;
+    }
+}
+
