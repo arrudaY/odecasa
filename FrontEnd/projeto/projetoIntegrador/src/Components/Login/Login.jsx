@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const { saveEmail, saveToken, setEstadoLogin } = useContext(AuthContext); 
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [errors, setErrors] = useState({});
@@ -46,10 +52,16 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             console.log('Formulário válido. Envie-o para o servidor.');
             setErrors({});
+            logar();
         } else {
             setErrors(errors);
         }
     };
+
+    function logar() {
+        setEstadoLogin("Logout");
+        navigate("/");
+    }
 
     return(
         <div className={styles.loginContainer}>

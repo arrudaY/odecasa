@@ -1,9 +1,11 @@
 import styles from './Account.module.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
+    const navigate = useNavigate();
+
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
@@ -65,6 +67,7 @@ const Account = () => {
         if (Object.keys(errors).length === 0) {
             console.log('Formulário válido. Envie-o para o servidor.');
             setErrors({});
+            navigate("/");
         } else {
             setErrors(errors);
         }
