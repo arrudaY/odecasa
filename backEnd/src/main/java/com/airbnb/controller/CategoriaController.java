@@ -15,6 +15,7 @@ import java.util.Locale;
 
 @RestController
 @RequestMapping(value="/categoria")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoriaController
 {
 	@Autowired
