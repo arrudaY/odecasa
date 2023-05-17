@@ -94,3 +94,15 @@
     color: red;
     font-size: 10px;
 }
+
+@media (max-width: 768px) {
+    .loginTxt, .loginBtn {
+        width: 346px;
+    }
+}
+
+@media (max-width: 414px) {
+    .loginTxt, .loginBtn {
+        width: 300px;
+    }
+}

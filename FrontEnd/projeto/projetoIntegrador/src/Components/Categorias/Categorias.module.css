@@ -15,6 +15,7 @@
 .categoriasCards{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-family: "Roboto";
     margin-bottom: 20px;
@@ -30,6 +31,7 @@
     background-color: var(--color-6);
     border-radius: 10px;
     box-shadow: 5px 5px 5px grey;
+    margin-bottom: 25px;
 }
 
 .categoriasImg{
@@ -41,4 +43,22 @@
 .categoriasCard p{
     color: rgb(80, 78, 78);
     margin-left: 10px;
+}
+
+@media (max-width: 768px) {    
+    .categoriasImg{
+        width: 347px;
+        height: 190px;
+    }
+}
+
+@media (max-width: 414px) {
+    .categoriasCard{
+        display: block;
+        font-family: "Roboto";
+    }
+    .categoriasImg{
+        width: 347px;
+        height: 213px;
+    }
 }
