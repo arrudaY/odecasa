@@ -29,7 +29,7 @@ public class CategoriaController
 	@PostMapping
 	public ResponseEntity salvar(@RequestBody Categoria categoria)
 	{
-		return new ResponseEntity(service.salvar(categoria), HttpStatus.OK);
+		return new ResponseEntity(service.salvar(categoria), HttpStatus.CREATED);
 	}
 	
 	@PatchMapping
