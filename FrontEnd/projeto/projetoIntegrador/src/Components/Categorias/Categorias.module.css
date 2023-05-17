@@ -16,10 +16,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     font-family: "Roboto";
     margin-bottom: 20px;
-    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -32,10 +30,12 @@
     border-radius: 10px;
     box-shadow: 5px 5px 5px grey;
     margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .categoriasImg{
-    width: 350px;
+    width: 355px;
     height: 300px;
     border-radius: 10px 10px 0 0;
 }
