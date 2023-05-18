@@ -16,10 +16,11 @@
 }
 
 .buscadorTxt{
-    width: 200px;
-    height: 40px;
+    width: 250px;
+    height: 42px;
     margin: 10px;
     border-radius: 5px;
+    z-index: 15;
 }
 
 .buscadorBtn{

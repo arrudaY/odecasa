@@ -1,3 +1,4 @@
+import { DateRangePicker } from 'rsuite';
 import styles from "./Buscador.module.css";
 
 const Buscador = () => {
@@ -7,8 +8,8 @@ const Buscador = () => {
         <div className={styles.buscadorContainer}>
             <h1>Buscar acomodações</h1>
             <div className={styles.buscadorInputs}>
-              <input className={styles.buscadorTxt} type="text" placeholder="Local"></input>
-              <input className={styles.buscadorTxt} type="text" placeholder="Datas"></input>
+              <input className={styles.buscadorTxt} type="text" placeholder=" Local"></input>
+              <DateRangePicker size="lg" placeholder="Checkin ~ Checkout" format={"dd-MM-yyyy"} className={styles.buscadorTxt}/>
               <button className={styles.buscadorBtn}>Buscar</button>
             </div>
         </div>

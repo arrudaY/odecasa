@@ -9,11 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.1",
+    "@mui/x-date-pickers": "^6.4.0",
+    "@mui/x-date-pickers-pro": "^6.4.0",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "rsuite": "^5.33.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

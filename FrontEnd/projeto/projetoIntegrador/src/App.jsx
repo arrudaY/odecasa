@@ -4,11 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
 import Cadastro from "./Routes/Cadastro";
 import Login from "./Routes/Login";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 function App() {
 
   return (
     <div className="App">
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
       <BrowserRouter>
         <Navbar />
         <main className="container">
@@ -19,7 +22,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </BrowserRouter>
+      </BrowserRouter>      </LocalizationProvider>
     </div>
   )
 }
