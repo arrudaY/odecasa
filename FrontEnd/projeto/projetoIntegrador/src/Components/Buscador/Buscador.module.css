@@ -39,3 +39,9 @@
         width: 100%;
     }
 }
+
+@media(max-width: 719px) {
+    .buscadorContainer, .buscadorTxt, .buscadorBtn {
+        width: 100%;
+    }
+}

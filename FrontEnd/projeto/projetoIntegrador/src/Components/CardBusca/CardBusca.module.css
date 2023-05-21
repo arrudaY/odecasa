@@ -52,3 +52,45 @@
     color: white;
     box-shadow: 1px 1px 2px grey;
 }
+
+@media (max-width: 768px) {    
+    .cardBuscaContainer{
+        width: 100%;
+    }
+    .cardBuscaDetalhes {
+        max-width: 90%;
+    }
+    .cardBuscaImg{
+        display: inline;
+        width: 100%;
+    }
+}
+
+@media(max-width: 500px) {
+    .cardBuscaContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .cardBuscaImg {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 414px) {    
+    .cardBuscaContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .cardBuscaImg {
+       width: 100%;
+    }
+    .cardBuscaBtn {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+}

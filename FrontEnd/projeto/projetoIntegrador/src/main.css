@@ -69,3 +69,9 @@ h3{
     font-size: 20px;
     color: black;
 }
+
+@media (max-width: 414px) {
+    .sticky-buscador {
+        z-index: 9;
+    }
+}

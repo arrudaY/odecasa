@@ -41,8 +41,7 @@
   color: white;
   width: 30px;
   height: 30px;
-  margin-top: 32px;
-  margin-left: 32px;
+  margin: 32px;
   cursor: pointer;
 }
 
@@ -81,6 +80,15 @@
 
 @media (max-width:414px) {
   .navBarBotoes {
+    display: none;
+  }
+  .link h2 {
+    display: none;
+  }
+}
+
+@media (max-width: 570px) {
+  .link h2 {
     display: none;
   }
 }
