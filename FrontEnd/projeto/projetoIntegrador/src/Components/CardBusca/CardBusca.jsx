@@ -1,7 +1,13 @@
 import styles from "./CardBusca.module.css";
 import imagem from "../../Data/no_image.png"
+import { useNavigate } from "react-router-dom";
 
 const CardBusca = () => {
+  const navigate = useNavigate();
+
+  function acessar() {
+    navigate("/detalhes/:50");
+  }
 
   return (
     <div className={styles.cardBuscaContainer}>
@@ -13,7 +19,7 @@ const CardBusca = () => {
             <p>Local</p>
             <p className={styles.cardBuscaDescricao}>Descrição do lugar</p>
           </div>
-            <button className={styles.cardBuscaBtn}>Ver mais detalhes</button>
+            <button onClick={acessar} className={styles.cardBuscaBtn}>Ver mais detalhes</button>
         </div>
     </div>
   );

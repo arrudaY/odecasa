@@ -32,8 +32,7 @@
 }
 
 .sticky-bottom {
-    position: fixed;
-    bottom: 0;
+    bottom:0;
     width: 100%;
     z-index:10;
 }
@@ -44,15 +43,6 @@
 
 button{
     font-size: 16px;
-}
-
-.login-centralizado{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
 }
 
 h1{
@@ -68,6 +58,15 @@ h2{
 h3{
     font-size: 20px;
     color: black;
+}
+
+.container{
+    height: 100vh;
+    position:relative;
+}
+
+.App{
+    height:100%;
 }
 
 @media (max-width: 414px) {

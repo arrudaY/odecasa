@@ -1,12 +1,19 @@
 .accountContainer{
     z-index:5;
     background-color: var(--color-3);
-    height: fit-content;
     display: flex;
     flex-direction: column;
     font-family: "Roboto";
     align-items: center;
     padding-bottom: 68px;
+    height: calc(100vh - 58px - 60px);
+}
+
+.accountForm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .accountTitle {

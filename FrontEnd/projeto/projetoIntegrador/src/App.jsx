@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
 import Cadastro from "./Routes/Cadastro";
 import Login from "./Routes/Login";
+import DetalhesProd from "./Routes/DetalhesProd";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
@@ -13,16 +14,20 @@ function App() {
     <div className="App">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <BrowserRouter>
-        <Navbar />
-        <main className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </main>
-        <Footer />
-      </BrowserRouter>      </LocalizationProvider>
+        <div className="container">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cadastro" element={<Cadastro />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/detalhes/:id" element={<DetalhesProd />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+      </LocalizationProvider>
     </div>
   )
 }
