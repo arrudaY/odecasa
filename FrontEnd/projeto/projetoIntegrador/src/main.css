@@ -61,12 +61,12 @@ h3{
 }
 
 .container{
-    height: 100vh;
     position:relative;
 }
 
 .App{
     height:100%;
+    position:relative;
 }
 
 @media (max-width: 414px) {

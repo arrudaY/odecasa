@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <BrowserRouter>
+        <Navbar />
         <div className="container">
-          <Navbar />
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -24,8 +24,8 @@ function App() {
               <Route path="/detalhes/:id" element={<DetalhesProd />} />
             </Routes>
           </main>
-          <Footer />
         </div>
+        <Footer />
       </BrowserRouter>
       </LocalizationProvider>
     </div>
