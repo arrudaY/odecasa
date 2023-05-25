@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .buscadorTxt{
@@ -34,14 +35,50 @@
     box-shadow: 1px 1px 2px grey;
 }
 
+.filter {
+    position: absolute;
+    top: calc(100% - 10px);
+    left: 10px;
+    width: 250px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--color-6);
+    border: 1px solid var(--color-4);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.filter li {
+    padding: 10px;
+    cursor: pointer;
+}
+  
+.filter li:hover {
+    background-color: var(--color-2);
+}
+
 @media(max-width: 414px) {
-    .buscadorContainer, .buscadorTxt, .buscadorBtn {
+    .buscadorContainer, .buscadorTxt, .buscadorBtn, .buscadorInputs {
         width: 100%;
+    }
+    .filter {
+        top: calc(100% - 130px);
+        z-index: 20;
+        width: 95%;
     }
 }
 
 @media(max-width: 719px) {
     .buscadorContainer, .buscadorTxt, .buscadorBtn {
         width: 100%;
+    }
+    .filter {
+        top: calc(100% - 130px);
+        z-index: 20;
+        width: 95%;
     }
 }
