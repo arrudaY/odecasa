@@ -1,6 +1,9 @@
 import { DateRangePicker } from 'rsuite';
 import styles from "./Buscador.module.css";
 import { useState, useEffect } from 'react';
+import { 
+  ImLocation
+} from 'react-icons/im'
 
 const data = [
   {cidade: "Sao Paulo", estado: "Sao Paulo"},
@@ -53,7 +56,8 @@ const Buscador = () => {
                 <ul className={styles.filter}>
                   {dadoFiltrado.map((item) => (
                     <li key={item.cidade} onClick={() => selecionarItem(item.cidade)}>
-                      {item.cidade}, {item.estado}
+                      <p className={styles.cidade}><ImLocation /> {item.cidade}</p>
+                      <p className={styles.estado}>{item.estado}</p>
                     </li>
                   ))}
                 </ul>

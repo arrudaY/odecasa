@@ -61,6 +61,15 @@
     background-color: var(--color-2);
 }
 
+.cidade {
+    font-weight: bold;
+}
+
+.estado {
+    margin-left: 18px;
+    line-height: 0px;
+}
+
 @media(max-width: 414px) {
     .buscadorContainer, .buscadorTxt, .buscadorBtn, .buscadorInputs {
         width: 100%;
