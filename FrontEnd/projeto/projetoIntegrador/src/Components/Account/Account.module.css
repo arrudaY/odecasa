@@ -7,6 +7,7 @@
     align-items: center;
     height: 100vh;
     padding-bottom: 200px;
+    height: calc(100vh - 58px - 60px);
 }
 
 .accountForm{
@@ -113,5 +114,11 @@
 @media (max-width: 414px) {
     .accountTxt, .accountBtn {
         width: 300px;
+    }
+}
+
+@media (max-height: 687px){
+    .accountContainer{
+        height: 587px;
     }
 }

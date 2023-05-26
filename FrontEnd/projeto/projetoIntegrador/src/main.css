@@ -72,5 +72,15 @@ h3{
 @media (max-width: 414px) {
     .sticky-buscador {
         z-index: 9;
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sticky-buscador {
+        z-index: 9;
+        position: relative;
+        top: 0;
     }
 }

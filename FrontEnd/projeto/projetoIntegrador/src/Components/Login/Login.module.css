@@ -114,3 +114,9 @@
         width: 300px;
     }
 }
+
+@media (max-height: 475px){
+    .loginContainer{
+        height: 375px;
+    }
+}
