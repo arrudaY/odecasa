@@ -35,13 +35,31 @@
 }
 
 @media(max-width: 414px) {
-    .buscadorContainer, .buscadorTxt, .buscadorBtn {
+    .buscadorContainer{
         width: 100%;
+    }
+
+    .buscadorTxt, .buscadorBtn {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .buscadorContainer h1{
+        font-size: 25px;
     }
 }
 
 @media(max-width: 719px) {
-    .buscadorContainer, .buscadorTxt, .buscadorBtn {
+    .buscadorContainer{
         width: 100%;
+    }
+
+    .buscadorTxt, .buscadorBtn {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .buscadorContainer h1{
+        font-size: 30px;
     }
 }
