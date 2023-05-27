@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.Length;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "cidades")

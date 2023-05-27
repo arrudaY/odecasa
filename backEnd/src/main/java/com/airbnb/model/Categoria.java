@@ -16,7 +16,9 @@ public class Categoria
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long id;
+	
 	private double qualificacao;
+	
 	private String descricao, urlImagem;
 	
 	public Categoria(double qualificacao, String descricao, String urlImagem)
