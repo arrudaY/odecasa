@@ -69,6 +69,30 @@ h3{
     position:relative;
 }
 
+.star {
+    font-size: x-large;
+    width: 20px;
+    display: inline-block;
+    color: gray;
+}
+.star:last-child {
+    margin-right: 0;
+}
+.star:before {
+    content:'\2605';
+}
+.star.on {
+    color: var(--color-4);
+}
+.star.half:after {
+    content:'\2605';
+    color: var(--color-4);
+    position: absolute;
+    margin-left: -20px;
+    width: 10px;
+    overflow: hidden;
+}
+
 @media (max-width: 414px) {
     .sticky-buscador {
         z-index: 9;

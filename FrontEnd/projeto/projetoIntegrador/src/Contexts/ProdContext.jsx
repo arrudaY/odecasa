@@ -24,8 +24,11 @@ const ProdProvider = ({ children }) => {
     // Aqui vai acessar a API para pegar dados do produto
     var prod = {
         id:5,
-        nome: "teste",
-        descricao: "Descricao do produto teste"
+        nome: "Teste",
+        descricao: "Descricao do produto teste",
+        categoria: "Hotel",
+        cidade: "Manaus, AM",
+        avaliacao: 4.5
     }
     setProduto(prod);
   }
