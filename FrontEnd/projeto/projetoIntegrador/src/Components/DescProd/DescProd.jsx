@@ -7,7 +7,8 @@ const DescProd = () => {
 
     return (
         <div className={styles.descContainer}>
-            Hello World Descricao - ID: {id}
+            <h2>Título que não sei de onde vem</h2>
+            <p>{produto.descricao}</p>
         </div>
     );
 };

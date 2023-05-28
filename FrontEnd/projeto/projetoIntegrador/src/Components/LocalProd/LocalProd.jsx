@@ -26,12 +26,12 @@ const LocalProd = () => {
             <div className={styles.localAvaliacao}>
                 <div className={styles.localAvaliacao1}>
                     <p>{verificarAvalicao()}</p>
-                    <div class="stars"> 
-                        <span class={`star ${produto.avaliacao >= 1.0 ? "on" : produto.avaliacao == 0.0 ? "" : "half"}`}></span>
-                        <span class={`star ${produto.avaliacao >= 2.0 ? "on" : produto.avaliacao <= 1.0 ? "" : "half"}`}></span>
-                        <span class={`star ${produto.avaliacao >= 3.0 ? "on" : produto.avaliacao <= 2.0 ? "" : "half"}`}></span>
-                        <span class={`star ${produto.avaliacao >= 4.0 ? "on" : produto.avaliacao <= 3.0 ? "" : "half"}`}></span>
-                        <span class={`star ${produto.avaliacao == 5.0 ? "on" : produto.avaliacao <= 4.0 ? "" : "half"}`}></span>
+                    <div className="stars"> 
+                        <span className={`star ${produto.avaliacao >= 1.0 ? "on" : produto.avaliacao == 0.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.avaliacao >= 2.0 ? "on" : produto.avaliacao <= 1.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.avaliacao >= 3.0 ? "on" : produto.avaliacao <= 2.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.avaliacao >= 4.0 ? "on" : produto.avaliacao <= 3.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.avaliacao == 5.0 ? "on" : produto.avaliacao <= 4.0 ? "" : "half"}`}></span>
                     </div>
                 </div>
                 <div className={styles.localAvaliacao2}>

@@ -3,6 +3,42 @@
     background-color: var(--color-3);
     display: flex;
     flex-direction: column;
-    height: 200px;
     width: 100%;
+}
+
+.politicaContainer h2{
+    margin-left: 10px;
+}
+
+.politicaPoliticas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+}
+
+.politicaPoliticas h3{
+    margin-bottom: 20px;
+}
+
+.politicaRegras, .politicaSaudeSeg, .politicaCancelamento{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+@media(max-width: 414px) {
+    .politicaRegras, .politicaSaudeSeg, .politicaCancelamento{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+@media((max-width: 719px) and (min-width: 415px)) {
+    .politicaRegras, .politicaSaudeSeg, .politicaCancelamento{
+        width: 45%;
+        margin-bottom: 20px;
+    }
 }

@@ -7,12 +7,14 @@ import Login from "./Routes/Login";
 import DetalhesProd from "./Routes/DetalhesProd";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import ProdProvider from "./Contexts/ProdContext";
 
 function App() {
 
   return (
     <div className="App">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <ProdProvider>
       <BrowserRouter>
         <Navbar />
         <div className="container">
@@ -27,6 +29,7 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      </ProdProvider>
       </LocalizationProvider>
     </div>
   )

@@ -1,11 +1,17 @@
 import styles from "./CardBusca.module.css";
 import imagem from "../../Data/no_image.png"
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ProdContext } from "../../Contexts/ProdContext";
 
 const CardBusca = () => {
   const navigate = useNavigate();
+  const { saveId, obterProduto, produto } = useContext(ProdContext);
 
   function acessar() {
+    saveId(50);
+    obterProduto();
+    console.log(produto);
     navigate("/detalhes/:50");
   }
 

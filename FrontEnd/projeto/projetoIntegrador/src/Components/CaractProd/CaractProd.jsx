@@ -7,7 +7,16 @@ const CaractProd = () => {
 
     return (
         <div className={styles.caractContainer}>
-            Hello World Caracteristicas - ID: {id}
+            <h2>O que esta acomodação oferece?</h2>
+            <div className="divisoria"></div>
+            <div className={styles.caractCaracteristicas}>
+                {produto.caracteristicas.map((item) => (
+                <div className={styles.caractCaracteristica} key={item.id}>
+                    <span class="material-symbols-rounded">{item.icone}</span>
+                    <p>{item.nome}</p>
+                </div>
+                ))}
+            </div>
         </div>
     );
 };

@@ -3,6 +3,17 @@
     background-color: var(--color-3);
     display: flex;
     flex-direction: column;
-    height: 200px;
     width: 100%;
+}
+
+.descContainer h2{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.descContainer p{
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
