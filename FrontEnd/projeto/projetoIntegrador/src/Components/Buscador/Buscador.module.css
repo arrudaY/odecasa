@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .buscadorTxt{
@@ -34,12 +35,53 @@
     box-shadow: 1px 1px 2px grey;
 }
 
+.filter {
+    position: absolute;
+    top: calc(100% - 10px);
+    left: 10px;
+    width: 250px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--color-6);
+    border: 1px solid var(--color-4);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.filter li {
+    padding: 10px;
+    cursor: pointer;
+}
+  
+.filter li:hover {
+    background-color: var(--color-2);
+}
+
+.cidade {
+    font-weight: bold;
+}
+
+.estado {
+    margin-left: 18px;
+    line-height: 0px;
+}
+
 @media(max-width: 414px) {
+    .filter {
+        top: calc(100% - 130px);
+        z-index: 20;
+        width: 95%;
+    }
+
     .buscadorContainer{
         width: 100%;
     }
 
-    .buscadorTxt, .buscadorBtn {
+    .buscadorTxt, .buscadorBtn, .buscadorInputs {
         width: 90%;
         margin-left: 5%;
     }
@@ -52,6 +94,12 @@
 @media(max-width: 719px) {
     .buscadorContainer{
         width: 100%;
+    }
+
+    .filter {
+        top: calc(100% - 130px);
+        z-index: 20;
+        width: 95%;
     }
 
     .buscadorTxt, .buscadorBtn {
