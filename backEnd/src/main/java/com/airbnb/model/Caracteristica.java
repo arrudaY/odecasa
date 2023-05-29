@@ -9,9 +9,6 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "caracteristicas")
 public class Caracteristica {
@@ -30,4 +27,42 @@ public class Caracteristica {
 	{
 		this.produtoList.add(produto);
 	}
+	
+	//Construtor
+	public Caracteristica(){}
+	
+	//Getters N Setters
+	public long getId()
+	{
+		return id;
+	}
+	public void setId(long id)
+	{
+		this.id = id;
+	}
+	public String getNome()
+	{
+		return nome;
+	}
+	public void setNome(String nome)
+	{
+		this.nome = nome;
+	}
+	public String getIcone()
+	{
+		return icone;
+	}
+	public void setIcone(String icone)
+	{
+		this.icone = icone;
+	}
+	public List<Produto> getProdutoList()
+	{
+		return produtoList;
+	}
+	public void setProdutoList(List<Produto> produtoList)
+	{
+		this.produtoList = produtoList;
+	}
+	
 }

@@ -6,10 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
 @Entity
 public class Categoria
 {
@@ -27,5 +23,42 @@ public class Categoria
 		this.descricao = descricao;
 		this.urlImagem = urlImagem;
 	}
-
+	
+	//Construtor
+	public Categoria(){}
+	
+	//Getters N Setters
+	public long getId()
+	{
+		return id;
+	}
+	public void setId(long id)
+	{
+		this.id = id;
+	}
+	public double getQualificacao()
+	{
+		return qualificacao;
+	}
+	public void setQualificacao(double qualificacao)
+	{
+		this.qualificacao = qualificacao;
+	}
+	public String getDescricao()
+	{
+		return descricao;
+	}
+	public void setDescricao(String descricao)
+	{
+		this.descricao = descricao;
+	}
+	public String getUrlImagem()
+	{
+		return urlImagem;
+	}
+	public void setUrlImagem(String urlImagem)
+	{
+		this.urlImagem = urlImagem;
+	}
+	
 }

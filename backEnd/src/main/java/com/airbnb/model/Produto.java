@@ -10,9 +10,6 @@ import org.hibernate.validator.constraints.Length;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "produtos")
 public class Produto {
@@ -44,4 +41,66 @@ public class Produto {
 			inverseJoinColumns = @JoinColumn(name = "id_caracteristica")
 	)
 	private List<Caracteristica> caracteristicaList;
+	
+	//Construtores
+	public Produto(){}
+	
+	//Getters e Setters.
+	public long getId()
+	{
+		return id;
+	}
+	public void setId(long id)
+	{
+		this.id = id;
+	}
+	public String getNome()
+	{
+		return nome;
+	}
+	public void setNome(String nome)
+	{
+		this.nome = nome;
+	}
+	public String getDescricao()
+	{
+		return descricao;
+	}
+	public void setDescricao(String descricao)
+	{
+		this.descricao = descricao;
+	}
+	public List<Imagem> getImagemList()
+	{
+		return imagemList;
+	}
+	public void setImagemList(List<Imagem> imagemList)
+	{
+		this.imagemList = imagemList;
+	}
+	public Categoria getCategoria()
+	{
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria)
+	{
+		this.categoria = categoria;
+	}
+	public Cidade getCidade()
+	{
+		return cidade;
+	}
+	public void setCidade(Cidade cidade)
+	{
+		this.cidade = cidade;
+	}
+	public List<Caracteristica> getCaracteristicaList()
+	{
+		return caracteristicaList;
+	}
+	public void setCaracteristicaList(List<Caracteristica> caracteristicaList)
+	{
+		this.caracteristicaList = caracteristicaList;
+	}
+	
 }

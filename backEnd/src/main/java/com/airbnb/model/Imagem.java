@@ -10,10 +10,6 @@ import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "imagens")
 public class Imagem
@@ -34,8 +30,56 @@ public class Imagem
 	@JoinColumn(name="produto_id")           //Nome da coluna que é criada para receber a FK do produto.
 	private Produto produto;
 	
+	//Construtor
+	public Imagem()
+	{}
+	
+	public Imagem(long id, String titulo, String url, Produto produto)
+	{
+		this.id = id;
+		this.titulo = titulo;
+		this.url = url;
+		this.produto = produto;
+	}
+	
+	
 	public void addProduto(Produto produto)
 	{
 		this.produto = produto;
 	}
+	
+	//Getters N Setters
+	public long getId()
+	{
+		return id;
+	}
+	public void setId(long id)
+	{
+		this.id = id;
+	}
+	public String getTitulo()
+	{
+		return titulo;
+	}
+	public void setTitulo(String titulo)
+	{
+		this.titulo = titulo;
+	}
+	public String getUrl()
+	{
+		return url;
+	}
+	public void setUrl(String url)
+	{
+		this.url = url;
+	}
+	public Produto getProduto()
+	{
+		return produto;
+	}
+	public void setProduto(Produto produto)
+	{
+		this.produto = produto;
+	}
+	
 }
