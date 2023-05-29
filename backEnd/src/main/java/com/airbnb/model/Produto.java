@@ -15,31 +15,33 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "produtos")
-public class Produto
-{
+public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
+	
 	@Length(max=50)
 	private String nome;
-
+	
 	@Length(max=255)
 	private String descricao;
-
-
-	//Um produto, pode ter várias imagems. Mapeado pelo atributo 'produto' colocado na classe Imagem. O cascade salva
-	// todos os itens filhos.
-	@OneToMany(mappedBy ="produto", cascade = CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	private List<Imagem> imagemList;
-
-	//Muitos produtos para uma categoria, o join indica a coluna que recebe a chave estrangeira  da categoria
+	
 	@ManyToOne()
 	@JoinColumn(name = "id_categoria")
 	private Categoria categoria;
 	
-	//Muitos produtos para uma cidade, o join indica a coluna que recebe a chave estrangeira da cidade
 	@ManyToOne()
 	@JoinColumn(name = "id_cidade")
 	private Cidade cidade;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "caracteristica_produto",
+			joinColumns = @JoinColumn(name = "id_produto"),
+			inverseJoinColumns = @JoinColumn(name = "id_caracteristica")
+	)
+	private List<Caracteristica> caracteristicaList;
 }

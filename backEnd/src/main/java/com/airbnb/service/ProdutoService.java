@@ -1,5 +1,6 @@
 package com.airbnb.service;
 
+import com.airbnb.model.Caracteristica;
 import com.airbnb.model.Imagem;
 import com.airbnb.model.Produto;
 import com.airbnb.repository.ProdutoRepository;
@@ -25,6 +26,10 @@ public class ProdutoService
 	{
 		for (Imagem imagem : produto.getImagemList()) {
 			imagem.addProduto(produto);
+		}
+		for (Caracteristica caracteristica : produto.getCaracteristicaList())
+		{
+			caracteristica.addProduto(produto);
 		}
 		return produtoRepository.save(produto);
 	}
