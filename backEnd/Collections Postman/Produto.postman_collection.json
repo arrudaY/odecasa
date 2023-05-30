@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "ff1f3d2e-0fe7-4ce2-a6e7-526c2ac55b16",
+		"name": "Produto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23242094",
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-ff1f3d2e-0fe7-4ce2-a6e7-526c2ac55b16?action=share&creator=23242094&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Buscar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"produto 4 imgs \",\r\n    \"descricao\": \"categoria 3\",\r\n    \"imagemList\":[\r\n        {\r\n            \"titulo\":\"imagem 1\",\r\n            \"url\":\"url 1\"\r\n        },\r\n        {\r\n            \"titulo\":\"imagem 2\",\r\n            \"url\":\"url 2\"\r\n        }\r\n    ],\r\n    \"categoria\":    {\r\n        \"id\": 1\r\n    },\r\n    \"cidade\":{\r\n        \"id\": 1\r\n    },\r\n    \"caracteristicaList\":[\r\n        {\r\n            \"nome\":\"caracteristicas\",\r\n            \"icone\":\"icone\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/produto/findById?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto",
+						"findById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/produto/findByCategoria?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto",
+						"findByCategoria"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por cidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/produto/findByCidade?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto",
+						"findByCidade"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
