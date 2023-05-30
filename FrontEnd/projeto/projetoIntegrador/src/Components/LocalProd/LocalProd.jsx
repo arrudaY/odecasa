@@ -21,7 +21,7 @@ const LocalProd = () => {
     return (
         <div className={styles.localContainer}>
             <div className={styles.localCidade}>
-                <p>{produto.cidade}</p>
+                <p>{produto.cidade.nome}, {produto.cidade.pais}</p>
             </div>
             <div className={styles.localAvaliacao}>
                 <div className={styles.localAvaliacao1}>

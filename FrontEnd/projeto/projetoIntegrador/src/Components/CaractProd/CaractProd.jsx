@@ -12,7 +12,7 @@ const CaractProd = () => {
             <div className={styles.caractCaracteristicas}>
                 {produto.caracteristicas.map((item) => (
                 <div className={styles.caractCaracteristica} key={item.id}>
-                    <span class="material-symbols-rounded">{item.icone}</span>
+                    <span className="material-symbols-rounded">{item.icone}</span>
                     <p>{item.nome}</p>
                 </div>
                 ))}

@@ -6,12 +6,10 @@ import { useEffect } from 'react';
 
 const DetalhesProd = () => {
   const { id } = useParams();
-  const { saveId, obterProduto, produto } = useContext(ProdContext);
+  const { saveId } = useContext(ProdContext);
 
   useEffect(() => {
       saveId(id);
-      obterProduto();
-      console.log(produto);
   }, []);
 
   return (

@@ -16,7 +16,7 @@ const HeaderProd = () => {
     return (
         <div className={styles.headerContainer}>
             <div className={styles.headerNomes}>
-                <p className={styles.headerCategoria}>{produto.categoria}</p>
+                <p className={styles.headerCategoria}>{produto.categoria.descricao}</p>
                 <p className={styles.headerNome}>{produto.nome}</p>
             </div>
             <img onClick={voltar} className={styles.headerVoltar} src={imgVoltar}></img>
