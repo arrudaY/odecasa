@@ -1,0 +1,61 @@
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    color: var(--color-5);
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.closeButton:hover { 
+    color: var(--color-4);
+    opacity: 0.6;
+    transition: all 0.5s;
+}
+
+.detailsLink {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: var(--color-2);
+  padding: 5px;
+  cursor: pointer;
+}
+
+.detailsLink:hover { 
+    color: var(--color-4);
+    opacity: 0.6;
+    transition: all 0.5s;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.imageFlex {
+    display: flex;
+    gap: 15px;
+}
+
+.mainImage {
+    width: 50%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.imageBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.secondaryImage {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
