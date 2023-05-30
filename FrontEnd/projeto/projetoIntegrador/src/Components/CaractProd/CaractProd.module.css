@@ -1,0 +1,46 @@
+.caractContainer{
+    z-index:5;
+    background-color: var(--color-3);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.caractContainer h2{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.caractCaracteristicas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 10px
+}
+
+.caractCaracteristica{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.caractCaracteristica p{
+    font-size: 20px;
+    margin-left: 5px;
+    color: black;
+}
+
+@media(max-width: 414px) {
+    .caractCaracteristica{
+        width: 90%;
+    }
+}
+
+@media((max-width: 719px) and (min-width: 415px)) {
+    .caractCaracteristica{
+        width: 50%;
+    }
+}

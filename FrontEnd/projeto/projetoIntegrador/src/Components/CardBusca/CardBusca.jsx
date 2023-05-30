@@ -1,12 +1,13 @@
 import styles from "./CardBusca.module.css";
 import imagem from "../../Data/no_image.png"
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 
 const CardBusca = () => {
   const navigate = useNavigate();
 
   function acessar() {
-    navigate("/detalhes/:50");
+    navigate("/detalhes/1");
   }
 
   return (
