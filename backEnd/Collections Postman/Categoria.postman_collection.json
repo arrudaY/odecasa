@@ -226,7 +226,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n    \"qualificacao\": 100.00,\r\n    \"descricao\": \"Criado via post 1 no H2 [AUTOMATIZADO]\",\r\n    \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n}",
+							"raw": "{ \r\n    \"descricao\": \"categoria 3\",\r\n    \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -329,7 +329,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"id\": 263,\r\n        \"qualificacao\": 1.0,\r\n        \"descricao\": \"Atualizado via pacth 1 no h2 [AUTOMATIZADO]\",\r\n        \"urlImagem\": \"url.teste.irado.com.show.NUHUL\"\r\n    }",
+							"raw": "    {\r\n        // \"id\": 302,\r\n        \"qualificacao\": 1.0,\r\n        \"descricao\": \"Atualizado via pacth 1 no h2 [apresentação]\",\r\n        \"urlImagem\": \"apresentação\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -370,7 +370,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/categoria?id=263",
+							"raw": "localhost:8080/categoria?id=302",
 							"host": [
 								"localhost"
 							],
@@ -381,7 +381,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "263"
+									"value": "302"
 								}
 							]
 						}

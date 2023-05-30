@@ -13,13 +13,10 @@ public class Categoria
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long id;
 	
-	private double qualificacao;
-	
 	private String descricao, urlImagem;
 	
-	public Categoria(double qualificacao, String descricao, String urlImagem)
+	public Categoria(String descricao, String urlImagem)
 	{
-		this.qualificacao = qualificacao;
 		this.descricao = descricao;
 		this.urlImagem = urlImagem;
 	}
@@ -35,14 +32,6 @@ public class Categoria
 	public void setId(long id)
 	{
 		this.id = id;
-	}
-	public double getQualificacao()
-	{
-		return qualificacao;
-	}
-	public void setQualificacao(double qualificacao)
-	{
-		this.qualificacao = qualificacao;
 	}
 	public String getDescricao()
 	{

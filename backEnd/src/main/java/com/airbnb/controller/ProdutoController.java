@@ -30,10 +30,9 @@ public class ProdutoController
 	{
 		Optional<Produto> optional = produtoService.findById(id);
 		if(optional.isPresent())
-			return new ResponseEntity(optional.get(), HttpStatus.FOUND);
+			return new ResponseEntity(optional.get(), HttpStatus.OK);
 		
 		return new ResponseEntity(HttpStatus.NOT_FOUND);
-		
 	}
 	
 	//Filtra produtos baseado na categoria. A busca é realizada baseando-se na ID da categoria, recebida como argumento. Retorna uma lista de produtos.
@@ -43,7 +42,7 @@ public class ProdutoController
 		List<Produto> listResult = produtoService.findByCategoria(id);
 		if(listResult.isEmpty())
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
-		return new ResponseEntity(listResult, HttpStatus.FOUND);
+		return new ResponseEntity(listResult, HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/findByCidade")
@@ -52,7 +51,7 @@ public class ProdutoController
 		List<Produto> listResult = produtoService.findByCidade(id);
 		if(listResult.isEmpty())
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
-		return new ResponseEntity(listResult, HttpStatus.FOUND);
+		return new ResponseEntity(listResult, HttpStatus.OK);
 	}
 	
 	@PostMapping

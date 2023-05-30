@@ -21,7 +21,13 @@ public class Produto {
 	private String nome;
 	
 	@Length(max=255)
+	private String titulo;
+	
+	@Length(max=500)
 	private String descricao;
+	
+	@Column
+	private double qualificacao;
 	
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	private List<Imagem> imagemList;
@@ -53,6 +59,22 @@ public class Produto {
 	public void setId(long id)
 	{
 		this.id = id;
+	}
+	public String getTitulo()
+	{
+		return titulo;
+	}
+	public void setTitulo(String titulo)
+	{
+		this.titulo = titulo;
+	}
+	public double getQualificacao()
+	{
+		return qualificacao;
+	}
+	public void setQualificacao(double qualificacao)
+	{
+		this.qualificacao = qualificacao;
 	}
 	public String getNome()
 	{
