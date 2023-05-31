@@ -30,6 +30,7 @@ const Detalhes = () => {
               cidade: response.data.cidade,
               qualificacao: response.data.qualificacao,
               caracteristicas: response.data.caracteristicaList,
+              imagemList: response.data.imagemList,
               titulo: response.data.titulo,
               politicas: {
                 checkin: "14:00",
