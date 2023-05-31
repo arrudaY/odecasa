@@ -29,8 +29,10 @@ const Detalhes = () => {
               descricao: response.data.descricao,
               categoria: response.data.categoria,
               cidade: response.data.cidade,
-              avaliacao: 4.5,
+              qualificacao: response.data.qualificacao,
               caracteristicas: response.data.caracteristicaList,
+              imagemList: response.data.imagemList,
+              titulo: response.data.titulo,
               politicas: {
                 checkin: "14:00",
                 checkout: "12:00",

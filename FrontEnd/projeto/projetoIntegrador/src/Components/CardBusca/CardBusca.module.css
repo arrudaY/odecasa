@@ -30,15 +30,21 @@
 }
 
 .cardBuscaInfo h2{
-    margin: 5px 0;
+    margin: 0;
 }
 
 .cardBuscaInfo h3{
     color: var(--color-7);
+    margin: 0;
 }
 
 .cardBuscaDescricao{
-    margin-top: 30px;
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 5.4em;
+    line-height: 1.8em;
 }
 
 .cardBuscaBtn{

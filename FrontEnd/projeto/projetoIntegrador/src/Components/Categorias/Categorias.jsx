@@ -1,8 +1,4 @@
 import styles from "./Categorias.module.css";
-import img01 from "../../Data/no_image.png";
-import img02 from "../../Data/no_image.png";
-import img03 from "../../Data/no_image.png";
-import img04 from "../../Data/no_image.png";
 import api from "../../Services/api";
 import { useEffect , useState} from "react";
 

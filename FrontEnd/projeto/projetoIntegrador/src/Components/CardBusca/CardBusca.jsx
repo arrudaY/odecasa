@@ -1,24 +1,22 @@
 import styles from "./CardBusca.module.css";
-import imagem from "../../Data/no_image.png"
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 
-const CardBusca = () => {
+const CardBusca = (props) => {
   const navigate = useNavigate();
 
   function acessar() {
-    navigate("/detalhes/1");
+    navigate(`/detalhes/${props.produto.id}`);
   }
 
   return (
     <div className={styles.cardBuscaContainer}>
-        <img src={imagem} className={styles.cardBuscaImg}/>
+        <img src={props.produto.imagemList[0].url} className={styles.cardBuscaImg}/>
         <div className={styles.cardBuscaDetalhes}>
           <div className={styles.cardBuscaInfo}>
-            <h3>Categoria</h3>
-            <h2>Nome da acomodação</h2>
-            <p>Local</p>
-            <p className={styles.cardBuscaDescricao}>Descrição do lugar</p>
+            <h3>{props.produto.categoria.descricao}</h3>
+            <h2>{props.produto.nome}</h2>
+            <p>{props.produto.cidade.nome}, {props.produto.cidade.pais}</p>
+            <p className={styles.cardBuscaDescricao}>{props.produto.descricao}</p>
           </div>
             <button onClick={acessar} className={styles.cardBuscaBtn}>Ver mais detalhes</button>
         </div>

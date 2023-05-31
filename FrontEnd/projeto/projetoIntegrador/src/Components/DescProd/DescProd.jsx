@@ -7,7 +7,7 @@ const DescProd = () => {
 
     return (
         <div className={styles.descContainer}>
-            <h2>Título que não sei de onde vem</h2>
+            <h2>{produto.titulo}</h2>
             <p>{produto.descricao}</p>
         </div>
     );
