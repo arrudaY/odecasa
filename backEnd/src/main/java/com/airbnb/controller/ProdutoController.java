@@ -1,9 +1,7 @@
 package com.airbnb.controller;
 
-import com.airbnb.model.Imagem;
 import com.airbnb.model.Produto;
 import com.airbnb.service.ProdutoService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/produto")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController
 {
 	@Autowired

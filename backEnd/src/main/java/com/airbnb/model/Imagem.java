@@ -1,14 +1,7 @@
 package com.airbnb.model;
-import com.airbnb.model.Produto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
-
-import java.util.List;
 
 @Entity
 @Table(name = "imagens")

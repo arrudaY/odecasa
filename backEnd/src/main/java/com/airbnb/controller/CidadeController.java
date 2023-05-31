@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/cidade")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CidadeController
 {
 	@Autowired
