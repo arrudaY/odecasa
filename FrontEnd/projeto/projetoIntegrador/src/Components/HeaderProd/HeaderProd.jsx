@@ -10,7 +10,7 @@ const HeaderProd = () => {
     const navigate = useNavigate();
 
     function voltar(){
-        navigate("/");
+        navigate(`/categoria/${produto.categoria.id}`);
     }
     
     return (
