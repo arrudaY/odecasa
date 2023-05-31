@@ -6,15 +6,15 @@ const LocalProd = () => {
     const { id, produto } = useContext(ProdContext);
 
     function verificarAvalicao(){
-        if((produto.avaliacao > 4.0) && (produto.avaliacao <= 5.0))
+        if((produto.qualificacao > 4.0) && (produto.qualificacao <= 5.0))
             return "Maravilhoso";
-        else if((produto.avaliacao > 3.0) && (produto.avaliacao <= 4.0))
+        else if((produto.qualificacao > 3.0) && (produto.qualificacao <= 4.0))
             return "Muito bom";
-        else if((produto.avaliacao > 2.0) && (produto.avaliacao <= 3.0))
+        else if((produto.qualificacao > 2.0) && (produto.qualificacao <= 3.0))
             return "Razoável";
-        else if((produto.avaliacao > 1.0) && (produto.avaliacao <= 2.0))
+        else if((produto.qualificacao > 1.0) && (produto.qualificacao <= 2.0))
             return "Regular";
-        else if(produto.avaliacao <= 1.0)
+        else if(produto.qualificacao <= 1.0)
             return "Ruim";
     }
 
@@ -27,15 +27,15 @@ const LocalProd = () => {
                 <div className={styles.localAvaliacao1}>
                     <p>{verificarAvalicao()}</p>
                     <div className="stars"> 
-                        <span className={`star ${produto.avaliacao >= 1.0 ? "on" : produto.avaliacao == 0.0 ? "" : "half"}`}></span>
-                        <span className={`star ${produto.avaliacao >= 2.0 ? "on" : produto.avaliacao <= 1.0 ? "" : "half"}`}></span>
-                        <span className={`star ${produto.avaliacao >= 3.0 ? "on" : produto.avaliacao <= 2.0 ? "" : "half"}`}></span>
-                        <span className={`star ${produto.avaliacao >= 4.0 ? "on" : produto.avaliacao <= 3.0 ? "" : "half"}`}></span>
-                        <span className={`star ${produto.avaliacao == 5.0 ? "on" : produto.avaliacao <= 4.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.qualificacao >= 1.0 ? "on" : produto.qualificacao == 0.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.qualificacao >= 2.0 ? "on" : produto.qualificacao <= 1.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.qualificacao >= 3.0 ? "on" : produto.qualificacao <= 2.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.qualificacao >= 4.0 ? "on" : produto.qualificacao <= 3.0 ? "" : "half"}`}></span>
+                        <span className={`star ${produto.qualificacao == 5.0 ? "on" : produto.qualificacao <= 4.0 ? "" : "half"}`}></span>
                     </div>
                 </div>
                 <div className={styles.localAvaliacao2}>
-                    {produto.avaliacao * 2.0}
+                    {produto.qualificacao * 2.0}
                 </div>
             </div>
         </div>
