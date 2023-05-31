@@ -9,6 +9,7 @@ import styles from "./Detalhes.module.css";
 import { useContext, useEffect } from "react";
 import { ProdContext } from "../../Contexts/ProdContext";
 import api from "../../Services/api";
+import Gallery from "../Gallery/Gallery";
 
 const Detalhes = () => {
     const { id, salvarProduto, salvarLoading, isLoading } = useContext(ProdContext);
@@ -70,6 +71,7 @@ const Detalhes = () => {
             <LocalProd />
             <ImgProd />
             <DescProd />
+            <Gallery />
             <CaractProd />
             <ReservaProd />
             <PoliticaProd />

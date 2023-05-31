@@ -1,7 +1,9 @@
 import { Carousel } from 'react-carousel-minimal';
 import { useState } from 'react';
-import styles from './MyGallery.module.css';
-import { GrClose } from  'react-icons/gr'
+import styles from './Gallery.module.css';
+import { GrClose } from  'react-icons/gr';
+import { useMediaQuery } from 'react-responsive';
+
 
 const Gallery = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -13,6 +15,8 @@ const Gallery = () => {
   const handleCloseClick = () => {
     setShowDetails(false);
   };
+
+  const isMobileOrTablet = useMediaQuery({ maxWidth: 767 });
 
   const data = [
     {
@@ -64,21 +68,22 @@ const Gallery = () => {
 
   return (
     <div className={styles.gallery}>
-      {showDetails ? (<div style={{ textAlign: "center" }}>
+      {showDetails || isMobileOrTablet ? 
+      (<div style={{ textAlign: "center" }}>
         <div style={{
           padding: "0 20px"
         }}>
           <Carousel
             data={data}
-            time={2000}
+            time={3000}
             width="900px"
             height="500px"
             captionStyle={captionStyle}
-            radius="10px"
+            radius="8px"
             slideNumber={true}
             slideNumberStyle={slideNumberStyle}
             captionPosition="bottom"
-            automatic={false}
+            automatic={true}
             dots={true}
             pauseIconColor="white"
             pauseIconSize="40px"
@@ -88,14 +93,14 @@ const Gallery = () => {
             thumbnailWidth="100px"
             style={{
               textAlign: "center",
-              maxWidth: "850px",
+              maxWidth: "900px",
               maxHeight: "500px",
               margin: "40px auto",
             }}
           />
-          <div className={styles.closeButton} onClick={handleCloseClick}>
-          <GrClose />
-          </div>
+          {isMobileOrTablet ? "" : <div className={styles.closeButton} onClick={handleCloseClick}>
+            <GrClose />
+          </div>}
         </div>
       </div>
     ) : 
@@ -112,7 +117,7 @@ const Gallery = () => {
         </div>
       </div>
       <div className={styles.detailsLink} onClick={handleDetailsClick}>
-        Ver mais detalhes
+        Ver mais
       </div>
     </div>}
   </div>

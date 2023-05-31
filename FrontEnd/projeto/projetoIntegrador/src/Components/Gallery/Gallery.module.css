@@ -17,8 +17,8 @@
 
 .detailsLink {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 40px;
+  right: 30px;
   color: var(--color-2);
   padding: 5px;
   cursor: pointer;
@@ -34,12 +34,12 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 40px;
+    padding: 20px;
 }
 
 .imageFlex {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .mainImage {
@@ -51,11 +51,37 @@
 .imageBlock {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .secondaryImage {
     width: 100%;
     border-radius: 8px;
     object-fit: cover;
+}
+
+@media(max-width: 414px) {
+    .images {
+        padding: 0px;
+    }
+    .mainImage {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .detailsLink {
+        bottom: 20px;
+    }   
+}
+
+@media(max-width: 719px) {
+    .images {
+        padding: 0px;
+    }
+    .mainImage {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .detailsLink {
+        bottom: 20px;
+    }
 }
