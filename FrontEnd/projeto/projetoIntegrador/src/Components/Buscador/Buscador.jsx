@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { 
   ImLocation
 } from 'react-icons/im'
+import { useNavigate } from "react-router-dom";
+import api from "../../Services/api";
 
 const data = [
   {cidade: "Sao Paulo", estado: "Sao Paulo"},
@@ -17,6 +19,7 @@ const Buscador = () => {
   const [termoBusca, setTermoBusca] = useState('');
   const [dadoFiltrado, setDadoFiltrado] = useState([]);
   const [mostrarResultado, setMostrarResultado] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const termoBuscaLower = termoBusca.toLowerCase();
@@ -46,6 +49,29 @@ const Buscador = () => {
     setDadoFiltrado([]);
   };
 
+  async function getCidades(){
+    try {
+      const response = await api.get("/cidade",
+      { headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }});
+      console.log(response.data);
+      console.log(dadoFiltrado);
+      var cidades = response.data;
+      for(var i = 0; i < cidades.length; i++){
+        if(cidades[i].nome.toLowerCase().slice(0, dadoFiltrado[0].cidade.length) === dadoFiltrado[0].cidade.toLowerCase()){
+          navigate(`/cidade/${cidades[i].id}`);
+          break;
+        }
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
       <div className="sticky-buscador">
         <div className={styles.buscadorContainer}>
@@ -63,7 +89,7 @@ const Buscador = () => {
                 </ul>
               )}
               <DateRangePicker size="lg" placeholder="Checkin ~ Checkout" format={"dd-MM-yyyy"} className={styles.buscadorTxt}/>
-              <button className={styles.buscadorBtn}>Buscar</button>
+              <button onClick={getCidades} className={styles.buscadorBtn}>Buscar</button>
             </div>
         </div>
       </div>

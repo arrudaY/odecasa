@@ -26,11 +26,6 @@ const Categorias = () => {
         getCategorias();    
     }, []);
 
-    function verProds(id){
-      console.log(id);
-      //navigate(`/categoria/${id}`);
-    }
-
   return (
     <div className={styles.categoriasContainer}>
         <h2>Buscar por tipo de acomodação</h2>
