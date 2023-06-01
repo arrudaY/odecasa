@@ -97,11 +97,14 @@ const Gallery = () => {
       </div>
     ) : 
     <div className={styles.imageGrid}>
-      <img src={produto.imagemList[0].url} alt={produto.titulo} className={styles.mainImage}/>
+      {produto.imagemList.map((item, index) => (
+        <img key={item.id} src={item.url} alt={produto.titulo} className={index == 0 ? styles.mainImage : {}}/>
+      ))}
+      {/*<img src={produto.imagemList[0].url} alt={produto.titulo} className={styles.mainImage}/>
       <img src={produto.imagemList[1].url} alt={produto.titulo} />
       <img src={produto.imagemList[2].url} alt={produto.titulo} />
       <img src={produto.imagemList[3].url} alt={produto.titulo} />
-      <img src={produto.imagemList[4].url} alt={produto.titulo} />
+      <img src={produto.imagemList[4].url} alt={produto.titulo} />*/}
       <div className={styles.detailsLink} onClick={handleDetailsClick}>
         Ver mais
       </div>
