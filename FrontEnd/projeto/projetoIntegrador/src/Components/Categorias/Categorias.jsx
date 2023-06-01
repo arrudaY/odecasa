@@ -1,9 +1,11 @@
 import styles from "./Categorias.module.css";
 import api from "../../Services/api";
 import { useEffect , useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Categorias = () => {
     const [categorias, setCategorias] = useState([]);
+    const navigate = useNavigate();
 
     async function getCategorias(){
         try {
@@ -30,9 +32,11 @@ const Categorias = () => {
         <div className={styles.categoriasCards}>
             {categorias.map((item) => (
                 <div key={item.id} className={styles.categoriasCard}>
-                    <img className={styles.categoriasImg} src={item.urlImagem}/>
-                    <h2>{item.descricao}</h2>
-                    <p>X acomodações</p>
+                    <Link to={`/categoria/${item.id}`}>
+                      <img className={styles.categoriasImg} src={item.urlImagem}/>
+                      <h2>{item.descricao}</h2>
+                      <p>X acomodações</p>
+                    </Link>
                 </div>
             ))}
         </div>

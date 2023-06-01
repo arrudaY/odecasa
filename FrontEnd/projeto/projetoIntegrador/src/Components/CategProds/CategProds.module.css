@@ -1,0 +1,20 @@
+.categContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: "Roboto";
+    background-color: var(--color-3);
+    padding-bottom: 68px;
+    height: calc(100vh - 58px - 60px);
+}
+
+.categCards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.categTitulo{
+    margin-left: 10px;
+}
