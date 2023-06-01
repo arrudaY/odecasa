@@ -41,7 +41,7 @@ const CategProds = () => {
     }
 
     return (
-        <div className={styles.categContainer}>
+        <div className={produtos.length > 1 ? styles.categContainer2 : styles.categContainer1}>
             <h1 className={styles.categTitulo}>{nomeCat}</h1>
             <div className={styles.categCards}>
                 {produtos.map((item) => (
