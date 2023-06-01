@@ -16,7 +16,7 @@ const Gallery = () => {
     setShowDetails(false);
   };
 
-  const isMobileOrTablet = useMediaQuery({ maxWidth: 767 });
+  const isMobileOrTablet = useMediaQuery({ maxWidth: 719 });
 
   const data = [
     {
@@ -75,11 +75,11 @@ const Gallery = () => {
         }}>
           <Carousel
             data={data}
-            time={3000}
-            width="900px"
-            height="500px"
+            time={2000}
+            width="850px"
+            height="600px"
             captionStyle={captionStyle}
-            radius="8px"
+            radius="10px"
             slideNumber={true}
             slideNumberStyle={slideNumberStyle}
             captionPosition="bottom"
@@ -93,8 +93,8 @@ const Gallery = () => {
             thumbnailWidth="100px"
             style={{
               textAlign: "center",
-              maxWidth: "900px",
-              maxHeight: "500px",
+              maxWidth: "850px",
+              maxHeight: "700px",
               margin: "40px auto",
             }}
           />

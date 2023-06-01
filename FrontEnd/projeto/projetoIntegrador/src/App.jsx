@@ -8,7 +8,7 @@ import DetalhesProd from "./Routes/DetalhesProd";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import ProdProvider from "./Contexts/ProdContext";
-import GalleryDetail from "./Routes/GalleryDetail";
+
 
 function App() {
 
@@ -25,7 +25,6 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/login" element={<Login />} />
               <Route path="/detalhes/:id" element={<DetalhesProd />} />
-              <Route path="/galeria" element={<GalleryDetail />} />
             </Routes>
           </main>
         </div>
