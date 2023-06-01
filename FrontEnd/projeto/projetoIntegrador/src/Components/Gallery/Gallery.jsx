@@ -8,7 +8,8 @@ import api from "../../Services/api";
 
 const Gallery = () => {
   const [showDetails, setShowDetails] = useState(false);
-  const { id, produto } = useContext(ProdContext)
+  const [images, setImages] = useState([]);
+  const { id, produto } = useContext(ProdContext);
 
   const handleDetailsClick = () => {
     setShowDetails(true);
@@ -34,54 +35,15 @@ const Gallery = () => {
         imagemList: response.data.imagemList,
         titulo: response.data.titulo,
       }
+      setImages(produto.imagemList);
       console.log(produto);
-
     } catch (error) {
       console.log(error)
     }
   }
 
-  const data = [
-    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-      caption: "San Francisco"
-    },
-    {
-      image: "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
-      caption: "Scotland"
-    },
-    {
-      image: "https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
-      caption: "Darjeeling"
-    },
-    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
-      caption: "San Francisco"
-    },
-    {
-      image: "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-      caption: "Scotland"
-    },
-    {
-      image: "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-      caption: "Darjeeling"
-    },
-    {
-      image: "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
-      caption: "San Francisco"
-    },
-    {
-      image: "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-      caption: "Scotland"
-    },
-    {
-      image: "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-      caption: "Darjeeling"
-    }
-  ];
-
   useEffect(() => {
-    if(id>=0) obterImagemProduto(id)
+    if(id >= 0) obterImagemProduto(id)
   }, [id])
 
   const captionStyle = {
@@ -101,8 +63,11 @@ const Gallery = () => {
           padding: "0 20px"
         }}>
           <Carousel
-            data={data}
-            time={2000}
+            data={images.map((image, index) => ({
+              image: image.url,
+              caption: image.caption,
+            }))}
+            time={3000}
             width="850px"
             height="600px"
             captionStyle={captionStyle}
@@ -131,22 +96,17 @@ const Gallery = () => {
         </div>
       </div>
     ) : 
-    <div className={styles.images}>
-      <div className={styles.imageFlex}>
-        <img src={produto.imagemList[0].url} alt="" className={styles.mainImage}/>
-        <div className={styles.imageBlock}>
-          <img src={produto.imagemList[1].url} alt="" className={styles.secondaryImage}/>
-          <img src={produto.imagemList[2].url} alt="" className={styles.secondaryImage}/>
-        </div>
-        <div className={styles.imageBlock}>
-          <img src={produto.imagemList[3].url} alt="" className={styles.secondaryImage}/>
-          <img src={produto.imagemList[4].url} alt="" className={styles.secondaryImage}/>
-        </div>
-      </div>
+    <div className={styles.imageGrid}>
+      <img src={produto.imagemList[0].url} alt={produto.titulo} className={styles.mainImage}/>
+      <img src={produto.imagemList[1].url} alt={produto.titulo} />
+      <img src={produto.imagemList[2].url} alt={produto.titulo} />
+      <img src={produto.imagemList[3].url} alt={produto.titulo} />
+      <img src={produto.imagemList[4].url} alt={produto.titulo} />
       <div className={styles.detailsLink} onClick={handleDetailsClick}>
         Ver mais
       </div>
-    </div>}
+    </div>
+    }
   </div>
 )}
 
