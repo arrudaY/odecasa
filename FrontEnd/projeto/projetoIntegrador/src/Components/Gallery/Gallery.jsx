@@ -1,12 +1,14 @@
 import { Carousel } from 'react-carousel-minimal';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styles from './Gallery.module.css';
 import { GrClose } from  'react-icons/gr';
 import { useMediaQuery } from 'react-responsive';
-
+import { ProdContext } from '../../Contexts/ProdContext';
+import api from "../../Services/api";
 
 const Gallery = () => {
   const [showDetails, setShowDetails] = useState(false);
+  const { id, produto } = useContext(ProdContext)
 
   const handleDetailsClick = () => {
     setShowDetails(true);
@@ -17,6 +19,27 @@ const Gallery = () => {
   };
 
   const isMobileOrTablet = useMediaQuery({ maxWidth: 719 });
+
+  async function obterImagemProduto(idAux) {
+    try {
+      const response = await api.get("/produto/findById", { params: { id: idAux } },
+      { headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }});
+
+      const produto = {
+        id: response.data.id,
+        imagemList: response.data.imagemList,
+        titulo: response.data.titulo,
+      }
+      console.log(produto);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const data = [
     {
@@ -56,6 +79,10 @@ const Gallery = () => {
       caption: "Darjeeling"
     }
   ];
+
+  useEffect(() => {
+    if(id>=0) obterImagemProduto(id)
+  }, [id])
 
   const captionStyle = {
     fontSize: '2em',
@@ -106,14 +133,14 @@ const Gallery = () => {
     ) : 
     <div className={styles.images}>
       <div className={styles.imageFlex}>
-        <img src={"https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx"} alt="" className={styles.mainImage}/>
+        <img src={produto.imagemList[0].url} alt="" className={styles.mainImage}/>
         <div className={styles.imageBlock}>
-          <img src={"https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx"} alt="" className={styles.secondaryImage}/>
-          <img src={"https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx"} alt="" className={styles.secondaryImage}/>
+          <img src={produto.imagemList[1].url} alt="" className={styles.secondaryImage}/>
+          <img src={produto.imagemList[2].url} alt="" className={styles.secondaryImage}/>
         </div>
         <div className={styles.imageBlock}>
-          <img src={"https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx"} alt="" className={styles.secondaryImage}/>
-          <img src={"https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx"} alt="" className={styles.secondaryImage}/>
+          <img src={produto.imagemList[3].url} alt="" className={styles.secondaryImage}/>
+          <img src={produto.imagemList[4].url} alt="" className={styles.secondaryImage}/>
         </div>
       </div>
       <div className={styles.detailsLink} onClick={handleDetailsClick}>

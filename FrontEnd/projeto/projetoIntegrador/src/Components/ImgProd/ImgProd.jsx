@@ -9,7 +9,7 @@ const ImgProd = () => {
 
     return (
         <div className={styles.imgContainer}>
-           <Gallery />
+           <Gallery id={id} produto={produto}/>
         </div>
     );
 };
