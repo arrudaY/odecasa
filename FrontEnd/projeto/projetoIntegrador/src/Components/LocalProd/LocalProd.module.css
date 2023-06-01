@@ -1,6 +1,6 @@
 .localContainer{
     z-index:5;
-    background-color: var(--color-3);
+    background-color: var(--color-8);
     display: flex;
     flex-direction: row;
     justify-content: space-between;

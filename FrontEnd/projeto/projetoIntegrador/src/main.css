@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import "rsuite/dist/rsuite.css";
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
+@import "js-datepicker/dist/datepicker.min.css";
 
 *{
     margin: 0;
@@ -16,6 +17,7 @@
     --color-5: black;
     --color-6: #FFFFFF;
     --color-7: rgb(80, 78, 78);
+    --color-8: #D3D3D3;
 }
 
 .material-symbols-rounded {
