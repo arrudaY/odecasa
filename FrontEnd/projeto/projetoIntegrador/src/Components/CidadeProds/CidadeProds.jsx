@@ -41,7 +41,7 @@ const CidadeProds = () => {
     }
 
     return (
-        <div className={styles.cidadeContainer}>
+        <div className={produtos.length > 1 ? styles.cidadeContainer2 : styles.cidadeContainer1}>
             <h1 className={styles.cidadeTitulo}>{nomeCidade}</h1>
             <div className={styles.cidadeCards}>
                 {produtos.map((item) => (

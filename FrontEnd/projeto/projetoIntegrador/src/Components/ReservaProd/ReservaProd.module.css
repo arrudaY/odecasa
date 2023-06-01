@@ -6,7 +6,7 @@
 }
 
 .reservaTxt{
-    width: 400px;
+    width: calc(25% - 20px);
     height: 42px;
     margin: 10px;
     border-radius: 5px;
@@ -20,10 +20,13 @@
 .reservaReserva{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .reservaBtn{
-    width: 150px;
+    width: calc(25% - 20px);
     height: 40px;
     margin: 10px;
     background-color: var(--color-4);
@@ -31,4 +34,18 @@
     border-color: var(--color-4);
     color: white;
     box-shadow: 1px 1px 2px grey;
+}
+
+@media(max-width: 414px) {
+    .reservaBtn, .reservaTxt{
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media((min-width: 415px) and (max-width: 719px)) {
+    .reservaBtn, .reservaTxt{
+        width: 40%;
+        margin-left: 5%;
+    }
 }
