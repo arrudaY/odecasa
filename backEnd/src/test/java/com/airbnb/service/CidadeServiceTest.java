@@ -96,7 +96,7 @@ class CidadeServiceTest
 		Cidade novaCidade = new Cidade();
 		
 		logger.info("Tentando exluir cidade com ID: "+ novaCidade.getId());
-		Boolean excluiu = cidadeService.exlcuirId(novaCidade.getId());
+		boolean excluiu = cidadeService.exlcuirId(novaCidade.getId());
 		
 		Assertions.assertFalse(excluiu);
 		logger.info("Fim teste de exclusão por ID.");
