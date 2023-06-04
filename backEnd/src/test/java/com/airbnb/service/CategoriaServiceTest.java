@@ -105,7 +105,7 @@ class CategoriaServiceTest
 	}
 	
 	@Test
-	void excluirId_returTrue_whenCategoriaExists()
+	void excluirId_returnTrue_whenCategoriaExists()
 	{
 		logger.info("Iniciando teste de excluir categoria.");
 		
