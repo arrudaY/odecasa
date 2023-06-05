@@ -75,7 +75,7 @@ const Buscador = () => {
   return (
       <div className="sticky-buscador">
         <div className={styles.buscadorContainer}>
-            <h1>Buscar acomodações</h1>
+            <h1 className={styles.buscadorTitle}>Buscar acomodações</h1>
             <div className={styles.buscadorInputs}>
               <input className={styles.buscadorTxt} type="text" placeholder=" Local" onChange={handleInputChange} value={termoBusca} />
               {mostrarResultado && (
