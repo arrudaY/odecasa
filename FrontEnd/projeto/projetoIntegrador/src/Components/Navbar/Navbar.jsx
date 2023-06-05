@@ -50,10 +50,10 @@ const Navbar = () => {
         <div className={styles.navBarContainer}>
             <div className={styles.navBarLogo}>
               <Link className={styles.link} to="/">
-                <img className={styles.navBarLogoImg} src={logo}/>
+                {/* <img className={styles.navBarLogoImg} src={logo}/> */}
               </Link>
               <Link className={styles.link} to="/">
-                <h2>Digital Booking</h2>
+                <h2>ôdecasa</h2>
               </Link>
             </div>
             {windowWidth <= 414 ? (
