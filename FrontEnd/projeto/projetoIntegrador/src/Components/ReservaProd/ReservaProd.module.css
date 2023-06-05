@@ -29,8 +29,8 @@
     width: calc(25% - 20px);
     height: 40px;
     margin: 10px;
-    background-color: var(--color-4);
-    border-radius: 5px;
+    background-color: var(--color-10);
+    border-radius: 25px;
     border-color: var(--color-4);
     color: white;
     box-shadow: 1px 1px 2px grey;
