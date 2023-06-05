@@ -39,18 +39,27 @@
     width: 355px;
     height: 300px;
     border-radius: 10px 10px 0 0;
+    object-fit: cover;
 }
 
 .categoriasCard p{
     color: var(--color-7);
     margin-left: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
-@media (max-width: 768px) {    
+@media (max-width: 768px) {
+    .categoriasCard {
+        display: flex;
+        width: 45%;
+    }
+        
     .categoriasImg{
-        width: 347px;
-        height: 190px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .categoriasContainer { 
+        padding : 0;
     }
 }
 
@@ -58,9 +67,13 @@
     .categoriasCard{
         display: block;
         font-family: "Roboto";
+        margin-right: 0px;
     }
     .categoriasImg{
-        width: 347px;
-        height: 213px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .categoriasContainer { 
+        padding : 0;
     }
 }
