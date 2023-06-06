@@ -4,77 +4,211 @@
 		"name": "Cidade",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23242094",
-		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
 	},
 	"item": [
 		{
-			"name": "find All",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/cidade",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"cidade"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Criar cidade",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/cidade",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"cidade"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Deletar cidade",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/cidade?id=3",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"cidade"
-					],
-					"query": [
+			"name": "Automatidados",
+			"item": [
+				{
+					"name": "find All",
+					"event": [
 						{
-							"key": "id",
-							"value": "3"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Buscar todas as cidades criadas\", function(){\r",
+									"    const expectedObject = pm.globals.get(\"obj_cidade_criado\")\r",
+									"    const responseObject = pm.response.json()\r",
+									"    pm.expect(responseObject).to.deep.include(pm.globals.get(\"obj_cidade_criado\"));\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar cidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"function criarCidade() \r",
+									"{\r",
+									"    jsonData = pm.response.json();\r",
+									"\r",
+									"    listaIdsCidades = JSON.parse(pm.globals.get(\"listaIdsCidades\"))\r",
+									"    console.log(listaIdsCidades)\r",
+									"    // listaIdsCidades = [...listaIdsCidades, jsonData.id]\r",
+									"    listaIdsCidades.push(jsonData.id)\r",
+									"    console.log(listaIdsCidades)\r",
+									"\r",
+									"    pm.globals.set(\"id_cidade_criada\", jsonData.id);\r",
+									"    pm.globals.set(\"obj_cidade_criado\", jsonData);\r",
+									"\r",
+									"    console.log(pm.globals.get(\"listaIdsCidades\"))\r",
+									"    pm.response.to.have.status(201);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Criação de Cidade\", criarCidade());\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar cidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Manuais",
+			"item": [
+				{
+					"name": "find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar cidade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar cidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "listaIdsCidades",
+			"value": ""
 		}
 	]
 }

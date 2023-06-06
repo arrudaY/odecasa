@@ -4,128 +4,260 @@
 		"name": "Produto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23242094",
-		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-ff1f3d2e-0fe7-4ce2-a6e7-526c2ac55b16?action=share&creator=23242094&source=collection_link"
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-ff1f3d2e-0fe7-4ce2-a6e7-526c2ac55b16?action=share&creator=23242094&source=collection_link"
 	},
 	"item": [
 		{
-			"name": "Buscar todos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/produto",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"produto"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Salvar produto",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"id\": 0,\r\n  \"nome\": \"Che Lagarto\",\r\n  \"descricao\": \"Uma das maiores redes de Hos.\",\r\n  \"qualificacao\":3,\r\n  \"titulo\":\"titulo maneiro\",\r\n  \"imagemList\": [\r\n    {\r\n      \"id\": 0,\r\n      \"titulo\": \"img01\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    }\r\n  ],\r\n  \"categoria\": {\r\n    \"id\": 2\r\n    },\r\n  \"cidade\": {\r\n    \"id\": 2\r\n    },\r\n  \"caracteristicaList\": [\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Wi-Fi\",\r\n      \"icone\": \"wifi\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Cozinha\",\r\n      \"icone\": \"kitchen\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Televisão\",\r\n      \"icone\": \"tv\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Ar-condicionado\",\r\n      \"icone\": \"ac_unit\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Piscina\",\r\n      \"icone\": \"pool\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Aceitas Pets\",\r\n      \"icone\": \"pets\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Estacionamento\",\r\n      \"icone\": \"local_parking\"\r\n    }\r\n  ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "Automatizados",
+			"item": [
+				{
+					"name": "Buscar todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto"
+							]
+						},
+						"description": "Não possui parâmetros.\n\nRetorna uma lista com objetos do tipo produto.\n\n#### **Retornos**\n\n| **Retorno** | **Código de retorno** |\n| --- | --- |\n| Um objeto do tipo usuário com ID. | 200 |"
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/produto",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"produto"
-					]
+				{
+					"name": "Salvar produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Che Lagarto\",\r\n  \"descricao\": \"Uma das maiores redes de Hos.\",\r\n  \"qualificacao\":3,\r\n  \"titulo\":\"titulo maneiro\",\r\n  \"imagemList\": [\r\n    {\r\n      \"id\": 88,\r\n      \"titulo\": \"img01\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"id\": 9,\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"id\":77,\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    }\r\n  ],\r\n  \"categoria\": {\r\n    \"id\": 1\r\n    },\r\n  \"cidade\": {\r\n    \"id\": 1\r\n    },\r\n  \"caracteristicaList\": [\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Wi-Fi\",\r\n      \"icone\": \"wifi\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Cozinha\",\r\n      \"icone\": \"kitchen\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Televisão\",\r\n      \"icone\": \"tv\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Ar-condicionado\",\r\n      \"icone\": \"ac_unit\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Piscina\",\r\n      \"icone\": \"pool\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Aceitas Pets\",\r\n      \"icone\": \"pets\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Estacionamento\",\r\n      \"icone\": \"local_parking\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto"
+							]
+						},
+						"description": "StartFragment\n\nCadastra um novo usuário, caso as informações passadas estejam corretas.\n\nRequer os parâmetros no body abaixo para criar um novo usuário.\n\nRestrições:\n\n- Nome - máximo 100 caractéres;\n- Sobrenome - máximo 100 caractéres;\n- email - mínimo 11, máximo 100 caractéres, Não vazio, Não em branco\n- password - mínimo 8, máximo 100, Não vazio, Não em branco\n- funcao - objeto do tipo função:\n    - nome - máximo 100 caractéres;\n\n_Obs: passe o ID da função apenas caso queira referenciar uma função que já exista, e passe somente o ID. Caso contrário, passe apenas o nome da função._\n\nEndFragment  \n\n#### **Retornos**\n\n| **Retorno** | **Código de retorno** |\n| --- | --- |\n| Um objeto do tipo usuário com ID. | 201 |\n| Retorno padrão de erro. | 400 |"
+					},
+					"response": []
+				},
+				{
+					"name": "find ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/findById?id=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/findByCategoria?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								"findByCategoria"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por cidade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/findByCidade?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								"findByCidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "find ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/produto/findById?id=1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"produto",
-						"findById"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+			"name": "Manuais",
+			"item": [
+				{
+					"name": "Buscar todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Buscar por categoria",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/produto/findByCategoria?id=2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"produto",
-						"findByCategoria"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2"
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Che Lagarto\",\r\n  \"descricao\": \"Uma das maiores redes de Hos.\",\r\n  \"qualificacao\":3,\r\n  \"titulo\":\"titulo maneiro\",\r\n  \"imagemList\": [\r\n    {\r\n      \"id\": 88,\r\n      \"titulo\": \"img01\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"id\": 9,\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"id\":77,\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    }\r\n  ],\r\n  \"categoria\": {\r\n    \"id\": 1\r\n    },\r\n  \"cidade\": {\r\n    \"id\": 1\r\n    },\r\n  \"caracteristicaList\": [\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Wi-Fi\",\r\n      \"icone\": \"wifi\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Cozinha\",\r\n      \"icone\": \"kitchen\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Televisão\",\r\n      \"icone\": \"tv\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Ar-condicionado\",\r\n      \"icone\": \"ac_unit\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Piscina\",\r\n      \"icone\": \"pool\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Aceitas Pets\",\r\n      \"icone\": \"pets\"\r\n    },\r\n    {\r\n      \"id\": 0,\r\n      \"nome\": \"Estacionamento\",\r\n      \"icone\": \"local_parking\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Buscar por cidade",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/produto/findByCidade?id=1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"produto",
-						"findByCidade"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+					},
+					"response": []
+				},
+				{
+					"name": "find ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/findById?id=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/findByCategoria?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								"findByCategoria"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por cidade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/findByCidade?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								"findByCidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

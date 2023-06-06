@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "9fe60632-b6f0-4ed2-a43d-f5a11f614fba",
+		"name": "Usuario",
+		"description": "API para cadastro e verificação de usuários cadastrados.\n\nObs: _Não passar IDs para criação de objetos. Não passar id para usuário e nem para função. IDs só devem ser passados para referenciar um objeto que já existe. Caso esteja criando um novo objeto, não passe ID._",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23242094",
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-9fe60632-b6f0-4ed2-a43d-f5a11f614fba?action=share&creator=23242094&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Buscar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "Não possui parâmetros.\n\nRetorna uma lista de usuários, em caso de sucesso.\n\n| **Retorno** | **Código de retorno** |\n| --- | --- |\n| lista de objetos Usuário | 200 |"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar novo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\":\"Nome\",\r\n    \"sobreNome\":\"Sobrenome\",\r\n    \"email\":\"a@gmail.com\",\r\n    \"password\":\"123456789\",\r\n        \"funcao\":{\r\n        \"nome\":\"funcao 1\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "Cadastra um novo usuário, caso as informações passadas estejam corretas.\n\nRequer os parâmetros no body abaixo para criar um novo usuário.\n\nRestrições:\n\n- Nome - máximo 100 caractéres;\n- Sobrenome - máximo 100 caractéres;\n- email - mínimo 11, máximo 100 caractéres, Não vazio, Não em branco\n- password - mínimo 8, máximo 100, Não vazio, Não em branco\n- funcao - objeto do tipo função:\n    - nome - máximo 100 caractéres;\n\n_Obs: passe o ID da função apenas caso queira referenciar uma função que já exista, e passe somente o ID. Caso contrário, passe apenas o nome da função._\n\n#### **Retornos**\n\n| **Retorno** | **Código de retorno** |\n| --- | --- |\n| Um objeto do tipo usuário com ID. | 201 |\n| Retorno padrão de erro. | 400 |"
+			},
+			"response": []
+		}
+	]
+}
