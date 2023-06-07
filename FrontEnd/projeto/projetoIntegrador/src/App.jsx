@@ -10,6 +10,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import ProdProvider from "./Contexts/ProdContext";
 import Categoria from "./Routes/Categoria";
 import Cidade from "./Routes/Cidade";
+import Reserva from "./Routes/Reserva";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/detalhes/:id" element={<DetalhesProd />} />
               <Route path="/categoria/:id" element={<Categoria />} />
               <Route path="/cidade/:id" element={<Cidade />} />
+              <Route path="/detalhes/:id/reserva" element={<Reserva />} />
             </Routes>
           </main>
         </div>
