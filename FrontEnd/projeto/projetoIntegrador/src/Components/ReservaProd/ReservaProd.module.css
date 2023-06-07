@@ -19,10 +19,15 @@
 
 .reservaReserva{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 10px;
+    align-items: start;
+}
+
+.reservaCalendarios{
+    margin-left: 10px;
 }
 
 .reservaBtn{
