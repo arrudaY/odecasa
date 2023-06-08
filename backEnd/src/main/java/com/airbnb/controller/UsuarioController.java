@@ -22,7 +22,6 @@ public class UsuarioController
 	public ResponseEntity buscarTodosUsuarios()
 	{
 		List<Usuario> usuariosList = usuarioService.buscarTodosUsuarios();
-		System.out.println(usuariosList);
 		return new ResponseEntity(usuariosList, HttpStatus.OK);
 	}
 	
@@ -30,10 +29,9 @@ public class UsuarioController
 	public ResponseEntity cadastrarNovoUsuario(@RequestBody @Valid Usuario usuario)
 	{
 		usuario = usuarioService.cadastrarUsuario(usuario);
-		System.out.println(usuario);
-		if(usuario.getId()>0)
-			return new ResponseEntity(usuario, HttpStatus.CREATED);
-		return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		if(usuario.getId()<0)
+			return new ResponseEntity("Usuário não foi criado. Revise as informações ou consulte documentação.",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity(usuario, HttpStatus.CREATED);
 		
 	}
 }

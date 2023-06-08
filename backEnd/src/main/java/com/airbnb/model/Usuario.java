@@ -5,7 +5,10 @@ import jakarta.validation.constraints.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name="usuarios")
@@ -23,7 +26,7 @@ public class Usuario implements UserDetails
 	@Size(min = 11, max = 100)
 	@NotBlank
 	@NotEmpty
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, name = "email")
 	private String username;
 	
 	@Size(min = 8, max = 100)
@@ -123,7 +126,7 @@ public class Usuario implements UserDetails
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()
 	{
-		return null;
+		return Arrays.asList(this.getFuncao());
 	}
 	@Override
 	public String getPassword()

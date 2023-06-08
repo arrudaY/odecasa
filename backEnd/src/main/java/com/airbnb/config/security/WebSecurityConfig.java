@@ -23,7 +23,12 @@ public class WebSecurityConfig
 				.httpBasic()
 				.and()
 				.authorizeHttpRequests()                            //autorizações de requisições
-				.requestMatchers("/categoria").permitAll() //requisições nesse endpoint, todas permitidas
+				.requestMatchers(HttpMethod.GET, "/categoria", "/cidade", "/produto").permitAll() //requisições nesse endpoint, todas permitidas
+				.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
+				.requestMatchers(HttpMethod.DELETE, "/cidade", "/categoria").hasRole("ADMIN")
+				.requestMatchers(HttpMethod.POST, "/categoria", "/cidade").hasRole("ADMIN")
+				.requestMatchers(HttpMethod.GET, "/usuario").hasRole("ADMIN")
+				.requestMatchers(HttpMethod.POST, "/produto").hasRole("USER")
 				.anyRequest().authenticated()                       //qualquer outra requisição, requer autenticação
 				.and()
 				.csrf().disable();                                  //Enabled por padrão. Não permite post or delete, por isso desativado.
