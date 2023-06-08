@@ -5,9 +5,246 @@
 		"description": "Documentação da API de categorias do projeto integrador. Atualmente com 4 métodos: Salvar, Buscar todos, Atualizar por ID e deletar por ID.  \n\nPara teste da coleção, seguir a ordem de SALVAR, BUSCAR TODOS, ATUALIZAR, DELETAR POR ID. Essa sequência faz todos os passos com um elemento novo e após tudo apaga ele.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23242094",
-		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-a03b5bd4-8004-4dfe-99d8-dce41ddd39ef?action=share&creator=23242094&source=collection_link"
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-a03b5bd4-8004-4dfe-99d8-dce41ddd39ef?action=share&creator=23242094&source=collection_link"
 	},
 	"item": [
+		{
+			"name": "Manuais",
+			"item": [
+				{
+					"name": "Salvar [manual]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{passwordAPI}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userAPI}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"descricao\": \"categoria 3\",\r\n    \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categoria",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria"
+							]
+						},
+						"description": "Requer autenticação\n\nRequer função: ADMIN\n\nPassar objeto JSON no body sem ID.\n\nTerá o objeto completo com ID como retorno e 201 de status code."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar todos [manual]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// // pm.test(\"Body is correct\", function () {\r",
+									"// //     var expectedBody = { \r",
+									"// //         \"qualificacao\": 100.00,\r",
+									"// //         \"descricao\": \"Criado via post 1 no H2 [AUTOMATIZADO]\",\r",
+									"// //         \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r",
+									"// //     }\r",
+									"// //     var jsonData = pm.response.json();\r",
+									"// //     pm.expect(jsonData[0].qualificacao).to.eql(expectedBody.qualificacao);\r",
+									"// //     pm.expect(jsonData[0].descricao).to.eql(expectedBody.descricao);\r",
+									"// //     pm.expect(jsonData[0].urlImagem).to.eql(expectedBody.urlImagem);\r",
+									"// // });\r",
+									"\r",
+									"// pm.test(\"Object is contained\", () => {\r",
+									"//   const expectedObject = pm.globals.get(\"objCriado\")\r",
+									"//   const responseObject = pm.response.json()\r",
+									"//   console.log(\"GET EXPECTED: \", expectedObject);\r",
+									"//   console.log(\"GET OBTIDO: \"  , responseObject);\r",
+									"//   pm.expect(responseObject).to.deep.include(pm.globals.get(\"objCriado\"));\r",
+									"// });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categoria",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria"
+							]
+						},
+						"description": "Sem parametros. Retorna lista com todas as categorias salvas no banco.\n\nNão requer autenticação\n\nNão requer função."
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar [manual]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// pm.test(\"Body correto\", function () {\r",
+									"//     var jsonData = pm.response.json();\r",
+									"//     var expectedBody = {\r",
+									"//         \"id\" : pm.globals.get(\"id_criada\"),\r",
+									"//         \"qualificacao\": 1.0,\r",
+									"//         \"descricao\": \"Atualizado via pacth 1 no h2 [AUTOMATIZADO]\",\r",
+									"//         \"urlImagem\": \"url.teste.irado.com.show.NUHUL\"\r",
+									"//     }\r",
+									"//     pm.expect(jsonData).to.eql(expectedBody);\r",
+									"// });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{passwordAPI}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{adminAPI}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 302,\r\n        \"qualificacao\": 1.0,\r\n        \"descricao\": \"Atualizado via pacth 1 no h2 [apresentação]\",\r\n        \"urlImagem\": \"apresentação\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categoria",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria"
+							]
+						},
+						"description": "Passar objeto completo, com presente no banco para update. (REQUER ID)\n\nRequer autenticação\n\nRequer função: ADMIN\n\nRetorna apenas o objeto completo atualizado e um status code 200, caso tenha atualizado. Senão, BAD_REQUEST(400)."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar por ID [manual]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    // console.log(pm.globals.get(\"id_criada\"))\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{passwordAPI}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{adminAPI}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categoria?id=302",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "302"
+								}
+							]
+						},
+						"description": "Requer autenticação\n\nRequer função: ADMIN\n\nRequer ID passado na url como parâmetro."
+					},
+					"response": []
+				}
+			],
+			"description": "Podem ser totalmente alterados para fins de testes manuais e QA."
+		},
 		{
 			"name": "Automatizados",
 			"item": [
@@ -199,197 +436,6 @@
 				}
 			],
 			"description": "Feito para ser rodado por completo para teste rápido do estadoatual da API. Favor, não mexer."
-		},
-		{
-			"name": "Manuais",
-			"item": [
-				{
-					"name": "Salvar [manual]",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful POST request\", function () {\r",
-									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \r\n    \"descricao\": \"categoria 3\",\r\n    \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/categoria",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"categoria"
-							]
-						},
-						"description": "Passar objeto JSON no body sem ID.  \n\nTerá o objeto completo com ID como retorno e 201 de status code."
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar todos [manual]",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"// // pm.test(\"Body is correct\", function () {\r",
-									"// //     var expectedBody = { \r",
-									"// //         \"qualificacao\": 100.00,\r",
-									"// //         \"descricao\": \"Criado via post 1 no H2 [AUTOMATIZADO]\",\r",
-									"// //         \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r",
-									"// //     }\r",
-									"// //     var jsonData = pm.response.json();\r",
-									"// //     pm.expect(jsonData[0].qualificacao).to.eql(expectedBody.qualificacao);\r",
-									"// //     pm.expect(jsonData[0].descricao).to.eql(expectedBody.descricao);\r",
-									"// //     pm.expect(jsonData[0].urlImagem).to.eql(expectedBody.urlImagem);\r",
-									"// // });\r",
-									"\r",
-									"// pm.test(\"Object is contained\", () => {\r",
-									"//   const expectedObject = pm.globals.get(\"objCriado\")\r",
-									"//   const responseObject = pm.response.json()\r",
-									"//   console.log(\"GET EXPECTED: \", expectedObject);\r",
-									"//   console.log(\"GET OBTIDO: \"  , responseObject);\r",
-									"//   pm.expect(responseObject).to.deep.include(pm.globals.get(\"objCriado\"));\r",
-									"// });"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "ec2-107-21-182-7.compute-1.amazonaws.com:8080/categoria",
-							"host": [
-								"ec2-107-21-182-7",
-								"compute-1",
-								"amazonaws",
-								"com"
-							],
-							"port": "8080",
-							"path": [
-								"categoria"
-							]
-						},
-						"description": "Sem parametros. Retorna lista com todas as categorias salvas no banco."
-					},
-					"response": []
-				},
-				{
-					"name": "Atualizar [manual]",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"// pm.test(\"Body correto\", function () {\r",
-									"//     var jsonData = pm.response.json();\r",
-									"//     var expectedBody = {\r",
-									"//         \"id\" : pm.globals.get(\"id_criada\"),\r",
-									"//         \"qualificacao\": 1.0,\r",
-									"//         \"descricao\": \"Atualizado via pacth 1 no h2 [AUTOMATIZADO]\",\r",
-									"//         \"urlImagem\": \"url.teste.irado.com.show.NUHUL\"\r",
-									"//     }\r",
-									"//     pm.expect(jsonData).to.eql(expectedBody);\r",
-									"// });"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\r\n        // \"id\": 302,\r\n        \"qualificacao\": 1.0,\r\n        \"descricao\": \"Atualizado via pacth 1 no h2 [apresentação]\",\r\n        \"urlImagem\": \"apresentação\"\r\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/categoria",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"categoria"
-							]
-						},
-						"description": "Passar objeto completo, com presente no banco para update. (REQUER ID)\n\nRetorna apenas o objeto completo atualizado e um status code 200, caso tenha atualizado. Senão, BAD_REQUEST."
-					},
-					"response": []
-				},
-				{
-					"name": "Deletar por ID [manual]",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    // console.log(pm.globals.get(\"id_criada\"))\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/categoria?id=302",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"categoria"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "302"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"description": "Podem ser totalmente alterados para fins de testes manuais e QA."
 		}
 	]
 }

@@ -2,11 +2,108 @@
 	"info": {
 		"_postman_id": "b9972869-b024-48aa-b588-4ec184bd2262",
 		"name": "Cidade",
+		"description": "API para criação de cidades.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23242094",
-		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
 	},
 	"item": [
+		{
+			"name": "Manuais",
+			"item": [
+				{
+					"name": "find All",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						},
+						"description": "Retorna uma lista com todas as cidades presentes no Banco.\n\nNão requer autenticação."
+					},
+					"response": []
+				},
+				{
+					"name": "Criar cidade",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{passwordAPI}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userAPI}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						},
+						"description": "Cria uma nova cidade.\n\nStartFragment\n\nRequer autenticação\n\nRequer função: ADMIN\n\nEndFragment\n\nTodos os parâmetros do body abaixo são obrigatórios.\n\n| **Retorno** | **Código** |\n| --- | --- |\n| Objeto cidade com ID criada. | 201 |\n| A cidade não foi criada. | 400 |"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar cidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Deleta uma cidade baseada no ID informado.\n\nRequer autenticação\n\nRequer função: ADMIN\n\n| **Retorno** | **Código** |\n| --- | --- |\n| A cidade foi deletada com sucesso | 200 |\n| A cidade não foi encontrada. | 404 |"
+					},
+					"response": []
+				}
+			],
+			"description": "Conjunto de requisições de exemplos para interação com a API de cidade."
+		},
 		{
 			"name": "Automatidados",
 			"item": [
@@ -128,81 +225,8 @@
 					},
 					"response": []
 				}
-			]
-		},
-		{
-			"name": "Manuais",
-			"item": [
-				{
-					"name": "find All",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cidade",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cidade"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Criar cidade",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cidade",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cidade"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Deletar cidade",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cidade?id=3",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cidade"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "3"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
+			],
+			"description": "Pasta criada com o intuito de automatizar um conjunto de testes que envolvem a criação de uma cidade, busca por ela, atualização dela e deleção dela.\n\n**Não alterar requisições desta pasta.**"
 		}
 	],
 	"variable": [
