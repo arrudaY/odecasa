@@ -6,7 +6,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { saveEmail, saveToken, setEstadoLogin } = useContext(AuthContext); 
+    const { saveName, saveToken, setEstadoLogin } = useContext(AuthContext); 
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
@@ -33,12 +33,14 @@ const Login = () => {
             errors.email = 'O campo Email é obrigatório.';
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             errors.email = 'Digite um email válido.';
+        } else if (email.length < 11) {
+            errors.email = 'E-mail curto demais.';
         }
         
         if (!senha) {
             errors.senha = 'O campo Senha é obrigatório.';
-        } else if (senha.length < 6) {
-            errors.senha = 'A senha deve ter pelo menos 6 caracteres.';
+        } else if (senha.length < 8) {
+            errors.senha = 'A senha deve ter pelo menos 8 caracteres.';
         }
 
         return errors;
@@ -62,6 +64,27 @@ const Login = () => {
         setEstadoLogin("Logout");
         navigate("/");
     }
+
+    async function logarAPI() {
+        try {
+          const response = await api.post("/auth",{ 
+            username: email,
+            password: senha,
+        }, { headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          }})
+          console.log(response.data);
+          saveName(email);
+          saveToken(response.data.token);
+          setEstadoLogin("Logout");
+          navigate("/");
+        } catch (error) {
+          console.log(error)
+          alert("Erro ao logar");
+        }
+      }
 
     return(
         <div className={styles.loginContainer}>

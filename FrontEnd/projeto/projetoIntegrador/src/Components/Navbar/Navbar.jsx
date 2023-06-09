@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../Data/logo.png"
+import avatar from "../../Data/3d_avatar_3.png"
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -61,8 +62,14 @@ const Navbar = () => {
         ) : (
           <div className={styles.navBarBotoes}>
             <button onClick={cadastrarEncerrar} className={styles.navBarBtn}>{stsLogin === "Login" ? "Criar conta" : "Finalizar sessao"}</button>
-            <button onClick={logar} className={stsLogin === "Login" ? styles.navBarBtn : styles.navBarAvatar}>
-              {stsLogin === "Login" ? "Iniciar sessão" : "Olá Fulana"}</button>
+            {stsLogin === "Login" ? (
+              <button onClick={logar} className={styles.navBarBtn}>Iniciar sessão</button>
+            ) : (
+              <div className={styles.navBarAvatar}>
+                <p>Olá, Fulana</p>
+                <img className={styles.navBarAvatarImg} src={avatar}></img>
+              </div>
+            )}
           </div>
         )}
 

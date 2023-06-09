@@ -14,8 +14,8 @@ const AuthProvider = ({ children }) => {
       setStsLogin("Logout");
   }, []);
   
-  function saveEmail(email) {
-    localStorage.setItem("ctd_email", email);
+  function saveName(nome) {
+    localStorage.setItem("ctd_nome", nome);
   }
 
   function saveToken(token) {
@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
   }
 
   function removeUserStorage() {
-    localStorage.removeItem("ctd_email");
+    localStorage.removeItem("ctd_nome");
     localStorage.removeItem("ctd_token");
   }
 
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ saveEmail, removeUserStorage, saveToken, stsLogin, setEstadoLogin }}
+      value={{ saveName, removeUserStorage, saveToken, stsLogin, setEstadoLogin }}
     >
       {children}
     </AuthContext.Provider>

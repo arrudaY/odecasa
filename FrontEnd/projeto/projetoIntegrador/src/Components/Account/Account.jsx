@@ -2,6 +2,7 @@ import styles from './Account.module.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import api from "../../Services/api";
 
 const Account = () => {
     const navigate = useNavigate();
@@ -42,12 +43,14 @@ const Account = () => {
           errors.email = 'O campo Email é obrigatório.';
         } else if (!/\S+@\S+\.\S+/.test(email)) {
           errors.email = 'Digite um email válido.';
+        } else if (email.length < 11) {
+            errors.email = 'E-mail curto demais.';
         }
       
         if (!senha) {
           errors.senha = 'O campo Senha é obrigatório.';
-        } else if (senha.length < 6) {
-          errors.senha = 'A senha deve ter pelo menos 6 caracteres.';
+        } else if (senha.length < 8) {
+          errors.senha = 'A senha deve ter pelo menos 8 caracteres.';
         }
       
         if (!confirmacaoSenha) {
@@ -59,6 +62,29 @@ const Account = () => {
         return errors;
     };
 
+    async function cadastrar() {
+        try {
+          const response = await api.post("/usuario", {
+            nome: nome,
+            sobreNome: sobrenome,
+            email: email,
+            password: senha,
+            funcao: {
+                nome: "funcao 1"
+            }
+        }, { headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          }})
+          console.log(response.data);
+          navigate("/");
+        } catch (error) {
+          console.log(error)
+          alert("Erro ao cadastrar novo usuario");
+        }
+      }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -67,7 +93,7 @@ const Account = () => {
         if (Object.keys(errors).length === 0) {
             console.log('Formulário válido. Envie-o para o servidor.');
             setErrors({});
-            navigate("/");
+            cadastrar();
         } else {
             setErrors(errors);
         }

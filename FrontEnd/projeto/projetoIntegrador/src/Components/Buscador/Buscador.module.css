@@ -6,7 +6,6 @@
     align-items: center;
     background-color: var(--color-6);
     padding-top: 5px;
-    padding-bottom: 5px;
 }
 
 .buscadorTitle {
@@ -90,6 +89,10 @@
     line-height: 0px;
 }
 
+.buscadorCalendar{
+    z-index: 50;
+}
+
 @media(max-width: 414px) {
     .filter {
         top: calc(100% - 130px);
@@ -113,7 +116,7 @@
     }
 }
 
-@media(max-width: 719px) {
+@media(max-width: 1044px) {
     .buscadorContainer{
         width: 100%;
     }
