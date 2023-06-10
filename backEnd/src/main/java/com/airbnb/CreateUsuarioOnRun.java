@@ -15,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class CreateUsuarioOnRun implements ApplicationRunner
 {
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	UsuarioService usuarioService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception
@@ -30,7 +30,7 @@ public class CreateUsuarioOnRun implements ApplicationRunner
 				, "b@gmail.com"
 				, new BCryptPasswordEncoder().encode("senha123")
 				, new Funcao("ROLE_USER"));
-		System.out.println("ADMIN:" + usuarioRepository.save(admin).getId());
-		System.out.println("USER :" + usuarioRepository.save(user).getId());
+		System.out.println("ADMIN:" + usuarioService.cadastrarUsuario(admin).getId());
+		System.out.println("USER :" + usuarioService.cadastrarUsuario(user).getId());
 	}
 }
