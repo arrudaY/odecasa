@@ -5,7 +5,7 @@
 		"description": "Documentação da API de categorias do projeto integrador. Atualmente com 4 métodos: Salvar, Buscar todos, Atualizar por ID e deletar por ID.  \n\nPara teste da coleção, seguir a ordem de SALVAR, BUSCAR TODOS, ATUALIZAR, DELETAR POR ID. Essa sequência faz todos os passos com um elemento novo e após tudo apaga ele.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23242094",
-		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-a03b5bd4-8004-4dfe-99d8-dce41ddd39ef?action=share&creator=23242094&source=collection_link"
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-a03b5bd4-8004-4dfe-99d8-dce41ddd39ef?action=share&creator=23242094&source=collection_link"
 	},
 	"item": [
 		{
@@ -28,16 +28,11 @@
 					],
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "password",
-									"value": "{{passwordAPI}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{userAPI}}",
+									"key": "token",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -63,7 +58,7 @@
 								"categoria"
 							]
 						},
-						"description": "Requer autenticação\n\nRequer função: ADMIN\n\nPassar objeto JSON no body sem ID.\n\nTerá o objeto completo com ID como retorno e 201 de status code."
+						"description": "Requer autenticação\n\n~~Requer função: ADMIN~~\n\nPassar objeto JSON no body sem ID.\n\nTerá o objeto completo com ID como retorno e 201 de status code."
 					},
 					"response": []
 				},
@@ -149,16 +144,11 @@
 					],
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "password",
-									"value": "{{passwordAPI}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{adminAPI}}",
+									"key": "token",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -184,7 +174,7 @@
 								"categoria"
 							]
 						},
-						"description": "Passar objeto completo, com presente no banco para update. (REQUER ID)\n\nRequer autenticação\n\nRequer função: ADMIN\n\nRetorna apenas o objeto completo atualizado e um status code 200, caso tenha atualizado. Senão, BAD_REQUEST(400)."
+						"description": "Passar objeto completo, como o presente no banco para update. (REQUER ID)\n\nRequer autenticação\n\n~~Requer função: ADMIN~~\n\nRetorna apenas o objeto completo atualizado e um status code 200, caso tenha atualizado. Senão, BAD_REQUEST(400)."
 					},
 					"response": []
 				},
@@ -206,16 +196,11 @@
 					],
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "password",
-									"value": "{{passwordAPI}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{adminAPI}}",
+									"key": "token",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -269,11 +254,21 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n    \"qualificacao\": 100.00,\r\n    \"descricao\": \"Criado via post 1 no H2 [AUTOMATIZADO]\",\r\n    \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n}",
+							"raw": "{ \r\n    \"descricao\": \"Criado via post 1 no H2 [AUTOMATIZADO]\",\r\n    \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -281,12 +276,9 @@
 							}
 						},
 						"url": {
-							"raw": "ec2-50-17-80-207.compute-1.amazonaws.com:8080/categoria",
+							"raw": "localhost:8080/categoria",
 							"host": [
-								"ec2-50-17-80-207",
-								"compute-1",
-								"amazonaws",
-								"com"
+								"localhost"
 							],
 							"port": "8080",
 							"path": [
@@ -324,12 +316,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "ec2-50-17-80-207.compute-1.amazonaws.com:8080/categoria",
+							"raw": "localhost:8080/categoria",
 							"host": [
-								"ec2-50-17-80-207",
-								"compute-1",
-								"amazonaws",
-								"com"
+								"localhost"
 							],
 							"port": "8080",
 							"path": [
@@ -365,11 +354,21 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"id\": {{id_criada}},\r\n        \"qualificacao\": 1.0,\r\n        \"descricao\": \"Atualizado via pacth 1 no h2 [AUTOMATIZADO]\",\r\n        \"urlImagem\": \"url.teste.irado.com.show.NUHUL\"\r\n    }",
+							"raw": "    {\r\n        \"id\": {{id_criada}},\r\n        \"descricao\": \"Atualizado via pacth 1 no h2 [AUTOMATIZADO]\",\r\n        \"urlImagem\": \"url.teste.irado.com.show.NUHUL\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -377,12 +376,9 @@
 							}
 						},
 						"url": {
-							"raw": "ec2-50-17-80-207.compute-1.amazonaws.com:8080/categoria",
+							"raw": "localhost:8080/categoria",
 							"host": [
-								"ec2-50-17-80-207",
-								"compute-1",
-								"amazonaws",
-								"com"
+								"localhost"
 							],
 							"port": "8080",
 							"path": [
@@ -410,15 +406,22 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "ec2-50-17-80-207.compute-1.amazonaws.com:8080/categoria?id={{id_criada}}",
+							"raw": "localhost:8080/categoria?id={{id_criada}}",
 							"host": [
-								"ec2-50-17-80-207",
-								"compute-1",
-								"amazonaws",
-								"com"
+								"localhost"
 							],
 							"port": "8080",
 							"path": [

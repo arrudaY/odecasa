@@ -5,7 +5,7 @@
 		"description": "API para criação de cidades.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23242094",
-		"_collection_link": "https://martian-flare-109998.postman.co/workspace/Projeto-Integrador~8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
 	},
 	"item": [
 		{
@@ -29,7 +29,7 @@
 								"cidade"
 							]
 						},
-						"description": "Retorna uma lista com todas as cidades presentes no Banco.\n\nNão requer autenticação."
+						"description": "Retorna uma lista com todas as cidades presentes no Banco.\n\nNão requer autenticação.\n\nRetorna a lista de produtos e código 200."
 					},
 					"response": []
 				},
@@ -37,16 +37,11 @@
 					"name": "Criar cidade",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "password",
-									"value": "{{passwordAPI}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{userAPI}}",
+									"key": "token",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -72,17 +67,27 @@
 								"cidade"
 							]
 						},
-						"description": "Cria uma nova cidade.\n\nStartFragment\n\nRequer autenticação\n\nRequer função: ADMIN\n\nEndFragment\n\nTodos os parâmetros do body abaixo são obrigatórios.\n\n| **Retorno** | **Código** |\n| --- | --- |\n| Objeto cidade com ID criada. | 201 |\n| A cidade não foi criada. | 400 |"
+						"description": "Cria uma nova cidade.\n\nRequer autenticação\n\n~~Requer função: ADMIN~~\n\nTodos os parâmetros do body abaixo são obrigatórios.\n\n| **Retorno** | **Código** |\n| --- | --- |\n| Objeto cidade com ID criada. | 201 |\n| A cidade não foi criada. | 400 |"
 					},
 					"response": []
 				},
 				{
 					"name": "Deletar cidade",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cidade?id=3",
+							"raw": "localhost:8080/cidade?id=1",
 							"host": [
 								"localhost"
 							],
@@ -93,11 +98,11 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "1"
 								}
 							]
 						},
-						"description": "Deleta uma cidade baseada no ID informado.\n\nRequer autenticação\n\nRequer função: ADMIN\n\n| **Retorno** | **Código** |\n| --- | --- |\n| A cidade foi deletada com sucesso | 200 |\n| A cidade não foi encontrada. | 404 |"
+						"description": "Deleta uma cidade baseada no ID informado.\n\nRequer autenticação\n\n~~Requer função: ADMIN~~\n\n| **Retorno** | **Código** |\n| --- | --- |\n| A cidade foi deletada com sucesso | 200 |\n| A cidade não foi encontrada. | 404 |"
 					},
 					"response": []
 				}

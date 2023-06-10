@@ -39,7 +39,7 @@ public class WebSecurityConfig
 		           .authorizeHttpRequests()
 		           .requestMatchers(HttpMethod.POST, "/auth")
 		           .permitAll()
-		           .requestMatchers(HttpMethod.GET, "/cidade", "/categoria", "/produto")
+		           .requestMatchers(HttpMethod.GET, "/cidade/**", "/categoria/**", "/produto/**")
 		           .permitAll()
 		           .requestMatchers(HttpMethod.POST, "/usuario")
 		           .permitAll()
