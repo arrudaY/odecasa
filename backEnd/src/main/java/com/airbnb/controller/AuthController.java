@@ -3,6 +3,7 @@ package com.airbnb.controller;
 import com.airbnb.config.security.TokenService;
 import com.airbnb.model.UserAuthDTO;
 import com.airbnb.model.Usuario;
+import com.airbnb.model.tokenDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,10 @@ public class AuthController
 	{
 		var token = new UsernamePasswordAuthenticationToken(usuarioAuthDTO.getUsername(), usuarioAuthDTO.getPassword());
 		var authentication = manager.authenticate(token);
-		return ResponseEntity.ok(tokenService.gerarToken(usuarioAuthDTO));
+		
+		var responseToken= tokenService.gerarToken(usuarioAuthDTO);
+		
+		
+		return ResponseEntity.ok(new tokenDTO(responseToken));
 	}
 }
