@@ -1,3 +1,18 @@
 .telaReservaContainer {
     background-color: var(--color-11);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.telaReservaContainerEsq{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.telaReservaContainerDir{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
 }
