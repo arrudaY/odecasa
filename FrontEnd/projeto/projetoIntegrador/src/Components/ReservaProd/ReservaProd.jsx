@@ -4,10 +4,13 @@ import { ProdContext } from "../../Contexts/ProdContext";
 import DateRangeSelector from "../DateRangeSelector/DateRangeSelector";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-//import jwt_decode from "jwt-decode";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { ReservaContext } from "../../Contexts/ReservaContext";
 
 const ReservaProd = () => {    
     const { id, produto } = useContext(ProdContext);
+    const { stsLogin } = useContext(AuthContext); 
+    const { mudarMsgLogin } = useContext(ReservaContext); 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const navigate = useNavigate(); 
 
@@ -16,19 +19,14 @@ const ReservaProd = () => {
     };
 
     function verificarUsuarioLogado(){   
-        const token = localStorage.getItem("token");
-    
-        if (!token) {
-            console.log(token, "Usuário nao possui token")
-            //Incluir mensagem que o usuário precisa estar logado para concluir a reserva
+        if (stsLogin === "Login") {
+            console.log("Usuario precisa fazer Login")
+            mudarMsgLogin(true);
             navigate("/login");
         } else {
+            mudarMsgLogin(false);
             //terminar validação
-            try {
-            navigate("/reserva");
-            } catch (error) {
-            console.log("Erro" + error.message);
-            }
+            navigate("/detalhes/" + id + "/reserva");
         };
     };
 

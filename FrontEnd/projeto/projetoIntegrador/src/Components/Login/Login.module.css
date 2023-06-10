@@ -9,7 +9,24 @@
     height: calc(100vh - 58px - 60px);
 }
 
-.loginForm{
+.loginErroRes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.loginErroResImg{
+    width: 35px;
+    height: 35px;
+}
+
+.loginErroResMsg{
+    margin-left: 10px;
+    color: red;
+    font-size: 18px;
+}
+
+.loginCentralizar{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,7 +41,7 @@
 }
 
 .loginTxt {
-    width: 448px;
+    width: 460px;
     height: 40px;
     border-radius: 8px;
     background-color: #F8F9FA;
