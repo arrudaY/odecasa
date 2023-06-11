@@ -15,9 +15,9 @@ deploy:
   stage: deploy
   image: amazon/aws-cli:latest
   script:
-    - aws configure set aws_access_key_id <AWS_ACCESS_KEY_ID>
-    - aws configure set aws_secret_access_key <AWS_SECRET_ACCESS_KEY>
-    - aws configure set region <AWS_DEFAULT_REGION>
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set region $AWS_DEFAULT_REGION
     - aws s3 cp target/*.war s3://bucket-gp2/
     - aws deploy create-deployment --application-name odecasa-dev --deployment-group-name dev-odecasa --s3-location bucket=bucket-gp2,key=airBNB,bundleType=zip
 
