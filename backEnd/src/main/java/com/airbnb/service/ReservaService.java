@@ -14,7 +14,6 @@ public class ReservaService
 	@Autowired
 	ReservaRepository reservaRepository;
 	
-	
 	public List<Reserva> buscarTodas()
 	{
 		return reservaRepository.findAll();
@@ -35,7 +34,11 @@ public class ReservaService
 	{
 		return reservaRepository.findByProdutoId(id);
 	}
-
+	
+	public List<Reserva> findByUsuarioId(long id)
+	{
+		return reservaRepository.findByUsuarioId(id);
+	}
 	
 	public boolean verificarReserva(Reserva reservaASerCriada)
 	{
@@ -53,4 +56,5 @@ public class ReservaService
 		}
 		return false;
 	}
+	
 }

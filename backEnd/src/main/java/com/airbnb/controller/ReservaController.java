@@ -28,13 +28,24 @@ public class ReservaController
 		return ResponseEntity.ok(reservaService.buscarTodas());
 	}
 	
-	@GetMapping(value = "/findById")
+	@GetMapping(value = "/findByProduto")
 	public ResponseEntity findByProduto(@RequestParam Long id) throws JsonProcessingException
 	{
 		List<Reserva> reservas = reservaService.findByProduto(id);
 		if (reservas.isEmpty())
 		{
 			return new ResponseEntity("Sem reservas encontradas para o ID do produto.", HttpStatus.NOT_FOUND);
+		}
+		return ResponseEntity.ok(reservas);
+	}
+	
+	@GetMapping(value = "/findByUsuario")
+	public ResponseEntity findByUsuario(@RequestParam Long id)
+	{
+		List<Reserva> reservas = reservaService.findByUsuarioId(id);
+		if(reservas.isEmpty())
+		{
+			return new ResponseEntity("Sem reservas para o ID de usuário informado", HttpStatus.NOT_FOUND);
 		}
 		return ResponseEntity.ok(reservas);
 	}
