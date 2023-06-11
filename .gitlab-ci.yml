@@ -1,0 +1,19 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: maven:latest
+  script:
+    - mvn clean package
+  artifacts:
+    paths:
+      - target/*.war
+
+deploy:
+  stage: deploy
+  image: tomcat:9-jdk11-openjdk-slim
+  script:
+    - cp target/*.war /usr/local/tomcat/webapps/
+    - /usr/local/tomcat/bin/catalina.sh run
