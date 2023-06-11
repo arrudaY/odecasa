@@ -2,6 +2,7 @@ package com.airbnb.repository;
 
 import com.airbnb.model.Produto;
 import com.airbnb.model.ProdutoCidadeTempoDTO;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,10 +18,13 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>
 	
 	List<Produto> findByCidadeId(long id);
 	
-	@Query(value = "SELECT * FROM RESERVAS R " +
-			               " WHERE R.PRODUTO_ID = :id " +
-			               " AND DATA_INICIAL >= :inicio" +
-			               " AND DATA_FINAL <= :fim", nativeQuery = true)
-	List<Produto> findByCidadePeriodo(@Param("id") Long id, @Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
+	
+	@Query("SELECT p FROM Produto p JOIN Reserva r " +
+			       "WHERE p.cidade.id = :id " +
+			       "AND r.dataInicial >= :inicio " +
+			       "AND r.dataFinal <= :fim")
+	List<Produto> findByCidadePeriodo(@Param("id") Long id,
+			@Param("inicio") LocalDateTime inicio,
+			@Param("fim") LocalDateTime fim);
 	
 }

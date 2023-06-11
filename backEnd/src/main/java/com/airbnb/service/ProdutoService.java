@@ -69,6 +69,6 @@ public class ProdutoService
 
 	public List<Produto> findByCidadeTempo(ProdutoCidadeTempoDTO parametros)
 	{
-		return produtoRepository.findByCidadePeriodo(parametros.cidadeId(), parametros.dataInicio(), parametros.dataInicio());
+		return produtoRepository.findByCidadePeriodo(parametros.cidadeId(), parametros.dataInicio(), parametros.dataFim());
 	}
 }
