@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "b9972869-b024-48aa-b588-4ec184bd2262",
+		"name": "Cidade",
+		"description": "API para criação de cidades.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23242094",
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-b9972869-b024-48aa-b588-4ec184bd2262?action=share&creator=23242094&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Manuais",
+			"item": [
+				{
+					"name": "find All",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						},
+						"description": "Retorna uma lista com todas as cidades presentes no Banco.\n\nNão requer autenticação.\n\nRetorna a lista de produtos e código 200."
+					},
+					"response": []
+				},
+				{
+					"name": "Criar cidade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						},
+						"description": "Cria uma nova cidade.\n\nRequer autenticação\n\n~~Requer função: ADMIN~~\n\nTodos os parâmetros do body abaixo são obrigatórios.\n\n| **Retorno** | **Código** |\n| --- | --- |\n| Objeto cidade com ID criada. | 201 |\n| A cidade não foi criada. | 400 |"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar cidade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Deleta uma cidade baseada no ID informado.\n\nRequer autenticação\n\n~~Requer função: ADMIN~~\n\n| **Retorno** | **Código** |\n| --- | --- |\n| A cidade foi deletada com sucesso | 200 |\n| A cidade não foi encontrada. | 404 |"
+					},
+					"response": []
+				}
+			],
+			"description": "Conjunto de requisições de exemplos para interação com a API de cidade."
+		},
+		{
+			"name": "Automatidados",
+			"item": [
+				{
+					"name": "find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Buscar todas as cidades criadas\", function(){\r",
+									"    const expectedObject = pm.globals.get(\"obj_cidade_criado\")\r",
+									"    const responseObject = pm.response.json()\r",
+									"    pm.expect(responseObject).to.deep.include(pm.globals.get(\"obj_cidade_criado\"));\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar cidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"function criarCidade() \r",
+									"{\r",
+									"    jsonData = pm.response.json();\r",
+									"\r",
+									"    listaIdsCidades = JSON.parse(pm.globals.get(\"listaIdsCidades\"))\r",
+									"    console.log(listaIdsCidades)\r",
+									"    // listaIdsCidades = [...listaIdsCidades, jsonData.id]\r",
+									"    listaIdsCidades.push(jsonData.id)\r",
+									"    console.log(listaIdsCidades)\r",
+									"\r",
+									"    pm.globals.set(\"id_cidade_criada\", jsonData.id);\r",
+									"    pm.globals.set(\"obj_cidade_criado\", jsonData);\r",
+									"\r",
+									"    console.log(pm.globals.get(\"listaIdsCidades\"))\r",
+									"    pm.response.to.have.status(201);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Criação de Cidade\", criarCidade());\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fortaleza\",\r\n    \"pais\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar cidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cidade?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cidade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Pasta criada com o intuito de automatizar um conjunto de testes que envolvem a criação de uma cidade, busca por ela, atualização dela e deleção dela.\n\n**Não alterar requisições desta pasta.**"
+		}
+	],
+	"variable": [
+		{
+			"key": "listaIdsCidades",
+			"value": ""
+		}
+	]
+}

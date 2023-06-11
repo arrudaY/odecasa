@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "9fe60632-b6f0-4ed2-a43d-f5a11f614fba",
+		"name": "Usuario",
+		"description": "API para cadastro e verificação de usuários cadastrados.\n\n#### Autenticação:\n\nSelecione 'Autenticação' na aba de requisições e selecione Bearer Token. Passe o token de um usuário logado.\n\nObs: _Não passar IDs para criação de objetos. Não passar id para usuário e nem para função._",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23242094",
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-9fe60632-b6f0-4ed2-a43d-f5a11f614fba?action=share&creator=23242094&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Buscar todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "Não possui parâmetros.\n\nRequer autenticação\n\n~~Requer função: ADMIN~~\n\nRetorna uma lista de usuários, em caso de sucesso.\n\n| **Retorno** | **Código de retorno** |\n| --- | --- |\n| lista de objetos Usuário | 200 |"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar novo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\":\"Nome\",\r\n    \"sobreNome\":\"Sobrenome\",\r\n    \"username\":\"teste@gmail.com\",\r\n    \"password\":\"senha123\",\r\n    \"funcao\":{\r\n            \"nome\":\"ROLE_USER\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "Cadastra um novo usuário, caso as informações passadas estejam corretas.\n\nNão requer autenticação\n\nRequer os parâmetros no body abaixo para criar um novo usuário.\n\nRestrições:\n\n- Nome - máximo 100 caractéres;\n- Sobrenome - máximo 100 caractéres;\n- username- mínimo 11, máximo 100 caractéres, Não vazio, Não em branco, ÚNICO\n    - é o email do usuário\n- password - mínimo 8, máximo 100, Não vazio, Não em branco\n- funcao - objeto do tipo função:\n    - nome - máximo 100 caractéres;\n    - _**OBRIGATÓRIO**_ começar com 'ROLE_'\n    - preferência usar ROLE_ADMIN ou ROLE_USER\n\n_Obs: Passe apenas o nome da função, o ID será retornado automaticamente. O username será salvo como email no banco._\n\nPassar IDs de usuário ou Função resulta em erro de integridade (500.\n\n#### **Retornos**\n\n| **Retorno** | **Código de retorno** |\n| --- | --- |\n| Um objeto do tipo usuário com ID. | 201 |\n| Retorno padrão de erro. | 400 |"
+			},
+			"response": []
+		}
+	]
+}
