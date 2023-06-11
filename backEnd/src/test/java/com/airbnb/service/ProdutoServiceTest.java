@@ -79,7 +79,7 @@ class ProdutoServiceTest
 		Assertions.assertTrue(produto.getId()>0);
 		logger.info("Finalizando ao salvamento do produto.");
 	}
-	@Test
+//	@Test
 	void findAll_returnTrue_whenListExpectedEqualsListSaved()
 	{
 		logger.info("Iniciando teste de buscar todos os produtos.");

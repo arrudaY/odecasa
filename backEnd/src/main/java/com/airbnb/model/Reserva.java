@@ -19,15 +19,13 @@ public class Reserva
 	private LocalDateTime dataFinal;
 	
 	@ManyToOne()
-//	@JsonIgnore
 	@JoinColumn(name="produto_id")
-//	@NotNull
+	@NotNull
 	private Produto produto;
 	
 	@ManyToOne()
-//	@JsonIgnore
 	@JoinColumn(name="usuario_id")
-//	@NotNull
+	@NotNull
 	private Usuario usuario;
 	
 	public Reserva(long id, LocalDateTime dataInicial, LocalDateTime dataFinal, Produto produto, Usuario usuario)

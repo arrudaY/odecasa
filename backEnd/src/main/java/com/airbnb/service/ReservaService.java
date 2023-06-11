@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReservaService
@@ -32,9 +30,8 @@ public class ReservaService
 			throw new RuntimeException("reservaExistente");
 		}
 		return reservaRepository.save(reserva);
-		
 	}
-	public List<Reserva> findByProdutoId(Long id)
+	public List<Reserva> findByProduto(long id)
 	{
 		return reservaRepository.findByProdutoId(id);
 	}
@@ -44,7 +41,7 @@ public class ReservaService
 	{
 		LocalDate dataVerificacao = reservaASerCriada.getDataInicial().toLocalDate();
 		
-		List<Reserva> reservas = findByProdutoId(reservaASerCriada.getProduto().getId());
+		List<Reserva> reservas = findByProduto(reservaASerCriada.getProduto().getId());
 		for(Reserva item : reservas)
 		{
 			LocalDate dataInicio = item.getDataInicial().toLocalDate();

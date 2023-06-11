@@ -29,9 +29,9 @@ public class ReservaController
 	}
 	
 	@GetMapping(value = "/findById")
-	public ResponseEntity buscarReservaPorProdutoId(@RequestParam Long id) throws JsonProcessingException
+	public ResponseEntity findByProduto(@RequestParam Long id) throws JsonProcessingException
 	{
-		List<Reserva> reservas = reservaService.findByProdutoId(id);
+		List<Reserva> reservas = reservaService.findByProduto(id);
 		if (reservas.isEmpty())
 		{
 			return new ResponseEntity("Sem reservas encontradas para o ID do produto.", HttpStatus.NOT_FOUND);
@@ -51,7 +51,6 @@ public class ReservaController
 			if(e.getMessage() == "integridadeTemporal" )
 				return new ResponseEntity("Reserva não efetuada: data de início após data de entrega.", HttpStatus.BAD_REQUEST);
 			return new ResponseEntity("Reserva não efetuada: já há reserva para o período.", HttpStatus.BAD_REQUEST);
-			
 		}
 		
 		if (reserva.getId() < 0)
