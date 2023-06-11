@@ -10,6 +10,22 @@
 	"item": [
 		{
 			"name": "auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Autenticação feita com sucesso\", function(){\r",
+							"    responseToken = pm.response.json().token\r",
+							"    console.log(responseToken)\r",
+							"    pm.globals.set(\"token\", responseToken)\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]); \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
