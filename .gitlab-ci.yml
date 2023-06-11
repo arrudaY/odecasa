@@ -13,7 +13,9 @@ build:
 
 deploy:
   stage: deploy
-  image: tomcat:9-jdk11-openjdk-slim
+  image: amazon/aws-cli:latest
   script:
-    - cp target/*.war /usr/local/tomcat/webapps/
-    - /usr/local/tomcat/bin/catalina.sh run
+    - aws configure set aws_access_key_id <AKIAV4YTWNKPH6TELH3W>
+    - aws configure set aws_secret_access_key <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>
+    - aws configure set region <sa-east-1>
+    - aws deploy create-deployment --application-name odecasa-dev --deployment-group-name dev-odecasa --s3-location bucket=<bucket-gp2>,bundleType=zip
