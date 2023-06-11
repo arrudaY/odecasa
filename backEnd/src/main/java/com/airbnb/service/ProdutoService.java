@@ -71,4 +71,14 @@ public class ProdutoService
 	{
 		return produtoRepository.findByCidadePeriodo(parametros.cidadeId(), parametros.dataInicio(), parametros.dataFim());
 	}
+	
+	public Produto alterar(Produto produto)
+	{
+		if(produtoRepository.existsById(produto.getId()))
+		{
+			return produtoRepository.save(produto);
+		}
+		return new Produto();
+	}
+	
 }

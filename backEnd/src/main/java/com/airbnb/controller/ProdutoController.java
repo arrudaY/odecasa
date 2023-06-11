@@ -77,5 +77,15 @@ public class ProdutoController
 		return new ResponseEntity(HttpStatus.NOT_FOUND);
 	}
 	
+	@PatchMapping
+	public ResponseEntity alterarProduto(@RequestBody Produto produto)
+	{
+		produto = produtoService.alterar(produto);
+		if(produto.getId() > 0)
+		{
+			return ResponseEntity.ok(produto);
+		}
+		return ResponseEntity.badRequest().build();
+	}
 	
 }
