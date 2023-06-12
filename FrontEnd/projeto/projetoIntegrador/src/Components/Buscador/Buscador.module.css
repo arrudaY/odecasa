@@ -81,11 +81,11 @@
     background-color: var(--color-8);
 }
 
-.cidade {
+.nome {
     font-weight: bold;
 }
 
-.estado {
+.pais {
     margin-left: 18px;
     line-height: 0px;
 }

@@ -7,12 +7,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/api";
 
-const data = [
-  {cidade: "Sao Paulo", estado: "Sao Paulo"},
-  {cidade:"Florianopolis", estado: "Santa Catarina"} ,
-  {cidade:"Rio de Janeiro", estado: "Rio de Janeiro"}, 
-  {cidade: "Belo Horizonte", estado: "Minas Gerais"}, 
-]
+// const data = [
+//   {cidade: "Sao Paulo", estado: "Sao Paulo"},
+//   {cidade:"Florianopolis", estado: "Santa Catarina"} ,
+//   {cidade:"Rio de Janeiro", estado: "Rio de Janeiro"}, 
+//   {cidade: "Belo Horizonte", estado: "Minas Gerais"}, 
+// ]
 
 
 const Buscador = () => {
@@ -20,6 +20,12 @@ const Buscador = () => {
   const [dadoFiltrado, setDadoFiltrado] = useState([]);
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const navigate = useNavigate();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [data, setData] = useState([]);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
   useEffect(() => {
     const termoBuscaLower = termoBusca.toLowerCase();
@@ -57,9 +63,14 @@ const Buscador = () => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       }});
-      console.log(response.data);
-      console.log(dadoFiltrado);
-      var cidades = response.data;
+      console.log("response", response.data);
+      const cidades = response.data.map((cidade) => ({
+        nome: cidade.nome,
+        pais: cidade.pais,
+      }));
+      setData(cidades);
+      //console.log("cidades", cidades);
+      console.log("data filtrado", dadoFiltrado);
       for(var i = 0; i < cidades.length; i++){
         if(cidades[i].nome.toLowerCase().slice(0, dadoFiltrado[0].cidade.length) === dadoFiltrado[0].cidade.toLowerCase()){
           navigate(`/cidade/${cidades[i].id}`);
@@ -81,9 +92,9 @@ const Buscador = () => {
               {mostrarResultado && (
                 <ul className={styles.filter}>
                   {dadoFiltrado.map((item) => (
-                    <li key={item.cidade} onClick={() => selecionarItem(item.cidade)}>
-                      <p className={styles.cidade}><ImLocation /> {item.cidade}</p>
-                      <p className={styles.estado}>{item.estado}</p>
+                    <li key={item.nome} onClick={() => selecionarItem(item.nome)}>
+                      <p className={styles.nome}><ImLocation /> {item.nome}</p>
+                      <p className={styles.pais}>{item.estado}</p>
                     </li>
                   ))}
                 </ul>
