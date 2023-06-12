@@ -9,7 +9,7 @@ build:
     - mvn clean package
   artifacts:
     paths:
-      - target/*.war
+      - target/*.jar
 
 deploy:
   stage: deploy
@@ -19,7 +19,7 @@ deploy:
     - aws configure set aws_access_key_id AKIAV4YTWNKPKD6RT6WF
     - aws configure set aws_secret_access_key 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
     - aws configure set region sa-east-1
-    - aws s3 cp target/*.war s3://bucket-gp2/
+    - aws s3 cp target/*.jar s3://bucket-gp2/
     - aws deploy create-deployment --application-name odecasa-dev --deployment-group-name back --s3-location bucket=bucket-gp2,key=airBNB.zip,bundleType=zip
 
 docker_deploy:
@@ -30,5 +30,5 @@ docker_deploy:
   script:
     - docker pull tomcat:9-jdk11-openjdk-slim
     - docker run -d -p 8080:8080 --name tomcat_container tomcat:9-jdk11-openjdk-slim
-    - docker cp target/*.war tomcat_container:/usr/local/tomcat/webapps/
+    - docker cp target/*.jar tomcat_container:/usr/local/tomcat/webapps/
     - docker exec tomcat_container catalina.sh run
