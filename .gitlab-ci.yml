@@ -30,6 +30,9 @@ docker_deploy:
   image: docker:latest
   services:
     - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   script:
     - docker pull tomcat:9-jdk11-openjdk-slim
     - docker run -d -p 8080:8080 --name tomcat_container tomcat:9-jdk11-openjdk-slim
