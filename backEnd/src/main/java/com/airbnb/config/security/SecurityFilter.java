@@ -5,6 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 @Component
 public class SecurityFilter extends OncePerRequestFilter
@@ -21,6 +24,8 @@ public class SecurityFilter extends OncePerRequestFilter
 	@Autowired
 	private TokenService tokenService;
 	
+	Logger logger = LogManager.getLogManager().getLogger("TokenService");
+	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException
 	{
@@ -29,31 +34,19 @@ public class SecurityFilter extends OncePerRequestFilter
 		//só faço a chamada do método para buscar o subject, caso tenha header
 		if(tokenJWT != null)
 		{
+			logger.info("validando token.");
 			//faz a validação do token e retorna o subject informado na assintura do JWT
-			try
-			{
-				var subject = tokenService.getSubject(tokenJWT);
-				//busco o subject informado no banco e trago
-				var usuario = usuarioRepository.findByUsername(subject);
-				
-				//Força a autenticação para esse usuário
-				var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.get().getAuthorities());
-				SecurityContextHolder.getContext().setAuthentication(authentication);
-				//Garante que o próximo filtro seja chamado. Caso tenha sucesso no filtro atual, deve chamar
-				//para dar sequencia na aplicação.
-				filterChain.doFilter(request, response);
-			}
-			catch(RuntimeException e)
-			{
-				if(e.getMessage().equals("Token JWT invalido ou expirado!"))
-				{
-					response.setStatus(403);
-					response.getWriter().write("Token JWT invalido ou expirado!");
-					response.flushBuffer();
-					return;
-				}
-			}
+			var subject = tokenService.getSubject(tokenJWT);
+			//busco o subject informado no banco e trago
+			var usuario = usuarioRepository.findByUsername(subject);
+			logger.info("token validado e usuário encontrado.");
+			//Força a autenticação para esse usuário
+			var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.get().getAuthorities());
+			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
+		//Garante que o próximo filtro seja chamado. Caso tenha sucesso no filtro atual, deve chamar
+		//para dar sequencia na aplicação.
+		logger.info("indo para controller.");
 		filterChain.doFilter(request, response);
 	}
 	
