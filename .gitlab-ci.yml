@@ -13,7 +13,9 @@ build:
 
 deploy:
   stage: deploy
-  image: amazon/aws-cli:latest
+  image: 
+    name: amazon/aws-cli:latest
+    entrypoint: [""]
   script:
     - apt-get update && apt-get install -y unzip
     - apt-get update && apt-get install -y curl
@@ -21,7 +23,7 @@ deploy:
     - aws configure set aws_secret_access_key /WazZoCcJ2jzS/pp9KdCc9koP5RuHI87CheskRvh
     - aws configure set region sa-east-1
     - unzip target/artifacts.zip -d target/
-    - aws s3 cp https://gitlab.ctd.academy/ctd/brasil/projeto-integrador-1/0523/grupo-2/-/jobs/111939/artifacts/file/target/demo-0.0.1-SNAPSHOT.jar s3://bucket-gp2/
+    - aws s3 cp target/*.jar s3://bucket-gp2/
     - aws deploy create-deployment --region sa-east-1 --application-name odecasa-dev --deployment-group-name back --s3-location bucket=bucket-gp2,key=demo-0.0.1-SNAPSHOT.jar,bundleType=tar
 
 docker_deploy:
