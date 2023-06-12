@@ -2,7 +2,6 @@
 @import "rsuite/dist/rsuite.css";
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
 @import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
-@import "js-datepicker/dist/datepicker.min.css";
 
 *{
     margin: 0;
@@ -43,7 +42,7 @@
     position: sticky;
     top: 60px;
     width: 100%;
-    z-index:10;
+    z-index: 10;
 }
 
 .sticky-bottom {
@@ -118,7 +117,6 @@ h3{
 
 @media (max-width: 414px) {
     .sticky-buscador {
-        z-index: 9;
         position: relative;
         top: 0;
     }
@@ -126,8 +124,13 @@ h3{
 
 @media (max-width: 768px) {
     .sticky-buscador {
-        z-index: 9;
         position: relative;
         top: 0;
+    }
+}
+
+@media (max-width: 1044px) {
+    .sticky-buscador {
+        z-index: 1;
     }
 }

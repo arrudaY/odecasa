@@ -11,6 +11,7 @@ import ProdProvider from "./Contexts/ProdContext";
 import Categoria from "./Routes/Categoria";
 import Cidade from "./Routes/Cidade";
 import Reserva from "./Routes/Reserva";
+import ReservaProvider from "./Contexts/ReservaContext";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ProdProvider>
+      <ReservaProvider>
       <BrowserRouter>
         <Navbar />
         <div className="container">
@@ -35,6 +37,7 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      </ReservaProvider>
       </ProdProvider>
       </LocalizationProvider>
     </div>

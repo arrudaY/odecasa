@@ -1,4 +1,11 @@
 import { DateRangePicker } from 'rsuite';
+import { CustomProvider } from 'rsuite';
+import pt_BR from "rsuite/locales/pt_BR";
+import format from 'date-fns/format';
+import endOfWeek from 'date-fns/endOfWeek';
+import addDays from 'date-fns/addDays';
+import endOfMonth from 'date-fns/endOfMonth';
+import { pt } from 'date-fns/locale'
 import styles from "./Buscador.module.css";
 import { useState, useEffect } from 'react';
 import { 
@@ -83,6 +90,59 @@ const Buscador = () => {
     }
   }
 
+  const predefinedRanges = [
+    {
+      label: 'Hoje',
+      value: [new Date(), new Date()],
+      placement: 'left'
+    },
+    {
+      label: 'Amanhã',
+      value: [addDays(new Date(), +1), addDays(new Date(), +1)],
+      placement: 'left'
+    },
+    {
+      label: 'Esta semana',
+      value: [new Date(), endOfWeek(new Date())],
+      placement: 'left'
+    },
+    {
+      label: 'Este mês',
+      value: [new Date(), endOfMonth(new Date())],
+      placement: 'left'
+    }
+  ];
+
+  const predefinedRangesBottom = [
+    {
+      label: 'Hoje',
+      value: [new Date(), new Date()],
+      placement: 'bottom'
+    },
+    {
+      label: 'Amanhã',
+      value: [addDays(new Date(), +1), addDays(new Date(), +1)],
+      placement: 'bottom'
+    },
+    {
+      label: 'Esta semana',
+      value: [new Date(), endOfWeek(new Date())],
+      placement: 'bottom'
+    },
+    {
+      label: 'Este mês',
+      value: [new Date(), endOfMonth(new Date())],
+      placement: 'bottom'
+    }
+  ];
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
       <div className="sticky-buscador">
         <div className={styles.buscadorContainer}>
@@ -99,7 +159,65 @@ const Buscador = () => {
                   ))}
                 </ul>
               )}
-              <DateRangePicker size="lg" placeholder="Checkin ~ Checkout" format={"dd-MM-yyyy"} className={styles.buscadorTxt}/>
+              <CustomProvider className={styles.buscadorCalendar} locale={pt_BR}>
+                {windowWidth <= 756 ? (
+                  <DateRangePicker
+                    placement='bottomEnd'
+                    preventOverflow
+                    showOneCalendar
+                    shouldDisableDate={(data) => {
+                      if(data < addDays(new Date(), -1))
+                        return true;
+                      else
+                        return false;
+                    }}
+                    size="lg"
+                    className={styles.buscadorTxt}
+                    ranges={predefinedRangesBottom}
+                    placeholder="Escolha suas datas"
+                    format="dd-MM-yyyy"
+                    locale={{
+                    sunday: 'Dom',
+                    monday: 'Seg',
+                    tuesday: 'Ter',
+                    wednesday: 'Qua',
+                    thursday: 'Qui',
+                    friday: 'Sex',
+                    saturday: 'Sab',
+                    ok: 'OK',
+                    dateLocale: pt
+                    }}
+                  />
+                ) : (
+                  <DateRangePicker
+                    placement='bottomEnd'
+                    preventOverflow
+                    shouldDisableDate={(data) => {
+                      if(data < addDays(new Date(), -1))
+                        return true;
+                      else
+                        return false;
+                    }}
+                    size="lg"
+                    className={styles.buscadorTxt}
+                    ranges={predefinedRanges}
+                    placeholder="Escolha suas datas"
+                    format="dd-MM-yyyy"
+                    locale={{
+                    sunday: 'Dom',
+                    monday: 'Seg',
+                    tuesday: 'Ter',
+                    wednesday: 'Qua',
+                    thursday: 'Qui',
+                    friday: 'Sex',
+                    saturday: 'Sab',
+                    ok: 'OK',
+                    dateLocale: pt
+                    }}
+                  />
+                )}
+              </CustomProvider>
+              
               <button onClick={getCidades} className={styles.buscadorBtn}>Buscar</button>
             </div>
         </div>

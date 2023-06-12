@@ -1,0 +1,10 @@
+.datasResContainer{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.datasResCalendarios{
+    margin-left: 10px;
+    width: 90%;
+}
