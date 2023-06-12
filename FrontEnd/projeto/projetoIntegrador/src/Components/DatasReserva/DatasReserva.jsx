@@ -27,8 +27,8 @@ const DatasReserva = () => {
     return (
         <div className={styles.datasResContainer}>
             <div className={styles.datasResCalendarios}>
-                {windowWidth <= 676 ? (<DateRangeSelector direction="vertical"/>) :
-                (<DateRangeSelector direction="horizontal"/>)}
+                {windowWidth <= 1164 ? (<DateRangeSelector className={styles.dataResCalendario} direction="vertical"/>) :
+                (<DateRangeSelector className={styles.dataResCalendario} direction="horizontal"/>)}
             </div>
         </div>
     );
