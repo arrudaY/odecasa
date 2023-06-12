@@ -36,5 +36,6 @@ docker_deploy:
   script:
     - docker pull tomcat:9-jdk11-openjdk-slim
     - docker run -d -p 8080:8080 --name tomcat_container tomcat:9-jdk11-openjdk-slim
-    - docker cp target/*.jar tomcat_container:/usr/local/tomcat/webapps/
+    - aws s3 cp s3://bucket-gp2/demo-0.0.1-SNAPSHOT.jar ./demo-0.0.1-SNAPSHOT.jar
+    - docker cp ./demo-0.0.1-SNAPSHOT.jar tomcat_container:/usr/local/tomcat/webapps/
     - docker exec tomcat_container catalina.sh run
