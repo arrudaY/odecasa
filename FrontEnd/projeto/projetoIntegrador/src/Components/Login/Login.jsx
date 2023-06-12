@@ -3,6 +3,7 @@ import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { ProdContext } from "../../Contexts/ProdContext";
 import { ReservaContext } from "../../Contexts/ReservaContext";
 import { useNavigate } from "react-router-dom";
 import erroImg from "../../Data/erro.png"
@@ -10,6 +11,7 @@ import erroImg from "../../Data/erro.png"
 const Login = () => {
     const { saveName, saveToken, setEstadoLogin } = useContext(AuthContext); 
     const { msgLogin, mudarMsgLogin } = useContext(ReservaContext); 
+    const { id } = useContext(ProdContext);
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
@@ -65,8 +67,12 @@ const Login = () => {
 
     function logar() {
         setEstadoLogin("Logout");
-        mudarMsgLogin(false);
-        navigate("/");
+        if(msgLogin === true){
+            mudarMsgLogin(false);
+            navigate("/detalhes/" + id);
+        }
+        else
+            navigate("/");
     }
 
     async function logarAPI() {
