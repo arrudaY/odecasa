@@ -19,7 +19,7 @@ deploy:
   script:
     - yum update -y
     - amazon-linux-extras install docker -y
-    - service docker start
+    - sudo service docker start
     - docker info
     - aws configure set aws_access_key_id AKIAV4YTWNKPKD6RT6WF
     - aws configure set aws_secret_access_key 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
