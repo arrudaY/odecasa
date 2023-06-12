@@ -20,8 +20,8 @@ deploy:
     - aws configure set aws_secret_access_key /WazZoCcJ2jzS/pp9KdCc9koP5RuHI87CheskRvh
     - aws configure set region sa-east-1
     - unzip target/artifacts.zip -d target/
-    - aws s3 cp target/*.jar s3://bucket-gp2/airBNB.jar
-    - aws deploy create-deployment --region sa-east-1 --application-name odecasa-dev --deployment-group-name back --s3-location bucket=bucket-gp2,key=airBNB.zip,bundleType=zip
+    - aws s3 cp target/*.jar s3://bucket-gp2/demo-0.0.1-SNAPSHOT.jar
+    - aws deploy create-deployment --region sa-east-1 --application-name odecasa-dev --deployment-group-name back --s3-location bucket=bucket-gp2,key=demo-0.0.1-SNAPSHOT.jar,bundleType=zip
 
 docker_deploy:
   stage: deploy
