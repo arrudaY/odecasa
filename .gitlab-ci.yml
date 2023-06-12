@@ -15,17 +15,20 @@ deploy:
   stage: deploy
   image: amazon/aws-cli:latest
   script:
-    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    - aws configure set region $AWS_DEFAULT_REGION
+    - apt-get update && apt-get install -y unzip
+    - aws configure set aws_access_key_id <YOUR_ACCESS_KEY>
+    - aws configure set aws_secret_access_key <YOUR_SECRET_ACCESS_KEY>
+    - aws configure set region <YOUR_AWS_REGION>
     - aws s3 cp target/*.war s3://bucket-gp2/
     - aws deploy create-deployment --application-name odecasa-dev --deployment-group-name dev-odecasa --s3-location bucket=bucket-gp2,key=airBNB,bundleType=zip
 
-
 docker_deploy:
   stage: deploy
-  image: tomcat:9-jdk11-openjdk-slim
+  image: docker:latest
+  services:
+    - docker:dind
   script:
+    - docker pull tomcat:9-jdk11-openjdk-slim
     - docker run -d -p 8080:8080 --name tomcat_container tomcat:9-jdk11-openjdk-slim
     - docker cp target/*.war tomcat_container:/usr/local/tomcat/webapps/
     - docker exec tomcat_container catalina.sh run
