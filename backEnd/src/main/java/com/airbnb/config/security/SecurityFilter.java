@@ -30,18 +30,30 @@ public class SecurityFilter extends OncePerRequestFilter
 		if(tokenJWT != null)
 		{
 			//faz a validação do token e retorna o subject informado na assintura do JWT
-			var subject = tokenService.getSubject(tokenJWT);
-			
-			//busco o subject informado no banco e trago
-			var usuario = usuarioRepository.findByUsername(subject);
-			
-			//Força a autenticação para esse usuário
-			var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.get().getAuthorities());
-			SecurityContextHolder.getContext().setAuthentication(authentication);
+			try
+			{
+				var subject = tokenService.getSubject(tokenJWT);
+				//busco o subject informado no banco e trago
+				var usuario = usuarioRepository.findByUsername(subject);
+				
+				//Força a autenticação para esse usuário
+				var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.get().getAuthorities());
+				SecurityContextHolder.getContext().setAuthentication(authentication);
+				//Garante que o próximo filtro seja chamado. Caso tenha sucesso no filtro atual, deve chamar
+				//para dar sequencia na aplicação.
+				filterChain.doFilter(request, response);
+			}
+			catch(RuntimeException e)
+			{
+				if(e.getMessage().equals("Token JWT invalido ou expirado!"))
+				{
+					response.setStatus(403);
+					response.getWriter().write("Token JWT invalido ou expirado!");
+					response.flushBuffer();
+					return;
+				}
+			}
 		}
-		
-		//Garante que o próximo filtro seja chamado. Caso tenha sucesso no filtro atual, deve chamar
-		//para dar sequencia na aplicação.
 		filterChain.doFilter(request, response);
 	}
 	
