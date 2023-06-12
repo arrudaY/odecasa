@@ -16,11 +16,11 @@ deploy:
   image: amazon/aws-cli:latest
   script:
     - apt-get update && apt-get install -y unzip
-    - aws configure set aws_access_key_id <YOUR_ACCESS_KEY>
-    - aws configure set aws_secret_access_key <YOUR_SECRET_ACCESS_KEY>
-    - aws configure set region <YOUR_AWS_REGION>
+    - aws configure set aws_access_key_id AKIAV4YTWNKPKD6RT6WF
+    - aws configure set aws_secret_access_key /WazZoCcJ2jzS/pp9KdCc9koP5RuHI87CheskRvh
+    - aws configure set region sa-east-1
     - aws s3 cp target/*.war s3://bucket-gp2/
-    - aws deploy create-deployment --application-name odecasa-dev --deployment-group-name dev-odecasa --s3-location bucket=bucket-gp2,key=airBNB,bundleType=zip
+    - aws deploy create-deployment --application-name odecasa-dev --deployment-group-name dev-odecasa --s3-location bucket=bucket-gp2,key=airBNB.zip,bundleType=zip
 
 docker_deploy:
   stage: deploy
