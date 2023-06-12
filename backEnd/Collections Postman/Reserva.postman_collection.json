@@ -54,7 +54,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dataInicial\":\"2023-06-10T10:00:00\",\r\n    \"dataFinal\":\"2023-06-11T10:00:00\",\r\n    \"produto\":{\r\n        \"id\": 52\r\n    },\r\n    \"usuario\":{\r\n        \"id\": 1\r\n    }\r\n}",
+					"raw": "{\r\n    \"dataInicial\":\"2023-06-10T10:00:00\",\r\n    \"dataFinal\":\"2023-06-11T10:00:00\",\r\n    \"produto\":{\r\n        \"id\": 1\r\n    },\r\n    \"usuario\":{\r\n        \"id\": 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,22 +91,58 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/reserva?id=52",
+					"raw": "localhost:8080/reserva/findById?id=2",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"reserva"
+						"reserva",
+						"findById"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "52"
+							"value": "2"
 						}
 					]
 				},
 				"description": "Retorna uma lista com informações das reservas para um dado ID de produto.\n\nRequer parametro ID, que é o ID do produto alvo.\n\nRequer autenticação\n\nretorna uma lista com todas as reservas que correspondem com o produto e código 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por usuário",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reserva/findByUsuario?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reserva",
+						"findByUsuario"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
 			},
 			"response": []
 		}

@@ -24,8 +24,6 @@ public class SecurityFilter extends OncePerRequestFilter
 	@Autowired
 	private TokenService tokenService;
 	
-	Logger logger = LogManager.getLogManager().getLogger("TokenService");
-	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException
 	{
@@ -34,19 +32,16 @@ public class SecurityFilter extends OncePerRequestFilter
 		//só faço a chamada do método para buscar o subject, caso tenha header
 		if(tokenJWT != null)
 		{
-			logger.info("validando token.");
 			//faz a validação do token e retorna o subject informado na assintura do JWT
 			var subject = tokenService.getSubject(tokenJWT);
 			//busco o subject informado no banco e trago
 			var usuario = usuarioRepository.findByUsername(subject);
-			logger.info("token validado e usuário encontrado.");
 			//Força a autenticação para esse usuário
 			var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.get().getAuthorities());
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
 		//Garante que o próximo filtro seja chamado. Caso tenha sucesso no filtro atual, deve chamar
 		//para dar sequencia na aplicação.
-		logger.info("indo para controller.");
 		filterChain.doFilter(request, response);
 	}
 	

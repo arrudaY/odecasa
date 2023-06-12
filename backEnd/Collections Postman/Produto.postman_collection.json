@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nome\": \"Che Lagarto\",\r\n  \"descricao\": \"Uma das maiores redes de Hos.\",\r\n  \"qualificacao\":3,\r\n  \"titulo\":\"titulo maneiro\",\r\n  \"imagemList\": [\r\n    {\r\n      \"titulo\": \"img01\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    }\r\n  ],\r\n  \"categoria\": {\r\n    \"id\": 1\r\n    },\r\n  \"cidade\": {\r\n    \"id\": 1\r\n    },\r\n  \"caracteristicaList\": [\r\n    {\r\n      \"nome\": \"Wi-Fi\",\r\n      \"icone\": \"wifi\"\r\n    },\r\n    {\r\n      \"nome\": \"Cozinha\",\r\n      \"icone\": \"kitchen\"\r\n    },\r\n    {\r\n      \"nome\": \"Televisão\",\r\n      \"icone\": \"tv\"\r\n    },\r\n    {\r\n      \"nome\": \"Ar-condicionado\",\r\n      \"icone\": \"ac_unit\"\r\n    },\r\n    {\r\n      \"nome\": \"Piscina\",\r\n      \"icone\": \"pool\"\r\n    },\r\n    {\r\n      \"nome\": \"Aceitas Pets\",\r\n      \"icone\": \"pets\"\r\n    },\r\n    {\r\n      \"nome\": \"Estacionamento\",\r\n      \"icone\": \"local_parking\"\r\n    }\r\n  ]\r\n}",
+					"raw": "{\r\n  \"nome\": \"Che Lagarto\",\r\n  \"descricao\": \"Uma das maiores redes de Hos.\",\r\n  \"qualificacao\":3,\r\n  \"titulo\":\"titulo maneiro\",\r\n//   \"reservaList\":,\r\n  \"imagemList\": [\r\n    {\r\n      \"titulo\": \"img01\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    },\r\n    {\r\n      \"titulo\": \"img02\",\r\n      \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n    }\r\n  ],\r\n  \"categoria\": {\r\n    \"id\": 1\r\n    },\r\n  \"cidade\": {\r\n    \"id\": 1\r\n    },\r\n  \"caracteristicaList\": [\r\n    {\r\n      \"nome\": \"Wi-Fi\",\r\n      \"icone\": \"wifi\"\r\n    },\r\n    {\r\n      \"nome\": \"Cozinha\",\r\n      \"icone\": \"kitchen\"\r\n    },\r\n    {\r\n      \"nome\": \"Televisão\",\r\n      \"icone\": \"tv\"\r\n    },\r\n    {\r\n      \"nome\": \"Ar-condicionado\",\r\n      \"icone\": \"ac_unit\"\r\n    },\r\n    {\r\n      \"nome\": \"Piscina\",\r\n      \"icone\": \"pool\"\r\n    },\r\n    {\r\n      \"nome\": \"Aceitas Pets\",\r\n      \"icone\": \"pets\"\r\n    },\r\n    {\r\n      \"nome\": \"Estacionamento\",\r\n      \"icone\": \"local_parking\"\r\n    }\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -140,6 +140,85 @@
 					]
 				},
 				"description": "Não requer autenticação\n\nNão requer função.\n\nRetorna uma lista de objetos do tipo produto correspondente a cidade passada e código 200.\n\nCaso encontre, retorna a lista de produtos e código 200.\n\nCaso não encontre nada, retorna 404, NOT_FOUND."
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por Cidade e Período",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cidadeId\":2,\r\n    \"dataInicio\":\"2023-06-10T10:00:00\",\r\n    \"dataFim\":\"2023-06-11T10:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/produto/findByCidadePeriodo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto",
+						"findByCidadePeriodo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar produto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Atualizado\",\r\n    \"titulo\": \"titulo maneiro\",\r\n    \"descricao\": \"Uma das maiores redes de Hos.\",\r\n    \"qualificacao\": 3.0,\r\n    \"imagemList\": [\r\n        {\r\n            \"id\": 1,\r\n            \"titulo\": \"img01\",\r\n            \"url\": \"https://s2.glbimg.com/ddiFM5kKRjC1Ucdx9RPlciGl9BA=/e.glbimg.com/og/ed/f/original/2018/11/22/gettyimages-968913780.jpg\"\r\n        }\r\n    ],\r\n    \"categoria\": {\r\n        \"id\": 1,\r\n        \"descricao\": \"categoria 3\",\r\n        \"urlImagem\": \"url.teste.irado.com.show.uhul\"\r\n    },\r\n    \"cidade\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Fortaleza\",\r\n        \"pais\": \"Brasil\"\r\n    },\r\n    \"caracteristicaList\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"Wi-Fi\",\r\n            \"icone\": \"wifi\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto"
+					]
+				},
+				"description": "Atualiza um produto baseado no id informado.\n\nRequer autenticação.\n\nRequer body completo.\n\nVerifica se o ID informado existe no banco. Se existir atualiza as informações e retorna 200 com o objeto produto atualizado.\n\nSe não existir, retorna 400 e o produto não é atualizado."
 			},
 			"response": []
 		}
