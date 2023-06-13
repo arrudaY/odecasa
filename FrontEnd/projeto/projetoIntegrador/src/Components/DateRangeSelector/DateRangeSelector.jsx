@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { DateRangePicker } from "react-date-range";
 import { DateRange } from "react-date-range";
 import { defaultStaticRanges } from "./defaultRanges";
 import { format } from "date-fns";
 import { pt } from 'date-fns/locale'
+import { useContext } from "react";
+import { ReservaContext } from "../../Contexts/ReservaContext";
 
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -19,15 +22,19 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, direction, ...rest }) =
           key: "selection"
      });
      const [show, setShow] = useState(false);
+     const { dataIni, dataFim, setDataIni, setDataFim } = useContext(ReservaContext); 
 
      function formatDateDisplay(date, defaultText) {
           if (!date) return defaultText;
-          return format(date, "MM/DD/YYYY");
+          return format(date, "yyyy-MM-dd");
      }
 
      const handleSelect = ranges => {
           setSelectedDateRange(ranges.selection);
-          console.log(ranges.selection);
+          console.log("Inicio: " + formatDateDisplay(ranges.selection.startDate));
+          console.log("Fim: " + formatDateDisplay(ranges.selection.endDate));
+          setDataIni(ranges.selection.startDate);
+          setDataFim(ranges.selection.endDate);
      };
 
      // const onClickDone = () => {
@@ -43,6 +50,17 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, direction, ...rest }) =
           });
           setShow(false);
      };
+
+     useEffect(() => {
+          if(dataIni && dataFim){
+               setSelectedDateRange({
+                    startDate: dataIni,
+                    endDate: dataFim,
+                    key: "selection"
+               });
+          }
+
+     }, []);
 
      return (
           <React.Fragment>

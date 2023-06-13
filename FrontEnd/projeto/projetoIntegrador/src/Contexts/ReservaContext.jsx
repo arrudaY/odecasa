@@ -6,8 +6,8 @@ const ReservaProvider = ({ children }) => {
   const [msgLogin, setMsgLogin] = useState(false);
   const [reserva, setReserva] = useState({});
   const [horaIni, setHoraIni] = useState("");
-  const [dataIni, setDataIni] = useState("");
-  const [dataFim, setDataFim] = useState("");
+  const [dataIni, setDataIni] = useState(new Date());
+  const [dataFim, setDataFim] = useState(new Date());
 
   function mudarMsgLogin(estado){
     setMsgLogin(estado);
