@@ -54,6 +54,33 @@ const TelaReserva = () => {
         }
       }
 
+    async function obterReservaPorUsuario(idAux) {
+      try {
+        const response = await api.get("/reserva/findByUsuario", {params: { id: idAux }},
+        { headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        }});
+
+        const reserva = {
+          dataInicial: response.data.dataInicial,
+          dataFinal: response.data.dataFinal,
+          produto: {
+            id: response.data.id
+          },
+          usuario: {
+            id: response.data.id,
+          }
+        }
+        console.log(reserva);
+        salvarReserva(reserva);  
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    
+
     useEffect(() => {   
         if(id>=0)
             obterProduto(id);

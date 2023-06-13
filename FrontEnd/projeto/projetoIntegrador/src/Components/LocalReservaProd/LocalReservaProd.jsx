@@ -2,7 +2,7 @@ import styles from "./LocalReservaProd.module.css";
 import { useContext } from "react";
 import { ProdContext } from "../../Contexts/ProdContext";
 
-const LocalProd = () => {    
+const LocalReservaProd = () => {    
     const { id, produto } = useContext(ProdContext);
 
     return (
@@ -29,6 +29,6 @@ const LocalProd = () => {
     );
 };
 
-export default LocalProd;
+export default LocalReservaProd;
 
 
