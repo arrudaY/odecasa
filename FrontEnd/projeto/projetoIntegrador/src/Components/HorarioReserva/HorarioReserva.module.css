@@ -1,0 +1,50 @@
+.horarioContainer {
+    width: 847px;
+    padding: 10px;
+    font-family: Roboto;
+}
+
+.horario {
+    background-color: var(--color-6);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.horario p {
+    font-size: 16px;
+    margin-bottom: 0.2em;
+    line-height: 14px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.horario select {
+    height: 40px;
+    border-radius: 4px;
+}
+
+
+.horarioContainer h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.horariosSelect {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .horarioContainer {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 414px) {
+    .horarioContainer {
+        width: 100%;
+    }
+    .horariosSelect {
+        width: 100%;
+    }
+}

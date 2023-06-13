@@ -38,6 +38,9 @@ const LocalProd = () => {
                     {produto.qualificacao * 2.0}
                 </div>
             </div>
+            <div className={styles.localProdImagemContainer}>
+                <img className={styles.localProdImagem} src={produto.imagemList[0].url} />
+            </div>
         </div>
     );
 };

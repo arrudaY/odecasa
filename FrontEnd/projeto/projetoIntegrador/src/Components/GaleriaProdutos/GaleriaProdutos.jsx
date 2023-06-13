@@ -10,6 +10,7 @@ const GaleriaProdutos = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [images, setImages] = useState([]);
   const { id, produto } = useContext(ProdContext);
+  const [mostrarImagens, setMostrarImagens] = useState(false);
 
   const handleDetailsClick = () => {
     setShowDetails(true);
@@ -17,6 +18,7 @@ const GaleriaProdutos = () => {
 
   const handleCloseClick = () => {
     setShowDetails(false);
+    setMostrarImagens(true);
   };
 
   const isMobileOrTablet = useMediaQuery({ maxWidth: 719 });
@@ -97,18 +99,18 @@ const GaleriaProdutos = () => {
       </div>
     ) : 
     <div className={styles.imageGrid}>
-      {produto.imagemList.map((item, index) => (
-        <img key={item.id} src={item.url} alt={produto.titulo} className={index == 0 ? styles.mainImage : {}}/>
+      {produto.imagemList.slice(0, 5).map((item, index) => (
+        <img key={item.id} src={item.url} alt={produto.titulo} className={index == 0 ? styles.mainImage : ""}/>
       ))}
-      {/*<img src={produto.imagemList[0].url} alt={produto.titulo} className={styles.mainImage}/>
-      <img src={produto.imagemList[1].url} alt={produto.titulo} />
-      <img src={produto.imagemList[2].url} alt={produto.titulo} />
-      <img src={produto.imagemList[3].url} alt={produto.titulo} />
-      <img src={produto.imagemList[4].url} alt={produto.titulo} />*/}
-
-      <div className={styles.detailsLink} onClick={handleDetailsClick}>
-        Ver mais
-      </div>
+      {mostrarImagens &&
+        produto.imagemList.slice(5).map((item, index) => (
+          <img key={item.id} src={item.url} alt={produto.titulo} />
+        ))}
+      {produto.imagemList.length > 5 && !mostrarImagens && (
+        <div className={styles.detailsLink} onClick={handleDetailsClick}>
+          Ver mais
+        </div>
+      )}
     </div>
     }
   </div>

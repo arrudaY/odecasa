@@ -8,6 +8,9 @@ import FormReserva from "../FormReserva/FormReserva";
 import Detalhes from "../Detalhes/Detalhes";
 import DatasReserva from "../DatasReserva/DatasReserva";
 import api from "../../Services/api";
+import ImgProd from "../ImgProd/ImgProd";
+import LocalProd from "../LocalProd/LocalProd";
+import HorarioReserva from "../HorarioReserva/HorarioReserva";
 
 const TelaReserva = () => {  
     const { id, produto, salvarProduto, salvarLoading, isLoading } = useContext(ProdContext);
@@ -72,9 +75,11 @@ const TelaReserva = () => {
             <div className={styles.telaReservaContainerEsq}>
                 <FormReserva />
                 <DatasReserva />
+                <HorarioReserva />
             </div>
             <div className={styles.telaReservaContainerDir}>
-
+              <h1>Detalhe da Reserva</h1>
+              <LocalProd/>
             </div>
             {/* Detalhe da Reserva
             Selecione a Data da Reserva

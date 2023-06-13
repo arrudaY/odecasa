@@ -5,6 +5,7 @@
 
 .formReservaContainer h1 {
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .form {
@@ -45,7 +46,7 @@
 @media (max-width: 768px) {
     .formReservaContainer {
         width: 100%;
-        padding: 40px;
+        padding: 20px;
     }
     .form{
         display: block;
