@@ -1,0 +1,47 @@
+.localContainer {
+    width: 100%;
+}
+
+.localProdImagem {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.headerNomes{
+    display: flex;
+    flex-direction: column;
+}
+
+.headerCategoria{
+    font-size: 20px;
+    margin: 0;
+    color: black;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.headerNome{
+    font-size: 26px;
+    margin: 0;
+    color: black;
+    font-weight: bold;
+}
+
+.localReserva {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 414px) {
+    .headerCategoria{
+        font-size: 16px; 
+    }
+    .headerNome {
+        font-size: 22px;
+    }
+}
+

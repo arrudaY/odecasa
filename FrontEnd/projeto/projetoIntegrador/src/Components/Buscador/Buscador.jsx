@@ -55,6 +55,10 @@ const Buscador = () => {
   };
 
   async function getCidades(){
+    const termoBuscaLower = termoBusca.toLowerCase();
+    const resultadoFiltrado = filtrarDados(termoBuscaLower);
+    setDadoFiltrado(resultadoFiltrado);
+    
     try {
       const response = await api.get("/cidade",
       { headers: {

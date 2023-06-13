@@ -1,7 +1,11 @@
 .datasResContainer{
     display: relative;
-    padding: 10px;
+    padding: 20px;
     padding-top: 10px;
+}
+
+.datasResContainer h1 {
+    font-size: 24px;
 }
 
 .datasResCalendarios{
@@ -13,4 +17,5 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: var(--color-3);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

@@ -12,6 +12,7 @@ import Categoria from "./Routes/Categoria";
 import Cidade from "./Routes/Cidade";
 import Reserva from "./Routes/Reserva";
 import ReservaProvider from "./Contexts/ReservaContext";
+import ReservaConcluida from "./Components/ReservaConcluida/ReservaConcluida";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/categoria/:id" element={<Categoria />} />
               <Route path="/cidade/:id" element={<Cidade />} />
               <Route path="/detalhes/:id/reserva" element={<Reserva />} />
+              <Route path="/reserva-concluida" element={<ReservaConcluida />} />
             </Routes>
           </main>
         </div>

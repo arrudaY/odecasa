@@ -1,0 +1,38 @@
+.checkinContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.checkinLabel {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.check input {
+    border: none;
+    outline: none;
+}
+
+.checkButton {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    color: var(--color-6);
+    background-color: var(--color-10);
+    transition: all 0.5s;
+    opacity: 0.8;
+}
+
+.checkButton:hover {
+    opacity: 1;
+}

@@ -1,6 +1,6 @@
 .horarioContainer {
-    width: 847px;
-    padding: 10px;
+    width: 100%;
+    padding: 20px;
     font-family: Roboto;
 }
 
@@ -8,14 +8,18 @@
     background-color: var(--color-6);
     padding: 20px;
     border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .horario p {
-    font-size: 16px;
     margin-bottom: 0.2em;
     line-height: 14px;
     opacity: 0.8;
     margin-bottom: 10px;
+}
+
+.horario h3 {
+    font-size: 16px;
 }
 
 .horario select {
