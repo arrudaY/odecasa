@@ -68,7 +68,7 @@ const TelaReserva = () => {
 
     return(
         <div className={styles.telaReservaContainer}>
-            <HeaderProd />
+            <HeaderProd tela="reserva" />
             <div className={styles.telaReservaContainerEsq}>
                 <FormReserva />
                 <DatasReserva />

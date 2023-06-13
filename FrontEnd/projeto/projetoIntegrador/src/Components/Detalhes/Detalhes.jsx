@@ -68,7 +68,7 @@ const Detalhes = () => {
 
     return (
         <div className={styles.detalhesContainer}>
-            <HeaderProd />
+            <HeaderProd tela="produto" />
             <LocalProd />
             <ImgProd />
             <DescProd />
