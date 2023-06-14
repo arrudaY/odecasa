@@ -74,6 +74,7 @@
 .filter li {
     padding: 10px;
     cursor: pointer;
+    background-color: var(--color-11);
 }
   
 .filter li:hover {

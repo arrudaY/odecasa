@@ -1,15 +1,21 @@
 import styles from "./HorarioReserva.module.css";
 import { useState } from "react";
 import { BsCheckCircle } from  'react-icons/bs';
+import { useContext } from "react";
+import { ReservaContext } from "../../Contexts/ReservaContext";
 
 const HorarioReserva = () => {
     const horarios = Array.from({ length: 24 }, (_, i) => `${i.toString().padStart(2, '0')}:00`);
-    const [horarioSelecionado, setHorarioSelecionado] = useState()
+    const [horarioSelecionado, setHorarioSelecionado] = useState();
+    const { horaIni, setHoraIni } = useContext(ReservaContext); 
 
   const handleSelect = (event) => {
     const horarioSelecionado = event.target.value;
     setHorarioSelecionado(horarioSelecionado);
+    setHoraIni(event.target.value);
   };
+
+  //2023-06-11T10:00:00
 
   return (
     <div className={styles.horarioContainer}>

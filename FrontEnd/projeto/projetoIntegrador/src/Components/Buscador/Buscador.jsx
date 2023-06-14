@@ -32,6 +32,10 @@ const Buscador = () => {
     setDadoFiltrado(resultadoFiltrado);
   }, [termoBusca]);
 
+  useEffect(() => {
+    getCidades();
+  }, [])
+
   const filtrarDados = (termoBuscaLower) => {
     return data.filter((item) =>
       item.nome.toLowerCase().includes(termoBuscaLower) ||

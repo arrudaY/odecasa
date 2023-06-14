@@ -1,10 +1,14 @@
 import styles from './Checkin.module.css';
 import { useState } from 'react';
+import { useContext, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { ReservaContext } from "../../Contexts/ReservaContext";
+import { format } from "date-fns";
 
 const Checkin = () => {
     const [checkinDate, setCheckinDate] = useState('');
     const [checkoutDate, setCheckoutDate] = useState('');
+    const { horaIni, dataIni, dataFim, setHoraIni, setDataIni, setDataFim, reserva, salvarReserva } = useContext(ReservaContext); 
     const navigate = useNavigate(); 
 
     const handleCheckinChange = (event) => {
@@ -14,6 +18,14 @@ const Checkin = () => {
       const handleCheckoutChange = (event) => {
         setCheckoutDate(event.target.value);
     };
+
+    useEffect(() => {
+        if(dataIni && dataFim){
+            setCheckinDate(format(dataIni, "dd/MM/yyyy"));
+            setCheckoutDate(format(dataFim, "dd/MM/yyyy"));
+        }
+
+   }, []);
 
     function confirmarReserva() {
         const isDataValida = checkinDate && checkoutDate;
@@ -31,9 +43,9 @@ const Checkin = () => {
             <div className={styles.check}>
                 <label className={styles.checkinLabel}>Check-in:</label>
                 <input
-                    type="date"
+                    type="text"
                     id="checkinDate"
-                    value={checkinDate}
+                    value={format(dataIni, "dd/MM/yyyy")}
                     onChange={handleCheckinChange}
                 />
             </div>
@@ -41,9 +53,9 @@ const Checkin = () => {
             <div className={styles.check}>
                 <label className={styles.checkinLabel}>Check-out:</label>
                     <input
-                        type="date"
+                        type="text"
                         id="checkoutDate"
-                        value={checkoutDate}
+                        value={format(dataFim, "dd/MM/yyyy")}
                         onChange={handleCheckoutChange}
                     />
             </div>
