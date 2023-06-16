@@ -3,6 +3,7 @@ package com.airbnb.service;
 import com.airbnb.model.Caracteristica;
 import com.airbnb.model.Imagem;
 import com.airbnb.model.Produto;
+import com.airbnb.model.ProdutoCidadeTempoDTO;
 import com.airbnb.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,4 +67,18 @@ public class ProdutoService
 		return false;
 	}
 
+	public List<Produto> findByCidadeTempo(ProdutoCidadeTempoDTO parametros)
+	{
+		return produtoRepository.findByCidadePeriodo(parametros.cidadeId(), parametros.dataInicio(), parametros.dataFim());
+	}
+	
+	public Produto alterar(Produto produto)
+	{
+		if(produtoRepository.existsById(produto.getId()))
+		{
+			return produtoRepository.save(produto);
+		}
+		return new Produto();
+	}
+	
 }

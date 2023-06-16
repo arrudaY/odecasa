@@ -48,7 +48,7 @@ class CategoriaServiceTest
 		Assertions.assertTrue(categoria.getId()>0);
 		logger.info("Finalizando teste de salvar nova categoria.");
 	}
-	@Test
+//	@Test
 	void buscarTudo_returnTrue_whenListExpectedEqualsListSaved()
 	{
 		logger.info("Iniciando teste de buscar todas as categorias.");

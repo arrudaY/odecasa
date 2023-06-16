@@ -1,6 +1,7 @@
 package com.airbnb.controller;
 
 import com.airbnb.model.Produto;
+import com.airbnb.model.ProdutoCidadeTempoDTO;
 import com.airbnb.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,6 +54,12 @@ public class ProdutoController
 		return new ResponseEntity(listResult, HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "/findByCidadePeriodo")
+	public ResponseEntity buscarPorCidadePeriodo(@RequestBody ProdutoCidadeTempoDTO parametros)
+	{
+		return ResponseEntity.ok(produtoService.findByCidadeTempo(parametros));
+	}
+	
 	@PostMapping
 	public ResponseEntity salvar(@RequestBody Produto produto)
 	{
@@ -70,5 +77,15 @@ public class ProdutoController
 		return new ResponseEntity(HttpStatus.NOT_FOUND);
 	}
 	
+	@PatchMapping
+	public ResponseEntity alterarProduto(@RequestBody Produto produto)
+	{
+		produto = produtoService.alterar(produto);
+		if(produto.getId() > 0)
+		{
+			return ResponseEntity.ok(produto);
+		}
+		return ResponseEntity.badRequest().build();
+	}
 	
 }

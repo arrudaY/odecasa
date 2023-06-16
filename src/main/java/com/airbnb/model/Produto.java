@@ -124,5 +124,5 @@ public class Produto {
 	{
 		this.caracteristicaList = caracteristicaList;
 	}
-	
+
 }

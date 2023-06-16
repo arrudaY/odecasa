@@ -2,7 +2,6 @@ package com.airbnb.service;
 
 import com.airbnb.model.Usuario;
 import com.airbnb.repository.UsuarioRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

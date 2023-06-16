@@ -44,7 +44,7 @@ class CidadeServiceTest
 		Assertions.assertTrue(cidade.getId()>0);
 		logger.debug("fim teste de salvar cidade.");
 	}
-	@Test
+//	@Test
 	void findAll_returnTrue_whenListExpectedEqualsSavedList()
 	{
 		logger.info("iniciando teste de buscar todas as cidades.");

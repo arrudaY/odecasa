@@ -1,9 +1,0 @@
-version: 0.0
-os: linux
-files:
-  - source: /
-    destination: /usr/local/tomcat/webapps/
-hooks:
-  AfterInstall:
-    - location: scripts/restart_tomcat.sh
-      timeout: 300

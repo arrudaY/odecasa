@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "671142ee-a8fb-459d-8636-842484467104",
+		"name": "Reserva",
+		"description": "Documentação da API de reserva de produtos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23242094",
+		"_collection_link": "https://martian-flare-109998.postman.co/workspace/8360a2d3-2759-482f-8607-660be5e0f1b9/collection/23242094-671142ee-a8fb-459d-8636-842484467104?action=share&creator=23242094&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Buscar todas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reserva",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reserva"
+					]
+				},
+				"description": "Retorna uma lista com todas as reservas.\n\nRequer autenticação.\n\nNão requer parâmetros.\n\nRetorna uma lista com todas as reservas presentes no banco e código 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar reserva",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataInicial\":\"2023-06-10T10:00:00\",\r\n    \"dataFinal\":\"2023-06-11T10:00:00\",\r\n    \"produto\":{\r\n        \"id\": 1\r\n    },\r\n    \"usuario\":{\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/reserva",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reserva"
+					]
+				},
+				"description": "Cria uma nova reserva, dado um usuário, um produto, uma data de início e uma data de fim com horário.\n\nRequer autenticação.\n\nRequer todos os parâmetros do exemplo.\n\n- Passar ID do usuário previamente cadastrado. Caso não tenha, retorna erro e não salva.\n- Passar ID de produto previamente cadastrado. Caso não tenha, retorna erro e não salva.\n    \n\n<u><b>Antes de cadastrar a reserva o back fará uma verificação por outras reservas para o produto no intervalo de data. Caso hajam outras reservas, não salvará a reserva. Está verificando se a data de ínicio da reserva está entre as datas de início e fim de outras reservas para o mesmo produto.</b></u>\n\nNo momento, hora de saída não tem impacto na verificação.\n\nPassar a data no formato do exemplo (YYYY-MM-DDTHH:MM:SS). O T é fixo, o resto é substituído.\n\nRetorna 200 e objeto reserva criado, com ID.\n\nCaso não salve, retorna 400\n\n- Caso já haja reserva para o período informado\n- Caso a data de início seja posterior a data de entrega.\n    \n\nRetorna 403 em caso de não estar autenticado."
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar reserva por ID_Produto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reserva/findById?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reserva",
+						"findById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Retorna uma lista com informações das reservas para um dado ID de produto.\n\nRequer parametro ID, que é o ID do produto alvo.\n\nRequer autenticação\n\nretorna uma lista com todas as reservas que correspondem com o produto e código 200."
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por usuário",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reserva/findByUsuario?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reserva",
+						"findByUsuario"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
