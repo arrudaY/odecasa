@@ -12,7 +12,7 @@ const HorarioReserva = () => {
   const handleSelect = (event) => {
     const horarioSelecionado = event.target.value;
     setHorarioSelecionado(horarioSelecionado);
-    setHoraIni(event.target.value);
+    setHoraIni(event.target.value + ":00");
   };
 
   //2023-06-11T10:00:00

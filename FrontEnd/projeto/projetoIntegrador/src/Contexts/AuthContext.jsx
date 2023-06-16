@@ -4,6 +4,7 @@ export const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const [stsLogin, setStsLogin] = useState("Login");
+  const [idUsuario, setIdUsuario] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem("ctd_token");
@@ -13,6 +14,10 @@ const AuthProvider = ({ children }) => {
     else
       setStsLogin("Logout");
   }, []);
+
+  function saveIdUsuario(id){
+    setIdUsuario(id);
+  }
   
   function saveEmail(email) {
     localStorage.setItem("ctd_email", email);
@@ -33,7 +38,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ saveEmail, removeUserStorage, saveToken, stsLogin, setEstadoLogin }}
+      value={{ idUsuario, saveIdUsuario, saveEmail, removeUserStorage, saveToken, stsLogin, setEstadoLogin }}
     >
       {children}
     </AuthContext.Provider>

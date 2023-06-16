@@ -1,6 +1,7 @@
 import styles from "./FormReserva.module.css";
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import api from "../../Services/api";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const FormReserva = () => {  
     const [isLoading, setIsLoading] = useState(true);
@@ -8,6 +9,8 @@ const FormReserva = () => {
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [cidade, setCidade] = useState('');
+    
+    const { saveIdUsuario } = useContext(AuthContext); 
 
     async function getUsuarios(token){
         try{
@@ -21,8 +24,8 @@ const FormReserva = () => {
             const u = response.data;
             const email = localStorage.getItem("ctd_email");
             for(var i = 0; i < u.length; i++){
-                console.log("retorno da api " + u[i].username);
                 if(u[i].username == email){
+                    saveIdUsuario(u[i].id)
                     setNome(u[i].nome);
                     setSobrenome(u[i].sobreNome);
                     setEmail(email);

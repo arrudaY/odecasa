@@ -5,7 +5,7 @@ export const ReservaContext = createContext({});
 const ReservaProvider = ({ children }) => {
   const [msgLogin, setMsgLogin] = useState(false);
   const [reserva, setReserva] = useState({});
-  const [horaIni, setHoraIni] = useState("");
+  const [horaIni, setHoraIni] = useState("00:00:00");
   const [dataIni, setDataIni] = useState(new Date());
   const [dataFim, setDataFim] = useState(new Date());
 
