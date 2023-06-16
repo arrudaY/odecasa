@@ -7,9 +7,10 @@ import { ProdContext } from "../../Contexts/ProdContext";
 import { ReservaContext } from "../../Contexts/ReservaContext";
 import { useNavigate } from "react-router-dom";
 import erroImg from "../../Data/erro.png"
+import api from "../../Services/api";
 
 const Login = () => {
-    const { saveName, saveToken, setEstadoLogin } = useContext(AuthContext); 
+    const { saveEmail, saveToken, setEstadoLogin } = useContext(AuthContext); 
     const { msgLogin, mudarMsgLogin } = useContext(ReservaContext); 
     const { id } = useContext(ProdContext);
     const navigate = useNavigate();
@@ -59,7 +60,7 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             console.log('Formulário válido. Envie-o para o servidor.');
             setErrors({});
-            logar();
+            logarAPI();
         } else {
             setErrors(errors);
         }
@@ -86,10 +87,15 @@ const Login = () => {
             'Access-Control-Allow-Origin': '*',
           }})
           console.log(response.data);
-          saveName(email);
           saveToken(response.data.token);
+          saveEmail(email);
           setEstadoLogin("Logout");
-          navigate("/");
+          if(msgLogin === true){
+            mudarMsgLogin(false);
+            navigate("/detalhes/" + id);
+          }
+          else
+            navigate("/");
         } catch (error) {
           console.log(error)
           alert("Erro ao logar");

@@ -1,12 +1,58 @@
 import styles from "./FormReserva.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../../Services/api";
 
 const FormReserva = () => {  
-    
+    const [isLoading, setIsLoading] = useState(true);
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [cidade, setCidade] = useState('');
+
+    async function getUsuarios(token){
+        try{
+            const response = await api.get("/usuario", {
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+              }});
+            const u = response.data;
+            const email = localStorage.getItem("ctd_email");
+            for(var i = 0; i < u.length; i++){
+                console.log("retorno da api " + u[i].username);
+                if(u[i].username == email){
+                    setNome(u[i].nome);
+                    setSobrenome(u[i].sobreNome);
+                    setEmail(email);
+                    setCidade("Rio de Janeiro, RJ");
+                    break;
+                }
+            }
+            setIsLoading(false);
+        } catch (error) {
+            console.log(error);
+            alert("Erro ao tentar pegar dados do Usuário");
+        }
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem("ctd_token");
+        if(token != null)
+            getUsuarios(token);
+        else
+            setIsLoading(true);
+    }, []);
+
+    if(isLoading)
+    {
+        return (
+            <div className={styles.formReservaContainer}>
+
+            </div>
+        );
+    }
 
     return (
         <div className={styles.formReservaContainer}>

@@ -67,15 +67,16 @@ const Account = () => {
           const response = await api.post("/usuario", {
             nome: nome,
             sobreNome: sobrenome,
-            email: email,
+            username: email,
             password: senha,
             funcao: {
-                nome: "funcao 1"
+                nome: "ROLE_ADMIN"
             }
         }, { headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
           }})
           console.log(response.data);
           navigate("/");
