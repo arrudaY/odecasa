@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.airbnb</groupId>
-	<artifactId>airBNB</artifactId>
-	<version>1.0</version>
+	<artifactId>ROOT</artifactId>
+	<version></version>
 	<name>airBNB</name>
 	<description>Back do projeto integrador</description>
 	<properties>
