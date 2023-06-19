@@ -4,30 +4,34 @@
     justify-content: space-evenly;
     font-family: "Roboto";
     align-items: center;
-    background-color: var(--color-6);
     padding-top: 5px;
+    
 }
 
 .buscadorTitle {
-    font-size: 22px;
+    font-family:    'Overpass', sans-serif;
+    font-style:     normal;
+    font-weight:    400;
+    font-size:      22px;
+    line-height:    28px;
+    color:          #212121;
 }
 
 .buscadorInputs{
-    display: flex;
+    display:        flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;
+    flex-wrap:      wrap;
+    position:       relative;
 }
 
 .buscadorTxt{
-    width: 310px;
-    height: 42px;
-    margin: 10px;
-    border-radius: 8px;
-    z-index: 15;
-    border-color: #ccc;
-    font-size: 16px;
-    outline: 0;
+    width:          310px;
+    height:         42px;
+    margin:         10px;
+    border-radius:  8px;
+    border-color:   #ccc;
+    font-size:      16px;
+    outline:        0;
 }
 
 .buscadorTxt:focus {
@@ -49,6 +53,12 @@
     box-shadow: 1px 1px 1px grey;
     opacity: 0.7;
     transition: all 0.6s;
+    font-family:    'Roboto', sans-serif;
+    font-style:     normal;
+    font-weight:    700;
+    font-size:      16px;
+    line-height:    24px;
+    letter-spacing: 0.5px;
 }
 
 .buscadorBtn:hover {

@@ -40,7 +40,9 @@ const Categorias = () => {
 
   return (
     <div className={styles.categoriasContainer}>
-        <h2>Buscar por tipo de acomodação</h2>
+        <h1>Buscar por tipo de acomodação</h1>
+        <p>De acomodações para toda a família a ambientes de luxo e muito mais</p>
+
         <div className={styles.categoriasCards}>
             {categorias.map((item) => (
               getNumProds(item.id) > 0 ? (

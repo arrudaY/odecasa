@@ -1,8 +1,9 @@
 import styles from "./Footer.module.css";
-import facebook from "../../Data/facebook.png"
-import linkedin from "../../Data/linkedin.png"
-import twiter from "../../Data/twiter.png"
-import instagram from "../../Data/instagram.png"
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+
 
 const Footer = () => {
 
@@ -11,10 +12,10 @@ const Footer = () => {
         <div className={styles.footerContainer}>
           <p className={styles.footerCopyright}>© 2023 - Digital Booking</p>
           <div className={styles.footerRedes}>
-            <img className={styles.footerRedesImg} src={facebook}/>
-            <img className={styles.footerRedesImg} src={linkedin}/>
-            <img className={styles.footerRedesImg} src={twiter}/>
-            <img className={styles.footerRedesImg} src={instagram}/>
+            <InstagramIcon        sx={{ color: "black" }}/>
+            <TwitterIcon          sx={{ color: "black" }}/>
+            <YouTubeIcon          sx={{ color: "black" }}/>
+            <FacebookRoundedIcon  sx={{ color: "black" }}/>
           </div>
         </div>
       </footer>

@@ -4,6 +4,8 @@
     justify-content: space-evenly;
     font-family: "Roboto";
     background-color: var(--color-3);
+    height: calc(100vh - 58px - 80px);
+    align-items: center;
 }
 
 .categContainer2{
@@ -13,6 +15,7 @@
     font-family: "Roboto";
     background-color: var(--color-3);
     padding-bottom: 68px;
+    align-items: center;
 }
 
 .categCards{
@@ -23,17 +26,14 @@
 }
 
 .categTitulo{
+    justify-content: center;
     margin-left: 10px;
 }
 
-@media(min-width: 1480px) {
-    .categContainer2{
-        height: calc(100vh - 58px - 60px);
-    }
-}
+
 
 @media(min-width: 498px) {
     .categContainer1{
-        height: calc(100vh - 58px - 60px);
+        height: calc(100vh - 58px - 80px);
     }
 }

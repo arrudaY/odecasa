@@ -40,7 +40,8 @@ const Body = () => {
       <body>
         <div className={styles.bodyContainer}>
           <Categorias />
-          <h2>Recomendações</h2>
+          <h3>Recomendações</h3>
+          <p>Explore acomodações incríveis</p>
           <div className={styles.bodyCards}>
             {produtos.map((item) => (
                   <CardBusca key={item.id} produto={item} />
