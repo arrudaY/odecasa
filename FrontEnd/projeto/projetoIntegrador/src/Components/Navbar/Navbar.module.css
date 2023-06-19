@@ -1,127 +1,166 @@
-.navBarContainer
-{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-family: "Roboto";
-  background-color: var(--color-6);
-  height: 80px;
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@500&family=Roboto:wght@500&family=Vina+Sans&display=swap');
+
+*{
+  margin:           0;
+  padding:          0;
+  box-sizing:       border-box;
+}
+
+.navBarContainer {
+  display:          flex;
+  flex-direction:   row;
+  justify-content:  space-between;
+  align-items:      center;
+  width:            100%;
+  background-color: white; /*TODO*/
 }
 
 .navBarLogo{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
 }
 
-.navBarLogo h2{
-  color: var(--color-9);
-  font-size: 32px;
-  line-height: 28px;
-  font-family: 'Vina Sans', cursive;
-  letter-spacing: 1px;
-  margin-left: 20px;
+.navBarLogo h2 {
+  font-family:      'Vina Sans', cursive;
+  font-style:       normal;
+  font-weight:      400;
+  line-height:      28px;
+  font-size:        32px;
+  color:            black; /*TODO*/
+}
+
+.navBarLogo .link {
+  text-decoration:  none;
 }
 
 .navBarBotoes{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-right: 20px;
+  display:          flex;
+  flex-direction:   row;
+  align-items:      flex-end;
+  gap:              10px;
 }
 
-.navBarIcon {
-  height: 60px;
-  width: 20px;
-  display: flex;
-  background-color: var(--color-3); 
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
+.navBarBotoes button {
+  width:            fit-content;
+  height:           40px;
+  padding:          0px 24px;
+  border:           1px solid black; /*TODO*/
+  background-color: white;
+  color:            black;
+  border-radius:    100px;
+  cursor:           pointer;
+  font-family:      'Roboto', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        14px;
+  line-height:      20px;
 }
 
-.navBarIcon .icon {
-  position: fixed;
-  color: white;
-  width: 30px;
-  height: 30px;
-  margin: 32px;
-  cursor: pointer;
+.navBarBotoes button + button {
+  width:            87px;
+  background-color: black; /*TODO*/
+  color:            white;
 }
 
-.navBarLogoImg{
-  width: 50px;
-  height: 45px;
-  margin: 15px 10px 10px 10px;
+.sidebarBTN {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  height:           36px;
+  width:            36px;
+  cursor:           pointer;
+  background-color: white; /*TODO*/
+  color:            black;
+  border-radius:    50%;
+
 }
 
-.navBarBtn{
-  height: 40px;
-  width: 150px;
-  margin: 5px;
-  background-color: var(--color-7);
-  border-radius: 20px;
-  border-color: var(--color-4);
-  color: white;
-  box-shadow: 1px 1px 2px grey;
-  transition: all 0.6s;
+.wcMessage {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  justify-content:  center;
+  gap:              15px;
+  cursor:           pointer;
+  width:            fit-content;
+  height:           40px;
+  font-family:      'Overpass', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        16px;
+  line-height:      24px;
+  text-align:       center;
+  letter-spacing:   0.15px;
+
 }
 
-.navBarBtn:hover {
-  background-color: var(--color-10);
-  opacity: 0.8;
+.navBarAvatar {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  gap:              15px;
+  
 }
 
-.navBarBtn:first-child{
-  background-color: var(--color-3);
-  color: var(--color-5);
-  border-color: black;
+.navBarWelcome {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  justify-content:  center;
+  gap:              15px;
+  font-family:      'Overpass', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        16px;
+  line-height:      24px;
+  background-color: white;
+  color:            black;
 }
 
-.navBarBtn:first-child:hover {
-  background-color: var(--color-10);
-  color: white;
-  opacity: 0.8;
-}
-
-.navBarAvatar{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.navBarAvatar p{
-  font-size: 18px;
-  color: black;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.navBarAvatarImg{
-  width: 40px;
-  height: 40px;
-}
-
-.hamburguer {
-  height: 40px;
-  width: 40px;
+.avatar {
+  background-color: rgba(85, 129, 251, 1); /*TODO*/
+  color:            white;
+  border-radius:    50%;
+  font-size:        18px;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            40px;
+  height:           40px;
+  font-family:      'Roboto', sans-serif;
+  font-weight:      500;
 }
 
 @media (max-width:414px) {
+  .navBarContainer {
+    padding:        0px 20px;
+    height:         50px;
+  }
+  .navBarLogo h2{
+    font-size:      24px;
+  }
   .navBarBotoes {
-    display: none;
-  }
-  .navBarLogo h2 {
-    margin-left: 10px;
+    display:        none;
   }
 }
 
-@media (max-width: 570px) {
-  .navBarLogo h2 {
-    margin-left: 10px;
+@media (min-width:415px) and (max-width: 1279px) {
+  .navBarContainer{
+    padding:        0px 32px;
+    height:         80px;
+  }
+  .navBarLogo h2{
+    font-size:      32px;
   }
 }
 
+@media(min-width: 1280px) {
+  .navBarContainer{
+    padding:        0px 150px;
+    height:         80px;
+  }
+  .navBarLogo h2{
+    font-size:      32px;
+  }
+}
