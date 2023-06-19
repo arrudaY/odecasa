@@ -12,13 +12,13 @@
 
 .cardBuscaImg{
     width: 300px;
-    height: 300px;
+    height: 350px;
     border-radius: 10px 0 0 10px;
     object-fit: cover;
 }
 
 .cardBuscaDetalhes{
-    width: 400px;
+    width: 390px;
     margin: 20px;
     display: flex;
     flex-direction: column;

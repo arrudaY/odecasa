@@ -52,4 +52,8 @@
     opacity: 1;
 }
 
-
+@media (max-height: 520px){
+    .reservaConcluidaContainer{
+        height: 375px;
+    }
+}

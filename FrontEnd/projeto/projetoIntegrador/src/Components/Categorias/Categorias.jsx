@@ -43,13 +43,20 @@ const Categorias = () => {
         <h2>Buscar por tipo de acomodação</h2>
         <div className={styles.categoriasCards}>
             {categorias.map((item) => (
+              getNumProds(item.id) > 0 ? (
                 <div key={item.id} className={styles.categoriasCard}>
-                    <Link to={`/categoria/${item.id}`}>
-                      <img className={styles.categoriasImg} src={item.urlImagem}/>
-                      <h2>{item.descricao}</h2>
-                      <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
-                    </Link>
-                </div>
+                  <Link to={`/categoria/${item.id}`}>
+                    <img className={styles.categoriasImg} src={item.urlImagem}/>
+                    <h2>{item.descricao}</h2>
+                    <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
+                  </Link>
+                </div>) : (
+                  <div key={item.id} className={styles.categoriasCard}>
+                  <img className={styles.categoriasImg} src={item.urlImagem}/>
+                  <h2>{item.descricao}</h2>
+                  <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
+                  </div>
+                )
             ))}
         </div>
     </div>
