@@ -5,6 +5,15 @@
     padding: 40px;
     align-items: center;
     justify-content: center;
+    padding-bottom: 68px;
+    height: calc(100vh - 58px - 80px);
+}
+
+.reservaCentralizar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .reserva {

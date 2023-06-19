@@ -12,11 +12,13 @@ const ReservaConcluida = () => {
 
     return(
         <div className={styles.reservaConcluidaContainer}>
-            <div className={styles.reserva}>
-                <img className={styles.vetor} src={vetor}></img>
-                <h1 className={styles.reservaConcluidaTxt}>Muito obrigado!</h1>
-                <h3 className={styles.reservaTxt}>Sua reserva foi realizada com sucesso</h3>
-                <button className={styles.reservaConcluidaBtn} onClick={handleVoltarInicio}>OK</button>
+            <div className={styles.reservaCentralizar}>
+                <div className={styles.reserva}>
+                    <img className={styles.vetor} src={vetor}></img>
+                    <h1 className={styles.reservaConcluidaTxt}>Muito obrigado!</h1>
+                    <h3 className={styles.reservaTxt}>Sua reserva foi realizada com sucesso</h3>
+                    <button className={styles.reservaConcluidaBtn} onClick={handleVoltarInicio}>OK</button>
+                </div>
             </div>
         </div>
     )

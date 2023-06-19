@@ -6,7 +6,7 @@
     font-family: "Roboto";
     align-items: center;
     padding-bottom: 68px;
-    height: calc(100vh - 58px - 60px);
+    height: calc(100vh - 58px - 80px);
 }
 
 .loginErroRes{
