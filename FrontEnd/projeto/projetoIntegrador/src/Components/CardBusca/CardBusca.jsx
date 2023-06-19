@@ -1,5 +1,7 @@
 import styles from "./CardBusca.module.css";
 import { useNavigate } from "react-router-dom";
+import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+import StarRateIcon from '@mui/icons-material/StarRate';
 
 const CardBusca = (props) => {
   const navigate = useNavigate();
@@ -9,17 +11,57 @@ const CardBusca = (props) => {
   }
 
   return (
+
     <div className={styles.cardBuscaContainer}>
-        <img src={props.produto.imagemList[0].url} className={styles.cardBuscaImg}/>
-        <div className={styles.cardBuscaDetalhes}>
-          <div className={styles.cardBuscaInfo}>
+
+      <img src={props.produto.imagemList[0].url} className={styles.cardBuscaImg}/>
+      
+      <div className={styles.cardDetalhes}>
+
+        <div className={styles.cardHeader}>
+
+          <div className={styles.cardSubHeader}>
+
             <h3>{props.produto.categoria.descricao}</h3>
-            <h2>{props.produto.nome}</h2>
-            <p>{props.produto.cidade.nome}, {props.produto.cidade.pais}</p>
-            <p className={styles.cardBuscaDescricao}>{props.produto.descricao}</p>
+            
+            <div className={styles.cardAvaliacao}>
+
+              <div className={styles.cardClassificacao}>
+                <span>Excelente</span>
+                <div className={styles.cardStarsRate}>
+                  <StarRateIcon sx={{ fontSize: 12 }}/>
+                  <StarRateIcon sx={{ fontSize: 12 }}/>
+                  <StarRateIcon sx={{ fontSize: 12 }}/>
+                  <StarRateIcon sx={{ fontSize: 12 }}/>
+                  <StarRateIcon sx={{ fontSize: 12 }}/>
+                </div>
+              </div>
+
+              <div className={styles.cardNota}>
+                <span>9.0</span>
+              </div>
+            </div>
           </div>
-            <button onClick={acessar} className={styles.cardBuscaBtn}>Ver mais detalhes</button>
+
+          <div className={styles.cardTitulo}>
+            <h2>{props.produto.nome}</h2>
+          </div>
+
+          <div className={styles.cardEndereco}>
+            <PlaceOutlinedIcon />
+            <p>{props.produto.cidade.nome}, {props.produto.cidade.pais}</p>
+          </div>
+
         </div>
+
+        <div className={styles.cardDescricao}>
+          <p>{props.produto.descricao}</p>
+        </div>
+
+        <div className={styles.cardBtn}>
+          <button onClick={acessar}>Ver mais</button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -2,14 +2,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     background-color: var(--color-3);
+    gap: 10px;
 }
 
-.categoriasContainer h2{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+.categoriasContainer h1{
+    height:                 28px;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            400;
+    font-size:              22px;
+    line-height:            28px;
+    color:                  #212121; /*TODO*/
 }
 
 .categoriasCards{
@@ -27,25 +32,37 @@
     justify-content: space-evenly;
     font-family: "Roboto";
     background-color: var(--color-6);
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px grey;
-    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);    margin-bottom: 25px;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
 }
 
 .categoriasImg{
-    width: 355px;
-    height: 300px;
+    width: 258px;
+    height: 214px;
     border-radius: 10px 10px 0 0;
     object-fit: cover;
+}
+.categoriasCard h2{
+    height:                 24px;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            500;
+    font-size:              16px;
+    line-height:            24px;
+    display:                flex;
+    align-items:            center;
+    letter-spacing:         0.15px;
+    color:                  #212121; /*TODO*/
 }
 
 .categoriasCard p{
     color: var(--color-7);
     margin-left: 10px;
     padding-bottom: 10px;
+    
 }
 
 @media (max-width: 768px) {
@@ -77,3 +94,5 @@
         padding : 0;
     }
 }
+
+
