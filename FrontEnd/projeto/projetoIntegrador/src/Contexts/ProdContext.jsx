@@ -5,6 +5,7 @@ export const ProdContext = createContext({});
 const ProdProvider = ({ children }) => {
   const [id, setId] = useState(-1);
   const [produto, setProduto] = useState({});
+  const [produtos, setProdutos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const ProdProvider = ({ children }) => {
 
   return (
     <ProdContext.Provider
-      value={{ saveId, salvarProduto, produto, id, isLoading, salvarLoading }}
+      value={{ produtos, setProdutos, saveId, salvarProduto, produto, id, isLoading, salvarLoading }}
     >
       {children}
     </ProdContext.Provider>

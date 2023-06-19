@@ -2,8 +2,11 @@ import styles from "./Categorias.module.css";
 import api from "../../Services/api";
 import { useEffect , useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ProdContext } from "../../Contexts/ProdContext";
 
 const Categorias = () => {
+    const { produtos } = useContext(ProdContext);
     const [categorias, setCategorias] = useState([]);
     const navigate = useNavigate();
 
@@ -21,6 +24,15 @@ const Categorias = () => {
           console.log(error)
         }
     }
+
+    function getNumProds(idCat){
+      var numProds = 0;
+      for(var i = 0; i < produtos.length; i++){
+        if(produtos[i].categoria.id == idCat)
+          numProds++;
+      }
+      return numProds;
+    }
     
     useEffect(() => {
         getCategorias();    
@@ -35,7 +47,7 @@ const Categorias = () => {
                     <Link to={`/categoria/${item.id}`}>
                       <img className={styles.categoriasImg} src={item.urlImagem}/>
                       <h2>{item.descricao}</h2>
-                      <p>X acomodações</p>
+                      <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
                     </Link>
                 </div>
             ))}

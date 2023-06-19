@@ -3,9 +3,11 @@ import styles from "./Body.module.css";
 import CardBusca from "../CardBusca/CardBusca"
 import api from "../../Services/api";
 import { useEffect , useState} from "react";
+import { useContext } from "react";
+import { ProdContext } from "../../Contexts/ProdContext";
 
 const Body = () => {
-  const [produtos, setProdutos] = useState([]);
+  const { produtos, setProdutos } = useContext(ProdContext);
   const [isLoading, setIsLoading] = useState(true);
 
   async function getProdutos(){
