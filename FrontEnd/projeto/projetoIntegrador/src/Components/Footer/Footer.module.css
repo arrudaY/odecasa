@@ -10,6 +10,7 @@
     height:             46px;
     background-color:   white /*TODO*/;
     border:             0.5px solid lightgray;
+    z-index: 1;
 }
 
 .footerRedes{

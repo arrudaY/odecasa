@@ -44,13 +44,26 @@ const Categorias = () => {
     getCategorias();
     const swiperContainer = swiperRef.current;
     const params = {
-      slidesPerView: 4,
-      spaceBetween: 20,
+    
+      pagination: {
+        clickable: true},
+      spaceBetween: 10,
       navigation: true,
-      pagination: true,
       mousewheel: true,
-      grabCursor: true,
 
+      breakpoints: {
+        390: {
+          slidesPerView: 1.5,
+        },
+        470: {
+          slidesPerView: 2.5,
+        },
+        660: {
+          slidesPerView: 4,
+          spaceBetween: 10,
+        },
+      },
+      
       injectStyles: [
         `
           .swiper-button-next,
@@ -64,6 +77,8 @@ const Categorias = () => {
           .swiper-button-next:hover,
           .swiper-button-prev:hover {
             box-shadow:       0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
           }
          
         `,
@@ -84,7 +99,7 @@ const Categorias = () => {
           getNumProds(item.id) > 0 ? (
             <swiper-slide>
               <div key={item.id} className={styles.categoriasCard}>
-                <Link to={`/categoria/${item.id}`}>
+                <Link to={`/categoria/${item.id}`} className={styles.link}>
                   <img className={styles.categoriasImg} src={item.urlImagem}/>
                   <h1>{item.descricao}</h1>
                   <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
@@ -101,6 +116,7 @@ const Categorias = () => {
               </swiper-slide>
           )))}
       </swiper-container>
+
       
     </div>
   );
