@@ -10,7 +10,7 @@ const Footer = () => {
   return (
       <footer className="sticky-bottom">
         <div className={styles.footerContainer}>
-          <p className={styles.footerCopyright}>© 2023 - Digital Booking</p>
+          <p className={styles.footerCopyright}>© 2023 ôdecasa</p>
           <div className={styles.footerRedes}>
             <InstagramIcon        sx={{ color: "black" }}/>
             <TwitterIcon          sx={{ color: "black" }}/>
