@@ -31,7 +31,8 @@ public class WebSecurityConfig
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
 	{
-		return http.csrf()
+		return http.cors().and() // Enable CORS
+				   .csrf()
 		           .disable()
 		           .sessionManagement()
 		           .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
