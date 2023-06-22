@@ -4,8 +4,6 @@ import { useEffect , useState, useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ProdContext } from "../../Contexts/ProdContext";
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 import { register } from "swiper/element/bundle";
 register();
@@ -52,16 +50,24 @@ const Categorias = () => {
       mousewheel: true,
 
       breakpoints: {
-        390: {
+        360: {
           slidesPerView: 1.5,
         },
         470: {
           slidesPerView: 2.5,
         },
-        660: {
+        650: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        1020:{
           slidesPerView: 4,
           spaceBetween: 10,
         },
+        1450:{
+          slidesPerView: 5,
+          spaceBetween: 10,
+        }
       },
       
       injectStyles: [

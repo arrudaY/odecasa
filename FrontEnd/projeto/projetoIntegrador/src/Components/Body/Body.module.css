@@ -1,15 +1,52 @@
-.bodyContainer{
+.bodyContainer {
     display:            flex;
     flex-direction:     column;
-    background-color:   var(--color-3);
-    /*z-index: 5;*/
+    background-color:   var(--color-3); /*TODO*/
 }
 
+.sectionTitle {
+    font-family:        'Overpass', sans-serif;
+    font-style:         normal;
+    font-weight:        400;
+    font-size:          22px;
+    line-height:        28px;
+    color:              #212121; /*TODO*/
+    margin-top:         30px;
+}
+
+.sectionDescription {
+    font-family:        'Roboto', sans-serif;
+    font-style:         normal;
+    font-weight:        400;
+    font-size:          14px;
+    line-height:        16px;
+    color:              #212121; /*TODO*/
+    margin-top:         6px;
+}
 
 .bodyCards{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 10px;
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    justify-content: center;
+    gap: 10px;
+    margin:             12px 0px 80px;
+}
+
+@media (max-width: 414px) {
+    .sectionTitle, .sectionDescription, .bodyCards {
+        padding:        0px 20px;
+    }    
+}
+
+@media (min-width:415px) and (max-width: 1279px) {
+    .sectionTitle, .sectionDescription, .bodyCards {
+        padding:        0px 32px;
+    }
+}
+
+@media(min-width: 1280px) {
+    .sectionTitle, .sectionDescription, .bodyCards {
+        padding:        0px 150px;
+    }
 }

@@ -11,19 +11,19 @@ const Body = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   async function getProdutos(){
-      try {
-        const response = await api.get("/produto",
-        { headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        }});
-        console.log(response.data);
-        setProdutos(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error)
-      }
+    try {
+      const response = await api.get("/produto",
+      { headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }});
+      console.log(response.data);
+      setProdutos(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   useEffect(() => {
@@ -33,22 +33,21 @@ const Body = () => {
   if(isLoading){
     return(
       <div className={styles.bodyContainer}></div>
-    );
-  }
+  )}
 
   return (
-      <body>
-        <div className={styles.bodyContainer}>
-          <Categorias />
-          <h3>Recomendações</h3>
-          <p>Explore acomodações incríveis</p>
-          <div className={styles.bodyCards}>
-            {produtos.map((item) => (
-                  <CardBusca key={item.id} produto={item} />
-            ))}
-          </div>
+    <body>
+      <div className={styles.bodyContainer}>
+        <Categorias />
+        <h2 className={styles.sectionTitle}>Recomendações</h2>
+        <p className={styles.sectionDescription}>Explore acomodações incríveis</p>
+        <div className={styles.bodyCards}>
+          {produtos.map((item) => (
+                <CardBusca key={item.id} produto={item} />
+          ))}
         </div>
-      </body>
+      </div>
+    </body>
   );
 };
 
