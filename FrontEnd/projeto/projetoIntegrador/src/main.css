@@ -21,6 +21,11 @@
     --color-9: #212121;
     --color-10: #5581FB;
     --color-11: #E9F0FD;
+
+    /*Carrossel de categorias*/
+    --swiper-navigation-size: 24px;
+    --swiper-navigation-top-offset: 40%;
+    --swiper-navigation-sides-offset: 10px;
 }
 
 .material-symbols-rounded {

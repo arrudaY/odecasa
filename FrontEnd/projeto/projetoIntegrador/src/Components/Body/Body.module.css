@@ -1,17 +1,10 @@
 .bodyContainer{
-    display: flex;
-    flex-direction: column;
-    font-family: "Roboto";
-    background-color: var(--color-3);
-    z-index: 5;
-    padding: 10px;
-    margin-bottom: 100px;
+    display:            flex;
+    flex-direction:     column;
+    background-color:   var(--color-3);
+    /*z-index: 5;*/
 }
 
-.bodyContainer h2{
-    margin-left: 10px;
-    margin-top: 10px;
-}
 
 .bodyCards{
     display: flex;
@@ -19,24 +12,4 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 10px;
-}
-
-.bodyContainer h3 {
-    font-family:            'Overpass', sans-serif;
-    font-style:             normal;
-    font-weight:            400;
-    font-size:              22px;
-    line-height:            28px;
-    margin-bottom:          8px;
-    color:                  #212121;
-}
-
-.bodyContainer p {
-    font-family:            'Roboto', sans-serif;
-    font-style:             normal;
-    font-weight:            400;
-    font-size:              12px;
-    line-height:            16px;
-    margin-bottom:          20px;
-    color:                  #212121;
 }
