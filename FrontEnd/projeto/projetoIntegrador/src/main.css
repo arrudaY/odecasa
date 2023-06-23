@@ -50,12 +50,6 @@
     z-index: 10;
 }
 
-.sticky-bottom {
-    bottom:0;
-    width: 100%;
-    z-index:10;
-}
-
 .link{
     text-decoration: none;
 }
@@ -87,7 +81,7 @@ h3{
     height:100%;
     position:relative;
 }
-
+/*
 .star {
     font-size: x-large;
     width: 14px;
@@ -119,7 +113,7 @@ h3{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+*/
 @media (max-width: 414px) {
     .sticky-buscador {
         position: relative;
