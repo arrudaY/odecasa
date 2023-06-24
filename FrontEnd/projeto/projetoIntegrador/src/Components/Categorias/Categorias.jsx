@@ -83,8 +83,8 @@ const Categorias = () => {
           .swiper-button-next:hover,
           .swiper-button-prev:hover {
             box-shadow:       0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-            -webkit-transition: 0.3s;
-            transition: 0.3s;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
           }
          
         `,

@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@500&family=Roboto:wght@500&display=swap');
 
-*{
-  margin:             0;
-  padding:            0;
-  list-style:         none;
-  text-decoration:    none;
-}
-
 .menuOpen {
   display:            flex;
   flex-direction:     column;

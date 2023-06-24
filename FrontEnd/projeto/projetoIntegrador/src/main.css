@@ -40,15 +40,17 @@
     position: sticky;
     top: 0;
     width: 100%;
-    z-index:10;
+    z-index:5;
 }
 
+/*
 .sticky-buscador{
     position: sticky;
     top: 80px;
     width: 100%;
     z-index: 10;
 }
+*/
 
 .link{
     text-decoration: none;
@@ -58,10 +60,12 @@ button{
     font-size: 16px;
 }
 
+/*
 h1{
     color: black;
     font-size: 35px;
 }
+*/
 
 h2{
     font-size: 25px;

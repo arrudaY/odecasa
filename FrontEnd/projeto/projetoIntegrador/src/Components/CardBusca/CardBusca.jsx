@@ -2,7 +2,6 @@ import styles from "./CardBusca.module.css";
 import { useNavigate } from "react-router-dom";
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import Rating from '@mui/material/Rating';
-import { blue } from "@mui/material/colors";
 
 const CardBusca = (props) => {
   const navigate = useNavigate();

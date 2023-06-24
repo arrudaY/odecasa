@@ -2,8 +2,12 @@
 
 .cardBuscaContainer{
     display:            flex;
-    border:             1px solid #CAC4D0;
+    flex-direction:     column;
+    align-items:        center;
+    border:             1px solid #CAC4D0; /**/
     border-radius:      12px;
+    width:              100%;
+    max-height:         480px;
 }
 
 .cardDetalhes{
@@ -11,7 +15,8 @@
     flex-direction:     column;
     align-items:        center;
     padding:            16px;
-    gap:                12px;
+    gap:                14px;
+    width:              100%;
 }
 
 .cardHeader {
@@ -19,6 +24,7 @@
     flex-direction:     column;
     align-items:        flex-start;
     gap:                8px;
+    width:              100%;
     height:             100px;
 }
 
@@ -27,7 +33,7 @@
     flex-direction:     row;
     justify-content:    space-between;
     align-items:        center;
-    width:              318px;
+    width:              100%;
     height:             45px;
 }
 
@@ -37,7 +43,7 @@
     justify-content:    center;
     align-items:        flex-start;
     gap:                5px;
-    width:              218px;
+    width:              100%;
     height:             45px;
 }
 
@@ -123,8 +129,9 @@
     display:            flex;
     flex-direction:     row;
     align-items:        center;
-    justify-content:    center;
+    justify-content:    flex-start;
     gap:                8px;
+    width:              100%;
     font-family:        'Roboto';
     font-style:         normal;
     font-weight:        400;
@@ -135,6 +142,10 @@
 
 .cardEndereco p {
     color:              #757575; /*TODO*/
+}
+
+.cardDescricao {
+    justify-content:    flex-start;
 }
 
 .cardDescricao p {
@@ -160,7 +171,7 @@
     display:            flex;
     flex-direction:     row;
     justify-content:    flex-end;
-    width:              318px;
+    width:              100%;
     height:             40px;
 }
 
@@ -194,41 +205,18 @@
 }
 
 @media (max-width: 630px) {
-
-    .cardBuscaContainer{
-        flex-direction: column;
-        align-items:    center;
-        width:          100%;
-        max-height:     480px;
-    }
-    
-    .cardBuscaImg{
+    .cardBuscaImg {
         width:          100%;
         height:         216px;
         object-fit:     cover;
-        border-radius:  12px 12px 0px 0px;
+        border-radius:  11px 11px 0px 0px;
     }
-    
-    .cardDetalhes {
-        width:          100%;
-    }
-
-    .cardHeader, .cardTitulo, .cardSubHeader, .cardEndereco, .cardDescricao p , .cardBtn{
-        width:          100%;
-    }
-    .cardEndereco, .cardDescricao {
-        justify-content:flex-start;       
-    }
-
 }
 
 @media (min-width:631px) and (max-width: 880px) {
 
     .cardBuscaContainer{
-        flex-direction: column;
-        align-items:    center;
         width:          48.5%;
-        max-height:     480px;
     }
     
     .cardBuscaImg{
@@ -236,45 +224,20 @@
         height:         216px;
         object-fit:     cover;
         border-radius:  12px 12px 0px 0px;
-    }
-    
-    .cardDetalhes {
-        width:          100%;
-    }
-
-    .cardHeader, .cardTitulo, .cardSubHeader, .cardEndereco, .cardDescricao p , .cardBtn{
-        width:          100%;
-    }
-    .cardEndereco, .cardDescricao {
-        justify-content:flex-start;       
     }
 }
 
 @media (min-width:881px) and (max-width: 1279px) {
 
     .cardBuscaContainer{
-        flex-direction: column;
-        align-items:    center;
         width:          32%;
-        max-height:     480px;
     }
     
     .cardBuscaImg{
         width:          100%;
         height:         216px;
         object-fit:     cover;
-        border-radius:  12px 12px 0px 0px;
-    }
-    
-    .cardDetalhes {
-        width:          100%;
-    }
-
-    .cardHeader, .cardTitulo, .cardSubHeader, .cardEndereco, .cardDescricao p , .cardBtn{
-        width:          100%;
-    }
-    .cardEndereco, .cardDescricao {
-        justify-content:flex-start;       
+        border-radius:  11px 11px 0px 0px;
     }
 }
 
@@ -295,18 +258,10 @@
 
     .cardDetalhes {
         width:          50%;
-        padding:        16px;
         gap:            16px;
     }
-
-    .cardHeader, .cardTitulo, .cardSubHeader, .cardEndereco, .cardDescricao p , .cardBtn{
-        width:          100%;
-    }
-
-    .cardEndereco{
-        justify-content:flex-start;       
-    }
 }
+
 @media(min-width: 1751px) {
 
     .cardBuscaContainer {
@@ -324,15 +279,6 @@
 
     .cardDetalhes {
         width:          50%;
-        padding:        16px;
         gap:            16px;
-    }
-
-    .cardHeader, .cardTitulo, .cardSubHeader, .cardEndereco, .cardDescricao p , .cardBtn{
-        width:          100%;
-    }
-
-    .cardEndereco{
-        justify-content:flex-start;       
     }
 }
