@@ -103,7 +103,7 @@ const Categorias = () => {
       <swiper-container ref={swiperRef} init="false">
         {categorias.map((item) => (
           getNumProds(item.id) > 0 ? (
-            <swiper-slide>
+            <swiper-slide key={item.id}>
               <div key={item.id} className={styles.categoriasCard}>
                 <Link to={`/categoria/${item.id}`} className={styles.link}>
                   <img className={styles.categoriasImg} src={item.urlImagem}/>
@@ -113,7 +113,7 @@ const Categorias = () => {
               </div>
             </swiper-slide>
             ) : (
-              <swiper-slide>
+              <swiper-slide key={item.id}>
                 <div key={item.id} className={styles.categoriasCard}>
                   <img className={styles.categoriasImg} src={item.urlImagem}/>
                   <h1>{item.descricao}</h1>

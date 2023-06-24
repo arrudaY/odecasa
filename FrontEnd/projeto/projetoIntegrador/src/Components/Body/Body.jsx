@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { ProdContext } from "../../Contexts/ProdContext";
 
 const Body = () => {
-  const { produtos, setProdutos } = useContext(ProdContext);
+  const { produtos, setProdutos, setProdutosBusca } = useContext(ProdContext);
   const [isLoading, setIsLoading] = useState(true);
 
   async function getProdutos(){
@@ -18,8 +18,9 @@ const Body = () => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       }});
-      console.log(response.data);
+      console.log("Body", response.data);
       setProdutos(response.data);
+      setProdutosBusca(response.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error)

@@ -3,36 +3,47 @@ import api from "../../Services/api";
 import { useEffect , useState} from "react";
 import { useParams } from "react-router-dom";
 import CardBusca from "../CardBusca/CardBusca"
+import { useContext } from "react";
+import { ProdContext } from "../../Contexts/ProdContext";
 
-const CidadeProds = () => {    
+const CidadeProds = (props) => {    
     const { id } = useParams();
-    const [produtos, setProdutos] = useState([]);
+    const { produtos, produtosBusca } = useContext(ProdContext);
     const [isLoading, setIsLoading] = useState(true);
     const [nomeCidade, setNomeCidade] = useState("");
   
-    async function getProdutos(idAux){
+    async function getCidade(idAux){
         try {
-          const response = await api.get("/produto/findByCidade", { params: { id: idAux }},
+          const response = await api.get("/cidade",
           { headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           }});
-          console.log(response.data);
-          setProdutos(response.data);
-          setNomeCidade(response.data[0].cidade.nome + ", " + response.data[0].cidade.pais);
+          console.log("Cidades", response.data);
+          console.log("Cidades Id", idAux);
+          const cidades = response.data;
+          for(var i = 0; i < cidades.length; i++){
+            if(cidades[i].id == idAux)
+            {
+              setNomeCidade(cidades[i].nome + ", " + cidades[i].pais);
+              console.log("Nome da cidade " + cidades[i].nome + ", " + cidades[i].pais);
+              break;
+            }
+          }
           setIsLoading(false);
+          console.log(produtosBusca);
         } catch (error) {
           console.log(error)
         }
     }
     
     useEffect(() => {
-        if(id !== undefined)
-          getProdutos(id);  
+        if(id != undefined)
+          getCidade(id);  
         else
-            setIsLoading(true);  
-    }, [id, isLoading]);
+          setIsLoading(true);  
+    }, [id]);
   
     if(isLoading){
       return(
@@ -41,10 +52,10 @@ const CidadeProds = () => {
     }
 
     return (
-        <div className={produtos.length > 1 ? styles.cidadeContainer2 : styles.cidadeContainer1}>
+        <div className={produtosBusca.length > 1 ? styles.cidadeContainer2 : styles.cidadeContainer1}>
             <h1 className={styles.cidadeTitulo}>{nomeCidade}</h1>
             <div className={styles.cidadeCards}>
-                {produtos.map((item) => (
+                {produtosBusca.map((item) => (
                   <CardBusca key={item.id} produto={item} />
                 ))}
             </div>

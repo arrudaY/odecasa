@@ -13,14 +13,22 @@ import {
 } from 'react-icons/im'
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/api";
+import { useContext } from "react";
+import { ProdContext } from "../../Contexts/ProdContext";
 
 const Buscador = () => {
+  const { setProdutosBusca } = useContext(ProdContext);
+
   const [termoBusca, setTermoBusca] = useState('');
   const [dadoFiltrado, setDadoFiltrado] = useState([]);
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const navigate = useNavigate();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [data, setData] = useState([]);
+  const [cidades, setCidades] = useState([]);
+  const [cidade, setCidade] = useState({});
+  const [datas, setDatas] = useState([]);
+  const [pressOk, setPressOk] = useState(false);
+  const [valueCidade, setValueCidade] = useState("");
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -37,7 +45,7 @@ const Buscador = () => {
   }, [])
 
   const filtrarDados = (termoBuscaLower) => {
-    return data.filter((item) =>
+    return cidades.filter((item) =>
       item.nome.toLowerCase().includes(termoBuscaLower) ||
       item.pais.toLowerCase().includes(termoBuscaLower)
     );
@@ -50,6 +58,7 @@ const Buscador = () => {
     setTermoBusca(value);
     setDadoFiltrado(resultadoFiltrado);
     setMostrarResultado(!!value && resultadoFiltrado.length > 0);
+    setValueCidade(value);
   };
 
   const selecionarItem = (item) => {
@@ -59,10 +68,6 @@ const Buscador = () => {
   };
 
   async function getCidades(){
-    const termoBuscaLower = termoBusca.toLowerCase();
-    const resultadoFiltrado = filtrarDados(termoBuscaLower);
-    setDadoFiltrado(resultadoFiltrado);
-    
     try {
       const response = await api.get("/cidade",
       { headers: {
@@ -70,18 +75,36 @@ const Buscador = () => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       }});
-      console.log("dado filtrado", dadoFiltrado);
-      const cidades = response.data;
-      console.log("cidades", cidades);
-      setData(cidades);
-      for(var i = 0; i < cidades.length; i++){
-        if(cidades[i].nome.toLowerCase().slice(0, dadoFiltrado[0].nome.length) === dadoFiltrado[0].nome.toLowerCase()){
-          navigate(`/cidade/${cidades[i].id}`);
-          break;
-        }
-      }
-
+      setCidades(response.data);
     } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function getProdutos(){
+    try {
+      const response = await api.get("/produto/findByCidadePeriodo", {
+        cidadeId: cidade.id,
+        dataInicio: datas[0],
+        dataFim: datas[1]
+    },{ headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }});
+      console.log(response.data);
+      const produtos = response.data;
+      if(produtos.length > 0)
+      {
+        setProdutosBusca(response.data);
+        navigate(`/cidade/${cidade.id}`);
+      }
+      else
+      {
+        alert("Não encontramos acomodações com os dados de busca informados");
+      }
+    } catch (error) {
+      alert("Não encontramos acomodações com os dados de busca informados");
       console.log(error)
     }
   }
@@ -139,6 +162,38 @@ const Buscador = () => {
     };
   }, []);
 
+  function buscar(){
+    if((valueCidade.length > 0) && pressOk)
+    {
+      for(var i = 0; i < cidades.length; i++){
+        if(cidades[i].nome.toLowerCase().slice(0, valueCidade.length) === valueCidade.toLowerCase()){
+          setCidade(cidades[i]);
+          console.log("Cidade ", cidades[i]);
+          getProdutos();
+          navigate(`/cidade/${cidades[i].id}`);
+          break;
+        }
+      }
+    }
+    else if (!(valueCidade.length > 0))
+    {
+      alert("Escolha uma cidade para a busca!");
+    }
+    else if(!pressOk)
+    {
+      alert("Escolha suas datas para a busca!");
+    }
+  }
+
+  const pegarData = dates => {
+    console.log(dates);
+    setDatas([
+      format(dates[0], "yyyy-MM-dd") + "T00:00:00",
+      format(dates[1], "yyyy-MM-dd") + "T23:59:59"
+    ])
+    setPressOk(true);
+  };
+
   return (
       <div >
         <div className={styles.buscadorContainer}>
@@ -158,6 +213,7 @@ const Buscador = () => {
               <CustomProvider className={styles.buscadorCalendar} locale={pt_BR}>
                 {windowWidth <= 756 ? (
                   <DateRangePicker
+                    onOk={pegarData}
                     placement='bottomEnd'
                     preventOverflow
                     showOneCalendar
@@ -186,6 +242,7 @@ const Buscador = () => {
                   />
                 ) : (
                   <DateRangePicker
+                    onOk={pegarData}
                     placement='bottomEnd'
                     preventOverflow
                     shouldDisableDate={(data) => {
@@ -214,7 +271,7 @@ const Buscador = () => {
                 )}
               </CustomProvider>
               
-              <button onClick={getCidades} className={styles.buscadorBtn}>Buscar</button>
+              <button onClick={buscar} className={styles.buscadorBtn}>Buscar</button>
             </div>
         </div>
       </div>

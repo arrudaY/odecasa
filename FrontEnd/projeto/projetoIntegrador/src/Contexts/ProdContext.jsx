@@ -6,6 +6,7 @@ const ProdProvider = ({ children }) => {
   const [id, setId] = useState(-1);
   const [produto, setProduto] = useState({});
   const [produtos, setProdutos] = useState([]);
+  const [produtosBusca, setProdutosBusca] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const ProdProvider = ({ children }) => {
 
   return (
     <ProdContext.Provider
-      value={{ produtos, setProdutos, saveId, salvarProduto, produto, id, isLoading, salvarLoading }}
+      value={{ produtosBusca, setProdutosBusca, produtos, setProdutos, saveId, salvarProduto, produto, id, isLoading, salvarLoading }}
     >
       {children}
     </ProdContext.Provider>
