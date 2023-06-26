@@ -49,7 +49,6 @@ const CategProds = () => {
     );
   }
 
-
   return (
     <div>
 

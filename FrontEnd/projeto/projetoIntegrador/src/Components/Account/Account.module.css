@@ -1,123 +1,178 @@
-.accountContainer{
-    z-index:5;
-    background-color: var(--color-3);
-    display: flex;
-    flex-direction: column;
-    font-family: "Roboto";
-    align-items: center;
-    height: 100vh;
-    padding-bottom: 200px;
-    height: calc(100vh - 58px - 80px);
+.accountContainer {
+    display:            flex;
+    flex-direction:     column;
+    height:             calc(100vh - 46px - 80px);
+    background-color:   var(--color-3); /*TODO*/
 }
 
-.accountForm{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.accountForm {
+    position:           absolute;
+    top:                50%;
+    left:               50%;
+    transform:          translate(-50%,-50%);
 }
 
 .accountTitle {
-    font-size: 24px;
-    color: var(--color-1);
-    text-align: center;
-    margin-bottom: 30px;
+    color:              var(--color-1);
+    text-align:         center;
+    font-size:          32px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        40px;
+    margin-bottom:      30px;
 }
 
 .accountTxt {
-    width: 448px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: #F8F9FA;
-    border: none;
-    outline: 0;
-    transition: all 0.6s;
+    width:              100%;
+    border-radius:      12px;
+    background-color:   #F8F9FA; /*TODO*/
+    border:             none;
+    outline:            0;
+    transition:         all 0.2s;
+}
+
+.accountTxt,
+.accountTxt::placeholder,
+.accountTxt::-webkit-input-placeholder {
+    color:              var(--pi-sys-light-on-surface-var, #757575);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+}
+
+.accountTxt,
+.accountBtn {
+    height:             46px;
 }
 
 .accountTxt:focus {
-    box-shadow: 0px 1.5px 5px var(--color-1);
-    border: 0 none;
-    outline: 1px;
-} 
-
-.accountTxt[type=text], .accountTxt[type=password], .accountTxt[type=email] {
-    padding: 10px;
-    box-sizing: border-box;
+    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);   
 }
 
 .accountPassword {
-    position: relative;
+    position:           relative;
 }
 
 .accountPassword span {
-    position: absolute;
-    top: 12px;
-    right: 10px;
-    cursor: pointer;
+    position:           absolute;
+    top:                10px;
+    right:              14px;
+    cursor:             pointer;
 }
 
 .accountPassword span svg {
-    width: 18px;
-    opacity: 0.8;
+    width:              18px;
+    opacity:            0.7;
+}
+
+.accountTxt[type=text],
+.accountTxt[type=password],
+.accountTxt[type=email] {
+    padding:            0px 14px;
 }
 
 .accountLabel {
-    font-size: 16px;
-    margin-bottom: 0.2em;
-    line-height: 14px;
-    opacity: 0.8;
+    display:            none;
+    font-size:          16px;
+    margin-bottom:      0.2em;
+    line-height:        14px;
+    opacity:            0.8;
 }
 
+.inputs {
+    display:            flex;
+    flex-direction:     column;
+    gap:                14px;
+}
+
+.accountName {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+    gap:                14px;
+}
+
+
 .accountBtn {
-    width: 100%;
-    height: 40px;
-    background-color: var(--color-10);
-    color: var(--color-6);
-    border-radius: 25px;
-    transition: all 0.5s;
-    border: none;
+    width:              100%;
+    background-color:   var(--color-10); /*TODO*/
+    border-radius:      25px;
+    transition:         all 0.2s;
+    border:             none;
+    color:              var(--pi-sys-light-on-primary, #FFF);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        20px;
+    letter-spacing:     0.1px;
 }
 
 .accountBtn:hover {
-    opacity: 0.8;
-}
-
-.accountFloat {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 .accountConfirm {
-    margin-top: 50px;
-    text-align: center;
+    display:            flex;
+    flex-direction:     column;
+    text-align:         center;
+    gap:                40px;
+    padding-top:        14px;
+}
+
+.link {
+    color:              var(--color-10);
+    padding:            5px 14px;
+    border-radius:      20px;
+    text-decoration:    none;
+}
+
+.accountConfirm .link{
+    text-decoration:    none;
+}
+
+.link:hover {
+    background-color:   rgba(85, 129, 251, 0.08);
 }
 
 .accountConfirm p {
-    font-size: 16px;
-    margin-top: 18px;
+    color:              var(--pi-sys-light-on-surface, #212121);
+    text-align:         center;
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+    text-decoration:    none;
 }
 
 .accountError {
-    display: block;
-    color: red;
-    font-size: 12px;
-}
-
-@media (max-width: 768px) {
-    .accountTxt, .accountBtn {
-        width: 346px;
-    }
+    display:            block;
+    color:              red;
+    font-size:          12px;
 }
 
 @media (max-width: 414px) {
-    .accountTxt, .accountBtn {
-        width: 300px;
+    .accountContainer{
+        height:         calc(100vh - 46px - 50px);
+    }
+    .accountForm {
+        width:          90%;
+    }
+    .inputs {
+        gap:            16px;
+    }
+    .accountName {
+        gap:            16px;
     }
 }
 
-@media (max-height: 687px){
-    .accountContainer{
-        height: 587px;
+@media (min-width:415px) and (max-width: 1279px) {
+    .accountForm {
+        width:          44.5%;
+    }
+}
+
+@media(min-width: 1280px) {
+    .accountForm {
+        width:          24.6%;
     }
 }
