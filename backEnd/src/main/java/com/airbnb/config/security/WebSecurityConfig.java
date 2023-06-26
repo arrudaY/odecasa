@@ -32,7 +32,7 @@ public class WebSecurityConfig
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
 	{
 		return http.cors().and() // Enable CORS
-				   .csrf()
+		           .csrf()
 		           .disable()
 		           .sessionManagement()
 		           .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -44,10 +44,12 @@ public class WebSecurityConfig
 		           .permitAll()
 		           .requestMatchers(HttpMethod.POST, "/usuario")
 		           .permitAll()
+		           .requestMatchers(HttpMethod.POST, "/produto/findByCidadePeriodo")
+		           .permitAll()
 		           .anyRequest().authenticated()
 		           .and()
-			       .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)//troca a ordem do filtro para autenticar antes do
-			       // filtro do spring(verifica se tá autenticado, mas o nosso filtro é que autentica, então nunca deixaria passar)
+		           .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)//troca a ordem do filtro para autenticar antes do
+		           // filtro do spring(verifica se tá autenticado, mas o nosso filtro é que autentica, então nunca deixaria passar)
 		           .build();
 	}
 	
@@ -69,4 +71,3 @@ public class WebSecurityConfig
 //.requestMatchers(HttpMethod.GET, "/usuario").hasRole("ADMIN")
 //.requestMatchers(HttpMethod.POST, "/produto").hasRole("USER")
 //.anyRequest().authenticated()     //qualquer outra requisição, requer autenticação
-
