@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { ProdContext } from "../../Contexts/ProdContext";
 
 const Body = () => {
-  const { produtos, setProdutos, setProdutosBusca } = useContext(ProdContext);
+  const { produtos, setProdutos } = useContext(ProdContext);
   const [isLoading, setIsLoading] = useState(true);
 
   async function getProdutos(){
@@ -20,7 +20,6 @@ const Body = () => {
       }});
       console.log("Body", response.data);
       setProdutos(response.data);
-      setProdutosBusca(response.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error)

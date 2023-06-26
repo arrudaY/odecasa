@@ -13,6 +13,7 @@ import Cidade from "./Routes/Cidade";
 import Reserva from "./Routes/Reserva";
 import ReservaProvider from "./Contexts/ReservaContext";
 import ReservaConcluida from "./Components/ReservaConcluida/ReservaConcluida";
+import FormProduto from "./Routes/FormProduto";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
               <Route path="/cidade/:id" element={<Cidade />} />
               <Route path="/detalhes/:id/reserva" element={<Reserva />} />
               <Route path="/reserva-concluida" element={<ReservaConcluida />} />
+              <Route path="/form-produto" element={<FormProduto />} />
             </Routes>
           </main>
         </div>

@@ -83,7 +83,7 @@ const Buscador = () => {
 
   async function getProdutos(){
     try {
-      const response = await api.get("/produto/findByCidadePeriodo", {
+      const response = await api.post("/produto/findByCidadePeriodo", {
         cidadeId: cidade.id,
         dataInicio: datas[0],
         dataFim: datas[1]
@@ -92,7 +92,7 @@ const Buscador = () => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       }});
-      console.log(response.data);
+      console.log("Teste do filtro", response.data);
       const produtos = response.data;
       if(produtos.length > 0)
       {
@@ -170,7 +170,6 @@ const Buscador = () => {
           setCidade(cidades[i]);
           console.log("Cidade ", cidades[i]);
           getProdutos();
-          navigate(`/cidade/${cidades[i].id}`);
           break;
         }
       }

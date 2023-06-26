@@ -20,19 +20,15 @@ const CidadeProds = (props) => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           }});
-          console.log("Cidades", response.data);
-          console.log("Cidades Id", idAux);
           const cidades = response.data;
           for(var i = 0; i < cidades.length; i++){
             if(cidades[i].id == idAux)
             {
               setNomeCidade(cidades[i].nome + ", " + cidades[i].pais);
-              console.log("Nome da cidade " + cidades[i].nome + ", " + cidades[i].pais);
               break;
             }
           }
           setIsLoading(false);
-          console.log(produtosBusca);
         } catch (error) {
           console.log(error)
         }

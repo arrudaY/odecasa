@@ -37,6 +37,7 @@ const Menu = () => {
           <ul>
             <li>Reservas</li>
             <li>Favoritos</li>
+            <li>Criar Produto</li>
             <li onClick={logout}>Sair</li>
           </ul>
         </nav>

@@ -25,15 +25,3 @@
 .cidadeTitulo{
     margin-left: 10px;
 }
-
-@media(min-width: 1480px) {
-    .cidadeContainer2{
-        height: calc(100vh - 58px - 60px);
-    }
-}
-
-@media(min-width: 498px) {
-    .cidadeContainer1{
-        height: calc(100vh - 58px - 60px);
-    }
-}
