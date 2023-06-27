@@ -81,10 +81,10 @@ const Buscador = () => {
     }
   }
 
-  async function getProdutos(){
+  async function getProdutos(idCidade){
     try {
       const response = await api.post("/produto/findByCidadePeriodo", {
-        cidadeId: cidade.id,
+        cidadeId: idCidade,
         dataInicio: datas[0],
         dataFim: datas[1]
     },{ headers: {
@@ -97,7 +97,7 @@ const Buscador = () => {
       if(produtos.length > 0)
       {
         setProdutosBusca(response.data);
-        navigate(`/cidade/${cidade.id}`);
+        navigate(`/cidade/${idCidade}`);
       }
       else
       {
@@ -169,7 +169,7 @@ const Buscador = () => {
         if(cidades[i].nome.toLowerCase().slice(0, valueCidade.length) === valueCidade.toLowerCase()){
           setCidade(cidades[i]);
           console.log("Cidade ", cidades[i]);
-          getProdutos();
+          getProdutos(cidades[i].id);
           break;
         }
       }
