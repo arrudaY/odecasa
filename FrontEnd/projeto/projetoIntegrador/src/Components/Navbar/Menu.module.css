@@ -42,6 +42,7 @@
   border-radius: 25px;
   padding: 8px;
   color:              #212121; /*TODO*/
+  cursor: pointer;
 }
   
 .navItem li:hover {
