@@ -37,6 +37,7 @@
 @media (max-width: 414px) {
     .footerContainer{
         padding:        0px 20px;
+        position:       unset;
     }
     .footerRedes {
         display:        none;

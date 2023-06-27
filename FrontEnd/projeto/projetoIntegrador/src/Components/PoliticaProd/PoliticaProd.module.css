@@ -1,9 +1,8 @@
 .politicaContainer{
-    z-index:5;
-    background-color: var(--color-3);
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: lightblue;
 }
 
 .politicaContainer h2{

@@ -2,8 +2,12 @@
 
 .cardBuscaContainer{
     display:            flex;
-    border:             1px solid #CAC4D0;
+    flex-direction:     column;
+    align-items:        center;
+    border:             1px solid #CAC4D0; /**/
     border-radius:      12px;
+    width:              100%;
+    max-height:         480px;
 }
 
 .cardDetalhes{
@@ -11,15 +15,16 @@
     flex-direction:     column;
     align-items:        center;
     padding:            16px;
-    gap:                12px;
+    gap:                14px;
+    width:              100%;
 }
 
 .cardHeader {
     display:            flex;
     flex-direction:     column;
     align-items:        flex-start;
-    padding:            0px;
     gap:                8px;
+    width:              100%;
     height:             100px;
 }
 
@@ -28,7 +33,7 @@
     flex-direction:     row;
     justify-content:    space-between;
     align-items:        center;
-    width:              318px;
+    width:              100%;
     height:             45px;
 }
 
@@ -38,21 +43,25 @@
     justify-content:    center;
     align-items:        flex-start;
     gap:                5px;
-    width:              218px;
+    width:              100%;
     height:             45px;
 }
 
 .cardTitulo h2{
+    white-space:        nowrap; 
+    width:              100%; 
+    overflow:           hidden;
+    text-overflow:      ellipsis; 
+
     font-family:        'Overpass', sans-serif;
     font-style:         normal;
     font-weight:        500;
-    font-size:          16px;
+    font-size:          14px;
     line-height:        24px;
     display:            flex;
     align-items:        center;
     letter-spacing:     0.15px;
     color:              black; /*TODO*/
-    margin:             0;
 }
 
 .cardSubHeader h3 {
@@ -70,31 +79,22 @@
     flex-direction:     row;
     justify-content:    center;
     align-items:        center;
-    padding:            0px;
     gap:                8px;
 }
 
 .cardClassificacao {
     display:            flex;
     flex-direction:     column;
-    justify-content:    flex-end;
     align-items:        flex-end;
+}
+.cardClassificacao p {
     font-family:        'Roboto', sans-serif;
     font-style:         normal;
     font-weight:        400;
     font-size:          12px;
-    line-height:        18px;
-    color:              #000000;
-}
-
-.cardClassificacao p{
-    font-size: 14px;
-}
-
-.cardStarsRate {
-    display:            flex;
-    flex-direction:     row;
-    align-items:        center;
+    line-height:        16px;
+    margin-right:       3.5px;
+    color:              black; /*TODO*/
 }
 
 .cardNota{
@@ -129,8 +129,9 @@
     display:            flex;
     flex-direction:     row;
     align-items:        center;
-    justify-content:    center;
+    justify-content:    flex-start;
     gap:                8px;
+    width:              100%;
     font-family:        'Roboto';
     font-style:         normal;
     font-weight:        400;
@@ -141,18 +142,21 @@
 
 .cardEndereco p {
     color:              #757575; /*TODO*/
-    margin: 0;;
+}
+
+.cardDescricao {
+    justify-content:    flex-start;
 }
 
 .cardDescricao p {
     display:            flex;
     flex-direction:     column;
+    justify-content:    flex-start;
     white-space:        normal; 
     overflow:           hidden;
-    text-overflow:      ellipsis; 
-    width:              318px;
+    text-overflow:      ellipsis;
+    width:              100%;
     height:             60px;
-    margin:             0px;
     word-wrap:          break-word;
     font-family:        'Roboto', sans-serif;
     font-style:         normal;
@@ -167,7 +171,7 @@
     display:            flex;
     flex-direction:     row;
     justify-content:    flex-end;
-    width:              318px;
+    width:              100%;
     height:             40px;
 }
 
@@ -195,71 +199,86 @@
 }
 
 .cardBtn button:hover{
-    opacity:            1;
+    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    -webkit-transition: 0.3s;
+    transition:         0.3s;
 }
 
-@media (max-width: 414px) {
-
-    .cardBuscaContainer{
-        flex-direction: column;
-        align-items:    center;
-        max-height:     480px;
-    }
-    
-    .cardBuscaImg{
-        width:          350px;
+@media (max-width: 630px) {
+    .cardBuscaImg {
+        width:          100%;
         height:         216px;
         object-fit:     cover;
-        border-radius:  12px 12px 0px 0px;
+        border-radius:  11px 11px 0px 0px;
     }
-
 }
 
-@media (min-width:415px) and (max-width: 1279px) {
+@media (min-width:631px) and (max-width: 880px) {
 
     .cardBuscaContainer{
-        flex-direction: column;
-        align-items:    center;
-    }
-    .cardHeader, .cardSubHeader, .cardDescricao p, .cardBtn {
-        width: 298px;
+        width:          48.5%;
     }
     
     .cardBuscaImg{
-        width:          330px;
+        width:          100%;
         height:         216px;
         object-fit:     cover;
         border-radius:  12px 12px 0px 0px;
     }
 }
 
-@media(min-width: 1280px) {
+@media (min-width:881px) and (max-width: 1279px) {
+
+    .cardBuscaContainer{
+        width:          32%;
+    }
+    
+    .cardBuscaImg{
+        width:          100%;
+        height:         216px;
+        object-fit:     cover;
+        border-radius:  11px 11px 0px 0px;
+    }
+}
+
+@media(min-width: 1280px) and (max-width: 1750px) {
 
     .cardBuscaContainer {
         flex-direction: row;
         align-items:    flex-start;
-        max-width: 520px;
-        height:         fit-content;
-        margin: 10px 0px;
+        width:          49.1%;
     }
 
     .cardBuscaImg {
-        width:          280px;
-        height:         264px;
+        width:          50%;
+        height:         265px;
         border-radius:  10px 0px 0px 10px;
+        object-fit:     cover;
     }
 
     .cardDetalhes {
-        align-items:    flex-start;
-        padding:        16px;
+        width:          50%;
         gap:            16px;
     }
+}
 
-    .cardHeader, .cardTitulo, .cardSubHeader, .cardEndereco, .cardDescricao p , .cardBtn{
-        width:          208px;
+@media(min-width: 1751px) {
+
+    .cardBuscaContainer {
+        flex-direction: row;
+        align-items:    flex-start;
+        width:          32%;
     }
 
-    .cardEndereco{
-        justify-content:flex-start;       
+    .cardBuscaImg {
+        width:          50%;
+        height:         265px;
+        border-radius:  10px 0px 0px 10px;
+        object-fit:     cover;
+    }
+
+    .cardDetalhes {
+        width:          50%;
+        gap:            16px;
     }
 }

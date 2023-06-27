@@ -1,7 +1,7 @@
 import styles from "./CardBusca.module.css";
 import { useNavigate } from "react-router-dom";
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
-import StarRateIcon from '@mui/icons-material/StarRate';
+import Rating from '@mui/material/Rating';
 
 const CardBusca = (props) => {
   const navigate = useNavigate();
@@ -40,7 +40,18 @@ const CardBusca = (props) => {
             <div className={styles.cardAvaliacao}>
 
               <div className={styles.cardClassificacao}>
+
                 <p>{verificarAvalicao()}</p>
+
+                <Rating
+                  name="read-only"
+                  value={props.produto.qualificacao}
+                  precision={0.5}
+                  size="small"
+                  sx={{color: '#5581FB'}}
+                  readOnly />
+
+                {/*
                 <div className="stars"> 
                   <span className={`star ${props.produto.qualificacao >= 1.0 ? "on" : props.produto.qualificacao == 0.0 ? "" : "half"}`}></span>
                   <span className={`star ${props.produto.qualificacao >= 2.0 ? "on" : props.produto.qualificacao <= 1.0 ? "" : "half"}`}></span>
@@ -48,6 +59,9 @@ const CardBusca = (props) => {
                   <span className={`star ${props.produto.qualificacao >= 4.0 ? "on" : props.produto.qualificacao <= 3.0 ? "" : "half"}`}></span>
                   <span className={`star ${props.produto.qualificacao == 5.0 ? "on" : props.produto.qualificacao <= 4.0 ? "" : "half"}`}></span>
                 </div>
+                TODO */}
+
+
               </div>
 
               <div className={styles.cardNota}>

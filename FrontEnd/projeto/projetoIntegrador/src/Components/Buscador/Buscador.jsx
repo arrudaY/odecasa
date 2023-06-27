@@ -8,13 +8,14 @@ import endOfMonth from 'date-fns/endOfMonth';
 import { pt } from 'date-fns/locale'
 import styles from "./Buscador.module.css";
 import { useState, useEffect } from 'react';
-import { 
-  ImLocation
-} from 'react-icons/im'
+import { ImLocation} from 'react-icons/im'
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/api";
 import { useContext } from "react";
 import { ProdContext } from "../../Contexts/ProdContext";
+import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+
 
 const Buscador = () => {
   const { setProdutosBusca } = useContext(ProdContext);
@@ -198,17 +199,28 @@ const Buscador = () => {
         <div className={styles.buscadorContainer}>
             <h1 className={styles.buscadorTitle}>Buscar acomodações</h1>
             <div className={styles.buscadorInputs}>
-              <input className={styles.buscadorTxt} type="text" placeholder=" Local" onChange={handleInputChange} value={termoBusca} />
-              {mostrarResultado && (
-                <ul className={styles.filter}>
-                  {dadoFiltrado.map((item) => (
-                    <li key={item.id} onClick={() => selecionarItem(item.nome)}>
-                      <p className={styles.nome}><ImLocation /> {item.nome}</p>
-                      <p className={styles.pais}>{item.pais}</p>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <div className={styles.buscadorLocal}>
+                <input
+                className={styles.buscadorTxt}
+                type="text"
+                placeholder="Local"
+                onChange={handleInputChange}
+                value={termoBusca}
+                />
+                  {mostrarResultado && (
+                    <ul className={styles.filter}>
+                      {dadoFiltrado.map((item) => (
+                        <li key={item.id} onClick={() => selecionarItem(item.nome)}>
+                          <p className={styles.nome}><ImLocation /> {item.nome}</p>
+                          <p className={styles.pais}>{item.pais}</p>
+                        </li>
+                      ))}
+                    </ul>
+                )}
+                <span className={styles.pinIcon}><FmdGoodOutlinedIcon sx={{ fontSize: 18 }}/></span>
+              </div>
+              
+              
               <CustomProvider className={styles.buscadorCalendar} locale={pt_BR}>
                 {windowWidth <= 756 ? (
                   <DateRangePicker
@@ -270,7 +282,7 @@ const Buscador = () => {
                 )}
               </CustomProvider>
               
-              <button onClick={buscar} className={styles.buscadorBtn}>Buscar</button>
+              <button onClick={buscar} className={styles.buscadorBtn}><SearchOutlinedIcon sx={{ fontSize: 18 }}/> Pesquisar</button>
             </div>
         </div>
       </div>
