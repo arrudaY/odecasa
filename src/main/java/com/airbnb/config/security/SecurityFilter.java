@@ -23,7 +23,7 @@ public class SecurityFilter extends OncePerRequestFilter
 	private UsuarioRepository usuarioRepository;
 	@Autowired
 	private TokenService tokenService;
-
+	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException
 	{
@@ -44,12 +44,12 @@ public class SecurityFilter extends OncePerRequestFilter
 		//para dar sequencia na aplicação.
 		filterChain.doFilter(request, response);
 	}
-
+	
 	private String recuperarToken(HttpServletRequest request)
 	{
 		//Busco o header de "Authorization"
 		var authorizationHeader = request.getHeader("Authorization");
-
+		
 		//Se tiver esse header, retorno retorno o código, senão, retorno nulo.
 		if (authorizationHeader != null)
 		{
@@ -58,5 +58,5 @@ public class SecurityFilter extends OncePerRequestFilter
 		}
 		return null;
 	}
-
+	
 }

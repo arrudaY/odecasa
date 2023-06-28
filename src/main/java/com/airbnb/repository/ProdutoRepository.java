@@ -19,10 +19,18 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>
 	List<Produto> findByCidadeId(long id);
 	
 	
+//	@Query("SELECT p FROM Produto p JOIN Reserva r " +
+//			       "WHERE p.cidade.id = :id " +
+//			       "AND r.dataInicial >= :inicio " +
+//			       "AND r.dataFinal <= :fim")
 	@Query("SELECT p FROM Produto p JOIN Reserva r " +
-			       "WHERE p.cidade.id = :id " +
-			       "AND r.dataInicial >= :inicio " +
-			       "AND r.dataFinal <= :fim")
+		       "WHERE p.cidade.id = :id " +
+		       "AND NOT EXISTS( " +
+			       " SELECT r FROM Reserva r" +
+			       " WHERE r.produto = p" +
+			       " AND r.dataInicial >= :inicio " +
+			       " AND r.dataFinal <= :fim" +
+		       ")")
 	List<Produto> findByCidadePeriodo(@Param("id") Long id,
 			@Param("inicio") LocalDateTime inicio,
 			@Param("fim") LocalDateTime fim);

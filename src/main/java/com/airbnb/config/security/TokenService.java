@@ -17,24 +17,24 @@ public class TokenService
 	{
 		Algorithm algorithm = Algorithm.HMAC256(secret);
 		return JWT.create()
-				.withIssuer("API Digital Booking")
-				.withSubject(usuario.getUsername())
-				.withExpiresAt(dataExpiracao())
-				.sign(algorithm);
+				       .withIssuer("API Digital Booking")
+				       .withSubject(usuario.getUsername())
+				       .withExpiresAt(dataExpiracao())
+				       .sign(algorithm);
 	}
 	private Instant dataExpiracao()
 	{
 		return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
 	}
-
+	
 	public String getSubject(String tokenJWT) {
 		try {
 			var algoritmo = Algorithm.HMAC256(secret);
 			return JWT.require(algoritmo)
-					.withIssuer("API Digital Booking")
-					.build()
-					.verify(tokenJWT)
-					.getSubject();
+			          .withIssuer("API Digital Booking")
+			          .build()
+			          .verify(tokenJWT)
+			          .getSubject();
 		} catch (JWTVerificationException exception) {
 			throw new RuntimeException("Token JWT invalido ou expirado!");
 		}

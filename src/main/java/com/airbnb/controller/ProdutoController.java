@@ -54,7 +54,7 @@ public class ProdutoController
 		return new ResponseEntity(listResult, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/findByCidadePeriodo")
+	@PostMapping(value = "/findByCidadePeriodo")
 	public ResponseEntity buscarPorCidadePeriodo(@RequestBody ProdutoCidadeTempoDTO parametros)
 	{
 		return ResponseEntity.ok(produtoService.findByCidadeTempo(parametros));

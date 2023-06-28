@@ -1,13 +1,7 @@
 package com.airbnb.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -48,8 +42,43 @@ public class Produto {
 	)
 	private List<Caracteristica> caracteristicaList;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_politicas", referencedColumnName = "id")
+	private Politicas politicas;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_endereco", referencedColumnName = "id")
+	private Endereco endereco;
+	
 	//Construtores
 	public Produto(){}
+	public Produto(String nome, String titulo, String descricao, double qualificacao, List<Imagem> imagemList, Categoria categoria, Cidade cidade,
+			List<Caracteristica> caracteristicaList, Politicas politicas, Endereco endereco)
+	{
+		this.nome = nome;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.qualificacao = qualificacao;
+		this.imagemList = imagemList;
+		this.categoria = categoria;
+		this.cidade = cidade;
+		this.caracteristicaList = caracteristicaList;
+		this.politicas = politicas;
+	}
+	public Produto(long id, String nome, String titulo, String descricao, double qualificacao, List<Imagem> imagemList, Categoria categoria,
+			Cidade cidade, List<Caracteristica> caracteristicaList, Politicas politicas, Endereco endereco)
+	{
+		this.id = id;
+		this.nome = nome;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.qualificacao = qualificacao;
+		this.imagemList = imagemList;
+		this.categoria = categoria;
+		this.cidade = cidade;
+		this.caracteristicaList = caracteristicaList;
+		this.politicas = politicas;
+	}
 	
 	//Getters e Setters.
 	public long getId()
@@ -124,5 +153,21 @@ public class Produto {
 	{
 		this.caracteristicaList = caracteristicaList;
 	}
-
+	public Politicas getPoliticas()
+	{
+		return politicas;
+	}
+	public void setPoliticas(Politicas politicas)
+	{
+		this.politicas = politicas;
+	}
+	public Endereco getEndereco()
+	{
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco)
+	{
+		this.endereco = endereco;
+	}
+	
 }
