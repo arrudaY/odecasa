@@ -3,6 +3,7 @@
     background-size:        cover;
     background-repeat:      no-repeat;
     background-attachment:  fixed;
+    z-index:                0;
 }
 
 .categoriasContainer h1 {

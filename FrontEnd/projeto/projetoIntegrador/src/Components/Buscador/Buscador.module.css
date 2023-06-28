@@ -21,7 +21,7 @@
     align-items:        center;
     justify-content:    center;
     width:              100%;
-    z-index: 1;
+    z-index:            1;
 }
 
 .buscadorTxt {
@@ -31,6 +31,7 @@
     border-color:       #ccc;
     font-size:          16px;
     outline:            0;
+    z-index:            -1;
 }
 
 .buscadorTxt[type=text] {
@@ -44,11 +45,15 @@
     font-size:          16px;
     font-family:        'Roboto', sans-serif;
     line-height:        24px;
-    letter-spacing:     0.5px;}
-
+    letter-spacing:     0.5px;
+}
 
 .buscadorTxt:nth-child(1) {
     border:             0.8px solid #ccc;
+}
+
+.buscadorTxt:nth-child(1):valid {
+    color:              rgb(70, 126, 220)
 }
 
 .buscadorLocal {
@@ -93,45 +98,57 @@
 }
 
 .filter {
-    position: absolute;
-    top: calc(100% - 10px);
-    left: 10px;
-    width: 310px;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid var(--color-10);
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 15;
+    position:           absolute;
+    top:                calc(100% - 5px);
+    left:               0px;
+    width:              100%;
+    max-height:         200px;
+    overflow-y:         auto;
+    border:             none;
+    border-radius:      8px;
+    list-style:         none;
+    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    background-color:   white; /*TODO*/
 }
-  
+
 .filter li {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        center;
+    gap:                10px;
     padding:            10px;
     cursor:             pointer;
-    background-color:   var(--color-11);
+    background-color:   white; /*TODO*/
+}
+
+.localInfo {
+    display:            flex;
+    flex-direction:     column;
 }
   
 .filter li:hover {
-    background-color:   var(--color-8);
+    background-color:   rgba(82, 150, 247,0.2);
 }
 
 .nome {
-    font-weight:        bold;
+    font-family:        'Overpass', sans-serif;
+    font-style:         normal;
+    font-weight:        500;
+    font-size:          14px;
+    line-height:        14px;
+    letter-spacing:     0.15px;
+    color:              #212121; /*TODO*/
 }
 
 .pais {
-    margin-left:        18px;
-    line-height:        0px;
+    font-family:        'Roboto', sans-serif;
+    font-style:         normal;
+    font-weight:        400;
+    font-size:          14px;
+    line-height:        14px;
+    letter-spacing:     0.25px;
+    color:              #49454F; /*TODO*/
 }
-
-/*
-.buscadorCalendar{
-    z-index:            1;
-}*/
 
 @media (max-width: 414px) {
     .buscadorContainer {
@@ -143,7 +160,7 @@
     }
     
     .buscadorTxt, .buscadorBtn, .buscadorInputs{
-        width: 100%;
+        width:          100%;
     }
 }
 
@@ -157,7 +174,7 @@
     }
     
     .buscadorTxt, .buscadorBtn, .buscadorInputs{
-        width: 100%;
+        width:          100%;
     }
 
 }
@@ -195,50 +212,3 @@
         width:          147px;
     }
 }
-
-/*
-@media(max-width: 414px) {
-    .filter {
-        top: calc(100% - 130px);
-        z-index: 20;
-        width: 95%;
-        left: 5%;
-        background-color: var(--color-8);
-    }
-
-    .buscadorContainer{
-        width: 100%;
-    }
-
-    .buscadorTxt, .buscadorBtn, .buscadorInputs {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .buscadorContainer h1{
-        font-size: 25px;
-    }
-}
-
-@media(max-width: 1044px) {
-    .buscadorContainer{
-        width: 100%;
-    }
-
-    .filter {
-        top: calc(100% - 130px);
-        z-index: 20;
-        width: 90%;
-        left: 5%;
-        background-color: var(--color-8);
-    }
-
-    .buscadorTxt, .buscadorBtn {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .buscadorContainer h1{
-        font-size: 22px;
-    }
-}*/
