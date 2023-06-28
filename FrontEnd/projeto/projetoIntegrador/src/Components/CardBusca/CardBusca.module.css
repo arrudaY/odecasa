@@ -146,6 +146,7 @@
 
 .cardDescricao {
     justify-content:    flex-start;
+    width:              100%;
 }
 
 .cardDescricao p {
