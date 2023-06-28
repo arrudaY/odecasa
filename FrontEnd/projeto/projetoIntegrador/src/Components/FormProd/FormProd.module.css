@@ -95,7 +95,7 @@
 
 .formTxtDesc {
     width: 100%;
-    height: 200px;
+    height: 160px;
     border-radius: 8px;
     background-color: #F8F9FA;
     border: none;
@@ -107,6 +107,7 @@
     font-size: 22px;
     color: black;
     margin-top: 20px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
@@ -142,6 +143,88 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+
+.formPoliticas{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--color-3);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.formPoliticasBloco{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.formPoliticasBloco label{
+    margin-top: 20px;
+}
+
+.formCarregarImg{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.formCarregarImgTxt{
+    width: 87%;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+    margin-top: 20px;
+}
+
+.formUploadImg{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.formCentralizaBtn{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.formBtn {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        center;
+    justify-content:    center;
+    gap:                6px;
+    height:             40px;
+    width:              250px;
+    background-color:   var(--color-10); /*TODO*/
+    border-radius:      100px;
+    border:             none;
+    color:              var(--pi-sys-light-on-primary, #FFF);
+
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+
+    position:           absolute;
+    top:                50%;
+    left:               50%;
+    transform:          translate(-50%,-50%);
 }
 
 @media (max-width:414px) {
@@ -180,12 +263,22 @@
     .formAddImg{
         margin-top: 30px;
     }
-    .formAtributos{
+
+    .formAtributos, .formPoliticas, .formBlocao{
         padding: 20px;
     }
 
-    .formBlocao{
-        padding: 20px;
+    .formPoliticasBloco{
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .formPoliticasBloco{
+        width: 100%;
+    }
+
+    .formCarregarImgTxt{
+        width: 60%;
     }
   }
   @media (min-width:415px) and (max-width: 796px) {
@@ -216,12 +309,22 @@
     .formAddImg{
         margin-top: 30px;
     }
-    .formAtributos{
+    
+    .formAtributos, .formPoliticas, .formBlocao{
         padding: 20px;
     }
 
-    .formBlocao{
-        padding: 20px;
+    .formPoliticasBloco{
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .formPoliticasBloco{
+        width: 100%;
+    }
+
+    .formCarregarImgTxt{
+        width: 70%;
     }
   }
   
@@ -232,6 +335,10 @@
 
     .formFundo{
         padding-bottom: 60px;
+    }
+
+    .formCarregarImgTxt{
+        width: 85%;
     }
   }
   
