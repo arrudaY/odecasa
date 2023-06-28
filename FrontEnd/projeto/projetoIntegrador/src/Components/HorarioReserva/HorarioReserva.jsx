@@ -19,7 +19,11 @@ const HorarioReserva = () => {
 
   return (
     <div className={styles.horarioContainer}>
+
       <h1>Seu horário de chegada</h1>
+
+      <div className={styles.divisor}></div>
+
       <div className={styles.horario}>
         <h3> <BsCheckCircle /> Seu quarto estará pronto para check-in entre 10h00 e 23h00</h3>
         <p className={styles.horarioTxt}>Indique a sua hora prevista de chegada</p>

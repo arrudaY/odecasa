@@ -1,21 +1,25 @@
 .datasResContainer{
-    display: relative;
-    padding: 20px;
-    padding-top: 10px;
+    display:            flex;
+    flex-direction:     column;
+    justify-content:    center;
+    align-items:        flex-start;
 }
 
 .datasResContainer h1 {
-    font-size: 24px;
+    color:              var(--pi-sys-light-on-surface, #212121);
+    font-size:          22px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        28px;
+    padding:            16px 0 24px;
 }
 
 .datasResCalendarios{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border-radius: 8px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: var(--color-3);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display:            flex;
+    flex-direction:     column;
+    align-items:        center;
+    justify-content:    center;
+    width:              fit-content;
+    padding:            10px;
+    border-radius:      12px;
+    background-color:   rgb(233, 240, 253);
 }

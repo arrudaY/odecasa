@@ -1,5 +1,5 @@
 import styles from "./ImgProd.module.css";
-import  GaleriaProdutos from "../GaleriaProdutos/GaleriaProdutos";
+import GaleriaProdutos from "../GaleriaProdutos/GaleriaProdutos";
 
 const ImgProd = () => {    
 

@@ -60,16 +60,13 @@ const Detalhes = () => {
     if(isLoading)
     {
         return (
-            <div className={styles.detalhesContainer}>
-
-            </div>
+            <div className={styles.detalhesContainer}></div>
         );
     }
 
     return (
         <div className={styles.detalhesContainer}>
             <HeaderProd tela="produto" />
-            <LocalProd />
             <ImgProd />
             <DescProd />
             <CaractProd />

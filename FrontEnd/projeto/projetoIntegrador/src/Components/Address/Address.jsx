@@ -1,7 +1,7 @@
 import styles from './Address.module.css';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import api from "../../Services/api";
+import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 const Address = () => {
     const [address, setAddress] = useState('');
@@ -24,9 +24,9 @@ const Address = () => {
 
     return(
         <div className={styles.addressContainer}>
+            <FmdGoodOutlinedIcon fontSize='small'/>
             <p>
-                <FaMapMarkerAlt />
-                Rua das Flores, 123. Bairro: Centro, Cidade. Brasil
+                Rua das Flores, 123 - Centro, Salvador - Brasil
                 {/* {address} */}
             </p>
         </div>

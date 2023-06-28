@@ -99,21 +99,28 @@ const TelaReserva = () => {
 
     return(
         <div className={styles.telaReservaContainer}>
+            
             <HeaderProd tela="reserva" />
+
             <div className={styles.telaReservaContainerEsq}>
-                <FormReserva />
-                <DatasReserva />
-                <HorarioReserva />
+              <FormReserva />
+              <div className={styles.divisor}></div>
+              <DatasReserva />
+              <div className={styles.divisor}></div>
+              <HorarioReserva />
             </div>
+
             <div className={styles.telaReservaContainerDir}>
               <div className={styles.telaReservaDir}>
-                <h1>Detalhe da Reserva</h1>
+                <h1>Detalhe da reserva</h1>
                 <LocalReservaProd />
                 <Address />
                 <Checkin />
               </div>
             </div>
+
             <PoliticaProd />
+
         </div>
     )
 };

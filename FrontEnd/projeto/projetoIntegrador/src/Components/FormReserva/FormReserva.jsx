@@ -51,15 +51,15 @@ const FormReserva = () => {
     if(isLoading)
     {
         return (
-            <div className={styles.formReservaContainer}>
-
-            </div>
+            <div className={styles.formReservaContainer}></div>
         );
     }
 
     return (
         <div className={styles.formReservaContainer}>
+
             <h1>Complete seus dados</h1>
+            
             <form className={styles.form}>
                 <div className={styles.formReserva}>
                     <label className={styles.reservaLabel}>Nome</label>
