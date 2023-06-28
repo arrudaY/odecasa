@@ -50,11 +50,14 @@ const Detalhes = () => {
         }
       }
 
-    useEffect(() => {   
-        if(id>=0)
-            obterProduto(id);
-        else
-            salvarLoading(true);
+    useEffect(() => {
+
+      window.scrollTo(0, 0);
+
+      if(id>=0)
+          obterProduto(id);
+      else
+          salvarLoading(true);
     }, [id]);
 
     if(isLoading)

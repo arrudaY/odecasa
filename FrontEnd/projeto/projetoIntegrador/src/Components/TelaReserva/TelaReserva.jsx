@@ -82,10 +82,12 @@ const TelaReserva = () => {
     
 
     useEffect(() => {   
-        if(id>=0)
-            obterProduto(id);
-        else
-            salvarLoading(true);
+      window.scrollTo(0, 0);
+
+      if(id>=0)
+          obterProduto(id);
+      else
+          salvarLoading(true);
     }, [id]);
 
     if(isLoading)
