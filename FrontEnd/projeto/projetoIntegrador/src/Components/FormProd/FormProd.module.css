@@ -1,0 +1,242 @@
+.formContainer{
+    z-index:5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Roboto';
+}
+
+.formContainer h2{
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.formFundo{
+    background-color: var(--color-11);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.formContainer2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formHeader{
+    z-index:5;
+    background-color: var(--color-3);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 80px;
+}
+
+.formHeader p{
+    font-size: 30px;
+    color: black;
+}
+
+.formVoltar{
+    width: 40px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.formBlocao{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-3);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.blocaoTxtBasico{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-top: 20px;
+}
+
+.blocaoTxtBasicoDesc{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.formLabel {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 14px;
+    opacity: 0.8;
+}
+
+.formTxt {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+.formTxtDesc {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+.formBlocao h3{
+    font-size: 22px;
+    color: black;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.formAtributos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    background-color: var(--color-11);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.formTxtAtributos{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-top: 20px;
+}
+
+.formAtributosTxts{
+    width: 93%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.formAddImg{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+@media (max-width:414px) {
+    .formHeader, .formContainer2 {
+      padding:        0px 20px;
+    }
+
+    .formHeader p{
+        font-size: 24px;
+    }
+
+    .formContainer h2{
+        font-size: 20px;
+    }
+
+    .blocaoTxtBasico{
+        width: 96%;
+    }
+
+    .formFundo{
+        padding-bottom: 10px;
+    }
+
+    .formTxtAtributos{
+        width: 100%;
+    }
+
+    .formAtributosTxts{
+        width: 75%;
+    }
+
+    .formAtributos{
+        align-items: center;
+    }
+
+    .formAddImg{
+        margin-top: 30px;
+    }
+    .formAtributos{
+        padding: 20px;
+    }
+
+    .formBlocao{
+        padding: 20px;
+    }
+  }
+  @media (min-width:415px) and (max-width: 796px) {
+    .formHeader, .formContainer2{
+        padding:        0px 32px;
+    }
+  
+    .formFundo{
+        padding-bottom: 60px;
+    }
+
+    .formTxtAtributos{
+        width: 100%;
+    }
+
+    .formAtributosTxts{
+        width: 88%;
+    }
+
+    .formAtributos{
+        align-items: center;
+    }
+
+    .formAddImg{
+        margin-top: 30px;
+    }
+    .formAtributos{
+        padding: 20px;
+    }
+
+    .formBlocao{
+        padding: 20px;
+    }
+  }
+  
+  @media (min-width:797px) and (max-width: 1279px) {
+    .formHeader, .formContainer2{
+      padding:        0px 32px;
+    }
+
+    .formFundo{
+        padding-bottom: 60px;
+    }
+  }
+  
+  @media(min-width: 1280px) {
+    .formHeader, .formContainer2{
+      padding:        0px 150px;
+    }
+
+    .formFundo{
+        padding-bottom: 60px;
+    }
+  }

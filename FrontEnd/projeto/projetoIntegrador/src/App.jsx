@@ -14,6 +14,7 @@ import Reserva from "./Routes/Reserva";
 import ReservaProvider from "./Contexts/ReservaContext";
 import ReservaConcluida from "./Components/ReservaConcluida/ReservaConcluida";
 import FormProduto from "./Routes/FormProduto";
+import FormProvider from "./Contexts/FormContext";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ProdProvider>
       <ReservaProvider>
+      <FormProvider>
       <BrowserRouter>
         <Navbar />
         <div className="container">
@@ -41,6 +43,7 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      </FormProvider>
       </ReservaProvider>
       </ProdProvider>
       </LocalizationProvider>
