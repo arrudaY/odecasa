@@ -20,9 +20,13 @@ before_script:
 
 build:
   stage: build
+  image: maven:latest
   script:
-    - mvn clean compile
+    - mvn clean package
     - mvn test
+  artifacts:
+    paths:
+      - target/*.jar
 
 deploy:
   stage: deploy
