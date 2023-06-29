@@ -45,7 +45,7 @@ deploy:
     - export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
     - ls
     - pwd
-    - cd terraform  # Navegar para o diretório correto
+    - cd dev-back/terraform # Navegar para o diretório correto
     - terraform init -backend-config="bucket=${TF_STATE_BUCKET}" -backend-config="key=terraform.tfstate" -backend-config="region=${AWS_REGION}"
     - terraform plan -out=tfplan
     - terraform apply -auto-approve tfplan
