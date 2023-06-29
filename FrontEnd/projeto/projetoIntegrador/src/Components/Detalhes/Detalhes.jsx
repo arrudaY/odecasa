@@ -33,15 +33,8 @@ const Detalhes = () => {
               caracteristicas: response.data.caracteristicaList,
               imagemList: response.data.imagemList,
               titulo: response.data.titulo,
-              politicas: response.data.politicas
-              /*politicas: {
-                checkin: "14:00",
-                checkout: "12:00",
-                regras: ["Não fumar", "Não é permitido festas"],
-                saudeSeg: ["Diretrizes de distanciamento social e outras regulamentações relacionadas ao coronavírus se aplicam",
-                           "Detector de fumaça", "Câmeras de vigilância externa"],
-                cancelamento: ["O cancelamento é reembolsável até dois dias antes do início da reserva"]
-              }*/
+              politicas: response.data.politicas,
+              endereco: response.data.endereco
           }
           salvarProduto(prod);
           salvarLoading(false);

@@ -2,6 +2,7 @@ import styles from "./FormReserva.module.css";
 import { useContext, useState, useEffect } from "react";
 import api from "../../Services/api";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { ProdContext } from "../../Contexts/ProdContext";
 
 const FormReserva = () => {  
     const [isLoading, setIsLoading] = useState(true);
@@ -11,6 +12,7 @@ const FormReserva = () => {
     const [cidade, setCidade] = useState('');
     
     const { saveIdUsuario } = useContext(AuthContext); 
+    const { produto } = useContext(ProdContext);
 
     async function getUsuarios(token){
         try{
@@ -29,7 +31,7 @@ const FormReserva = () => {
                     setNome(u[i].nome);
                     setSobrenome(u[i].sobreNome);
                     setEmail(email);
-                    setCidade("Rio de Janeiro, RJ");
+                    setCidade(produto.cidade.nome + ", " + produto.cidade.pais);
                     break;
                 }
             }

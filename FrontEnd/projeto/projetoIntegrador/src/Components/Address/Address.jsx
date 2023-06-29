@@ -1,34 +1,16 @@
 import styles from './Address.module.css';
 import { useState } from 'react';
-import api from "../../Services/api";
+import { useContext } from "react";
+import { ProdContext } from "../../Contexts/ProdContext";
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 const Address = () => {
-    const [address, setAddress] = useState('');
-
-    async function getAddress() {
-        try {
-            const response = await api.get('/endereco', {
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                }  
-            })
-            console.log("response", response.data);
-            setAddress(response.data.address);
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    const { produto } = useContext(ProdContext);
 
     return(
         <div className={styles.addressContainer}>
             <FmdGoodOutlinedIcon fontSize='small'/>
-            <p>
-                Rua das Flores, 123 - Centro, Salvador - Brasil
-                {/* {address} */}
-            </p>
+            <p>{produto.endereco.endereco}</p>
         </div>
     )
 }
