@@ -8,6 +8,7 @@ import removeImg from "../../Data/remove.png"
 import uploadImg from "../../Data/upload.png"
 import apagarImg from "../../Data/erro.png"
 import Combobox from "react-widgets/Combobox";
+import api from "../../Services/api";
 
 
 const FormProd = () => {
@@ -125,6 +126,71 @@ const FormProd = () => {
         return errors;
     };
 
+    async function cadastrarProduto(p, token) {
+        try {
+          const response = await api.post("/produto", p, { headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+          }})
+          console.log("Produto Novo", response.data);
+          alert("Produto cadastrado com sucesso!");
+          navigate("/");
+        } catch (error) {
+          console.log(error)
+          alert("Erro ao cadastrar novo produto");
+        }
+    }
+
+    async function cadastrarCategoria(p, token) {
+        try {
+          const response = await api.post("/categoria", {
+            descricao: nomeCat,
+            urlImagem: urlCat,
+          }, { headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+          }})
+          console.log("Nova Categoria", response.data);
+          p.categoria.id = response.data.id;
+          if(novaCid)
+            cadastrarCidade(p, token);
+          else
+          {
+            cadastrarProduto(p, token);
+          }
+        } catch (error) {
+          console.log(error)
+          alert("Erro ao cadastrar nova categoria");
+        }
+    }
+
+    async function cadastrarCidade(p, token) {
+        try {
+          const response = await api.post("/cidade", {
+            nome: nomeCid,
+            pais: pais,
+          }, { headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+          }})
+          console.log("Nova Cidade", response.data);
+          p.cidade.id = response.data.id;
+          cadastrarProduto(p, token);
+        } catch (error) {
+          console.log(error)
+          alert("Erro ao cadastrar nova categoria");
+        }
+    }
+
     function cadastrar(){
         const erros = validateForm();
 
@@ -150,8 +216,12 @@ const FormProd = () => {
                 qualificacao: 5.0,
                 titulo: descCurta,
                 imagemList: aux,
-                categoria: categoria,
-                cidade: cidade,
+                categoria: {
+                    id: categoria.id
+                },
+                cidade: {
+                    id: cidade.id
+                },
                 caracteristicaList: atributos,
                 politicas: {
                     normasDaCasa: "Checkin:" + checkin + ";Checkout:" + checkout + ";" + regras,
@@ -164,9 +234,20 @@ const FormProd = () => {
                     longitude: ""
                 }
             };
-            console.log(p);
 
-            //cadastrarAPI();
+            const token = localStorage.getItem("ctd_token");
+            if((token != null) && !novaCat && !novaCid)
+                cadastrarProduto(p, token);
+            else if(token != null)
+            {
+                if(novaCat)
+                    cadastrarCategoria(p, token);
+                else if(novaCid)
+                    cadastrarCidade(p, token);
+            }
+            else
+                alert("Você precisa estar logado para cadastrar produtos!");
+
         } else {
             setErrors(erros);
             alert("Há alguns erros no formulário");
