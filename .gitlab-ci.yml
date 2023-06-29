@@ -10,7 +10,7 @@ variables:
   AWS_SECRET_ACCESS_KEY: "/WazZoCcJ2jzS/pp9KdCc9koP5RuHI87CheskRvh"  # Chave secreta de acesso da AWS
 
 before_script:
-  - apk add --update openssl openssh-client unzip
+  - apt add --update openssl openssh-client unzip
   - wget "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
   - rm -rf terraform  # Remover o diretório "terraform" se existir
   - unzip -o "terraform_${TF_VERSION}_linux_amd64.zip"
