@@ -29,13 +29,6 @@ build:
     paths:
       - target/*.jar
 
-debug_terraform:
-  stage: build
-  image: hashicorp/terraform:${TF_VERSION}
-  script:
-    - terraform --version
-    - which terraform
-
 deploy:
   stage: deploy
   image: hashicorp/terraform:${TF_VERSION}
