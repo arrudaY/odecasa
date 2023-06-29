@@ -3,7 +3,7 @@ stages:
   - deploy
 
 variables:
-  TF_VERSION: "1.5.0"  # Versão do Terraform a ser utilizada
+  TF_VERSION: "1.5.2"  # Versão do Terraform a ser utilizada
   AWS_REGION: "sa-east-1"  # Região da AWS
   TF_STATE_BUCKET: "app-gp2-s3"  # Nome do bucket do estado do Terraform
   AWS_ACCESS_KEY_ID: "AKIAV4YTWNKPKD6RT6WF"  # Chave de acesso da AWS
@@ -39,6 +39,7 @@ debug_terraform:
 deploy:
   stage: deploy
   image: hashicorp/terraform:${TF_VERSION}
+  entrypoint: [""]
   script:
     - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
     - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
