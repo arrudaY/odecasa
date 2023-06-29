@@ -13,7 +13,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 
 
 const Sidebar = () => {
-  const { removeUserStorage, stsLogin, setEstadoLogin } = useContext(AuthContext); 
+  const { removeUserStorage, stsLogin, setEstadoLogin, nome, sobreNome } = useContext(AuthContext); 
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
   const sidebarRef = useRef();
@@ -63,13 +63,13 @@ const Sidebar = () => {
 
         <div className={stsLogin === "Login" ? styles.headline : styles.headlineLogged}>
           <span className={stsLogin === "Login" ? styles.secao : styles.avatar}>
-            {stsLogin === "Login" ? "Entre para ver suas reservas, favoritos e ofertas" : "PF"}
+            {stsLogin === "Login" ? "Entre para ver suas reservas, favoritos e ofertas" : nome.charAt(0) + sobreNome.charAt(0)}
           </span>
   
           <div className={styles.sidebarBotoes}>
 
             <button onClick={logar} className={stsLogin === "Login" ? styles.sidebarBtn : styles.navBarMensagem}>
-              {stsLogin === "Login" ? "Entrar" : "Olá, Paula Furlan"}</button>
+              {stsLogin === "Login" ? "Entrar" : "Olá, " + nome + " " + sobreNome} </button>
 
             <button onClick={cadastrarEncerrar} className={styles.sidebarBtn}>
               {stsLogin === "Login" ? "" : <LogoutIcon />}

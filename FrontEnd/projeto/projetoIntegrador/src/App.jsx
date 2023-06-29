@@ -14,6 +14,7 @@ import Reserva from "./Routes/Reserva";
 import ReservaProvider from "./Contexts/ReservaContext";
 import ReservaConcluida from "./Components/ReservaConcluida/ReservaConcluida";
 import FormProduto from "./Routes/FormProduto";
+import MinhasReservasRoute from "./Routes/MinhasReservas";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/detalhes/:id/reserva" element={<Reserva />} />
               <Route path="/reserva-concluida" element={<ReservaConcluida />} />
               <Route path="/form-produto" element={<FormProduto />} />
+              <Route path="/minhas-reservas" element= {< MinhasReservasRoute/>} />
             </Routes>
           </main>
         </div>

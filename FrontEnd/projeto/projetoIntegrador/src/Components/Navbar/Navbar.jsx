@@ -6,13 +6,16 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import Sidebar from './Sidebar';
 import Menu from "./Menu";
 import MenuIcon from '@mui/icons-material/Menu';
+import api from "../../Services/api";
 
 const Navbar = () => {
-  const { removeUserStorage, stsLogin, setEstadoLogin } = useContext(AuthContext); 
+  const { removeUserStorage, stsLogin, setEstadoLogin, saveIdUsuario, nome, sobreNome, setNome, setSobreNome } = useContext(AuthContext); 
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
   const [sidebar, setSidebar] = useState(false);
   const [menu, setMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [ idUsuario, setIdUsuario ] = useState(0);
 
   const showSidebar = () => setSidebar(!sidebar);
   const showMenu = () => setMenu(!menu);
@@ -38,14 +41,57 @@ const Navbar = () => {
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
+
+  async function getUsuarioLogado(token){
+    try{
+        const response = await api.get("/usuario", {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          }});
+        const u = response.data;
+        console.log("users", u)
+        const email = localStorage.getItem("ctd_email");
+        for(var i = 0; i < u.length; i++){
+          if(u[i].username == email){
+            saveIdUsuario(u[i].id)
+            setNome(u[i].nome);
+            setSobreNome(u[i].sobreNome);
+            setIsLoading(false);
+            setIdUsuario(u[i].id); 
+            break;
+          }
+        }
+      } catch (error) {
+        console.log(error);
+        alert("Erro ao tentar carregar dados do Usuário");
+      }
+    }
   
-  useEffect(() => {
+  useEffect(() => {    
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
     
   }, []);
+  
+  useEffect(() => {
+    const token = localStorage.getItem("ctd_token");
+  
+    if ((token != null)) {
+      getUsuarioLogado(token);
+    } else if (stsLogin == "Login"){
+      setIsLoading(false);
+    }
+
+  }, [idUsuario, stsLogin, isLoading]);
+
+  if(isLoading) {
+    return (<div></div>)
+  }
 
   return (
       <nav className="sticky-top">
@@ -76,9 +122,9 @@ const Navbar = () => {
 
                 ) : (
                   <div className={styles.wcMessage}>
-                  <span>Olá, Paula Furlan</span>
+                  <span>Olá, {nome} {sobreNome}</span>
 
-                  <button onClick={showMenu} className={styles.avatar}>PF</button>
+                  <button onClick={showMenu} className={styles.avatar}>{nome.charAt(0)}{sobreNome.charAt(0)}</button>
                   </div>
                 )}
               </>

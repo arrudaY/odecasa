@@ -11,6 +11,10 @@ const Menu = () => {
   const [isOpen, setIsOpen] = useState(true);
   const menuRef = useRef();
 
+  const redirectReservas = () => {
+    navigate("/minhas-reservas")
+  }
+
   useEffect( () => {
 
     let closeMenu = (e) => {
@@ -35,7 +39,7 @@ const Menu = () => {
     <div ref={menuRef} className={isOpen ? styles.menuOpen : styles.menuClosed}>
         <nav className={styles.navItem}>
           <ul>
-            <li>Reservas</li>
+            <li onClick={redirectReservas}>Reservas</li>
             <li>Favoritos</li>
             <li>Criar Produto</li>
             <li onClick={logout}>Sair</li>

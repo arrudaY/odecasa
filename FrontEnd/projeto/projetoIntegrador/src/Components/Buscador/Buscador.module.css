@@ -94,9 +94,9 @@
 
 .filter {
     position: absolute;
-    top: calc(100% - 10px);
-    left: 10px;
-    width: 310px;
+    top: calc(100% - 4px);
+    left: 0px;
+    width: 314px;
     max-height: 200px;
     overflow-y: auto;
     border: 1px solid var(--color-10);
