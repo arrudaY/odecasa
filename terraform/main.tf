@@ -1,0 +1,39 @@
+provider "aws" {
+  region = "sa-east-1"   # Substitua pela região desejada da AWS
+}
+
+
+data "aws_instances" "existing_instances" {
+  instance_tags = {
+    Name = "ExampleInstance"
+  }
+}
+
+resource "aws_codedeploy_app" "deploy1" {
+  name             = "g2-odecasa-dev"
+  compute_platform = "Server"
+}
+
+resource "aws_codedeploy_deployment_group" "deploygroup1" {
+  app_name               = aws_codedeploy_app.deploy1.name
+  deployment_group_name  = "back-prod"
+  deployment_config_name = "CodeDeployDefault.AllAtOnce"
+
+  auto_rollback_configuration {
+    enabled = true
+    events  = ["DEPLOYMENT_FAILURE"]
+  }
+
+ec2_tag_set {
+  ec2_tag_set_list {
+    tag_filter_type = "KEY_AND_VALUE"
+
+    tags = {
+      "tag_key_1" = "DEPLOY"
+      "tag_key_2" = "GP2"
+      "tag_key_3" = "DEV"
+      "tag_key_4" = "BACK"
+      // Adicione mais tags conforme necessário
+    }
+  }
+}
