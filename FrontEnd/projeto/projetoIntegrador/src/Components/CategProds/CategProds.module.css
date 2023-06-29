@@ -1,11 +1,10 @@
-.banner:nth-child(1) {
+.banner:nth-child(2) {
     position:           -webkit-sticky;
     position:           sticky;
     top:                79px;
     background-color:   rgba(255, 255, 255, 0.98);
     z-index:            1;
 }
-
 .bannerImg {
     width:              100%;
     max-height:         300px;
@@ -13,18 +12,16 @@
     border-radius:      25px;
     margin-bottom:      40px;
 }
-
 .banner h1 {
     font-family:        'Overpass', sans-serif;
     font-style:         normal;
-    font-weight:        500;
-    font-size:          56px;
+    font-weight:        700;
+    font-size:          52px;
     line-height:        58px;
     letter-spacing:     0.25px;
     color:              #5581FB; /*TODO*/
-    padding:            0px 0px 20px;
+    padding:            0px 0px 10px;
 }
-
 .banner h2 {
     font-family:        'Roboto', sans-serif;
     font-style:         normal;
@@ -34,71 +31,89 @@
     line-height:        20px;
     letter-spacing:     0.25px;
     color:              black; /*TODO*/  
-    padding:            20px 0px 6px; 
+    padding:            10px 6px 6px; 
 }
-
+.bannerTop{
+    display:            flex;
+    align-items:        center;
+    justify-content:    flex-start;
+}
 .backBtn {
-    display:            none;
+    display:            flex;
+    flex-direction:     row;
     align-items:        center;
     justify-content:    center;
+    width:              40px;
+    height:             40px;
+    border-radius:      100px;
     background-color:   transparent;
-    width:              52px;
-    height:             52px;
-    color:              black;
-    border-radius:      100%;
-    margin-left:        -15px;
+    cursor:             pointer;
+    margin-left:        -20px;
 }
-
-.bannerTop{
-    display: flex;
+.backBtn:hover {
+    background-color:   white; /*TODO*/
+    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
-
 .productCards{
     display:            flex;
     flex-direction:     row;
     flex-wrap:          wrap;
     justify-content:    space-between;
     gap:                16px;
-    margin:             12px 0px 80px;
 }
-
 @media (max-width: 414px) {
     .bannerImg {
         display:        none;
-        /*
-        max-height:     200px;
-        border-radius:  20px;
-        margin-bottom:  30px;
-        */
     }
-
-    .banner, .productCards {
+    .banner {
         margin:         0px 20px;
     }
-    .backBtn {
-        display:        flex;
-    }
-    .backBtn:active{
-        background-color: rgba(85, 129, 251, 0.08);
-
+    .productCards{
+        padding:        0px 20px 50px;
     }
     .banner h1 {
         font-size:      42px;
         line-height:    44px;
     }
-    .banner:nth-child(1) {
+    .banner:nth-child(2) {
         top:            48px;
     }
-}
-
-@media (min-width:415px) and (max-width: 1279px) {
-    .banner, .productCards {
-        margin:         0px 32px;
+    .backBtn {
+        display:            flex;
+        flex-direction:     row;
+        align-items:        center;
+        justify-content:    center;
+        width:              40px;
+        height:             40px;
+        border-radius:      100px;
+        background-color:   transparent;
+    }
+    .bannerTop {
+        padding:            10px 0;
     }
 }
-
+@media (min-width:415px) and (max-width: 1279px) {
+    .banner {
+        margin:         0px 32px;
+    }
+    .productCards {
+        padding:        0px 32px 100px;
+    }
+    .bannerImg {
+        max-height:     250px;
+    }
+    
+}
 @media(min-width: 1280px) {
-    .banner, .productCards {
+    .banner {
         padding:        0px 150px;
+    }
+    .productCards {
+        padding:        0px 150px 100px;
+    }
+    .backBtn{
+        position:       absolute;
+        left:           90px;
+        top:            3px;
     }
 }

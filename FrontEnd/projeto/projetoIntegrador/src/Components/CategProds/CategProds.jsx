@@ -3,7 +3,7 @@ import api from "../../Services/api";
 import { useEffect , useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardBusca from "../CardBusca/CardBusca"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 
 const CategProds = () => {    
   const { id } = useParams();
@@ -53,15 +53,15 @@ const CategProds = () => {
     <div>
 
       <div className={styles.banner}>
-        <div className={styles.bannerTop}>
-          <button onClick={voltar} className={styles.backBtn}><ArrowBackIcon /></button>
-          <h2>Categoria</h2>
-        </div>
-        <h1 className={styles.categTitulo}>{nomeCat}</h1>
+        <img className={styles.bannerImg} src={bannerCat}/>
       </div>
 
       <div className={styles.banner}>
-        <img className={styles.bannerImg} src={bannerCat}/>
+        <div className={styles.bannerTop}>
+          <button onClick={voltar} className={styles.backBtn}><KeyboardArrowLeftOutlinedIcon/></button>
+          <h2>Categoria</h2>
+        </div>
+        <h1 className={styles.categTitulo}>{nomeCat}</h1>
       </div>
 
       <div className={styles.productCards}>

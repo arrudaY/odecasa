@@ -1,47 +1,73 @@
 .horarioContainer {
-    display:            flex;
-    flex-direction:     column;
-    width:              100%;
-    background-color: lightpink;
-
+    display:                flex;
+    flex-direction:         column;
+    width:                  100%;
 }
 .horarioContainer h1 {
-    font-size:          24px;
-    margin-bottom:      10px;
-}
-.horario h3 {
-    font-size:          16px;
-    color:              rebeccapurple;
-}
-.horario p {
-    margin-bottom:      0.2em;
-    line-height:        14px;
-    opacity:            0.8;
-    margin-bottom:      10px;
+    color:                  var(--pi-sys-light-on-surface, #212121);
+    font-size:              22px;
+    font-family:            'Overpass', sans-serif;
+    line-height:            28px;
+    padding:                16px 0 24px;
 }
 .horario {
-    display: flex;
+    display:                flex;
+}
+.horarioAviso, .horarioSelect{
+    display:                flex;
+    flex-direction:         column;
+    align-items:            center;
+    padding:                20px;
+    border:                 0.5px solid #ccc;
+    border-radius:          12px;
+    width:                  49%;
+    gap:                    10px;
+}
+.horarioAviso p, .horarioSelect p, .horarioSelect{
+    color:                  black; /*TODO*/
+    font-size:              14px;
+    font-family:            'Roboto', sans-serif;
+    font-weight:            400;
+    line-height:            24px;
+    letter-spacing:         0.5px;
+    text-align:             center;
 }
 .horario select {
-    height:             40px;
-    border-radius:      4px;
+    height:                 40px;
+    width:                  100%;
+    border:                 0.5px solid #ccc;
+    border-radius:          12px;
+    color:                  #757575;
+    padding:                0 10px;
 }
-.horariosSelect {
-    width:              50%;
-}
-
-@media (max-width: 768px) {
-    .horarioContainer {
-        width:          100%;
-        padding:        20px;
+@media (max-width: 620px) {
+    .horario {
+        flex-direction:     column;
+        gap:                16px;
+        margin-bottom:      32px;
+    }
+    .horarioAviso, .horarioSelect {
+        width:              100%;
     }
 }
-
-@media (max-width: 414px) {
-    .horarioContainer {
-        width:          100%;
+@media (min-width: 621px) and (max-width: 769px) {
+    .horario {
+        flex-direction:     row;
+        justify-content:    space-between;
     }
-    .horariosSelect {
-        width:          100%;
+}
+@media (min-width: 770px) and (max-width: 990px) {
+    .horario {
+        flex-direction:     column;
+        gap:                16px;
+    }
+    .horarioAviso, .horarioSelect {
+        width:              100%;
+    }
+}
+@media (min-width: 991px) {
+    .horario {
+        flex-direction:     row;
+        justify-content:    space-between;
     }
 }

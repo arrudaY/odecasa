@@ -3,31 +3,24 @@ import api from "../../Services/api";
 import { useEffect , useState} from "react";
 import { useParams } from "react-router-dom";
 import CardBusca from "../CardBusca/CardBusca"
-import { useContext } from "react";
-import { ProdContext } from "../../Contexts/ProdContext";
 
-const CidadeProds = (props) => {    
+const CidadeProds = () => {    
     const { id } = useParams();
-    const { produtos, produtosBusca } = useContext(ProdContext);
+    const [produtos, setProdutos] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [nomeCidade, setNomeCidade] = useState("");
   
-    async function getCidade(idAux){
+    async function getProdutos(idAux){
         try {
-          const response = await api.get("/cidade",
+          const response = await api.get("/produto/findByCidade", { params: { id: idAux }},
           { headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           }});
-          const cidades = response.data;
-          for(var i = 0; i < cidades.length; i++){
-            if(cidades[i].id == idAux)
-            {
-              setNomeCidade(cidades[i].nome + ", " + cidades[i].pais);
-              break;
-            }
-          }
+          console.log(response.data);
+          setProdutos(response.data);
+          setNomeCidade(response.data[0].cidade.nome + ", " + response.data[0].cidade.pais);
           setIsLoading(false);
         } catch (error) {
           console.log(error)
@@ -35,11 +28,11 @@ const CidadeProds = (props) => {
     }
     
     useEffect(() => {
-        if(id != undefined)
-          getCidade(id);  
+        if(id !== undefined)
+          getProdutos(id);  
         else
-          setIsLoading(true);  
-    }, [id]);
+            setIsLoading(true);  
+    }, [id, isLoading]);
   
     if(isLoading){
       return(
@@ -48,10 +41,13 @@ const CidadeProds = (props) => {
     }
 
     return (
-        <div className={produtosBusca.length > 1 ? styles.cidadeContainer2 : styles.cidadeContainer1}>
-            <h1 className={styles.cidadeTitulo}>{nomeCidade}</h1>
+        <div className={produtos.length > 1 ? styles.cidadeContainer2 : styles.cidadeContainer1}>
+          <div className={styles.cidadeTitulo}>
+            <h1>Explore</h1> 
+            <h1>{nomeCidade}</h1>
+          </div>
             <div className={styles.cidadeCards}>
-                {produtosBusca.map((item) => (
+                {produtos.map((item) => (
                   <CardBusca key={item.id} produto={item} />
                 ))}
             </div>

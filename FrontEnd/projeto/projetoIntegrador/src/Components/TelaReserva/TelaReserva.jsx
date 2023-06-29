@@ -101,9 +101,10 @@ const TelaReserva = () => {
 
     return(
         <div className={styles.telaReservaContainer}>
-            
-            <HeaderProd tela="reserva" />
+          
+          <HeaderProd tela="reserva" />
 
+          <div className={styles.reservaBody}>
             <div className={styles.telaReservaContainerEsq}>
               <FormReserva />
               <div className={styles.divisor}></div>
@@ -120,8 +121,9 @@ const TelaReserva = () => {
                 <Checkin />
               </div>
             </div>
+          </div>
 
-            <PoliticaProd />
+          <PoliticaProd />
 
         </div>
     )
