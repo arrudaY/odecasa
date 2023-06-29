@@ -45,7 +45,7 @@ const FormProd = () => {
     const [icNome, setIcNome] = useState("");
     const [icIcone, setIcIcone] = useState("");
     
-    const { categorias, setCategorias, cidades, setCidades, isLoading, setIsLoading, produto, setProduto } = useContext(FormContext);
+    const { categorias, setCategorias, cidades, setCidades, isLoading, setIsLoading } = useContext(FormContext);
     const navigate = useNavigate();
 
     const horas = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", 
@@ -143,7 +143,8 @@ const FormProd = () => {
                     url: imagens[count - 1]});
                 count++;
             }
-            setProduto({
+
+            let p = {
                 nome: nome,
                 descricao: descLonga,
                 qualificacao: 5.0,
@@ -152,8 +153,18 @@ const FormProd = () => {
                 categoria: categoria,
                 cidade: cidade,
                 caracteristicaList: atributos,
-                
-            });
+                politicas: {
+                    normasDaCasa: "Checkin:" + checkin + ";Checkout:" + checkout + ";" + regras,
+                    saudeESeguranca: diretrizes,
+                    politicasDeCancelamento: politicas
+                },
+                endereco:{
+                    endereco: endereco,
+                    latitude: "",
+                    longitude: ""
+                }
+            };
+            console.log(p);
 
             //cadastrarAPI();
         } else {
