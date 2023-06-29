@@ -58,8 +58,13 @@ const CategProds = () => {
 
       <div className={styles.banner}>
         <div className={styles.bannerTop}>
-          <button onClick={voltar} className={styles.backBtn}><KeyboardArrowLeftOutlinedIcon/></button>
+
+          <button onClick={voltar} className={styles.backBtn}>
+            <KeyboardArrowLeftOutlinedIcon sx={{ color: "black" }}/>
+          </button>
+
           <h2>Categoria</h2>
+
         </div>
         <h1 className={styles.categTitulo}>{nomeCat}</h1>
       </div>

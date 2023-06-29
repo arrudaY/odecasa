@@ -10,17 +10,18 @@
 }
 
 :root {
-    --color-1: black;
-    --color-2: #fc9049;
-    --color-3: white;
-    --color-4: #ff7c00;
-    --color-5: black;
-    --color-6: #FFFFFF;
-    --color-7: rgb(80, 78, 78);
-    --color-8: #D3D3D3;
-    --color-9: #212121;
-    --color-10: #5581FB;
-    --color-11: #E9F0FD;
+    --color-primary:        #5581FB;
+    --color-primaryVar1:    #F0F8FF;
+    --color-primaryVar2:    rgb(234, 240, 252);
+    --color-onPrimary:      white;
+    --color-secondary:      rgb(34,34,34);
+    --color-onSecondary:    white;
+    --color-inputs:         #F8F9FA;
+    --color-text:           #757575;
+    --color-error:          #FFDAD6;
+    --color-onError:        #B3261E;
+
+    --elevation1:           0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 
     /*Carrossel de categorias*/
     --swiper-navigation-size: 24px;

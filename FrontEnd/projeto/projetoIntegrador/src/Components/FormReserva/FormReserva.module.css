@@ -2,7 +2,7 @@
     width:              100%;
 }
 .formReservaContainer h1 {
-    color:              var(--pi-sys-light-on-surface, #212121);
+    color:              var(--color-secondary);
     font-size:          22px;
     font-family:        'Overpass', sans-serif;
     line-height:        28px;
@@ -17,21 +17,21 @@
     flex-direction:     column;
 }
 .reservaLabel {
-    color:              black; /*TODO*/
+    color:              var(--color-secondary);
     font-size:          14px;
-    font-family:        Roboto;
+    font-family:        'Roboto', sans-serif;
     line-height:        20px;
     letter-spacing:     0.25px;
 }
 .reservaTxt {
     width:              100%;
     border-radius:      12px;
-    background-color:   #F8F9FA; /*TODO*/
+    background-color:   var(--color-inputs);
     border:             none;
     outline:            0;
     transition:         all 0.2s;
     height:             46px;
-    color:              black;
+    color:              var(--color-secondary);
     font-size:          16px;
     font-family:        'Roboto', sans-serif;
     line-height:        24px;
@@ -39,7 +39,7 @@
     padding-left:       16px;
 }
 .reservaTxt:focus {
-    box-shadow:         0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    box-shadow:         var(--elevation1);
     transition:         all 0.2s;
 }
 @media (max-width: 769px) {

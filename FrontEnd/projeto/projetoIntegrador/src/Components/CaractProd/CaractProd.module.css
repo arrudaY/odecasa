@@ -4,14 +4,14 @@
     width:                  100%;
 }
 .caractContainer h2 {
-    color:                  var(--pi-sys-light-on-surface, #212121); /*TODO*/
+    color:                  var(--color-secondary);
     font-size:              22px;
     font-family:            'Overpass', sans-serif;
     line-height:            28px;
 }
 .divisor {
     margin:                 10px 16px;
-    border:                 0.5px solid lightgray; /*TODO*/
+    border:                 0.5px solid lightgray;
     align-self:             stretch;
 }
 .caractCaracteristicas {
@@ -28,13 +28,13 @@
     align-items:            center;
     justify-content:        center;
     gap:                    12px;
-    color:                  black;
+    color:                  var(--color-secondary);
     padding:                10px 24px;
     border-radius:          25px;
-    background-color:       aliceblue;
+    background-color:       var(--color-primaryVar1);
 }
 .caractCaracteristica p {
-    color:                  var(--pi-sys-light-on-surface, #212121);
+    color:                  var(--color-secondary);
     font-size:              16px;
     font-family:            'Roboto', sans-serif;
     line-height:            20px;
@@ -50,7 +50,6 @@
     .caractCaracteristica {
         padding:            10px 16px;
     }
-
 }
 @media (min-width: 415px) and (max-width: 1279px) {
     .caractContainer {

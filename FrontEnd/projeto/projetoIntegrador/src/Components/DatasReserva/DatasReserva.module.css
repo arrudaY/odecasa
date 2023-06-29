@@ -1,18 +1,16 @@
-.datasResContainer{
+.datasResContainer {
     display:            flex;
     flex-direction:     column;
     justify-content:    center;
     align-items:        flex-start;
 }
-
 .datasResContainer h1 {
-    color:              var(--pi-sys-light-on-surface, #212121);
+    color:              var(--color-secondary);
     font-size:          22px;
     font-family:        'Overpass', sans-serif;
     line-height:        28px;
     padding:            16px 0 24px;
 }
-
 .datasResCalendarios{
     display:            flex;
     flex-direction:     column;
@@ -21,5 +19,5 @@
     width:              100%;
     padding:            20px 0;
     border-radius:      12px;
-    background-color:   rgb(233, 240, 253);
+    background-color:   var(--color-primaryVar2);
 }

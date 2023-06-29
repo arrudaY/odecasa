@@ -38,7 +38,13 @@ const HeaderProd = (props) => {
             <div className={styles.subheader}>
 
                 <div className={styles.info}>
-                    <p className={styles.headerCategoria}>{produto.categoria.descricao}</p>
+                    <div className={styles.headerNav}>
+                        <button onClick={voltar} className={styles.backBtn}>
+                            <KeyboardArrowLeftOutlinedIcon sx={{ color: "black" }}/>
+                        </button>
+
+                        <p className={styles.headerCategoria}>{produto.categoria.descricao}</p>
+                    </div>
 
                     <div className={styles.cardAvaliacao}>
 
@@ -69,8 +75,6 @@ const HeaderProd = (props) => {
                 <PlaceOutlinedIcon/>
                 <p>{produto.cidade.nome}, {produto.cidade.pais}</p>
             </div>
-
-            <button onClick={voltar} className={styles.headerVoltar}><KeyboardArrowLeftOutlinedIcon/></button>
         </div>
     );
 };

@@ -10,21 +10,21 @@
     border-radius:      12px;
     margin:             10px 0;
 }
-.headerNomes{
+.headerNomes {
     display:            flex;
     flex-direction:     column;
     margin-top:         10px;
 }
-.headerCategoria{
+.headerCategoria {
     font-family:        'Roboto', sans-serif;
     font-style:         normal;
     font-weight:        400;
     font-size:          14px;
     line-height:        16px;
     text-transform:     uppercase;
-    color:              #757575; /*TODO*/
+    color:              var(--color-text);
 }
-.headerNome{
+.headerNome {
     white-space:        nowrap; 
     width:              100%; 
     overflow:           hidden;
@@ -37,5 +37,5 @@
     display:            flex;
     align-items:        center;
     letter-spacing:     0.15px;
-    color:              black; /*TODO*/
+    color:              var(--color-secondary);
 }

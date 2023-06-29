@@ -9,26 +9,24 @@
     background-color:   rgba(255, 255, 255, 0.98);
     z-index:            1;
 }
-.cidadeTitulo h1{
+.cidadeTitulo h1 {
     font-family:        'Overpass', sans-serif;
     font-style:         normal;
     font-weight:        700;
     font-size:          52px;
     letter-spacing:     0.25px;
-    color:              black; /*TODO*/
+    color:              var(--color-secondary);
 }
-
-.cidadeTitulo h1:nth-child(2){
-    color:              #5581FB;
+.cidadeTitulo h1:nth-child(2) {
+    color:              var(--color-primary);
 }
-.cidadeCards{
+.cidadeCards {
     display:            flex;
     flex-direction:     row;
     flex-wrap:          wrap;
     justify-content:    space-between;
     gap:                16px;
 }
-
 @media (max-width: 414px) {
     .cidadeTitulo {
         padding:        20px ;
@@ -39,17 +37,10 @@
         font-size:      36px;
         line-height:    38px;
     }
-    .cidadeCards{
+    .cidadeCards {
         padding:        0px 20px 50px;
     }
-    .backBtn {
-        display:        flex;
-    }
-    .backBtn:active{
-        background-color: rgba(85, 129, 251, 0.08);
-    }
 }
-
 @media (min-width:415px) and (max-width: 1279px) {
     .cidadeTitulo {
         padding:        10px 32px;
@@ -58,9 +49,8 @@
         padding:        10px 32px 80px;
     }
 }
-
 @media(min-width: 1280px) {
-    .cidadeTitulo{
+    .cidadeTitulo {
         padding:        10px 150px;
     }
     .cidadeCards {

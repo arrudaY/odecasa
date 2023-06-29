@@ -2,7 +2,6 @@ import CaractProd from "../CaractProd/CaractProd";
 import DescProd from "../DescProd/DescProd";
 import HeaderProd from "../HeaderProd/HeaderProd";
 import ImgProd from "../ImgProd/ImgProd";
-import LocalProd from "../LocalProd/LocalProd";
 import PoliticaProd from "../PoliticaProd/PoliticaProd";
 import ReservaProd from "../ReservaProd/ReservaProd";
 import styles from "./Detalhes.module.css";
