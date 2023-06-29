@@ -68,6 +68,8 @@ const Checkin = () => {
 
         if (isDataValida)
             postReserva();
+        else
+            alert("Falta escolher as datas ou a hora para a sua reserva!");
     }
 
     return(
