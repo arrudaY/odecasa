@@ -2,12 +2,25 @@ stages:
   - build
   - deploy
 
-build:
-  stage: build
-  image: maven:latest
-  script:
-    - mvn clean package
-  artifacts:
-    paths:
-      - target/*.jar
+variables:
+  TF_VERSION: "1.5.2"  # Versão do Terraform a ser utilizada
+  AWS_REGION: "sa-east-1"  # Região da AWS
+  TF_STATE_BUCKET: "app-gp2-s3"  # Nome do bucket do estado do Terraform
 
+before_script:
+  - apk add --update openssl openssh-client unzip
+  - wget "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
+  - unzip "terraform_${TF_VERSION}_linux_amd64.zip"
+  - mv terraform /usr/bin/
+  - rm "terraform_${TF_VERSION}_linux_amd64.zip"
+  - terraform --version
+
+deploy:
+  stage: deploy
+  image: hashicorp/terraform:${TF_VERSION}
+  script:
+    - terraform init -backend-config="bucket=${TF_STATE_BUCKET}" -backend-config="key=terraform.tfstate" -backend-config="region=${AWS_REGION}"
+    - terraform plan -out=tfplan
+    - terraform apply -auto-approve tfplan
+  only:
+    - main
