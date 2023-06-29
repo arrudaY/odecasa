@@ -17,6 +17,12 @@ before_script:
   - rm "terraform_${TF_VERSION}_linux_amd64.zip"
   - terraform --version
 
+build:
+  stage: build
+  script:
+    - mvn clean compile
+    - mvn test
+
 deploy:
   stage: deploy
   image: hashicorp/terraform:${TF_VERSION}
