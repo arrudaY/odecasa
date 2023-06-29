@@ -47,4 +47,5 @@ deploy:
     - terraform plan -out=tfplan
     - terraform apply -auto-approve tfplan
   only:
-    - main
+  - main
+  - dev-back
