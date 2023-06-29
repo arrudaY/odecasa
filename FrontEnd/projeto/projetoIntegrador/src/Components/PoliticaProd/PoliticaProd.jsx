@@ -9,6 +9,26 @@ import EventBusyOutlinedIcon from '@mui/icons-material/EventBusyOutlined';
 const PoliticaProd = () => {    
     const { id, produto } = useContext(ProdContext);
 
+    function buscaCheckin(){
+        let fim = produto.politicas.normasDaCasa.indexOf(";");
+        return produto.politicas.normasDaCasa.slice(fim - 5, fim);
+    }
+
+    function buscaCheckout(){
+        let fim = produto.politicas.normasDaCasa.indexOf(";");
+        let aux = produto.politicas.normasDaCasa.slice(fim + 1);
+        let fim2 = aux.indexOf(";");
+        return aux.slice(fim2 - 5, fim2);
+    }
+
+    function buscaRegras(){
+        let fim = produto.politicas.normasDaCasa.indexOf(";");
+        let aux = produto.politicas.normasDaCasa.slice(fim + 1);
+        let fim2 = aux.indexOf(";");
+        let aux2 = aux.slice(fim2 + 1);
+        return aux2;
+    }
+
     return (
         <div className={styles.politicaContainer}>
 
@@ -20,27 +40,21 @@ const PoliticaProd = () => {
                 <div className={styles.politicaRegras}>
                     <ListAltOutlinedIcon fontSize="large" sx={{ color: "black" }}/>
                     <h3>Regras da Casa</h3>
-                    <p>Checkin: {produto.politicas.checkin}</p>
-                    <p>CheckOut: {produto.politicas.checkout}</p>
-                    {produto.politicas.regras.map((item) => (
-                        <p key={item}>{item}</p>
-                    ))}
+                    <p>Checkin: {buscaCheckin()}</p>
+                    <p>CheckOut: {buscaCheckout()}</p>
+                    <p>Outras regras: {buscaRegras()}</p>
                 </div>
 
                 <div className={styles.politicaSaudeSeg}>
                     <HealthAndSafetyOutlinedIcon fontSize="large" sx={{ color: "black" }}/>
                     <h3>Saúde e Segurança</h3>
-                    {produto.politicas.saudeSeg.map((item) => (
-                        <p key={item}>{item}</p>
-                    ))}
+                    <p>{produto.politicas.saudeESeguranca}</p>
                 </div>
 
                 <div className={styles.politicaCancelamento}>
                     <EventBusyOutlinedIcon fontSize="large" sx={{ color: "black" }}/>
                     <h3>Política de Cancelamento</h3>
-                        {produto.politicas.cancelamento.map((item) => (
-                            <p key={item}>{item}</p>
-                        ))}
+                    <p>{produto.politicas.politicasDeCancelamento}</p>
                 </div>
                 
             </div>
