@@ -12,7 +12,7 @@ variables:
 before_script:
   - apk add --update openssl openssh-client unzip
   - wget "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
-  - unzip "terraform_${TF_VERSION}_linux_amd64.zip"
+  - unzip -o "terraform_${TF_VERSION}_linux_amd64.zip"  # Adicionado o -o para substituir automaticamente os arquivos
   - mv terraform /usr/bin/
   - rm "terraform_${TF_VERSION}_linux_amd64.zip"
   - terraform --version
