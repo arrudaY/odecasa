@@ -82,10 +82,12 @@ const TelaReserva = () => {
     
 
     useEffect(() => {   
-        if(id>=0)
-            obterProduto(id);
-        else
-            salvarLoading(true);
+      window.scrollTo(0, 0);
+
+      if(id>=0)
+          obterProduto(id);
+      else
+          salvarLoading(true);
     }, [id]);
 
     if(isLoading)
@@ -99,21 +101,30 @@ const TelaReserva = () => {
 
     return(
         <div className={styles.telaReservaContainer}>
-            <HeaderProd tela="reserva" />
+          
+          <HeaderProd tela="reserva" />
+
+          <div className={styles.reservaBody}>
             <div className={styles.telaReservaContainerEsq}>
-                <FormReserva />
-                <DatasReserva />
-                <HorarioReserva />
+              <FormReserva />
+              <div className={styles.divisor}></div>
+              <DatasReserva />
+              <div className={styles.divisor}></div>
+              <HorarioReserva />
             </div>
+
             <div className={styles.telaReservaContainerDir}>
               <div className={styles.telaReservaDir}>
-                <h1>Detalhe da Reserva</h1>
+                <h1>Detalhe da reserva</h1>
                 <LocalReservaProd />
                 <Address />
                 <Checkin />
               </div>
             </div>
-            <PoliticaProd />
+          </div>
+
+          <PoliticaProd />
+
         </div>
     )
 };

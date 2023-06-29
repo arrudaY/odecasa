@@ -1,44 +1,88 @@
-.politicaContainer{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: lightblue;
+.politicaContainer {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+    margin-bottom:      50px;
 }
-
-.politicaContainer h2{
-    margin-left: 10px;
+.politicaContainer h2 {
+    color:              var(--color-secondary);
+    font-size:          22px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        28px;
 }
-
-.politicaPoliticas{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: 10px;
-    justify-content: flex-start;
-    padding-bottom: 20px;
+.divisor {
+    margin:             10px 16px;
+    border:             0.5px solid lightgray;
+    align-self:         stretch;
 }
-
-.politicaPoliticas h3{
-    margin-bottom: 20px;
+.politicaPoliticas {
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    gap:                30px;
+    padding:            20px 0px;
 }
-
-.politicaRegras, .politicaSaudeSeg, .politicaCancelamento{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    font-size: 20px;
+.politicaPoliticas p {
+    display:            flex;
+    color:              var(--color-text);
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+    text-align:         center;
+    max-width:          300px;
 }
-
-@media(max-width: 414px) {
-    .politicaRegras, .politicaSaudeSeg, .politicaCancelamento{
-        width: 90%;
-        margin-bottom: 20px;
+.politicaPoliticas h3 {
+    text-align:         center;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Overpass', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.15px;
+    padding:            10px 0px;
+}
+.politicaRegras,
+.politicaSaudeSeg,
+.politicaCancelamento {
+    display:            flex;
+    flex-direction:     column;
+    align-items:        center;
+    justify-content:    flex-start;
+    width:              31%;
+}
+@media (max-width: 486px) {
+    .politicaContainer {
+        padding:        20px 20px 0px;
+    }
+    .politicaRegras,
+    .politicaSaudeSeg,
+    .politicaCancelamento {
+        width:          100%;
     }
 }
-
-@media((max-width: 719px) and (min-width: 415px)) {
-    .politicaRegras, .politicaSaudeSeg, .politicaCancelamento{
-        width: 45%;
-        margin-bottom: 20px;
+@media (min-width:487px) and (max-width: 980px) {
+    .politicaContainer {
+        padding:        20px 32px;
+    }
+    .politicaRegras,
+    .politicaSaudeSeg,
+    .politicaCancelamento {
+        width:          45%;
+    }
+}
+@media (min-width:981px) and (max-width: 1279px) {
+    .politicaContainer {
+        padding:        20px 32px;
+    }
+    .politicaRegras,
+    .politicaSaudeSeg,
+    .politicaCancelamento {
+        width:          30%;
+    }
+}
+@media(min-width: 1280px) {
+    .politicaContainer {
+        padding:        20px 150px;
     }
 }

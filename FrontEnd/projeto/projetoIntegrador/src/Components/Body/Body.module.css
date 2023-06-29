@@ -1,29 +1,25 @@
 .bodyContainer {
     display:            flex;
     flex-direction:     column;
-    background-color:   var(--color-3); /*TODO*/
 }
-
 .sectionTitle {
     font-family:        'Overpass', sans-serif;
     font-style:         normal;
     font-weight:        400;
     font-size:          22px;
     line-height:        28px;
-    color:              #212121; /*TODO*/
+    color:              var(--color-secondary);
     margin-top:         30px;
 }
-
 .sectionDescription {
     font-family:        'Roboto', sans-serif;
     font-style:         normal;
     font-weight:        400;
     font-size:          14px;
     line-height:        16px;
-    color:              #212121; /*TODO*/
+    color:              var(--color-secondary);
     margin:             6px 0px;
 }
-
 .bodyCards{
     display:            flex;
     flex-direction:     row;
@@ -32,19 +28,16 @@
     gap:                16px;
     margin:             12px 0px 80px;
 }
-
 @media (max-width: 414px) {
     .sectionTitle, .sectionDescription, .bodyCards {
         padding:        0px 20px;
     }    
 }
-
 @media (min-width:415px) and (max-width: 1279px) {
     .sectionTitle, .sectionDescription, .bodyCards {
         padding:        0px 32px;
     }
 }
-
 @media(min-width: 1280px) {
     .sectionTitle, .sectionDescription, .bodyCards {
         padding:        0px 150px;

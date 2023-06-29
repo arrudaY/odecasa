@@ -1,7 +1,6 @@
 import styles from './ReservaConcluida.module.css';
-import vetor from "../../Data/Vector.png";
 import { useNavigate } from "react-router-dom";
-
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 const ReservaConcluida = () => {
     const navigate = useNavigate();
@@ -14,10 +13,12 @@ const ReservaConcluida = () => {
         <div className={styles.reservaConcluidaContainer}>
             <div className={styles.reservaCentralizar}>
                 <div className={styles.reserva}>
-                    <img className={styles.vetor} src={vetor}></img>
-                    <h1 className={styles.reservaConcluidaTxt}>Muito obrigado!</h1>
-                    <h3 className={styles.reservaTxt}>Sua reserva foi realizada com sucesso</h3>
-                    <button className={styles.reservaConcluidaBtn} onClick={handleVoltarInicio}>OK</button>
+                    <div className={styles.icon}>
+                        <VerifiedIcon sx={{ fontSize:"72px", color:"#5581FB" }}/>
+                    </div>
+                    <h1>Muito obrigado!</h1>
+                    <p>Sua reserva foi realizada com sucesso</p>
+                    <button onClick={handleVoltarInicio}>OK</button>
                 </div>
             </div>
         </div>

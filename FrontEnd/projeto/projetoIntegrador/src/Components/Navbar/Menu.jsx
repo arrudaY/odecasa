@@ -5,6 +5,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import api from "../../Services/api";
 
+import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
+import AddHomeOutlinedIcon from '@mui/icons-material/AddHomeOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 const Menu = () => {
   const { removeUserStorage, stsLogin, setEstadoLogin } = useContext(AuthContext); 
@@ -74,10 +77,10 @@ const Menu = () => {
     <div ref={menuRef} className={isOpen ? styles.menuOpen : styles.menuClosed}>
         <nav className={styles.navItem}>
           <ul>
-            <li>Reservas</li>
-            <li>Favoritos</li>
-            <li onClick={validarUsuario}>Criar Produto</li>
-            <li onClick={logout}>Sair</li>
+            <li><EventAvailableOutlinedIcon/> Minhas reservas</li>
+            <li onClick={validarUsuario}><AddHomeOutlinedIcon/> Adicionar produto</li>
+            <div className={styles.divisor}></div>
+            <li onClick={logout}><LogoutOutlinedIcon/>Sair</li>
           </ul>
         </nav>
     </div>

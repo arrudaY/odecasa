@@ -10,6 +10,7 @@ import erroImg from "../../Data/erro.png"
 import api from "../../Services/api";
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 
 const Login = () => {
     const { saveEmail, saveToken, setEstadoLogin } = useContext(AuthContext); 
@@ -110,8 +111,8 @@ const Login = () => {
             <div className={styles.loginCentralizar}>
 
                 {msgLogin && <div className={styles.loginErroRes}>
-                    <img className={styles.loginErroResImg} src={erroImg}></img>
-                    <p className={styles.loginErroResMsg}>Você precisa estar logado para fazer uma reserva</p>
+                    <ErrorOutlineOutlinedIcon fontSize='large' sx={{ color: "red" }}/>
+                    <p className={styles.loginErroResMsg}>Você precisa estar logado para fazer uma reserva.</p>
                 </div>}
 
                 <form className={styles.loginForm} onSubmit={handleSubmit}>

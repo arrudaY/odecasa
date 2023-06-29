@@ -19,7 +19,7 @@
 }
 
 .formFundo{
-    background-color: var(--color-11);
+    background-color: var(--color-primaryVar2);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -34,7 +34,7 @@
 
 .formHeader{
     z-index:2;
-    background-color: var(--color-3);
+    background-color: var(--color-onSecondary);
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -62,7 +62,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-3);
+    background-color: var(--color-onSecondary);
     border:             1px solid #CAC4D0; /**/
     border-radius:      12px;
     padding: 30px;
@@ -75,7 +75,7 @@
     width: 310px;
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid var(--color-10);
+    border: 1px solid var(--color-primary);
     border-top: none;
     border-radius: 0 0 4px 4px;
     padding: 0;
@@ -140,7 +140,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: end;
-    background-color: var(--color-11);
+    background-color: var(--color-primaryVar2);
     border:             1px solid #CAC4D0; /**/
     border-radius:      12px;
     padding: 30px;
@@ -197,7 +197,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: var(--color-3);
+    background-color: var(--color-onSecondary);
     border:             1px solid #CAC4D0; /**/
     border-radius:      12px;
     padding: 30px;
@@ -256,7 +256,7 @@
     gap:                6px;
     height:             40px;
     width:              250px;
-    background-color:   var(--color-10); /*TODO*/
+    background-color:   var(--color-primary); /*TODO*/
     border-radius:      100px;
     border:             none;
     color:              var(--pi-sys-light-on-primary, #FFF);
@@ -295,7 +295,7 @@
     justify-content: space-between;
     width: 100%;
     margin-top: 20px;
-    background-color: var(--color-11);
+    background-color: var(--color-primaryVar2);
     border:             1px solid #CAC4D0; /**/
     border-radius:      12px;
     padding: 30px;

@@ -2,7 +2,6 @@ import CaractProd from "../CaractProd/CaractProd";
 import DescProd from "../DescProd/DescProd";
 import HeaderProd from "../HeaderProd/HeaderProd";
 import ImgProd from "../ImgProd/ImgProd";
-import LocalProd from "../LocalProd/LocalProd";
 import PoliticaProd from "../PoliticaProd/PoliticaProd";
 import ReservaProd from "../ReservaProd/ReservaProd";
 import styles from "./Detalhes.module.css";
@@ -50,26 +49,26 @@ const Detalhes = () => {
         }
       }
 
-    useEffect(() => {   
-        if(id>=0)
-            obterProduto(id);
-        else
-            salvarLoading(true);
+    useEffect(() => {
+
+      window.scrollTo(0, 0);
+
+      if(id>=0)
+          obterProduto(id);
+      else
+          salvarLoading(true);
     }, [id]);
 
     if(isLoading)
     {
         return (
-            <div className={styles.detalhesContainer}>
-
-            </div>
+            <div className={styles.detalhesContainer}></div>
         );
     }
 
     return (
         <div className={styles.detalhesContainer}>
             <HeaderProd tela="produto" />
-            <LocalProd />
             <ImgProd />
             <DescProd />
             <CaractProd />
