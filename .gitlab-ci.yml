@@ -31,46 +31,38 @@ build:
 
 deploy:
   stage: deploy
-  image: maven:latest
+  image:
+    name: amazon/aws-cli:2.x
+    entrypoint: [""]
   script:
-    - >
-      mvn clean package &&
-      apt-get update &&
-      apt-get install -y curl &&
-      apt-get install -y gnupg &&
-      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com focal main" > /etc/apt/sources.list.d/hashicorp.list &&
-      curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp.gpg >/dev/null &&
-      apt-get update &&
-      apt-get install -y terraform &&
-      export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID &&
-      export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY &&
-      export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION &&
-      ls &&
-      terraform init -backend-config="bucket=${TF_STATE_BUCKET}" -backend-config="key=terraform.tfstate" -backend-config="region=${AWS_REGION}" &&
-      terraform plan -out=tfplan &&
-      terraform apply -auto-approve tfplan &&
-      apt-get install -y awscli &&
-      aws deploy create-application --application-name g2-odecasa-dev &&
-      aws deploy create-deployment-group --application-name g2-odecasa-dev --deployment-group-name back-prod --deployment-config-name CodeDeployDefault.AllAtOnce --service-role-arn "arn:aws:iam::405378853534:role/GP2-User" --ec2-tag-filters "Key=tag_key_1,Value=DEPLOY,Type=KEY_AND_VALUE" "Key=tag_key_2,Value=GP2,Type=KEY_AND_VALUE" "Key=tag_key_3,Value=DEV,Type=KEY_AND_VALUE" "Key=tag_key_4,Value=BACK,Type=KEY_AND_VALUE" &&
-      aws s3 cp target/*.jar s3://app-gp2-s3/ &&
-      echo "version: 0.0" >> appspec.yml &&
-      echo "os: linux" >> appspec.yml &&
-      echo "files:" >> appspec.yml &&
-      echo "  - source: /" >> appspec.yml &&
-      echo "    destination: /app" >> appspec.yml &&
-      echo "hooks:" >> appspec.yml &&
-      echo "  ApplicationStop:" >> appspec.yml &&
-      echo "    - location: scripts/stop.sh" >> appspec.yml &&
-      echo "      timeout: 300" >> appspec.yml &&
-      echo "  ApplicationStart:" >> appspec.yml &&
-      echo "    - location: scripts/start.sh" >> appspec.yml &&
-      echo "      timeout: 300" >> appspec.yml &&
-      mkdir scripts &&
-      echo "#!/bin/bash" >> scripts/stop.sh &&
-      echo "docker-compose -f /app/docker-compose.yml down" >> scripts/stop.sh &&
-      echo "#!/bin/bash" >> scripts/start.sh
-
-
+    - apt-get update
+    - apt-get install -y terraform
+    - terraform --version
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set default.region $AWS_REGION
+    - terraform init -backend-config="bucket=${TF_STATE_BUCKET}" -backend-config="key=terraform.tfstate" -backend-config="region=${AWS_REGION}"
+    - terraform plan -out=tfplan
+    - terraform apply -auto-approve tfplan
+    - aws deploy create-application --application-name g2-odecasa-dev
+    - aws deploy create-deployment-group --application-name g2-odecasa-dev --deployment-group-name back-prod --deployment-config-name CodeDeployDefault.AllAtOnce --service-role-arn "arn:aws:iam::405378853534:role/GP2-User" --ec2-tag-filters "Key=tag_key_1,Value=DEPLOY,Type=KEY_AND_VALUE" "Key=tag_key_2,Value=GP2,Type=KEY_AND_VALUE" "Key=tag_key_3,Value=DEV,Type=KEY_AND_VALUE" "Key=tag_key_4,Value=BACK,Type=KEY_AND_VALUE"
+    - aws s3 cp target/*.jar s3://app-gp2-s3/
+    - echo "version: 0.0" >> appspec.yml
+    - echo "os: linux" >> appspec.yml
+    - echo "files:" >> appspec.yml
+    - echo "  - source: /" >> appspec.yml
+    - echo "    destination: /app" >> appspec.yml
+    - echo "hooks:" >> appspec.yml
+    - echo "  ApplicationStop:" >> appspec.yml
+    - echo "    - location: scripts/stop.sh" >> appspec.yml
+    - echo "      timeout: 300" >> appspec.yml
+    - echo "  ApplicationStart:" >> appspec.yml
+    - echo "    - location: scripts/start.sh" >> appspec.yml
+    - echo "      timeout: 300" >> appspec.yml
+    - mkdir scripts
+    - echo "#!/bin/bash" >> scripts/stop.sh
+    - echo "docker-compose -f /app/docker-compose.yml down" >> scripts/stop.sh
+    - echo "#!/bin/bash" >> scripts/start.sh
   only:
-  - main
-  - dev-back
+    - main
+    - dev-back
