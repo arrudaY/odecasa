@@ -2,7 +2,6 @@ provider "aws" {
   region = "sa-east-1"   # Substitua pela região desejada da AWS
 }
 
-
 data "aws_instances" "existing_instances" {
   instance_tags = {
     Name = "ExampleInstance"
@@ -24,16 +23,17 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
     events  = ["DEPLOYMENT_FAILURE"]
   }
 
-ec2_tag_set {
-  ec2_tag_set_list {
-    tag_filter_type = "KEY_AND_VALUE"
+  ec2_tag_set {
+    ec2_tag_set_list {
+      tag_filter_type = "KEY_AND_VALUE"
 
-    tags = {
-      "tag_key_1" = "DEPLOY"
-      "tag_key_2" = "GP2"
-      "tag_key_3" = "DEV"
-      "tag_key_4" = "BACK"
-      // Adicione mais tags conforme necessário
+      tags = {
+        "tag_key_1" = "DEPLOY"
+        "tag_key_2" = "GP2"
+        "tag_key_3" = "DEV"
+        "tag_key_4" = "BACK"
+        // Adicione mais tags conforme necessário
+      }
     }
   }
 }
