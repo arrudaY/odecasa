@@ -17,6 +17,7 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
   app_name               = aws_codedeploy_app.deploy1.name
   deployment_group_name  = "back-prod"
   deployment_config_name = "CodeDeployDefault.AllAtOnce"
+  service_role_arn       = "arn:aws:iam::405378853534:role/GP2-User"
 
   auto_rollback_configuration {
     enabled = true
@@ -24,16 +25,14 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
   }
 
   ec2_tag_set {
-    ec2_tag_set_list {
-      tag_filter_type = "KEY_AND_VALUE"
+    tag_filter_type = "KEY_AND_VALUE"
 
-      tags = {
-        "tag_key_1" = "DEPLOY"
-        "tag_key_2" = "GP2"
-        "tag_key_3" = "DEV"
-        "tag_key_4" = "BACK"
-        // Adicione mais tags conforme necessário
-      }
+    tags = {
+      "tag_key_1" = "DEPLOY"
+      "tag_key_2" = "GP2"
+      "tag_key_3" = "DEV"
+      "tag_key_4" = "BACK"
+      // Add more tags as needed
     }
   }
 }
