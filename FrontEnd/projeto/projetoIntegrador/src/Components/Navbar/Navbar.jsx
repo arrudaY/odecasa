@@ -86,6 +86,10 @@ const Navbar = () => {
       } catch (error) {
         console.log(error);
         alert("Erro ao tentar carregar dados do Usuário");
+        if(stsLogin == "Logout"){
+          setEstadoLogin("Login");
+          removeUserStorage();
+        }
       }
     }
   
@@ -100,7 +104,7 @@ const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem("ctd_token");
   
-    if ((token != null)) {
+    if ((token != null) && (stsLogin == "Logout")) {
       getUsuarioLogado(token);
     } else if (stsLogin == "Login"){
       setIsLoading(false);
