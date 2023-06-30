@@ -20,16 +20,14 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
   service_role_arn       = "arn:aws:iam::405378853534:role/GP2-User"
 
   ec2_tag_set {
-    ec2_tag_set_list {
-      tag_filter_type = "KEY_AND_VALUE"
+    tag_filter_type = "KEY_AND_VALUE"
 
-      tags = {
-        "tag_key_1" = "DEPLOY"
-        "tag_key_2" = "GP2"
-        "tag_key_3" = "DEV"
-        "tag_key_4" = "BACK"
-        // Add more tags as needed
-      }
+    tags = {
+      "tag_key_1" = "DEPLOY"
+      "tag_key_2" = "GP2"
+      "tag_key_3" = "DEV"
+      "tag_key_4" = "BACK"
+      // Add more tags as needed
     }
   }
 }
