@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Sidebar.module.css'
 import CloseIcon from '@mui/icons-material/Close';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -52,6 +52,10 @@ const Sidebar = () => {
       
   }
 
+  const redirectReservas = () => {
+    navigate("/minhas-reservas")
+  }
+
   return (
     <div ref={sidebarRef} className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
       
@@ -80,11 +84,11 @@ const Sidebar = () => {
       
         <div className={styles.divisor}></div>
 
-        <span className={styles.secao}>Suporte</span>
+        <span className={styles.secao}>Minhas reservas</span>
 
         <nav className={styles.navItem}>
           <ul>
-            <li><MailOutlineIcon /><span>suporte@odecasa.com</span></li>
+            <li onClick={redirectReservas}><EventAvailableOutlinedIcon /><span>Ver minhas reservas</span></li>
           </ul>
         </nav>
 
