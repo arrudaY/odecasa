@@ -19,20 +19,17 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
   deployment_config_name = "CodeDeployDefault.AllAtOnce"
   service_role_arn       = "arn:aws:iam::405378853534:role/GP2-User"
 
-  auto_rollback_configuration {
-    enabled = true
-    events  = ["DEPLOYMENT_FAILURE"]
-  }
-
   ec2_tag_set {
-    tag_filter_type = "KEY_AND_VALUE"
+    ec2_tag_set_list {
+      tag_filter_type = "KEY_AND_VALUE"
 
-    tags = {
-      "tag_key_1" = "DEPLOY"
-      "tag_key_2" = "GP2"
-      "tag_key_3" = "DEV"
-      "tag_key_4" = "BACK"
-      // Add more tags as needed
+      tags = {
+        "tag_key_1" = "DEPLOY"
+        "tag_key_2" = "GP2"
+        "tag_key_3" = "DEV"
+        "tag_key_4" = "BACK"
+        // Add more tags as needed
+      }
     }
   }
 }
