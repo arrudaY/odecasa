@@ -21,22 +21,7 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
 
   ec2_tag_set {
     ec2_tag_filter {
-      key   = "DEPLOY"
-      type  = "KEY_ONLY"
-    }
-
-    ec2_tag_filter {
-      key   = "GP2"
-      type  = "KEY_ONLY"
-    }
-
-    ec2_tag_filter {
-      key   = "DEV"
-      type  = "KEY_ONLY"
-    }
-
-    ec2_tag_filter {
-      key   = "BACK"
+      key   = "DEV-BACK-DEPLOY-GP2"
       type  = "KEY_ONLY"
     }
   }
