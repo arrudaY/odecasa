@@ -109,6 +109,15 @@
   font-family:      'Roboto', sans-serif;
   font-weight:      500;
 }
+.adminLabel {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
 @media (max-width:414px) {
   .navBarContainer {
     padding:        0px 20px;

@@ -16,6 +16,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [ idUsuario, setIdUsuario ] = useState(0);
+  const [ isAdmin, setIsAdmin ] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
   const showMenu = () => setMenu(!menu);
@@ -60,7 +61,12 @@ const Navbar = () => {
             setNome(u[i].nome);
             setSobreNome(u[i].sobreNome);
             setIsLoading(false);
-            setIdUsuario(u[i].id); 
+            setIdUsuario(u[i].id);
+            if(u[i].funcao.nome == "ROLE_ADMIN") {
+              setIsAdmin(true);
+            } else {
+              setIsAdmin(false);
+            }
             break;
           }
         }
@@ -87,7 +93,7 @@ const Navbar = () => {
       setIsLoading(false);
     }
 
-  }, [idUsuario, stsLogin, isLoading]);
+  }, [idUsuario, stsLogin, isLoading, isAdmin]);
 
   if(isLoading) {
     return (<div></div>)
@@ -122,8 +128,8 @@ const Navbar = () => {
 
                 ) : (
                   <div className={styles.wcMessage}>
+                  {isAdmin && <span className={styles.adminLabel}>Administrador</span>}
                   <span>Olá, {nome} {sobreNome}</span>
-
                   <button onClick={showMenu} className={styles.avatar}>{nome.charAt(0)}{sobreNome.charAt(0)}</button>
                   </div>
                 )}
