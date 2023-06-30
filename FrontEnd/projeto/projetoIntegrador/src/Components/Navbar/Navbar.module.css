@@ -122,7 +122,13 @@
   font-weight:      400;
   font-size:        12px;
   text-transform:   uppercase;
-  color:            var(--color-primary);
+  color:            var(--color-text);
+}
+
+@media (max-width: 500px) {
+  .adminLabel {
+    display: none;
+  }
 }
 @media (max-width:414px) {
   .navbarContainer,

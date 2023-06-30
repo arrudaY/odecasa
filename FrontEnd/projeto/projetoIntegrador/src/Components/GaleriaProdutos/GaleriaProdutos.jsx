@@ -48,17 +48,16 @@ const GaleriaProdutos = () => {
       {(showDetails || (windowWidth <= 719)) ? 
       (<div className={styles.carousel}>
         <div style={{
-          padding: "0 20px"
+          textAlign: "center",
         }}>
           <Carousel
             data={produto.imagemList.map((image, index) => ({
               image: image.url,
-              caption: image.titulo,
             }))}
             time={3000}
             width="100%"
             captionStyle={captionStyle}
-            radius="10px"
+            radius="8px"
             slideNumber={true}
             slideNumberStyle={slideNumberStyle}
             captionPosition="bottom"
