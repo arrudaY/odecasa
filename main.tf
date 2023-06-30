@@ -21,26 +21,22 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
 
   ec2_tag_set {
     ec2_tag_filter {
-      key   = "tag_key_1"
-      value = "DEPLOY"
-      type  = "KEY_AND_VALUE"
+      key   = "DEPLOY"
+      type  = "KEY"
     }
 
     ec2_tag_filter {
-      key   = "tag_key_2"
-      value = "GP2"
-      type  = "KEY_AND_VALUE"
+      key   = "GP2"
+      type  = "KEY"
     }
 
     ec2_tag_filter {
-      key   = "tag_key_3"
-      value = "DEV"
-      type  = "KEY_AND_VALUE"
+      key   = "DEV"
+      type  = "KEY"
     }
 
     ec2_tag_filter {
-      key   = "tag_key_4"
-      value = "BACK"
+      key   = "BACK"
       type  = "KEY_AND_VALUE"
     }
   }
