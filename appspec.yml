@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+hooks:
+  ApplicationStop:
+    - location: scripts/stop-application.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/install-dependencies.sh
+      timeout: 300
+      runas: root
+    - location: scripts/start-application.sh
+      timeout: 300
+      runas: root
