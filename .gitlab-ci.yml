@@ -31,7 +31,9 @@ deploy:
     - ls
     - cp target/*.jar deployment/
     - cp appspec.yml deployment/
-    - cp scripts/* deployment/
+    - cp stop-application.sh deployment/
+    - cp install-dependencies.sh deployment/
+    - cp start-application.sh deployment/    
     - cd deployment
     - yum install -y zip unzip
     - zip -r my-application.zip .
