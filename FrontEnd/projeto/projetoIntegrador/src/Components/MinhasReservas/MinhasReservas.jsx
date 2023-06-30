@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { ReservaContext } from '../../Contexts/ReservaContext';
 import { AuthContext } from '../../Contexts/AuthContext';
 import api from "../../Services/api";
+import { format, parseISO } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
 const MinhasReservas = () => {
     const { reserva} = useContext(ReservaContext)
@@ -33,28 +35,35 @@ const MinhasReservas = () => {
     }, [reserva, idUsuario])
 
     return (
-        <>
-          <div className={styles.reservaContainer}>
+        < div className={styles.reservaContainer}>
             <div className={styles.reservaTitle}>
                 <h1>Minhas reservas</h1>
                 <h4>Total de reservas: {reservas.length}</h4>
             </div>
-            <div className={styles.cardsContainer}>
-                {reservas.map((reserva) => (
-                    <div key={reserva.id} className={styles.cardContainer}>
-                        <div className={styles.cardData}>
-                            <p>ID da reserva: {reserva.id}</p>
-                            <h5>Data de entrada: {reserva.dataInicial}</h5>
-                            <h5>Data de saída: {reserva.dataFinal}</h5>
-                            <h3>{reserva.produto.nome}</h3>
-                            <h6>{reserva.produto.cidade.nome}</h6>
-                            <img className={styles.cardImage} src={reserva.produto.imagemList[0].url} />
-                        </div> 
-                    </div> 
-                ))}
+          <div className={styles.cardsContainer}>
+            {reservas.map((reserva) => {
+                const dataInicial = parseISO(reserva.dataInicial);
+                const dataFinal = parseISO(reserva.dataFinal);
+                const dataInicialFormatada = format(dataInicial, 'dd/MM/yyyy', { locale: ptBR });
+                const dataFinalFormatada = format(dataFinal, 'dd/MM/yyyy', { locale: ptBR });
+
+            return (
+                <div key={reserva.id} className={styles.cardContainer}>
+                    <div className={styles.cardData}>
+                        <p>ID da reserva: {reserva.id}</p>
+                        <h5>Data de entrada: {dataInicialFormatada}</h5>
+                        <h5>Data de saída: {dataFinalFormatada}</h5>
+                        <h5>Checkin: {}</h5>
+                        <h3>{reserva.produto.nome}</h3>
+                        <h6>{reserva.produto.cidade.nome}, {reserva.produto.cidade.pais}</h6>
+                        <img className={styles.cardImage} src={reserva.produto.imagemList[0].url} alt={reserva.produto.imagemList[0].titulo} />
+                    </div>
+                </div>
+            );
+            })}
             </div>
-          </div>
-        </>
+
+        </ div>
     );
 
 }

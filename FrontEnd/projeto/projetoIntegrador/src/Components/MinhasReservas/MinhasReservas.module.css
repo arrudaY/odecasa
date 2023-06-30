@@ -5,9 +5,10 @@
     font-family: 'Overpass', sans-serif;
 }
 
-.reservaContainer h1 {
+.reservaTitle h1 {
     font-style: normal;
     font-weight: 400;
+    font-size: 30px;
 }
 
 .reservaTitle {
@@ -17,16 +18,9 @@
     margin-bottom: 20px;
 }
 
-.reservaContainer h3 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-
-.reservaContainer h4 {
+.reservaTitle h4 {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     color: #757575;
 }
@@ -49,7 +43,7 @@
     border: 1px solid #CAC4D0;
     border-radius: 12px;
     width: 25%;
-    max-height: 400px;
+    max-height: 500px;
     padding: 20px;
     box-shadow: 5px 5px 8px #888888;
 }
@@ -60,6 +54,25 @@
     object-fit: cover;
     margin-top: 10px;
     border-radius: 8px;
+}
+
+.cardData h3 {
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.cardData h5 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #757575;
+}
+
+.cardData h6 {
+    font-weight: 400;
+    font-size: 12px;
+    text-align: end;
 }
 
 .cardData p {
@@ -73,11 +86,16 @@
     border-radius: 8px;
 }
 
-@media (min-width: 768px) {
-
+@media (max-width: 768px) {
+    .cardsContainer {
+        width: 100%;
+    }
+    .cardContainer {
+        width: 40%;
+    }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 559px) {
     .cardsContainer {
         width: 100%;
     }
