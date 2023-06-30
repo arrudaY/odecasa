@@ -41,7 +41,8 @@ deploy:
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_REGION
     - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
-    - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip
+    - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
+
 
   only:
     - main
