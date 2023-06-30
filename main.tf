@@ -20,4 +20,8 @@ resource "aws_codedeploy_deployment_group" "deploygroup1" {
       type  = "KEY_ONLY"
     }
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
