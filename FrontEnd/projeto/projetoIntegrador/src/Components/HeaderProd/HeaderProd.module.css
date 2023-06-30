@@ -106,10 +106,11 @@
     font-family:        'Overpass', sans-serif;
     font-style:         normal;
     font-weight:        500;
-    font-size:          20px;
+    font-size:          16px;
     line-height:        24px;
     display:            flex;
     align-items:        center;
+    justify-content:    center;
     text-align:         center;
     letter-spacing:     0.1px;
     color:              var(--color-secondary);

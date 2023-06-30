@@ -17,6 +17,8 @@ const Navbar = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [ idUsuario, setIdUsuario ] = useState(0);
   const [ isAdmin, setIsAdmin ] = useState(false);
+  const [navbar, setNavbar] = useState(false);
+
 
   const showSidebar = () => setSidebar(!sidebar);
   const showMenu = () => setMenu(!menu);
@@ -38,6 +40,17 @@ const Navbar = () => {
     if(stsLogin === "Login")
       navigate("/login");
   }
+
+  function changeNavbarColor() {
+    if (window.scrollY >= 40) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  }
+
+  window.addEventListener('scroll', changeNavbarColor);
+
   
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -101,7 +114,7 @@ const Navbar = () => {
 
   return (
       <nav className="sticky-top">
-        <div className={styles.navBarContainer}>
+        <div className={navbar ? styles.navbarContainerActive : styles.navbarContainer}>
             <div className={styles.navBarLogo}>
               <Link className={styles.link} to="/">
                 <h2>ôdecasa</h2>

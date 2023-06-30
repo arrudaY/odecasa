@@ -18,6 +18,10 @@
     align-items:        center;
     justify-content:    center;
     width:              100%;
+    padding:            20px;
+    border-radius:      12px;
+    box-shadow:         var(--elevation1);
+    background-color:   white;
     z-index:            1;
 }
 .buscadorTxt {
@@ -131,30 +135,37 @@
 @media (max-width: 414px) {
     .buscadorContainer {
         padding:        30px 20px;
+        margin-top:     200px;
     }
-    .buscadorInputs{
+    .buscadorInputs {
         flex-direction: column;
         gap:            12px;
     }
-    .buscadorTxt, .buscadorBtn, .buscadorInputs{
+    .buscadorTxt,
+    .buscadorBtn,
+    .buscadorInputs{
         width:          100%;
     }
 }
 @media (min-width:415px) and (max-width: 740px){
     .buscadorContainer {
         padding:        30px 20px;
+        margin-top:     150px;
     }
     .buscadorInputs{
         flex-direction: column;
         gap:            12px;
     }
-    .buscadorTxt, .buscadorBtn, .buscadorInputs{
+    .buscadorTxt,
+    .buscadorBtn,
+    .buscadorInputs {
         width:          100%;
     }
 }
 @media (min-width:741px) and (max-width: 1279px) {
     .buscadorContainer {
         padding:        30px 32px;
+        margin-top:     180px;
     }
     .buscadorInputs {
         flex-direction: row;
@@ -171,6 +182,7 @@
 @media(min-width: 1280px) {
     .buscadorContainer {
         padding:        30px 150px;
+        margin-top:     230px;
     }
     .buscadorInputs {
         flex-direction: row;

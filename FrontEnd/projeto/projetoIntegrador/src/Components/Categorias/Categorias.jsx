@@ -97,8 +97,6 @@ const Categorias = () => {
 
   return (
     <div className={styles.categoriasContainer}>
-      <h1>Buscar por tipo de acomodação</h1>
-      <p>De acomodações para toda a família a ambientes de luxo e muito mais</p>
 
       <swiper-container ref={swiperRef} init="false">
         {categorias.map((item) => (
@@ -107,8 +105,10 @@ const Categorias = () => {
               <div key={item.id} className={styles.categoriasCard}>
                 <Link to={`/categoria/${item.id}`} className={styles.link}>
                   <img className={styles.categoriasImg} src={item.urlImagem}/>
-                  <h1>{item.descricao}</h1>
-                  <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
+                  <div className={styles.cardInfo}>
+                    <h1>{item.descricao}</h1>
+                    <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
+                  </div>
                 </Link>
               </div>
             </swiper-slide>
@@ -116,14 +116,14 @@ const Categorias = () => {
               <swiper-slide key={item.id}>
                 <div key={item.id} className={styles.categoriasCard}>
                   <img className={styles.categoriasImg} src={item.urlImagem}/>
-                  <h1>{item.descricao}</h1>
-                  <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
+                  <div className={styles.cardInfo}>
+                    <h1>{item.descricao}</h1>
+                    <p>{getNumProds(item.id) == 1 ? getNumProds(item.id) + " acomodação" : getNumProds(item.id) + " acomodações"}</p>
+                  </div>
                 </div>
               </swiper-slide>
           )))}
       </swiper-container>
-
-      
     </div>
   );
 };

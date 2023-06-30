@@ -14,7 +14,6 @@ const Home = () => {
 
   return (
     <>
-        <Buscador />
         <Body />
     </>
   );

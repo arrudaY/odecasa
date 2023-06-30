@@ -1,6 +1,7 @@
+import Buscador from "../Buscador/Buscador";
 import Categorias from "../Categorias/Categorias";
-import styles from "./Body.module.css";
 import CardBusca from "../CardBusca/CardBusca"
+import styles from "./Body.module.css";
 import api from "../../Services/api";
 import { useEffect , useState} from "react";
 import { useContext } from "react";
@@ -38,7 +39,20 @@ const Body = () => {
   return (
     <body>
       <div className={styles.bodyContainer}>
+
+        <div className={styles.banner}>
+          <div className={styles.bannerTxt}>
+            <h2>Encontre sua próxima estadia</h2>
+            <h3>De acomodações para toda a família a ambientes de luxo e muito mais</h3>
+          </div>
+        </div>
+
+        <Buscador />
+
+        <h2 className={styles.sectionTitle}>Buscar por tipo de acomodação</h2>
+
         <Categorias />
+
         <h2 className={styles.sectionTitle}>Recomendações</h2>
         <p className={styles.sectionDescription}>Explore acomodações incríveis</p>
         <div className={styles.bodyCards}>

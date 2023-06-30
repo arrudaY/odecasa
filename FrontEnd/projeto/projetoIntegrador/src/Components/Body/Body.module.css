@@ -1,45 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100;200&display=swap');
+
 .bodyContainer {
-    display:            flex;
-    flex-direction:     column;
+    display:                flex;
+    flex-direction:         column;
+}
+.banner{
+    background:             url(/mesh-gradient-4.png) center;
+    background-size:        cover;
+    background-repeat:      no-repeat;
+    z-index:                0;
+    width:                  100%;
+    height:                 450px;
+    position:               absolute;
+    top:                    -80px;
+    left:                   0;
+    background-image:       linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255,255,255,0.2) 55%, rgba(0,0,0,0) 100%), url('/mesh-gradient-4.png');
+}
+.bannerTxt{
+    display:                flex;
+    flex-direction:         column;
+    align-items:            center;
+    gap:                    5px;
+}
+.banner h2{
+    display:                flex;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            400;
+    line-height:            52px;
+    text-align:             center;
+}
+.banner h3 {
+    display:                flex;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            200;
+    line-height:            28px;
+    color:                  var(--color-secondary);
+    letter-spacing:         1.5px;
+    text-align:             center;
 }
 .sectionTitle {
-    font-family:        'Overpass', sans-serif;
-    font-style:         normal;
-    font-weight:        400;
-    font-size:          22px;
-    line-height:        28px;
-    color:              var(--color-secondary);
-    margin-top:         30px;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            400;
+    font-size:              22px;
+    line-height:            28px;
+    color:                  var(--color-secondary);
+    margin-top:             30px;
 }
 .sectionDescription {
-    font-family:        'Roboto', sans-serif;
-    font-style:         normal;
-    font-weight:        400;
-    font-size:          14px;
-    line-height:        16px;
-    color:              var(--color-secondary);
-    margin:             6px 0px;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            200;
+    font-size:              16px;
+    line-height:            16px;
+    color:                  var(--color-secondary);
+    margin:                 6px 0px;
 }
 .bodyCards{
-    display:            flex;
-    flex-direction:     row;
-    flex-wrap:          wrap;
-    justify-content:    space-between;
-    gap:                16px;
-    margin:             12px 0px 80px;
+    display:                flex;
+    flex-direction:         row;
+    flex-wrap:              wrap;
+    justify-content:        space-between;
+    gap:                    16px;
+    margin:                 12px 0px 80px;
 }
 @media (max-width: 414px) {
-    .sectionTitle, .sectionDescription, .bodyCards {
-        padding:        0px 20px;
+    .banner {
+        height:             400px;
+    }
+    .bannerTxt {
+        margin-top:         130px;
+    }
+    .bannerTxt,
+    .sectionTitle,
+    .sectionDescription,
+    .bodyCards {
+        padding:            0px 20px;
+    }
+    .banner h2 {
+        font-size:          36px;
+        text-align:         start;
+    }
+    .banner h3 {
+        font-size:          18px;
+        text-align:         start;
+        letter-spacing:     0;
     }    
 }
-@media (min-width:415px) and (max-width: 1279px) {
-    .sectionTitle, .sectionDescription, .bodyCards {
-        padding:        0px 32px;
+@media (min-width:415px) and (max-width: 740px) {
+    .banner {
+        height:             400px;
     }
+    .bannerTxt {
+        margin-top:         130px;
+    }
+    .bannerTxt,
+    .sectionTitle,
+    .sectionDescription,
+    .bodyCards {
+        padding:            0px 20px;
+    }
+    .banner h2 {
+        font-size:          26px;
+        text-align: left;
+    }
+    .banner h3 {
+        font-size:          16px;
+    }    
+}
+@media (min-width:741px) and (max-width: 1279px) {
+    .banner {
+        height:             400px;
+    }
+    .bannerTxt {
+        margin-top:         180px;
+    }
+    .bannerTxt,
+    .sectionTitle,
+    .sectionDescription,
+    .bodyCards {
+        padding:            0px 32px;
+    }
+    .banner h2 {
+        font-size:          40px;
+    }
+    .banner h3 {
+        font-size:          18px;
+    }    
 }
 @media(min-width: 1280px) {
-    .sectionTitle, .sectionDescription, .bodyCards {
-        padding:        0px 150px;
+    .bannerTxt {
+        margin-top:         210px;
+    }
+    .banner h2 {
+        font-size:          45px;
+    }
+    .banner h3 {
+        font-size:          20px;
+    }  
+    .sectionTitle,
+    .sectionDescription,
+    .bodyCards {
+        padding:            0px 150px;
     }
 }

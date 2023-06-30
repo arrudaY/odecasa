@@ -204,7 +204,7 @@ const Buscador = () => {
                 <input
                 className={styles.buscadorTxt}
                 type="text"
-                placeholder="Local"
+                placeholder="Escolha o local"
                 onChange={handleInputChange}
                 value={termoBusca}
                 />

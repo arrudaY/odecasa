@@ -113,7 +113,7 @@
     background-color:   var(--color-primaryVar1);
 }
 .accountConfirm p {
-    color:              var(--color-text);
+    color:              var(--color-secondary);
     text-align:         center;
     font-size:          14px;
     font-family:        'Roboto', sans-serif;

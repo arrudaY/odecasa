@@ -12,8 +12,8 @@
 
 :root {
     --color-primary:        #5581FB;
-    --color-primaryVar1:    #F0F8FF;
-    --color-primaryVar2:    rgb(234, 240, 252);
+    --color-primaryVar1:    rgb(234, 240, 252);
+    --color-primaryVar2:    rgb(201,230,253);
     --color-onPrimary:      white;
     --color-secondary:      rgb(34,34,34);
     --color-onSecondary:    white;
@@ -30,7 +30,7 @@
     --swiper-navigation-sides-offset: 10px;
 }
 
-.material-symbols-rounded {
+.material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
