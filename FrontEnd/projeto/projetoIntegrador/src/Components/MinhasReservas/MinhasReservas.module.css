@@ -45,7 +45,6 @@
     width: 25%;
     max-height: 500px;
     padding: 20px;
-    box-shadow: 5px 5px 8px #888888;
 }
 
 .cardImage {
@@ -80,10 +79,14 @@
     text-transform: uppercase;
     justify-content: flex-end;
     margin-bottom: 10px;
-    background-color: rgba(85, 129, 251, 0.5);
+    background-color: rgba(85, 129, 251, 0.8);
     padding: 10px;
     color: #FFF;
     border-radius: 8px;
+}
+
+.inativa {
+    opacity: 0.3;    
 }
 
 @media (max-width: 768px) {
