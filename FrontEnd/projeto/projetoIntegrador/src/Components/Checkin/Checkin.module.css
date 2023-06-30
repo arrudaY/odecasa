@@ -1,38 +1,53 @@
 .checkinContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
 }
-
+.divisor {
+    margin:             10px 0;
+    border:             0.5px solid lightgray;
+    align-self:         stretch;
+}
 .check {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
+    display:            flex;
+    flex-direction:     row;
+    justify-content:    space-between;
+    align-items:        center;
 }
-
 .checkinLabel {
-    font-size: 16px;
-    font-weight: bold;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.5px;
 }
-
 .check input {
-    border: none;
-    outline: none;
+    border:             none;
+    outline:            none;
+    background-color:   transparent;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+    text-align:         end;
 }
-
 .checkButton {
-    margin-top: 20px;
-    width: 100%;
-    height: 50px;
-    border-radius: 25px;
-    color: var(--color-6);
-    background-color: var(--color-10);
-    transition: all 0.5s;
-    opacity: 0.8;
+    width:              100%;
+    height:             40px;
+    border-radius:      25px;
+    background-color:   var(--color-primary);
+    color:              var(--color-onPrimary);
+    text-align:         center;
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        20px;
+    letter-spacing:     0.1px;
+    margin-top:         10px;
 }
-
 .checkButton:hover {
-    opacity: 1;
+    box-shadow:         var(--elevation1);
+    transition:         all .2s;
 }

@@ -1,0 +1,491 @@
+.formContainer{
+    z-index:5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Roboto';
+}
+
+.formContainer h2{
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.formError {
+    display:            block;
+    color:              red;
+    font-size:          14px;
+}
+
+.formFundo{
+    background-color: var(--color-primaryVar2);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.formContainer2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formHeader{
+    z-index:2;
+    background-color: var(--color-onSecondary);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 80px;
+}
+
+.formHeader p{
+    font-size: 30px;
+    color: black;
+}
+
+.formVoltar{
+    width: 40px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.formBlocao{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-onSecondary);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.formComboOpt{
+    position: absolute;
+    top: calc(100% - 10px);
+    left: 10px;
+    width: 310px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--color-primary);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 15;
+}
+
+.blocaoTxtBasico{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-top: 20px;
+}
+
+.blocaoTxtBasicoDesc{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.formLabel {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 14px;
+    opacity: 0.8;
+}
+
+.formTxt {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+.formTxtDesc {
+    width: 100%;
+    height: 160px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+.formBlocao h3{
+    font-size: 22px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.formAtributos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    background-color: var(--color-primaryVar2);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.formTxtAtributos{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-top: 20px;
+}
+
+.formAtributosTxts{
+    width: 93%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.formAtribSalvos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.atributoSalvo{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.formApagarImg{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.atributoSalvo p{
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.formAddImg{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.formPoliticas{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--color-onSecondary);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.formPoliticasBloco{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.formPoliticasBloco label{
+    margin-top: 20px;
+}
+
+.formCarregarImg{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.formCarregarImgTxt{
+    width: 87%;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+    margin-top: 20px;
+}
+
+.formUploadImg{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.formCentralizaBtn{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.formBtn {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        center;
+    justify-content:    center;
+    gap:                6px;
+    height:             40px;
+    width:              250px;
+    background-color:   var(--color-primary); /*TODO*/
+    border-radius:      100px;
+    border:             none;
+    color:              var(--pi-sys-light-on-primary, #FFF);
+
+    font-size:          18px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+
+    position:           absolute;
+    top:                50%;
+    left:               50%;
+    transform:          translate(-50%,-50%);
+}
+
+.formNovaCatCid{
+    display: flex;
+    flex-direction: row;
+    width: 48%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blocaoTxtCatCid{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.criarCatCid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    background-color: var(--color-primaryVar2);
+    border:             1px solid #CAC4D0; /**/
+    border-radius:      12px;
+    padding: 30px;
+}
+
+.addImgCatCid{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    width: 48%;
+}
+
+.addImgCatCidTxt{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.alinhaComboImg{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.formComboBox{
+    width: 88%;
+    height: 40px;
+}
+
+.alinhaTxtImg{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+}
+
+.alinhaTxtImgTxt{
+    width: 88%;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #F8F9FA;
+    border: none;
+    outline: 0;
+    transition: all 0.6s;
+}
+
+@media (max-width:414px) {
+    .formHeader, .formContainer2 {
+      padding:        0px 20px;
+    }
+
+    .formHeader p{
+        font-size: 24px;
+    }
+
+    .formContainer h2{
+        font-size: 20px;
+    }
+
+    .blocaoTxtBasico, .formNovaCatCid{
+        width: 100%;
+    }
+
+    .addImgCatCid{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .formFundo{
+        padding-bottom: 10px;
+    }
+
+    .formTxtAtributos{
+        width: 100%;
+    }
+
+    .formAtributosTxts{
+        width: 75%;
+    }
+
+    .formAtributos{
+        align-items: center;
+    }
+
+    .formAtributos, .formPoliticas, .formBlocao{
+        padding: 20px;
+    }
+
+    .formPoliticasBloco{
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .formPoliticasBloco{
+        width: 100%;
+    }
+
+    .formCarregarImgTxt{
+        width: 60%;
+    }
+
+    .formComboBox{
+        width: 85%;
+    }
+
+    .alinhaTxtImgTxt{
+        width: 75%;
+    }
+  }
+  @media (min-width:415px) and (max-width: 796px) {
+    .formHeader, .formContainer2{
+        padding:        0px 32px;
+    }
+  
+    .formFundo{
+        padding-bottom: 60px;
+    }
+
+    .blocaoTxtBasico, .formNovaCatCid{
+        width: 100%;
+    }
+
+    .addImgCatCid{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .formTxtAtributos{
+        width: 100%;
+    }
+
+    .formAtributosTxts{
+        width: 88%;
+    }
+
+    .formAtributos{
+        align-items: center;
+    }
+    
+    .formAtributos, .formPoliticas, .formBlocao{
+        padding: 20px;
+    }
+
+    .formPoliticasBloco{
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .formPoliticasBloco{
+        width: 100%;
+    }
+
+    .formCarregarImgTxt{
+        width: 70%;
+    }
+
+    .formComboBox{
+        width: 86%;
+    }
+
+    .alinhaTxtImgTxt{
+        width: 85%;
+    }
+  }
+  
+  @media (min-width:797px) and (max-width: 1279px) {
+    .formHeader, .formContainer2{
+      padding:        0px 32px;
+    }
+
+    .formFundo{
+        padding-bottom: 60px;
+    }
+
+    .formCarregarImgTxt{
+        width: 85%;
+    }
+  }
+  
+  @media(min-width: 1280px) {
+    .formHeader, .formContainer2{
+      padding:        0px 150px;
+    }
+
+    .formFundo{
+        padding-bottom: 60px;
+    }
+  }

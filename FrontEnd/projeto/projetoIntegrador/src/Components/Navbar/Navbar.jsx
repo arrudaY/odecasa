@@ -109,7 +109,7 @@ const Navbar = () => {
             ) : (
 
               <>
-              {stsLogin === "Login" ? (
+              {stsLogin == "Login" ? (
                 <div className={styles.navBarBotoes}>
                   <button onClick={cadastrarEncerrar}>
                     Criar conta

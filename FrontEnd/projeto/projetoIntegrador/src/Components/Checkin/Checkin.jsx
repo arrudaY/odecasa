@@ -68,13 +68,17 @@ const Checkin = () => {
 
         if (isDataValida)
             postReserva();
+        else
+            alert("Falta escolher as datas ou a hora para a sua reserva!");
     }
 
     return(
         <div className={styles.checkinContainer}>
-            <div className="divisoria"></div>
+
+            <div className={styles.divisor}></div>
+            
             <div className={styles.check}>
-                <label className={styles.checkinLabel}>Check-in:</label>
+                <label className={styles.checkinLabel}>Check-in</label>
                 <input
                     type="text"
                     id="checkinDate"
@@ -82,9 +86,11 @@ const Checkin = () => {
                     onChange={handleCheckinChange}
                 />
             </div>
-            <div className="divisoria"></div>
+
+
+            <div className={styles.divisor}></div>
             <div className={styles.check}>
-                <label className={styles.checkinLabel}>Check-out:</label>
+                <label className={styles.checkinLabel}>Check-out</label>
                     <input
                         type="text"
                         id="checkoutDate"
@@ -92,8 +98,10 @@ const Checkin = () => {
                         onChange={handleCheckoutChange}
                     />
             </div>
-            <div className="divisoria"></div>
-            <button className={styles.checkButton} onClick={confirmarReserva}>Confirmar Reserva</button>
+
+            <div className={styles.divisor}></div>
+
+            <button className={styles.checkButton} onClick={confirmarReserva}>Confirmar reserva</button>
         </div>
     )
 }

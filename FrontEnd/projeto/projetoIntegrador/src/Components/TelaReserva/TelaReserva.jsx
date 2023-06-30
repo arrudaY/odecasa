@@ -36,14 +36,8 @@ const TelaReserva = () => {
               caracteristicas: response.data.caracteristicaList,
               imagemList: response.data.imagemList,
               titulo: response.data.titulo,
-              politicas: {
-                checkin: "14:00",
-                checkout: "12:00",
-                regras: ["Não fumar", "Não é permitido festas"],
-                saudeSeg: ["Diretrizes de distanciamento social e outras regulamentações relacionadas ao coronavírus se aplicam",
-                           "Detector de fumaça", "Câmeras de vigilância externa"],
-                cancelamento: ["O cancelamento é reembolsável até dois dias antes do início da reserva"]
-              }
+              politicas: response.data.politicas,
+              endereco: response.data.endereco
           }
           console.log(prod);
           salvarProduto(prod);
@@ -82,10 +76,12 @@ const TelaReserva = () => {
     
 
     useEffect(() => {   
-        if(id>=0)
-            obterProduto(id);
-        else
-            salvarLoading(true);
+      window.scrollTo(0, 0);
+
+      if(id>=0)
+          obterProduto(id);
+      else
+          salvarLoading(true);
     }, [id]);
 
     if(isLoading)
@@ -99,21 +95,30 @@ const TelaReserva = () => {
 
     return(
         <div className={styles.telaReservaContainer}>
-            <HeaderProd tela="reserva" />
+          
+          <HeaderProd tela="reserva" />
+
+          <div className={styles.reservaBody}>
             <div className={styles.telaReservaContainerEsq}>
-                <FormReserva />
-                <DatasReserva />
-                <HorarioReserva />
+              <FormReserva />
+              <div className={styles.divisor}></div>
+              <DatasReserva />
+              <div className={styles.divisor}></div>
+              <HorarioReserva />
             </div>
+
             <div className={styles.telaReservaContainerDir}>
               <div className={styles.telaReservaDir}>
-                <h1>Detalhe da Reserva</h1>
+                <h1>Detalhe da reserva</h1>
                 <LocalReservaProd />
                 <Address />
                 <Checkin />
               </div>
             </div>
-            <PoliticaProd />
+          </div>
+
+          <PoliticaProd />
+
         </div>
     )
 };

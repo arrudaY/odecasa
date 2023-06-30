@@ -1,53 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@500&family=Roboto:wght@500&family=Vina+Sans&display=swap');
-
-*{
-  margin:           0;
-  padding:          0;
-  box-sizing:       border-box;
-}
-
 .navBarContainer {
   display:          flex;
   flex-direction:   row;
   justify-content:  space-between;
   align-items:      center;
   width:            100%;
-  background-color: white; /*TODO*/
+  background-color: white;
 }
-
-.navBarLogo{
+.navBarLogo {
   display:          flex;
   flex-direction:   row;
   align-items:      center;
 }
-
 .navBarLogo h2 {
   font-family:      'Vina Sans', cursive;
   font-style:       normal;
   font-weight:      400;
   line-height:      28px;
   font-size:        32px;
-  color:            black; /*TODO*/
+  color:            var(--color-secondary);
 }
-
 .navBarLogo .link {
   text-decoration:  none;
 }
-
-.navBarBotoes{
+.navBarBotoes {
   display:          flex;
   flex-direction:   row;
   align-items:      flex-end;
   gap:              10px;
 }
-
 .navBarBotoes button {
   width:            fit-content;
   height:           40px;
   padding:          0px 24px;
-  border:           1px solid black; /*TODO*/
+  border:           1px solid var(--color-secondary);
   background-color: white;
-  color:            black;
+  color:            var(--color-secondary);
   border-radius:    100px;
   cursor:           pointer;
   font-family:      'Roboto', sans-serif;
@@ -56,13 +43,11 @@
   font-size:        14px;
   line-height:      20px;
 }
-
 .navBarBotoes button + button {
   width:            87px;
-  background-color: black; /*TODO*/
-  color:            white;
+  background-color: var(--color-secondary);
+  color:            var(--color-onSecondary);
 }
-
 .sidebarBTN {
   display:          flex;
   align-items:      center;
@@ -70,12 +55,10 @@
   height:           36px;
   width:            36px;
   cursor:           pointer;
-  background-color: white; /*TODO*/
-  color:            black;
+  background-color: transparent;
+  color:            var(--color-secondary);
   border-radius:    50%;
-
 }
-
 .wcMessage {
   display:          flex;
   flex-direction:   row;
@@ -92,9 +75,7 @@
   line-height:      24px;
   text-align:       center;
   letter-spacing:   0.15px;
-
 }
-
 .navBarAvatar {
   display:          flex;
   flex-direction:   row;
@@ -102,7 +83,6 @@
   gap:              15px;
   
 }
-
 .navBarWelcome {
   display:          flex;
   flex-direction:   row;
@@ -114,13 +94,11 @@
   font-weight:      500;
   font-size:        16px;
   line-height:      24px;
-  background-color: white;
-  color:            black;
+  color:            var(--color-secondary);
 }
-
 .avatar {
-  background-color: rgba(85, 129, 251, 1); /*TODO*/
-  color:            white;
+  background-color: var(--color-primary);
+  color:            var(--color-onPrimary);
   border-radius:    50%;
   font-size:        18px;
   display:          flex;
@@ -131,13 +109,12 @@
   font-family:      'Roboto', sans-serif;
   font-weight:      500;
 }
-
 @media (max-width:414px) {
   .navBarContainer {
     padding:        0px 20px;
     height:         50px;
   }
-  .navBarLogo h2{
+  .navBarLogo h2 {
     font-size:      24px;
   }
   .navBarBotoes {
@@ -146,21 +123,21 @@
 }
 
 @media (min-width:415px) and (max-width: 1279px) {
-  .navBarContainer{
+  .navBarContainer {
     padding:        0px 32px;
     height:         80px;
   }
-  .navBarLogo h2{
+  .navBarLogo h2 {
     font-size:      32px;
   }
 }
 
 @media(min-width: 1280px) {
-  .navBarContainer{
+  .navBarContainer {
     padding:        0px 150px;
     height:         80px;
   }
-  .navBarLogo h2{
+  .navBarLogo h2 {
     font-size:      32px;
   }
 }

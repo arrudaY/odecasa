@@ -8,62 +8,74 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { ReservaContext } from "../../Contexts/ReservaContext";
 
 const ReservaProd = () => {    
-    const { id, produto } = useContext(ProdContext);
-    const { stsLogin } = useContext(AuthContext); 
-    const { mudarMsgLogin } = useContext(ReservaContext); 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const navigate = useNavigate(); 
+  const { id, produto } = useContext(ProdContext);
+  const { stsLogin } = useContext(AuthContext); 
+  const { mudarMsgLogin } = useContext(ReservaContext); 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const navigate = useNavigate(); 
 
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  function verificarUsuarioLogado(){   
+    if (stsLogin === "Login") {
+      console.log("Usuario precisa fazer Login")
+      mudarMsgLogin(true);
+      navigate("/login");
+    } else {
+      mudarMsgLogin(false);
+      //terminar validação
+      navigate("/detalhes/" + id + "/reserva");
+    };
+  };
+
+  function handleSelect(ranges){
+      console.log(ranges);
+      // {
+      //   selection: {
+      //     startDate: [native Date Object],
+      //     endDate: [native Date Object],
+      //   }
+      // }
     };
 
-    function verificarUsuarioLogado(){   
-        if (stsLogin === "Login") {
-            console.log("Usuario precisa fazer Login")
-            mudarMsgLogin(true);
-            navigate("/login");
-        } else {
-            mudarMsgLogin(false);
-            //terminar validação
-            navigate("/detalhes/" + id + "/reserva");
-        };
+  const selectionRange = {
+    startDate: new Date(),
+    endDate: new Date(),
+    key: 'selection',
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
+  }, []);
 
-    function handleSelect(ranges){
-        console.log(ranges);
-        // {
-        //   selection: {
-        //     startDate: [native Date Object],
-        //     endDate: [native Date Object],
-        //   }
-        // }
-      };
+  return (
+    <div className={styles.reservaContainer}>
 
-    const selectionRange = {
-        startDate: new Date(),
-        endDate: new Date(),
-        key: 'selection',
-      }
+      <h2>Escolha as suas datas</h2>
 
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        return () => {
-          window.removeEventListener("resize", handleResize);
-        };
-      }, []);
+      <div className={styles.divisor}></div>
 
-    return (
-        <div className={styles.reservaContainer}>            
-            <h2>Escolha as suas datas</h2>
-            <div className="divisoria"></div>
-            <div className={styles.reservaReserva}>
-                {windowWidth <= 676 ? (<DateRangeSelector direction="vertical" className={styles.reservaCalendarios}/>) :
-                (<DateRangeSelector direction="horizontal" className={styles.reservaCalendarios}/>)}
-                <button className={styles.reservaBtn} onClick={verificarUsuarioLogado}>Fazer Reserva</button>
-            </div>
+      <div className={styles.innerContainer}>
+
+        <div className={styles.reservaReserva}>
+          {windowWidth <= 760
+          ? (<DateRangeSelector direction="vertical" className={styles.reservaCalendarios}/>)
+          : (<DateRangeSelector direction="horizontal" className={styles.reservaCalendarios}/>)}
         </div>
-    );
+
+        <div className={styles.reservaConfirm}>
+          <p>Adicione suas datas de viagem para obter preços precisos.</p>
+          <button className={styles.reservaBtn} onClick={verificarUsuarioLogado}>Fazer reserva</button>
+        </div>
+        
+      </div>
+    </div>
+  );
 };
 
 export default ReservaProd;

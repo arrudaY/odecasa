@@ -2,7 +2,6 @@ import CaractProd from "../CaractProd/CaractProd";
 import DescProd from "../DescProd/DescProd";
 import HeaderProd from "../HeaderProd/HeaderProd";
 import ImgProd from "../ImgProd/ImgProd";
-import LocalProd from "../LocalProd/LocalProd";
 import PoliticaProd from "../PoliticaProd/PoliticaProd";
 import ReservaProd from "../ReservaProd/ReservaProd";
 import styles from "./Detalhes.module.css";
@@ -21,6 +20,8 @@ const Detalhes = () => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           }});
+
+          console.log("Produto", response.data);
     
           const prod = {
               id: response.data.id,
@@ -32,16 +33,9 @@ const Detalhes = () => {
               caracteristicas: response.data.caracteristicaList,
               imagemList: response.data.imagemList,
               titulo: response.data.titulo,
-              politicas: {
-                checkin: "14:00",
-                checkout: "12:00",
-                regras: ["Não fumar", "Não é permitido festas"],
-                saudeSeg: ["Diretrizes de distanciamento social e outras regulamentações relacionadas ao coronavírus se aplicam",
-                           "Detector de fumaça", "Câmeras de vigilância externa"],
-                cancelamento: ["O cancelamento é reembolsável até dois dias antes do início da reserva"]
-              }
+              politicas: response.data.politicas,
+              endereco: response.data.endereco
           }
-          console.log(prod);
           salvarProduto(prod);
           salvarLoading(false);
     
@@ -50,26 +44,26 @@ const Detalhes = () => {
         }
       }
 
-    useEffect(() => {   
-        if(id>=0)
-            obterProduto(id);
-        else
-            salvarLoading(true);
+    useEffect(() => {
+
+      window.scrollTo(0, 0);
+
+      if(id>=0)
+          obterProduto(id);
+      else
+          salvarLoading(true);
     }, [id]);
 
     if(isLoading)
     {
         return (
-            <div className={styles.detalhesContainer}>
-
-            </div>
+            <div className={styles.detalhesContainer}></div>
         );
     }
 
     return (
         <div className={styles.detalhesContainer}>
             <HeaderProd tela="produto" />
-            <LocalProd />
             <ImgProd />
             <DescProd />
             <CaractProd />

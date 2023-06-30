@@ -1,27 +1,59 @@
-.cidadeContainer1{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-family: "Roboto";
-    background-color: var(--color-3);
+.cidadeTitulo {
+    display:            flex;
+    flex-wrap:          wrap;
+    gap:                12px;
+    position:           -webkit-sticky;
+    position:           sticky;
+    margin:             50px 0px 25px;
+    top:                79px;
+    background-color:   rgba(255, 255, 255, 0.98);
+    z-index:            1;
 }
-
-.cidadeContainer2{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-family: "Roboto";
-    background-color: var(--color-3);
-    padding-bottom: 68px;
+.cidadeTitulo h1 {
+    font-family:        'Overpass', sans-serif;
+    font-style:         normal;
+    font-weight:        700;
+    font-size:          52px;
+    letter-spacing:     0.25px;
+    color:              var(--color-secondary);
 }
-
-.cidadeCards{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.cidadeTitulo h1:nth-child(2) {
+    color:              var(--color-primary);
 }
-
-.cidadeTitulo{
-    margin-left: 10px;
+.cidadeCards {
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    justify-content:    space-between;
+    gap:                16px;
+}
+@media (max-width: 414px) {
+    .cidadeTitulo {
+        padding:        20px ;
+        gap:            0px;
+        top:            48px
+    }
+    .cidadeTitulo h1 {
+        font-size:      36px;
+        line-height:    38px;
+    }
+    .cidadeCards {
+        padding:        0px 20px 50px;
+    }
+}
+@media (min-width:415px) and (max-width: 1279px) {
+    .cidadeTitulo {
+        padding:        10px 32px;
+    }
+    .cidadeCards {
+        padding:        10px 32px 80px;
+    }
+}
+@media(min-width: 1280px) {
+    .cidadeTitulo {
+        padding:        10px 150px;
+    }
+    .cidadeCards {
+        padding:        10px 150px 80px;
+    }
 }

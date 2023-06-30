@@ -8,7 +8,6 @@ import endOfMonth from 'date-fns/endOfMonth';
 import { pt } from 'date-fns/locale'
 import styles from "./Buscador.module.css";
 import { useState, useEffect } from 'react';
-import { ImLocation} from 'react-icons/im'
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/api";
 import { useContext } from "react";
@@ -197,7 +196,9 @@ const Buscador = () => {
   return (
       <div >
         <div className={styles.buscadorContainer}>
+
             <h1 className={styles.buscadorTitle}>Buscar acomodações</h1>
+            
             <div className={styles.buscadorInputs}>
               <div className={styles.buscadorLocal}>
                 <input
@@ -211,8 +212,11 @@ const Buscador = () => {
                     <ul className={styles.filter}>
                       {dadoFiltrado.map((item) => (
                         <li key={item.id} onClick={() => selecionarItem(item.nome)}>
-                          <p className={styles.nome}><ImLocation /> {item.nome}</p>
-                          <p className={styles.pais}>{item.pais}</p>
+                          <FmdGoodOutlinedIcon/>
+                          <div className={styles.localInfo}>
+                            <p className={styles.nome}>{item.nome}</p>
+                            <p className={styles.pais}>{item.pais}</p>
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -282,7 +286,11 @@ const Buscador = () => {
                 )}
               </CustomProvider>
               
-              <button onClick={buscar} className={styles.buscadorBtn}><SearchOutlinedIcon sx={{ fontSize: 18 }}/> Pesquisar</button>
+              <button onClick={buscar} className={styles.buscadorBtn}>
+                <SearchOutlinedIcon sx={{ fontSize: 18 }}/>
+                Pesquisar
+              </button>
+
             </div>
         </div>
       </div>
