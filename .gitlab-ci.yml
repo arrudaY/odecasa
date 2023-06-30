@@ -33,7 +33,8 @@ deploy:
     - cp appspec.yml deployment/
     - cp scripts/* deployment/
     - cd deployment
-    - /usr/bin/zip -r my-application.zip .
+    - tar -czvf my-application.tar.gz .
+    - mv my-application.tar.gz my-application.zip
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_REGION
