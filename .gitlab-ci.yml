@@ -32,7 +32,7 @@ build:
 deploy:
   stage: deploy
   image:
-    name: amazon/aws-cli:2.x
+    name: amazon/aws-cli:2.3.0
     entrypoint: [""]
   script:
     - >
