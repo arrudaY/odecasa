@@ -196,8 +196,6 @@ const Buscador = () => {
   return (
       <div >
         <div className={styles.buscadorContainer}>
-
-            <h1 className={styles.buscadorTitle}>Buscar acomodações</h1>
             
             <div className={styles.buscadorInputs}>
               <div className={styles.buscadorLocal}>
