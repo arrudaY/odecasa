@@ -61,6 +61,11 @@
     transition:             all 0.2s;
 }
 
+.carousel{
+    width: 70%;
+    margin-left: 15%;
+}
+
 @media (max-width: 414px) {}
 
 @media (min-width: 415px) and (max-width: 1279px) {
