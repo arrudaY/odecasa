@@ -11,6 +11,7 @@ unzip my-application.zip
 
 # Instalação do Docker
 sudo yum install -y docker
+sudo service docker start
 
 # Instalação do Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -32,3 +33,6 @@ FROM tomcat:jdk17
 COPY ./airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
 CMD ["catalina.sh", "run"]
 EOF
+
+# Build da imagem Docker
+docker build -t app:latest .
