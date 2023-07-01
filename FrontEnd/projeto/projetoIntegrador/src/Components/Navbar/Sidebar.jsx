@@ -10,6 +10,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
+import api from "../../Services/api";
+import AddHomeOutlinedIcon from '@mui/icons-material/AddHomeOutlined';
 
 
 const Sidebar = () => {
@@ -56,6 +58,44 @@ const Sidebar = () => {
     navigate("/minhas-reservas")
   }
 
+  function validarUsuario(){
+    setIsOpen(false);
+    const token = localStorage.getItem("ctd_token");
+    if(token != null)
+        getUsuarios(token);
+    else
+        alert("Você precisa estar logado para acessar o Formulário de Cadastro de Produtos");
+  }
+
+  async function getUsuarios(token){
+    try{
+        const response = await api.get("/usuario", {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          }});
+        const u = response.data;
+        const email = localStorage.getItem("ctd_email");
+        let ehADM = false;
+        for(var i = 0; i < u.length; i++){
+          if((u[i].username == email) && (u[i].funcao.nome == "ROLE_ADMIN")){
+            {
+              ehADM = true;
+              navigate("/form-produto");
+              break;
+            }
+          }
+        }
+        if(!ehADM)
+          alert("Você não tem permissão para acessar essa página!");
+    } catch (error) {
+        console.log(error);
+        alert("Você precisa estar logado para acessar o Formulário de Cadastro de Produtos");
+    }
+}
+
   return (
     <div ref={sidebarRef} className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
       
@@ -89,6 +129,7 @@ const Sidebar = () => {
         <nav className={styles.navItem}>
           <ul>
             <li onClick={redirectReservas}><EventAvailableOutlinedIcon /><span>Ver minhas reservas</span></li>
+            <li onClick={validarUsuario}><AddHomeOutlinedIcon/><span>Adicionar produto</span></li>
           </ul>
         </nav>
 
