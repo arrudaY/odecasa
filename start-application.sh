@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo usermod -aG docker ec2-user
+sudo usermod -aG docker $USER
 
 # teste
 sudo service docker start
