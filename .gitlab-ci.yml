@@ -31,6 +31,9 @@ deploy:
     - ls
     - cp target/*.jar deployment/
     - cp appspec.yml deployment/
+    - chmod +x stop-application.sh
+    - chmod +x install-dependencies.sh
+    - chmod +x start-application.sh
     - cp stop-application.sh deployment/
     - cp install-dependencies.sh deployment/
     - cp start-application.sh deployment/    
