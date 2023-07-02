@@ -11,6 +11,7 @@ variables:
   DOCKER_USERNAME: "xtkbladex"
   DOCKER_PASSWORD: "dckr_pat_gYgL-8QFo5C9IMDv3e2365BGOtY"
 
+
 build:
   stage: build
   image: maven:latest
@@ -24,8 +25,11 @@ build:
 dockerbuild:
   stage: dockerbuild
   image: docker:latest
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
   script:
-    - docker build -t minha_imagem:latest .
+    - docker build -t app:latest .
     - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - docker push app:latest
 
