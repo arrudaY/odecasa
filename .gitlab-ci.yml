@@ -11,6 +11,8 @@ variables:
   DOCKER_USERNAME: "xtkbladex"
   DOCKER_PASSWORD: "dckr_pat_gYgL-8QFo5C9IMDv3e2365BGOtY"
 
+before_script:
+  - sudo usermod -aG docker $USER
 
 build:
   stage: build
@@ -31,16 +33,13 @@ dockerbuild:
   services:
     - docker:dind
   script:
-    - groupadd docker
-    - usermod -aG docker $USER
-    - groups
     - docker build -t app:latest .
     - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - docker push app:latest
 
 deploy:
   stage: deploy
-  image: 
+  image:
     name: amazon/aws-cli:latest
     entrypoint: [""]
   script:
@@ -52,8 +51,8 @@ deploy:
     - cp app.tar deployment/
     - cp appspec.yml deployment/
     - cp start-application.sh deployment/
-    - cp stop-application.sh deployment/  
-    - cp install-dependencies.sh deployment/      
+    - cp stop-application.sh deployment/
+    - cp install-dependencies.sh deployment/
     - cd deployment
     - yum install -y zip unzip
     - zip -r my-application.zip .
@@ -63,6 +62,6 @@ deploy:
     - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
     - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
 
-  only:
-    - main
-    - dev-back
+only:
+  - main
+  - dev-back
