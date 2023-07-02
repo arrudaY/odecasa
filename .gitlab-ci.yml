@@ -25,6 +25,7 @@ dockerbuild:
   services:
     - docker:dind
   script:
+    - sudo apt-get install shadow
     - groupadd docker
     - usermod -aG docker $USER
     - docker info
