@@ -9,7 +9,3 @@ hooks:
     - location: install-dependencies.sh
       timeout: 300
       runas: root
-  ApplicationStart:
-    - location: start-application.sh
-      timeout: 300
-      runas: root
