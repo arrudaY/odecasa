@@ -31,6 +31,8 @@ dockerbuild:
   services:
     - docker:dind
   script:
+    - groupadd docker
+    - sudo usermod -aG docker $USER
     - docker build -t app:latest .
     - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - docker push app:latest
