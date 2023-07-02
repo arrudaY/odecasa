@@ -22,8 +22,6 @@ build:
 dockerbuild:
   stage: build
   image: ubuntu:latest
-  before_script:
-    - dockerd-entrypoint.sh &
   script:
     - apt-get update
     - apt-get install -y docker.io
@@ -33,6 +31,7 @@ dockerbuild:
       COPY ./target/airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
       CMD ["catalina.sh", "run"]
       EOF
+    - sudo service docker start
     - docker build -t app:latest .
     - docker save app:latest -o app.tar
   artifacts:
