@@ -4,10 +4,13 @@
 sudo usermod -aG docker $USER
 
 # Interrompe todos os containers Docker em execução
-docker stop $(docker ps -a -q)
+docker ps -aq && docker stop $(docker ps -aq)
 
 # Remove todos os containers Docker em execução
-docker rm $(docker ps -a -q)
+docker ps -aq && docker rm $(docker ps -aq)
 
 # Remove todas as imagens Docker
-docker rmi $(docker images -q)
+docker images -aq && docker rmi $(docker images -aq)
+
+# Remove versão antiga
+rm airBNB-2.0.jar
