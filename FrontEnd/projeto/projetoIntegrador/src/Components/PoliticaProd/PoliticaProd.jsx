@@ -39,7 +39,7 @@ const PoliticaProd = () => {
             <div className={styles.politicaPoliticas}>
                 <div className={styles.politicaRegras}>
                     <ListAltOutlinedIcon fontSize="large" sx={{ color: "black" }}/>
-                    <h3>Regras da Casa</h3>
+                    <h3>Regras da casa</h3>
                     <p>Checkin: {buscaCheckin()}</p>
                     <p>CheckOut: {buscaCheckout()}</p>
                     <p>Outras regras: {buscaRegras()}</p>
@@ -47,13 +47,13 @@ const PoliticaProd = () => {
 
                 <div className={styles.politicaSaudeSeg}>
                     <HealthAndSafetyOutlinedIcon fontSize="large" sx={{ color: "black" }}/>
-                    <h3>Saúde e Segurança</h3>
+                    <h3>Saúde e segurança</h3>
                     <p>{produto.politicas.saudeESeguranca}</p>
                 </div>
 
                 <div className={styles.politicaCancelamento}>
                     <EventBusyOutlinedIcon fontSize="large" sx={{ color: "black" }}/>
-                    <h3>Política de Cancelamento</h3>
+                    <h3>Política de cancelamento</h3>
                     <p>{produto.politicas.politicasDeCancelamento}</p>
                 </div>
                 
