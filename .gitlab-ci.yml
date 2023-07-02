@@ -25,7 +25,7 @@ dockerbuild:
   script:
     - apt-get update
     - apt-get install -y docker.io
-    - systemctl start docker
+    - service docker start
     - |
       cat <<EOF > Dockerfile
       FROM tomcat:jdk17
