@@ -25,8 +25,8 @@ dockerbuild:
   services:
     - docker:dind
   script:
-    - sudo groupadd docker
-    - sudo usermod -aG docker $USER
+    - groupadd docker
+    - usermod -aG docker $USER
     - docker info
     - |
       cat <<EOF > Dockerfile
