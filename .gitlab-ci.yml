@@ -28,6 +28,8 @@ dockerbuild:
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
+  services:
+    - docker:dind
   script:
     - docker build -t app:latest .
     - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
