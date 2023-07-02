@@ -11,6 +11,3 @@ docker rm $(docker ps -a -q)
 
 # Remove todas as imagens Docker
 docker rmi $(docker images -q)
-
-# Exclui o arquivo .jar do diretório local
-sudo rm airBNB-2.0.jar
