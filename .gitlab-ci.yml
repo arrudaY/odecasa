@@ -33,6 +33,7 @@ deploy:
     - ls
     - cp target/*.jar deployment/
     - cp appspec.yml deployment/
+    - cp Dockerfile deployment/
     - chmod +x stop-application.sh
     - chmod +x install-dependencies.sh
     - chmod +x start-application.sh
