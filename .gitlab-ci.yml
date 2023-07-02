@@ -8,6 +8,8 @@ variables:
   TF_STATE_BUCKET: "app-gp2-s3"  # Nome do bucket do estado do Terraform
   AWS_ACCESS_KEY_ID: "AKIAV4YTWNKPKD6RT6WF"  # Chave de acesso da AWS
   AWS_SECRET_ACCESS_KEY: "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"  # Chave secreta de acesso da AWS
+  DOCKER_USERNAME: "xtkbladex"
+  DOCKER_PASSWORD: "dckr_pat_gYgL-8QFo5C9IMDv3e2365BGOtY"
 
 build:
   stage: build
@@ -21,17 +23,11 @@ build:
 
 dockerbuild:
   stage: dockerbuild
-  image: docker:stable
-  services:
-    - docker:dind
+  image: docker:latest
   script:
-    - docker build -t app:latest .
-    - docker save app:latest -o app.tar
-  artifacts:
-    paths:
-      - app.tar
-  dependencies:
-    - build
+    - docker build -t minha_imagem:latest .
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - docker push app:latest
 
 deploy:
   stage: deploy
