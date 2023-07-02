@@ -1,17 +1,16 @@
 #!/bin/bash
 
-#Instala zip
-yum install -y zip
+# Instala zip
+sudo yum install -y zip
 
-#Copia arquivo
+# Copia arquivo
 aws s3 cp s3://app-gp2-s3/my-application.zip ./my-application.zip
 
 # Extrair o arquivo .zip
-unzip my-application.zip
+unzip -o my-application.zip
 
 # Instalação do Docker
-yum install -y docker
-service docker start
+sudo yum install -y docker
 
 # Instalação do Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -34,8 +33,7 @@ COPY ./airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
 CMD ["catalina.sh", "run"]
 EOF
 
-# Build da imagem Docker
-docker build -t app:latest .
-
-# Executar o contêiner Docker
-docker run -d -p 8080:8080 app:latest java -jar /usr/local/tomcat/webapps/airBNB-2.0.jar
+# Inicia o serviço docker
+sudo service docker start
+sudo groupadd docker
+sudo usermod -aG docker $USER
