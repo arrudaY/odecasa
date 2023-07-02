@@ -150,11 +150,12 @@ const Login = () => {
                         </div>
                     </div>
 
-                    
-
                     <div className={styles.loginConfirm}>
                         <button className={styles.loginBtn} type="submit">Entrar</button>
-                        <p>Ainda não tem conta? <Link to={"/cadastro"} className={styles.link}>Registre-se</Link> </p>
+                        <div className={styles.navigate}>
+                            <p>Ainda não tem conta?</p>
+                            <p><Link to={"/cadastro"} className={styles.link}>Registre-se</Link></p>
+                        </div>
                     </div>
 
                 </form>
