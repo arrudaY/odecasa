@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo usermod -aG docker $USER
+# Build da imagem Docker
+docker build -t app:latest .
 
-# teste
-sudo service docker start
+# Executar o contêiner Docker
+docker run -d -p 8080:8080 app:latest java -jar /usr/local/tomcat/webapps/airBNB-2.0.jar
