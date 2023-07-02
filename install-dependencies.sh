@@ -18,6 +18,8 @@ sudo service docker start
 # Construção da imagem Docker
 sudo docker build -t app:latest .
 
+sudo docker run -d -p 8080:8080 app:latest java -jar /usr/local/tomcat/webapps/airBNB-2.0.jar
+
 # Instalação do Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
