@@ -1,5 +1,6 @@
 stages:
   - build
+  - dockerbuild
   - deploy
 
 variables:
@@ -14,6 +15,20 @@ build:
   script:
     - mvn clean package
     - mvn test
+  artifacts:
+    paths:
+      - target/*.jar
+
+dockerbuild:
+  stage: build
+  image: docker:stable-dind
+  script:
+    - |
+      cat <<EOF > Dockerfile
+      FROM tomcat:jdk17
+      COPY ./target/airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
+      CMD ["catalina.sh", "run"]
+      EOF
     - docker build -t app:latest .
     - docker save app:latest -o app.tar
   artifacts:
@@ -45,6 +60,7 @@ deploy:
     - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
     - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
 
-only:
-  - main
-  - dev-back
+
+  only:
+    - main
+    - dev-back
