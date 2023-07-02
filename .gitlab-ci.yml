@@ -14,7 +14,8 @@ build:
   script:
     - mvn clean package
     - mvn test
-    - cat <<EOF > Dockerfile
+    - |
+      cat <<EOF > Dockerfile
       FROM tomcat:jdk17
       COPY ./airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
       CMD ["catalina.sh", "run"]
