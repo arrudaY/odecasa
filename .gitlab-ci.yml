@@ -21,10 +21,10 @@ build:
 
 dockerbuild:
   stage: build
-  image: amazon/aws-cli:latest
+  image: ubuntu:latest
   script:
-    - sudo yum install -y docker
-    - sudo service docker start
+    - apt-get update
+    - apt-get install -y docker.io
     - |
       cat <<EOF > Dockerfile
       FROM tomcat:jdk17
