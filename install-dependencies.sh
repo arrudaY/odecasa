@@ -12,28 +12,12 @@ unzip -o my-application.zip
 # Instalação do Docker
 sudo yum install -y docker
 
+# Inicia o serviço docker
+sudo service docker start
+
+# Construção da imagem Docker
+sudo docker build -t app:latest .
+
 # Instalação do Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-# Criação do docker-compose.yml
-cat <<EOF > docker-compose.yml
-version: '3'
-services:
-  tomcat:
-    build: .
-    ports:
-      - 8080:8080
-EOF
-
-# Criação do Dockerfile
-cat <<EOF > Dockerfile
-FROM tomcat:jdk17
-COPY ./airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
-CMD ["catalina.sh", "run"]
-EOF
-
-# Inicia o serviço docker
-sudo service docker start
-sudo groupadd docker
-sudo usermod -aG docker $USER
