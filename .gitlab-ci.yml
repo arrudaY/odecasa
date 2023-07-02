@@ -1,6 +1,5 @@
 stages:
   - build
-  - dockerbuild
   - deploy
 
 variables:
@@ -8,8 +7,6 @@ variables:
   TF_STATE_BUCKET: "app-gp2-s3"  # Nome do bucket do estado do Terraform
   AWS_ACCESS_KEY_ID: "AKIAV4YTWNKPKD6RT6WF"  # Chave de acesso da AWS
   AWS_SECRET_ACCESS_KEY: "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"  # Chave secreta de acesso da AWS
-  DOCKER_USERNAME: "xtkbladex"
-  DOCKER_PASSWORD: "dckr_pat_gYgL-8QFo5C9IMDv3e2365BGOtY"
 
 build:
   stage: build
@@ -21,23 +18,7 @@ build:
     paths:
       - target/*.jar
 
-dockerbuild:
-  stage: dockerbuild
-  image: 
-    name: amazon/aws-cli:latest
-    entrypoint: [""]
-  script:
-    - aws configure set aws_access_key_id AKIAV4YTWNKPKD6RT6WF
-    - aws configure set aws_secret_access_key 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
-    - aws configure set region sa-east-1
-    - yum install docker
-    - service docker start
-    - sudo usermod -aG docker ec2-user
-    - sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    - sudo chmod +x /usr/local/bin/docker-compose
-    - docker build -t app:latest .
-    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - docker push app:latest
+
 
 deploy:
   stage: deploy
@@ -50,11 +31,14 @@ deploy:
     - export AWS_REGION=$AWS_REGION
     - mkdir deployment
     - ls
-    - cp app.tar deployment/
+    - cp target/*.jar deployment/
     - cp appspec.yml deployment/
-    - cp start-application.sh deployment/
-    - cp stop-application.sh deployment/  
-    - cp install-dependencies.sh deployment/      
+    - chmod +x stop-application.sh
+    - chmod +x install-dependencies.sh
+    - chmod +x start-application.sh
+    - cp stop-application.sh deployment/
+    - cp install-dependencies.sh deployment/
+    - cp start-application.sh deployment/    
     - cd deployment
     - yum install -y zip unzip
     - zip -r my-application.zip .
@@ -63,6 +47,7 @@ deploy:
     - aws configure set region $AWS_REGION
     - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
     - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
+
 
   only:
     - main
