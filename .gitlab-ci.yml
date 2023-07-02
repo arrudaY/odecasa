@@ -14,9 +14,12 @@ build:
   script:
     - mvn clean package
     - mvn test
-    - echo "FROM tomcat:jdk17" >> Dockerfile
-    - echo "COPY ./target/airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar" >> Dockerfile
-    - echo 'CMD ["catalina.sh", "run"]' >> Dockerfile
+    - |
+      cat <<EOF > Dockerfile
+      FROM tomcat:jdk17
+      COPY ./target/airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
+      CMD ["catalina.sh", "run"]
+      EOF
     - docker build -t app:latest .
     - docker save app:latest -o app.tar
   artifacts:
