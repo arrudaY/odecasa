@@ -71,12 +71,12 @@ h1{
 
 h2{
     font-size: 25px;
-    color: black;
+    color: var(--color-secondary);
 }
 
 h3{
     font-size: 20px;
-    color: black;
+    color: var(--color-secondary);
 }
 
 .container{

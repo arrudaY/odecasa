@@ -7,7 +7,7 @@
 }
 .accountForm {
     position:           absolute;
-    top:                50%;
+    top:                55%;
     left:               50%;
     transform:          translate(-50%,-50%);
     background-color:   white;
@@ -21,6 +21,7 @@
     font-family:        'Overpass', sans-serif;
     line-height:        40px;
     margin-bottom:      20px;
+    font-weight:        400;
 }
 .accountTxt {
     width:              100%;
