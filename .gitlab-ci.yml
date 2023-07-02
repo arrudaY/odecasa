@@ -12,7 +12,7 @@ variables:
   DOCKER_PASSWORD: "dckr_pat_gYgL-8QFo5C9IMDv3e2365BGOtY"
 
 before_script:
-  - sudo usermod -aG docker $USER
+  - usermod -aG docker $USER
 
 build:
   stage: build
