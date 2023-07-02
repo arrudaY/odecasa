@@ -14,17 +14,13 @@ build:
   script:
     - mvn clean package
     - mvn test
-    - |
-      cat <<EOF > Dockerfile
-      FROM tomcat:jdk17
-      COPY ./airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
-      CMD ["catalina.sh", "run"]
-      EOF
+    - echo "FROM tomcat:jdk17" >> Dockerfile
+    - echo "COPY ./target/airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar" >> Dockerfile
+    - echo 'CMD ["catalina.sh", "run"]' >> Dockerfile
     - docker build -t app:latest .
     - docker save app:latest -o app.tar
   artifacts:
     paths:
-      - target/*.jar
       - app.tar
 
 deploy:
@@ -38,11 +34,12 @@ deploy:
     - export AWS_REGION=$AWS_REGION
     - mkdir deployment
     - ls
-    - cp target/*.jar deployment/
+    - cp app.tar deployment/
     - cp appspec.yml deployment/
-    - cp start-application.sh deployment/    
+    - cp start-application.sh deployment/
+    - cp stop-application.sh deployment/  
+    - cp install-dependencies.sh deployment/      
     - cd deployment
-    - mv ../app.tar .
     - yum install -y zip unzip
     - zip -r my-application.zip .
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
