@@ -11,9 +11,6 @@ variables:
   DOCKER_USERNAME: "xtkbladex"
   DOCKER_PASSWORD: "dckr_pat_gYgL-8QFo5C9IMDv3e2365BGOtY"
 
-before_script:
-  - usermod -aG docker $USER
-
 build:
   stage: build
   image: maven:latest
@@ -32,9 +29,10 @@ dockerbuild:
     DOCKER_DRIVER: overlay2
   services:
     - docker:dind
+  before_script:
+    - usermod -aG docker $USER
   script:
     - groupadd docker
-    - usermod -aG docker $USER
     - groups
     - docker build -t app:latest .
     - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
