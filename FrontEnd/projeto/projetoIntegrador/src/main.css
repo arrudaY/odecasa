@@ -87,39 +87,7 @@ h3{
     height:100%;
     position:relative;
 }
-/*
-.star {
-    font-size: x-large;
-    width: 14px;
-    display: inline-block;
-    color: gray;
-}
-.star:last-child {
-    margin-right: 0;
-}
-.star:before {
-    content:'\2605';
-}
-.star.on {
-    color: var(--color-10);
-}
-.star.half:after {
-    content:'\2605';
-    color: var(--color-10);
-    position: absolute;
-    margin-left: -20px;
-    width: 10px;
-    overflow: hidden;
-}
 
-.divisoria{
-    width: 100%;
-    background-color: var(--color-10);
-    height: 0.8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-*/
 @media (max-width: 414px) {
     .sticky-buscador {
         position: relative;
