@@ -14,9 +14,17 @@ build:
   script:
     - mvn clean package
     - mvn test
+    - cat <<EOF > Dockerfile
+      FROM tomcat:jdk17
+      COPY ./airBNB-2.0.jar /usr/local/tomcat/webapps/airBNB-2.0.jar
+      CMD ["catalina.sh", "run"]
+      EOF
+    - docker build -t app:latest .
+    - docker save app:latest -o app.tar
   artifacts:
     paths:
       - target/*.jar
+      - app.tar
 
 deploy:
   stage: deploy
@@ -31,13 +39,9 @@ deploy:
     - ls
     - cp target/*.jar deployment/
     - cp appspec.yml deployment/
-    - chmod +x stop-application.sh
-    - chmod +x install-dependencies.sh
-    - chmod +x start-application.sh
-    - cp stop-application.sh deployment/
-    - cp install-dependencies.sh deployment/
     - cp start-application.sh deployment/    
     - cd deployment
+    - mv ../app.tar .
     - yum install -y zip unzip
     - zip -r my-application.zip .
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
@@ -46,7 +50,6 @@ deploy:
     - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
     - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
 
-
-  only:
-    - main
-    - dev-back
+only:
+  - main
+  - dev-back
