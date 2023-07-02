@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#login
+sudo usermod -aG docker $USER
+sudo groupadd docker
+sudo service docker restart
+sudo chmod +x /usr/local/bin/docker-compose
+
 # Build da imagem Docker
 docker build -t app:latest .
 
