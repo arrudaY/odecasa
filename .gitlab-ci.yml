@@ -21,11 +21,11 @@ build:
 
 dockerbuild:
   stage: build
-  image: ubuntu:latest
+  image: docker:stable
+  services:
+    - docker:dind
   script:
-    - apt-get update
-    - apt-get install -y docker.io
-    - service docker start
+    - docker info
     - |
       cat <<EOF > Dockerfile
       FROM tomcat:jdk17
