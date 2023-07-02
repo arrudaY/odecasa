@@ -22,6 +22,8 @@ build:
 dockerbuild:
   stage: dockerbuild
   image: docker:stable
+  services:
+    - docker:dind
   script:
     - docker build -t app:latest .
     - docker save app:latest -o app.tar
