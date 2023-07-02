@@ -23,8 +23,7 @@ dockerbuild:
   stage: build
   image: docker:stable-dind
   script:
-    - sudo usermod -aG docker $USER
-    - sudo service docker start
+    - service docker start
     - |
       cat <<EOF > Dockerfile
       FROM tomcat:jdk17
