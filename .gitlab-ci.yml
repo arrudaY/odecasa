@@ -18,8 +18,9 @@ build:
   stage: build
   image: maven:latest
   script:
-    - mvn clean package
-    - mvn test
+    - |
+      mvn clean package
+      mvn test
   artifacts:
     paths:
       - target/*.jar
@@ -33,9 +34,10 @@ dockerbuild:
   services:
     - docker:dind
   script:
-    - docker build -t app:latest .
-    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - docker push app:latest
+    - |
+      docker build -t app:latest .
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      docker push app:latest
 
 deploy:
   stage: deploy
@@ -43,24 +45,25 @@ deploy:
     name: amazon/aws-cli:latest
     entrypoint: [""]
   script:
-    - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-    - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-    - export AWS_REGION=$AWS_REGION
-    - mkdir deployment
-    - ls
-    - cp app.tar deployment/
-    - cp appspec.yml deployment/
-    - cp start-application.sh deployment/
-    - cp stop-application.sh deployment/
-    - cp install-dependencies.sh deployment/
-    - cd deployment
-    - yum install -y zip unzip
-    - zip -r my-application.zip .
-    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    - aws configure set region $AWS_REGION
-    - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
-    - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
+    - |
+      export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+      export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+      export AWS_REGION=$AWS_REGION
+      mkdir deployment
+      ls
+      cp app.tar deployment/
+      cp appspec.yml deployment/
+      cp start-application.sh deployment/
+      cp stop-application.sh deployment/
+      cp install-dependencies.sh deployment/
+      cd deployment
+      yum install -y zip unzip
+      zip -r my-application.zip .
+      aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      aws configure set region $AWS_REGION
+      aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
+      aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name back-prod --s3-location bucket=$TF_STATE_BUCKET,key=my-application.zip,bundleType=zip --ignore-application-stop-failures
 
 only:
   - main
