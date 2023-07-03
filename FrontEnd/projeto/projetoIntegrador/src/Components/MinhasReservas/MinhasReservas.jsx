@@ -5,6 +5,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 import api from "../../Services/api";
 import { format, parseISO, isBefore  } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 const MinhasReservas = () => {
     const { reserva} = useContext(ReservaContext)
@@ -35,10 +36,10 @@ const MinhasReservas = () => {
     }, [reserva, idUsuario])
 
     return (
-        < div className={styles.reservaContainer}>
+        <div className={styles.reservaContainer}>
             <div className={styles.reservaTitle}>
                 <h1>Minhas reservas</h1>
-                <h4>Total de reservas: {reservas.length}</h4>
+                <p>Total de reservas: {reservas.length}</p>
             </div>
           <div className={styles.cardsContainer}>
             {reservas.map((reserva) => {
@@ -51,12 +52,31 @@ const MinhasReservas = () => {
             return (
                 <div key={reserva.id} className={`${styles.cardContainer} ${isReservaAtiva ? styles.inativa : ''}`}>
                     <div className={styles.cardData}>
-                        <p>ID da reserva: {reserva.id}</p>
-                        <h5>Data de entrada: {dataInicialFormatada}</h5>
-                        <h5>Data de saída: {dataFinalFormatada}</h5>
-                        <h3>{reserva.produto.nome}</h3>
-                        <h6>{reserva.produto.cidade.nome}, {reserva.produto.cidade.pais}</h6>
-                        <img className={styles.cardImage} src={reserva.produto.imagemList[0].url} alt={reserva.produto.imagemList[0].titulo} />
+                        <h3>ID da reserva: {reserva.id}</h3>
+                        <img src={reserva.produto.imagemList[0].url} alt={reserva.produto.imagemList[0].titulo} />
+                        <h2>{reserva.produto.nome}</h2>
+
+                        <div className={styles.cardEndereco}>
+                            <FmdGoodOutlinedIcon/>
+                            <div className={styles.enderecoCompleto}>
+                                {/*--colocar aqui o endereco rua tal, n 123 */}
+                                <p>{reserva.produto.cidade.nome}, {reserva.produto.cidade.pais}</p>
+                            </div>
+                        </div>
+                        
+                        <div className={styles.datas}>
+                            <div className={styles.innerDatas}>
+                                <p>Check-in</p>
+                                <p>{dataInicialFormatada}</p>    
+                            </div>
+
+                            <div className={styles.divisor}></div>
+                            
+                            <div className={styles.innerDatas}>
+                                <p>Check-out</p>
+                                <p>{dataFinalFormatada}</p>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             );

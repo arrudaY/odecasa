@@ -62,7 +62,7 @@
     font-size:          12px;
     line-height:        16px;
     text-transform:     uppercase;
-    color:              var(--color-text);
+    color:              var(--color-secondary);
 }
 .cardAvaliacao {
     display:            flex;
@@ -156,7 +156,7 @@
     flex-direction:     row;
     justify-content:    flex-end;
     width:              100%;
-    height:             40px;
+    height:             32px;
 }
 .cardBtn button{
     display:            flex;
@@ -164,8 +164,8 @@
     justify-content:    center;
     align-items:        center;
     gap:                8px;
-    height:             40px;
-    background:         var(--color-primary);
+    height:             32px;
+    background:         var(--color-primaryVar1);
     border-radius:      100px;
     padding:            10px 24px; 
     font-family:        'Roboto';
@@ -174,7 +174,7 @@
     font-size:          14px;
     line-height:        20px;
     letter-spacing:     0.1px;
-    color:              var(--color-onPrimary);
+    color:              var(--color-primary);
 }
 .cardBtn button:hover{
     box-shadow:         var(--elevation1);
@@ -216,15 +216,16 @@
         flex-direction: row;
         align-items:    flex-start;
         width:          49.1%;
+        height:         fit-content;
     }
     .cardBuscaImg {
-        width:          50%;
-        height:         265px;
+        width:          40%;
+        height:         256px;
         border-radius:  10px 0px 0px 10px;
         object-fit:     cover;
     }
     .cardDetalhes {
-        width:          50%;
+        width:          60%;
         gap:            16px;
     }
 }
@@ -235,13 +236,13 @@
         width:          32%;
     }
     .cardBuscaImg {
-        width:          50%;
-        height:         265px;
+        width:          40%;
+        height:         256px;
         border-radius:  10px 0px 0px 10px;
         object-fit:     cover;
     }
     .cardDetalhes {
-        width:          50%;
+        width:          60%;
         gap:            16px;
     }
 }

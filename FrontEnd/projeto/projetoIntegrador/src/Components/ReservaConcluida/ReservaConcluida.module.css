@@ -1,8 +1,9 @@
 .reservaConcluidaContainer {
     display:            flex;
     width:              100%;
-    height:             calc(100vh - 80px - 46px);
-    background-color:   var(--color-primaryVar2);
+    height:             calc(100vh - 46px);
+    background-color:   var(--color-primaryVar1);
+    margin-top:         -80px;
 }
 .reservaCentralizar {
     position:           absolute;
@@ -19,7 +20,8 @@
     gap:                10px;
     padding:            40px;
     background-color:   white;
-    border-radius:      25px;
+    border-radius:      12px;
+    box-shadow:         var(--elevation1);
 }
 .icon {
     animation:          zoom-in 0.6s ease;
@@ -64,10 +66,11 @@
 }
 @media (max-height: 414px) {
     .reservaConcluidaContainer {
-        height:         calc(100vh - 50px - 46px);
+        height:         calc(100vh - 46px);
+        margin-top:     -50px;
     }
     .reserva {
-        width:          250px;
+        width:          280px;
         padding:        30px;
     }
 }

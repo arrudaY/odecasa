@@ -1,13 +1,18 @@
 .accountContainer {
     display:            flex;
     flex-direction:     column;
-    height:             calc(100vh - 46px - 80px);
+    height:             calc(100vh - 46px);
+    margin-top:         -80px;
+    background-color:   var(--color-primaryVar1);
 }
 .accountForm {
     position:           absolute;
-    top:                50%;
+    top:                55%;
     left:               50%;
     transform:          translate(-50%,-50%);
+    background-color:   white;
+    border-radius:      12px;
+    box-shadow:         var(--elevation1);
 }
 .accountTitle {
     color:              var(--color-secondary);
@@ -15,7 +20,8 @@
     font-size:          32px;
     font-family:        'Overpass', sans-serif;
     line-height:        40px;
-    margin-bottom:      30px;
+    margin-bottom:      20px;
+    font-weight:        400;
 }
 .accountTxt {
     width:              100%;
@@ -97,7 +103,7 @@
     display:            flex;
     flex-direction:     column;
     text-align:         center;
-    gap:                40px;
+    gap:                30px;
     padding-top:        14px;
 }
 .link {
@@ -112,7 +118,14 @@
 .link:hover {
     background-color:   var(--color-primaryVar1);
 }
-.accountConfirm p {
+.navigate {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.navigate p {
     color:              var(--color-secondary);
     text-align:         center;
     font-size:          14px;
@@ -128,10 +141,12 @@
 }
 @media (max-width: 414px) {
     .accountContainer{
-        height:         calc(100vh - 46px - 50px);
+        height:         calc(100vh - 46px);
+        margin-top:     -50px;
     }
     .accountForm {
         width:          90%;
+        padding:        30px 10px;
     }
     .inputs {
         gap:            16px;
@@ -143,10 +158,12 @@
 @media (min-width:415px) and (max-width: 1279px) {
     .accountForm {
         width:          44.5%;
+        padding:        40px 20px;
     }
 }
 @media(min-width: 1280px) {
     .accountForm {
         width:          24.6%;
+        padding:        40px 20px;
     }
 }

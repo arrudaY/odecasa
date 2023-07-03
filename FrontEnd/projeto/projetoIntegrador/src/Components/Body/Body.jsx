@@ -49,7 +49,7 @@ const Body = () => {
 
         <Buscador />
 
-        <h2 className={styles.sectionTitle}>Buscar por tipo de acomodação</h2>
+        <h2 className={styles.sectionTitle}>Buscar por tipo de hospedagem</h2>
 
         <Categorias />
 

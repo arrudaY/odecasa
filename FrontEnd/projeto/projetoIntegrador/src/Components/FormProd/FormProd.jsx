@@ -1,14 +1,18 @@
 import styles from "./FormProd.module.css";
 import { useContext, useState } from "react";
 import { FormContext } from "../../Contexts/FormContext";
-import imgVoltar from "../../Data/back.png"
 import { useNavigate } from "react-router-dom";
-import addImg from "../../Data/add.png"
-import removeImg from "../../Data/remove.png"
-import uploadImg from "../../Data/upload.png"
-import apagarImg from "../../Data/erro.png"
 import Combobox from "react-widgets/Combobox";
 import api from "../../Services/api";
+
+
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+import UndoIcon from '@mui/icons-material/Undo';
 
 
 const FormProd = () => {
@@ -340,19 +344,27 @@ const FormProd = () => {
 
     return (
       <div className={styles.formContainer}>
+
         <div className={styles.formHeader}>
-            <p>Administração</p>
-            <img onClick={voltar} className={styles.formVoltar} src={imgVoltar}></img>
+            <button onClick={voltar}><KeyboardArrowLeftIcon sx={{ color: 'black' }}/></button>
+            <h1>Administração</h1>
         </div>
-        <div className={styles.formFundo}>
-            <div className={styles.formContainer2}>
+
+        <div className={styles.innerForm}>
+
+            {/*---- Nova acomodação ----*/}
+            <div className={styles.section}>
+
                 <h2>Criar nova acomodação</h2>
-                <div className={styles.formBlocao}>
+
+                {/*----Nome----*/}
+                <div className={styles.blocoSXZ}>
                     <div className={styles.blocaoTxtBasico}>
-                        <label className={styles.formLabel}>Nome da Acomodação</label>
-                        <input type="text" className={styles.formTxt} value={nome} onChange={(event) => setNome(event.target.value)}/> 
+                        <label>Nome do lugar</label>
+                        <input type="text" value={nome} placeholder="Ex.: Hotel Sky" onChange={(event) => setNome(event.target.value)}/> 
                         {errors.nome && <span className={styles.formError}>{errors.nome}</span>}
                     </div>
+
                     <div className={styles.formNovaCatCid}>
                         <div className={styles.blocaoTxtCatCid}>
                             {!novaCat && <label className={styles.formLabel}>Categoria</label>}
@@ -367,33 +379,46 @@ const FormProd = () => {
                                         onChange={value => setCategoria(value)}
                                     />}
                                 </div>
-                                <img className={styles.formAddImg} src={novaCat ? removeImg : addImg} onClick={criarCat}></img>
+                                <div className={styles.formCreate} onClick={criarCat}>
+                                    {novaCat
+                                    ? (<button><UndoIcon fontSize="small" sx={{color: '#5581FB'}}/>Desfazer</button>)
+                                    : (<button><CreateOutlinedIcon fontSize="small" sx={{color: '#5581FB'}}/>Criar</button>)}
+                                </div>
                             </div>
                             {!novaCat && errors.categoria && <span className={styles.formError}>{errors.categoria}</span>}
                         </div>
                     </div>
+
                     {novaCat && <div className={styles.criarCatCid}>
                         <div className={styles.blocaoTxtBasico}>
                             <label className={styles.formLabel}>Nome da nova categoria</label>
                             <input type="text" className={styles.formTxt} value={nomeCat} onChange={(event) => setNomeCat(event.target.value)}/> 
                             {errors.categoria && <span className={styles.formError}>{errors.categoria}</span>}
                         </div>
+
                         <div className={styles.addImgCatCid}>
                             <div className={styles.addImgCatCidTxt}>
-                                <label className={styles.formLabel}>Imagem da nova categoria</label>
+                                <label className={styles.formLabel} >Imagem da nova categoria</label>
                                 <div className={styles.alinhaTxtImg}>
                                     <input type="text" className={styles.alinhaTxtImgTxt} value={urlCat} onChange={(event) => setUrlCat(event.target.value)}/>
-                                    <img className={styles.formUploadImg} src={uploadImg}></img>
+                                    <button disabled className={styles.ndBtn} ><FileUploadOutlinedIcon fontSize="small"/>Upload</button>
                                 </div>
                                 {errors.categoria && <span className={styles.formError}>{errors.categoria}</span>}
                             </div>
                         </div>
+
                     </div>}
+
+                </div>
+
+                {/*----Endereço----*/}
+                <div className={styles.blocoSXZ}>
                     <div className={styles.blocaoTxtBasico}>
-                        <label className={styles.formLabel}>Endereço</label>
-                        <input type="text" className={styles.formTxt} value={endereco} onChange={(event) => setEndereco(event.target.value)}/> 
+                        <label>Endereço</label>
+                        <input type="text" placeholder="Ex.: R. Céu Azul, 123 - Arroio da Manteiga" value={endereco} onChange={(event) => setEndereco(event.target.value)}/> 
                         {errors.endereco && <span className={styles.formError}>{errors.endereco}</span>}
                     </div>
+
                     <div className={styles.formNovaCatCid}>
                         <div className={styles.blocaoTxtCatCid}>
                             {!novaCid && <label className={styles.formLabel}>Cidade</label>}
@@ -408,133 +433,210 @@ const FormProd = () => {
                                         onChange={value => setCidade(value)}
                                     />}
                                 </div>
-                                <img className={styles.formAddImg} src={novaCid ? removeImg : addImg} onClick={criarCid}></img>
+                                
+                                <div className={styles.formCreate} onClick={criarCid}>
+                                    {novaCid
+                                    ? ( <button><UndoIcon fontSize="small" sx={{color:'#5581FB'}}/>Desfazer</button> ) 
+                                    : ( <button><CreateOutlinedIcon fontSize="small" sx={{color:'#5581FB'}}/>Criar</button> )}
+                                </div>
                             </div>
                             {!novaCid && errors.cidade && <span className={styles.formError}>{errors.cidade}</span>}
                         </div>
                     </div>
+
                     {novaCid && <div className={styles.criarCatCid}>
                         <div className={styles.blocaoTxtBasico}>
                             <label className={styles.formLabel}>Nome da nova cidade</label>
                             <input type="text" className={styles.formTxt} value={nomeCid} onChange={(event) => setNomeCid(event.target.value)}/> 
                             {errors.cidade && <span className={styles.formError}>{errors.cidade}</span>}
                         </div>
+
                         <div className={styles.blocaoTxtBasico}>
                             <label className={styles.formLabel}>País</label>
                             <input type="text" className={styles.formTxt} value={pais} onChange={(event) => setPais(event.target.value)}/> 
                             {errors.cidade && <span className={styles.formError}>{errors.cidade}</span>}
                         </div>
+
                     </div>}
-                    <div className={styles.blocaoTxtBasicoDesc}>
-                        <label className={styles.formLabel}>Descrição curta</label>
-                        <textarea className={styles.formTxtDesc} value={descCurta} onChange={(event) => setDescCurta(event.target.value)}/> 
+                    
+                </div>
+
+                {/*----Descrição----*/}
+                <div className={styles.blocoSXZ}>
+                    <div className={styles.formInputs}>
+                        <label>Descrição curta</label>
+                        <textarea className={styles.formTxtDesc} placeholder="Descreva o local em uma linha..." value={descCurta} onChange={(event) => setDescCurta(event.target.value)}/> 
                         {errors.descCurta && <span className={styles.formError}>{errors.descCurta}</span>}
                     </div>
-                    <div className={styles.blocaoTxtBasicoDesc}>
-                        <label className={styles.formLabel}>Descrição longa</label>
-                        <textarea className={styles.formTxtDesc} value={descLonga} onChange={(event) => setDescLonga(event.target.value)}/> 
+
+                    <div className={styles.formInputs}>
+                        <label>Descrição longa</label>
+                        <textarea className={styles.formTxtDesc} value={descLonga} placeholder="Descreva o local com mais detalhes..." onChange={(event) => setDescLonga(event.target.value)}/> 
                         {errors.descLonga && <span className={styles.formError}>{errors.descLonga}</span>}
                     </div>
-                    <h3>Adicionar atributos</h3>
-                    <div className={styles.formAtributos}>
-                        {(atributos.length > 0) && <div className={styles.formAtribSalvos}>
-                            {atributos.map((item, index) => (
-                                <div className={styles.atributoSalvo} key={index}>
-                                    <p>Ícone salvo:</p>
-                                    <p>{item.nome}</p>
-                                    <p>{item.icone}</p>
-                                    <img className={styles.formApagarImg} src={apagarImg} onClick={() => apagarAtrib(item.nome)}></img>
-                                </div>
-                            ))}
-                        </div>}
-                        <div className={styles.formAtributosTxts}>
-                            <div className={styles.formTxtAtributos}>
-                                <label className={styles.formLabel}>Nome</label>
-                                <input type="text" className={styles.formTxt} value={icNome} onChange={(event) => setIcNome(event.target.value)}/> 
+                </div>
+
+            </div>
+            <div className={styles.divisor}></div>
+
+
+            {/*---- Comidades ----*/}
+                <div className={styles.section}>
+
+                    <h2>Adicionar atributos</h2>
+
+                    {(atributos.length > 0) && <div className={styles.formAtribSalvos}>
+                        {atributos.map((item, index) => (
+                            <div className={styles.savedItens} key={index}>
+                                <p>Atributo salvo:</p>
+                                <p>{item.nome}</p>
+                                <p>{item.icone}</p>
+                                <button className={styles.formRemoveBtn} onClick={() => apagarAtrib(item.nome)}><HighlightOffOutlinedIcon fontSize="small"/></button>
                             </div>
-                            <div className={styles.formTxtAtributos}>
-                                <label className={styles.formLabel}>Ícone</label>
-                                <input type="text" className={styles.formTxt} value={icIcone} onChange={(event) => setIcIcone(event.target.value)}/> 
-                            </div>
+                        ))}
+                    </div>}
+
+
+                    <div className={styles.formInputsContainer}>
+                        <div className={styles.formInputs}>
+                            <label>Nome da comodidade</label>
+                            <input type="text" value={icNome} placeholder="Ex.: Ar condicionado" onChange={(event) => setIcNome(event.target.value)}/> 
                         </div>
-                        <img className={styles.formAddImg} src={addImg} onClick={addIcone}></img>
+
+                        <div className={styles.formInputs}>
+                            <label>Ícone</label>
+                            <input type="text" className={styles.formTxt} value={icIcone} onChange={(event) => setIcIcone(event.target.value)}/> 
+                        </div>
+
+                        <button className={styles.ndBtn} onClick={addIcone}><AddOutlinedIcon fontSize="small" sx={{color:'#5581FB'}}/>Adicionar</button>
                     </div>
+
+
+                    
+
+
                     {errors.atributos && <span className={styles.formError}>{errors.atributos}</span>}
-                    <h3>Políticas da Acomodação</h3>
-                    <div className={styles.formPoliticas}>
-                        <div className={styles.formPoliticasBloco}>
-                            <h5>Regras da acomodação</h5>
-                            <label className={styles.formLabel}>Checkin</label>
+                    
+                </div>
+
+                <div className={styles.divisor}></div>
+
+            {/*---- Políticas ----*/}
+                <div className={styles.section}>
+
+                    <h2>Políticas da acomodação</h2>
+
+                    <div className={styles.formInputsContainer}>
+
+                        <div className={styles.formPoliticasBlock}>
+
+                            <h3>Regras da acomodação</h3>
+
+                            <label className={styles.formLabel}>Check-in</label>
                             <Combobox
                                 defaultValue=""
                                 data={horas}
                                 onChange={value => setCheckin(value)}
                             />
                             {errors.checkin && <span className={styles.formError}>{errors.checkin}</span>}
-                            <label className={styles.formLabel}>Checkout</label>
+                            
+                            <label className={styles.formLabel}>Check-out</label>
                             <Combobox
                                 defaultValue=""
                                 data={horas}
                                 onChange={value => setCheckout(value)}
                             />
                             {errors.checkout && <span className={styles.formError}>{errors.checkout}</span>}
+                            
                             <label className={styles.formLabel}>Outras regras</label>
                             <textarea className={styles.formTxtDesc} value={regras} onChange={(event) => setRegras(event.target.value)}/> 
                             {errors.regras && <span className={styles.formError}>{errors.regras}</span>}
                         </div>
-                        <div className={styles.formPoliticasBloco}>
-                            <h5>Saúde e Segurança</h5>
+
+                        <div className={styles.formPoliticasBlock}>
+                            <h3>Saúde e segurança</h3>
                             <label className={styles.formLabel}>Diretrizes da acomodação</label>
                             <textarea className={styles.formTxtDesc} value={diretrizes} onChange={(event) => setDiretrizes(event.target.value)}/> 
                             {errors.regras && <span className={styles.formError}>{errors.regras}</span>}
                         </div>
-                        <div className={styles.formPoliticasBloco}>
-                            <h5>Políticas de Cancelamento</h5>
+
+                        <div className={styles.formPoliticasBlock}>
+                            <h3>Políticas de cancelamento</h3>
                             <label className={styles.formLabel}>Políticas da acomodação</label>
                             <textarea className={styles.formTxtDesc} value={politicas} onChange={(event) => setPoliticas(event.target.value)}/> 
                             {errors.politicas && <span className={styles.formError}>{errors.politicas}</span>}
                         </div>
                     </div>
-                    <h3>Carregar Imagens</h3>
-                    <div className={styles.formAtributos}>
-                        {(imgPrinSalva.length > 0) && <div className={styles.formAtribSalvos}>
-                            <div className={styles.atributoSalvo}>
-                                <p>Imagem principal salva:</p>
-                                <p>{imgPrinSalva}</p>
-                                <img className={styles.formApagarImg} src={apagarImg} onClick={() => setImgPrinSalva("")}></img>
-                            </div>
-                        </div>}
-                        <h5>Imagem Principal</h5>
-                        <div className={styles.formCarregarImg}>
-                            <input type="text" className={styles.formCarregarImgTxt} value={imgPrincipal} onChange={(event) => setImgPrincipal(event.target.value)}/> 
-                            <img className={styles.formUploadImg} src={uploadImg}></img>
-                            <img className={styles.formAddImg} src={addImg} onClick={() => addImgPrincipal()}></img>
-                            {errors.imgPrincipal && <span className={styles.formError}>{errors.imgPrincipal}</span>}
-                        </div>
-                        {(imagens.length > 0) && <div className={styles.formAtribSalvos}>
-                            {imagens.map((item, index) => (
-                                <div className={styles.atributoSalvo} key={index}>
-                                    <p>Imagem salva:</p>
-                                    <p>{item}</p>
-                                    <img className={styles.formApagarImg} src={apagarImg} onClick={() => apagarImgLista(item)}></img>
-                                </div>
-                            ))}
-                        </div>}
-                        <h5>Outras imagens</h5>
-                        <div className={styles.formCarregarImg}>
-                            <input type="text" className={styles.formCarregarImgTxt} value={imgSec} onChange={(event) => setImgSec(event.target.value)}/> 
-                            <img className={styles.formUploadImg} src={uploadImg}></img>
-                            <img className={styles.formAddImg} src={addImg} onClick={() => addImgSec()}></img>
-                            {errors.imagens && <span className={styles.formError}>{errors.imagens}</span>}
-                        </div>
-                    </div>
-                    <div className={styles.formCentralizaBtn}>
-                        <button className={styles.formBtn} onClick={cadastrar}>Criar Acomodação</button>
-                    </div>
                 </div>
+
+                <div className={styles.divisor}></div>
+                
+
+            {/*---- Carregar imagens ----*/}
+                <div className={styles.section}>
+
+
+                    <h2>Carregar imagens</h2>
+
+
+                    {(imgPrinSalva.length > 0) && <div className={styles.formAtribSalvos}>
+                        <div className={styles.savedItens}>
+                            <p>Imagem principal salva:</p>
+                            <p>{imgPrinSalva}</p>
+                            <button className={styles.formRemoveBtn} onClick={() => setImgPrinSalva("")}><HighlightOffOutlinedIcon fontSize="small"/></button>
+                        </div>
+                    </div>}
+
+
+                    <div className={styles.formInputsContainer}>
+                            
+                        <div className={styles.formInputs}>
+                            <label>Imagem principal</label>
+                            <input type="text" value={imgPrincipal} onChange={(event) => setImgPrincipal(event.target.value)}/> 
+                        </div>
+                        <button className={styles.ndBtn} disabled><FileUploadOutlinedIcon fontSize="small" sx={{color:'#5581FB'}}/>Upload</button>
+                        <button className={styles.ndBtn} onClick={() => addImgPrincipal()}><AddOutlinedIcon fontSize="small" sx={{color:'#5581FB'}}/>Adicionar</button>
+                        {errors.imgPrincipal && <span className={styles.formError}>{errors.imgPrincipal}</span>}
+
+                       
+                    </div>  
+
+
+                    {(imagens.length > 0) && <div className={styles.formAtribSalvos}>
+                        {imagens.map((item, index) => (
+                            <div className={styles.savedItens} key={index}>
+                                <p>Imagem salva:</p>
+                                <p>{item}</p>
+                                <button className={styles.formRemoveBtn} onClick={() => apagarImgLista(item)}><HighlightOffOutlinedIcon fontSize="small"/></button>
+                            </div>
+                        ))}
+                    </div>}
+
+                    <div className={styles.formInputsContainer}>
+                        
+                        <div className={styles.formInputs}>
+                            <label>Outras imagens</label>
+                            <input type="text" value={imgSec} onChange={(event) => setImgSec(event.target.value)}/> 
+                        </div>
+
+                        <button className={styles.ndBtn} disabled ><FileUploadOutlinedIcon fontSize="small" sx={{color:'#5581FB'}}/>Upload</button>
+                        <button className={styles.ndBtn} onClick={() => addImgSec()}><AddOutlinedIcon fontSize="small" sx={{color:'#5581FB'}}/>Adicionar</button>
+                        {errors.imagens && <span className={styles.formError}>{errors.imagens}</span>}
+
+                    </div>
+
+                   
+                </div>
+
+
+            {/*---- Save btn ----*/}
+                <div className={styles.section}>
+                    <button className={styles.formBtn} onClick={cadastrar}><SaveOutlinedIcon fontSize="small" sx={{color:'white'}}/> Salvar acomodação</button>
+                </div>
+
             </div>
         </div>
-      </div>
+    
     );
   };
   

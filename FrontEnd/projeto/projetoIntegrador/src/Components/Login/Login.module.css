@@ -1,7 +1,9 @@
 .loginContainer {
     display:            flex;
     flex-direction:     column;
-    height:             calc(100vh - 46px - 80px);
+    height:             calc(100vh - 46px);
+    margin-top:         -80px;
+    background-color:   var(--color-primaryVar1);
 }
 .loginErroRes {
     display:            flex;
@@ -23,9 +25,13 @@
 }
 .loginCentralizar {
     position:           absolute;
-    top:                50%;
+    top:                55%;
     left:               50%;
     transform:          translate(-50%,-50%);
+    background-color:   white;
+    border-radius:      12px;
+    padding:            50px 40px;
+    box-shadow:         var(--elevation1);
 }
 .loginTitle {
     color:              var(--color-secondary);
@@ -34,6 +40,7 @@
     font-family:        'Overpass', sans-serif;
     line-height:        40px;
     margin-bottom:      30px;
+    font-weight:        400;
 }
 .loginTxt {
     width:              100%;
@@ -110,10 +117,17 @@
     display:            flex;
     flex-direction:     column;
     text-align:         center;
-    gap:                40px;
+    gap:                30px;
     padding-top:        20px;
 }
-.loginConfirm p {
+.navigate {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.navigate p {
     color:              var(--color-secondary);
     text-align:         center;
     font-size:          14px;
@@ -132,7 +146,7 @@
     text-decoration:    none;
 }
 .link:hover {
-    background-color:   var(--color-primaryVar2);
+    background-color:   var(--color-primaryVar1);
 }
 .loginError {
     display:            block;
@@ -141,14 +155,17 @@
 }
 @media (max-width: 414px) {
     .loginContainer {
-        height:         calc(100vh - 46px - 50px);
+        height:         calc(100vh - 46px);
+        margin-top:     -50px;
     }
     .loginCentralizar {
+        padding:        50px 10px;
         width:          90%;
     }
 }
 @media (min-width:415px) and (max-width: 1279px) {
     .loginCentralizar {
+        padding:        50px 20px;
         width:          44.5%;
     }
 }

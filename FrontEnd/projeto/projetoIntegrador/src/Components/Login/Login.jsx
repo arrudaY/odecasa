@@ -111,8 +111,8 @@ const Login = () => {
             <div className={styles.loginCentralizar}>
 
                 {msgLogin && <div className={styles.loginErroRes}>
-                    <ErrorOutlineOutlinedIcon fontSize='large' sx={{ color: "red" }}/>
-                    <p className={styles.loginErroResMsg}>Você precisa estar logado para fazer uma reserva.</p>
+                    <ErrorOutlineOutlinedIcon fontSize='large' sx={{ color: "#B3261E" }}/>
+                    <p className={styles.loginErroResMsg}>Você precisa estar logado para fazer uma reserva</p>
                 </div>}
 
                 <form className={styles.loginForm} onSubmit={handleSubmit}>
@@ -150,11 +150,12 @@ const Login = () => {
                         </div>
                     </div>
 
-                    
-
                     <div className={styles.loginConfirm}>
                         <button className={styles.loginBtn} type="submit">Entrar</button>
-                        <p>Ainda não tem conta? <Link to={"/cadastro"} className={styles.link}>Registre-se</Link> </p>
+                        <div className={styles.navigate}>
+                            <p>Ainda não tem conta?</p>
+                            <p><Link to={"/cadastro"} className={styles.link}>Registre-se</Link></p>
+                        </div>
                     </div>
 
                 </form>

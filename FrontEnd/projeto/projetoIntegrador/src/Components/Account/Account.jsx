@@ -177,7 +177,10 @@ const Account = () => {
                 
                 <div className={styles.accountConfirm}>
                     <button className={styles.accountBtn} type="submit">Cadastre-se</button>
-                    <p>Já tem uma conta? <Link to={"/login"} className={styles.link}>Iniciar sessão </Link> </p>
+                    <div className={styles.navigate}>
+                        <p>Já tem uma conta?</p>
+                        <p><Link to={"/login"} className={styles.link}>Iniciar sessão </Link></p>
+                    </div>                
                 </div>
 
             </form>

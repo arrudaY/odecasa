@@ -7,7 +7,7 @@
 }
 .bannerImg {
     width:                  100%;
-    max-height:             300px;
+    max-height:             250px;
     object-fit:             cover;
     border-radius:          25px;
     margin-bottom:          40px;
@@ -26,9 +26,9 @@
     font-family:            'Roboto', sans-serif;
     font-style:             normal;
     font-weight:            400;
-    font-size:              20px;
+    font-size:              16px;
     text-transform:         uppercase;
-    line-height:            20px;
+    line-height:            18px;
     letter-spacing:         0.25px;
     color:                  var(--color-secondary);
     padding:                10px 6px 6px; 
@@ -89,11 +89,15 @@
     }
     .bannerTop {
         padding:            10px 0;
+        margin-left:        -10px;
     }
 }
 @media (min-width:415px) and (max-width: 1279px) {
     .banner {
         margin:             0px 32px;
+    }
+    .bannerTop {
+        margin-left:        -20px;
     }
     .productCards {
         padding:            0px 32px 100px;
