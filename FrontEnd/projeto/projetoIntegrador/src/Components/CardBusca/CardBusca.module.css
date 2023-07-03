@@ -165,7 +165,7 @@
     align-items:        center;
     gap:                8px;
     height:             32px;
-    background:         var(--color-primary);
+    background:         var(--color-primaryVar1);
     border-radius:      100px;
     padding:            10px 24px; 
     font-family:        'Roboto';
@@ -174,7 +174,7 @@
     font-size:          14px;
     line-height:        20px;
     letter-spacing:     0.1px;
-    color:              var(--color-onPrimary);
+    color:              var(--color-primary);
 }
 .cardBtn button:hover{
     box-shadow:         var(--elevation1);
