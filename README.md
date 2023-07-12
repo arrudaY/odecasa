@@ -3,6 +3,9 @@
 [![Odecasa](https://i3.ytimg.com/vi/b6Zb7xmvUtk/maxresdefault.jpg)](https://youtu.be/b6Zb7xmvUtk "Clique e assita ao vídeo")
 
 ## 📍  Sobre o projeto
+
+Ôdecasa é uma plataforma de compartilhamento de acomodações, conectando viajantes a experiências autênticas em todo o Brasil 🧳🏠✨. 
+
 Projeto integrador do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).
 
 Clicando no banner acima, você assiste a uma demonstração do produto no YouTube ▶️.
