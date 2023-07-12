@@ -1,0 +1,198 @@
+.buscadorContainer {
+    display:            flex;
+    flex-direction:     column;
+    align-items:        center;
+    padding:            30px;
+    gap:                16px;
+}
+.buscadorTitle {
+    font-family:        'Overpass', sans-serif;
+    font-style:         normal;
+    font-weight:        400;
+    font-size:          22px;
+    line-height:        28px;
+    color:              var(--color-secondary);
+}
+.buscadorInputs {
+    display:            flex;
+    align-items:        center;
+    justify-content:    center;
+    width:              100%;
+    padding:            20px;
+    border-radius:      12px;
+    box-shadow:         var(--elevation1);
+    background-color:   white;
+    z-index:            1;
+}
+.buscadorTxt {
+    width:              100%;
+    height:             44px;
+    border-radius:      6px;
+    border-color:       blue;
+    font-size:          16px;
+    outline:            0;
+    z-index:            -1;
+}
+.buscadorTxt[type=text] {
+    padding-left:       14px;
+}
+.buscadorTxt::placeholder,
+.buscadorTxt::-webkit-input-placeholder,
+.buscadorTxt span {
+    color:              var(--color-text);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+}
+.buscadorTxt:nth-child(1) {
+    border:             1px solid rgb(229, 229, 234);
+}
+.buscadorTxt:nth-child(1):valid {
+    color:              rgb(70, 126, 220)
+}
+.buscadorLocal {
+    position:           relative;
+    width:              100%;
+}
+.buscadorLocal > span {
+    position:           absolute;
+    top:                12px;
+    right:              12px;
+    opacity:            0.7;
+}
+.buscadorTxt:nth-child(1):focus,
+.buscadorTxt:nth-child(1):hover {
+    border:             1px solid rgb(82, 150, 247);
+}
+.buscadorBtn {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        center;
+    justify-content:    center;
+    gap:                6px;
+    height:             40px;
+    background-color:   var(--color-primary);
+    border-radius:      100px;
+    border:             none;
+    color:              var(--color-onPrimary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+}
+.buscadorBtn:hover {
+    box-shadow:         var(--elevation1);
+    transition:         all 0.2s;
+}
+.filter {
+    position:           absolute;
+    top:                calc(100% - 5px);
+    left:               0px;
+    width:              100%;
+    max-height:         200px;
+    overflow-y:         auto;
+    border:             none;
+    border-radius:      8px;
+    list-style:         none;
+    box-shadow:         var(--elevation1);
+    background-color:   white;
+}
+.filter li {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        center;
+    gap:                10px;
+    padding:            10px;
+    cursor:             pointer;
+}
+.localInfo {
+    display:            flex;
+    flex-direction:     column;
+}
+.filter li:hover {
+    background-color:   var(--color-primaryVar1);
+}
+.nome {
+    font-family:        'Overpass', sans-serif;
+    font-style:         normal;
+    font-weight:        500;
+    font-size:          14px;
+    line-height:        14px;
+    letter-spacing:     0.15px;
+    color:              var(--color-secondary);
+}
+.pais {
+    font-family:        'Roboto', sans-serif;
+    font-style:         normal;
+    font-weight:        400;
+    font-size:          14px;
+    line-height:        14px;
+    letter-spacing:     0.25px;
+    color:              var(--color-text);
+}
+@media (max-width: 414px) {
+    .buscadorContainer {
+        padding:        30px 20px;
+        margin-top:     200px;
+    }
+    .buscadorInputs {
+        flex-direction: column;
+        gap:            12px;
+    }
+    .buscadorTxt,
+    .buscadorBtn,
+    .buscadorInputs{
+        width:          100%;
+    }
+}
+@media (min-width:415px) and (max-width: 740px){
+    .buscadorContainer {
+        padding:        30px 20px;
+        margin-top:     150px;
+    }
+    .buscadorInputs{
+        flex-direction: column;
+        gap:            12px;
+    }
+    .buscadorTxt,
+    .buscadorBtn,
+    .buscadorInputs {
+        width:          100%;
+    }
+}
+@media (min-width:741px) and (max-width: 1279px) {
+    .buscadorContainer {
+        padding:        30px 32px;
+        margin-top:     180px;
+    }
+    .buscadorInputs {
+        flex-direction: row;
+        gap:            20px;
+    }
+    .buscadorLocal,
+    .buscadorTxt {
+        width:          242px;
+    }
+    .buscadorBtn {
+        width:          155px;
+    }
+}
+@media(min-width: 1280px) {
+    .buscadorContainer {
+        padding:        30px 150px;
+        margin-top:     230px;
+    }
+    .buscadorInputs {
+        flex-direction: row;
+        gap:            20px;
+    }
+    .buscadorLocal,
+    .buscadorTxt {
+        width:          314px;
+    }
+    .buscadorBtn {
+        width:          147px;
+    }
+}

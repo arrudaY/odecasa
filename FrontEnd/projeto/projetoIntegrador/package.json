@@ -1,0 +1,38 @@
+{
+  "name": "projetointegrador",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.5",
+    "@mui/x-date-pickers": "^6.4.0",
+    "@mui/x-date-pickers-pro": "^6.4.0",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.7",
+    "js-datepicker": "^5.18.2",
+    "react": "^18.2.0",
+    "react-carousel-minimal": "^1.4.1",
+    "react-date-range": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-responsive": "^9.0.2",
+    "react-router-dom": "^6.11.1",
+    "react-widgets": "^5.8.4",
+    "rsuite": "^5.33.1",
+    "swiper": "^9.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.1.0"
+  }
+}

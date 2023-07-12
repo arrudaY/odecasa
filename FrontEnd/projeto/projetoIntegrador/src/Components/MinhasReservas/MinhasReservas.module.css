@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.reservaContainer {
+    display:                flex;
+    flex-direction:         column;
+}
+.reservaTitle {
+    display:                flex;
+    width:                  100%;
+    justify-content:        space-between;
+    align-items:            flex-end;
+    margin-bottom:          30px;
+}
+.reservaTitle h1,
+.reservaTitle p,
+.cardData h2 {
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-weight:            400;
+    line-height:            40px;
+    color:                  var(--color-secondary);
+}
+.reservaTitle p {
+    text-transform:         uppercase;
+}
+.cardsContainer {
+    display:                flex;
+    flex-direction:         row;
+    flex-wrap:              wrap;
+    justify-content:        flex-start;
+    gap:                    16px;
+    margin-bottom:          50px;
+}  
+.cardContainer {
+    border:                 1px solid lightgray;
+    border-radius:          12px;
+    max-height:             500px;
+    padding:                20px;
+}
+.cardData{
+    display:                flex;
+    flex-direction:         column;
+    gap:                    10px;
+}
+.cardData h3 {
+    display:                flex;
+    text-transform:         uppercase;
+    justify-content:        center;
+    background-color:       var(--color-primary);
+    color:                  var(--color-onPrimary);
+    padding:                6px;
+    color:                  #FFF;
+    border-radius:          8px;
+    font-family:            'Overpass', sans-serif;
+    font-style:             normal;
+    font-size:              16px;
+    font-weight:            500;
+    line-height:            40px;
+    letter-spacing:         1px;
+}
+.cardData img {
+    width:                  100%;
+    max-height:             150px;
+    object-fit:             cover;
+    border-radius:          8px;
+}
+.cardData h2 {
+    font-weight:            500;
+    font-size:              18px;
+    line-height:            30px;
+    height:                 52px;
+    display:                flex;
+    align-items:            flex-end;
+    justify-content:        flex-start;
+}
+.cardEndereco {
+    display:                flex;
+    align-items:            center;
+    gap:                    6px;
+}
+.enderecoCompleto {
+    display:                flex;
+    flex-direction:         column;
+}
+.cardData p {
+    color:                  var(--color-text);
+    font-size:              14px;
+    font-family:            'Roboto', sans-serif;
+    line-height:            20px;
+    letter-spacing:         0.25px;
+    margin:                 0;
+}
+.datas {
+    display:                flex;
+    align-items:            center;
+    justify-content:        space-between;
+    border:                 0.5px solid lightgray;
+    border-radius:          8px;
+    padding:                10px 0;
+    margin-top:             10px;
+}
+.innerDatas {
+    display:                flex;
+    flex-direction:         column;
+    align-items:            center;
+    justify-content:        center;
+    width:                  100%;
+    gap:                    4px;
+}
+.innerDatas p:nth-child(1) {
+    text-transform:         uppercase;
+}
+.innerDatas p:nth-child(2) {
+    font-family:            'Roboto mono';
+    font-size:              16px;
+    color:                  var(--color-secondary);
+}
+.inativa {
+    opacity:                0.3;    
+}
+.divisor {
+    margin:                 6px 0;
+    border:                 0.5px solid lightgray; /*TODO*/
+    align-self:             stretch;
+}
+@media (max-width: 630px) {
+    .reservaContainer {
+        padding:            30px 20px;
+    }
+    .reservaTitle {
+        flex-direction:     column;
+        align-items:        flex-start;
+        justify-content:    flex-start;
+        margin-bottom:      10px;
+    }
+    .reservaTitle h1 {
+        font-size:          32px;
+        line-height:        40px;
+    }
+    .cardContainer {
+        width:              100%;
+    }
+}
+@media (min-width: 631px) and (max-width: 1090px) {
+    .reservaContainer {
+        padding:            30px 32px;
+    }
+    .cardContainer {
+        width:              47%;
+    }
+}
+@media (min-width: 1091px) and (max-width: 1279px) {
+    .reservaContainer {
+        padding:            30px 32px;
+    }
+    .cardContainer {
+        width:              32%;
+    }
+}
+@media(min-width: 1280px) {
+    .reservaContainer {
+        padding:            50px 150px;
+    }
+    .cardContainer {
+        width:              32%;
+    }
+}

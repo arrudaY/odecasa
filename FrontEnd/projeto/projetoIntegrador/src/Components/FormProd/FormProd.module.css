@@ -1,0 +1,578 @@
+.formContainer {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+    background-color:   var(--color-primaryVar1);
+    margin-top:         -80px;
+}
+.formHeader {
+    display:            flex;
+    flex-direction:     row;
+    width:              100%;
+    align-items:        center;
+    margin-top:         100px;
+    gap:                6px;
+    padding:            10px 0;
+}
+.formHeader button {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        center;
+    justify-content:    center;
+    width:              40px;
+    height:             40px;
+    border-radius:      100px;
+    background-color:   transparent;
+    cursor:             pointer;
+}
+.formHeader button:hover {
+    background-color:   white;
+    box-shadow:         var(--elevation1);
+}
+.formHeader h1 {
+    display:            flex;
+    width:              100%;
+    text-align:         left;
+    color:              var(--color-secondary);
+    font-family:        'Overpass', sans-serif;
+    font-size:          36px;
+    line-height:        40px;
+    font-weight:        500;
+    letter-spacing:     0px;
+}
+.innerForm {
+    display:            flex;
+    flex-direction:     column;
+    border-radius:      12px;
+    background-color:   white;
+    box-shadow:         var(--elevation1);
+    padding:            60px 20px 20px;
+    margin-bottom:      100px;
+}
+.section {
+    display:            flex;
+    flex-direction:     column;
+    gap:                10px;
+}
+.section h2 {
+    color:              var(--color-secondary);
+    font-family:        'Overpass', sans-serif;
+    font-size:          22px;
+    line-height:        28px;
+    font-weight:        400;
+    margin-bottom:      16px;
+}
+.section h3 {
+    color:              var(--color-secondary);
+    font-family:        'Overpass', sans-serif;
+    font-weight:        400;
+    font-size:          18px;
+    line-height:        20px;
+    margin:             16px auto;
+}
+.section h4 {
+    color:              var(--color-secondary);
+    font-size:          14px;
+    font-weight:        400;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+}
+.divisor {
+    margin:             42px 16px;
+    border:             0.5px solid lightgray;
+    align-self:         stretch;
+}
+.formInputsContainer,
+.descricao {
+    display:            flex;
+    flex-direction:     row;
+    width:              100%;
+    gap:                10px;
+    align-items:        flex-end;
+}
+.formInputs {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+}
+.formLabel,
+.formInputs label,
+.blocaoTxtBasico label,
+.formPoliticasBlock label,
+.savedItens p {
+    color:              var(--color-secondary);
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        14px;
+    letter-spacing:     0.25px;
+    padding:            6px;
+    margin:             0;
+}
+.savedItens p {
+    color:              var(--color-text);
+}
+.savedItens{
+    display:            flex;
+    align-items:        center;
+    gap:                10px;
+}
+.formInputs input,
+.blocaoTxtBasico input {
+    width:              100%;
+    height:             40px;
+    border-radius:      12px;
+    background-color:   var(--color-inputs);
+    border:             none;
+    outline:            0;
+    transition:         all 0.2s;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+    padding-left:       16px;
+}
+.formInputs input:focus,
+.formInputs textarea:focus,
+.blocaoTxtBasico input:focus,
+.formPoliticasBlock textarea:focus
+ {
+    box-shadow:         var(--elevation1);
+    transition:         all 0.2s;
+}
+.formInputs textarea {
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+    padding:            16px;
+}
+.ndBtn,
+.formCreate button {
+    color:              var(--color-primary);
+    background-color:   var(--color-primaryVar1);
+}
+.ndBtn,
+.formCreate button,
+.formBtn{
+    display:            flex;
+    flex:               row;
+    align-items:        center;
+    justify-content:    center;
+    gap:                6px;
+    padding:            0 24px;
+    height:             40px;
+    border-radius:      100px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    font-size:          14px;
+    line-height:        20px;
+    cursor:             pointer;
+}
+.ndBtn:hover,
+.formCreate button:hover,
+.formBtn:hover {
+    box-shadow:         var(--elevation1);
+    transition:         all 0.2s;
+}
+.formRemoveBtn {
+    display:            flex;
+    align-items:        center;
+    justify-content:    center;
+    width:              24px;
+    height:             24px;
+    border-radius:      25px;
+    background-color:   transparent;
+    cursor:             pointer;
+}
+.blocoSXZ {
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    align-items:        flex-end;
+    justify-content:    space-between;
+    gap:                20px;
+}
+.blocoSXZ:nth-child(4) {
+    margin-top:         20px;
+}
+.formAtribSalvos{
+    display:            flex;
+    flex-direction:     column;
+    align-items:        flex-start;
+    justify-content:    center;
+}
+.blocaoTxtBasicoDesc{
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+}
+.formError {
+    display:            block;
+    color:              var(--color-onError);
+    font-size:          14px;
+}
+.formComboOpt{
+    position:           absolute;
+    top:                calc(100% - 10px);
+    left:               10px;
+    width:              310px;
+    max-height:         200px;
+    overflow-y:         auto;
+    border:             1px solid var(--color-primary);
+    border-top:         none;
+    border-radius:      0 0 4px 4px;
+    padding:            0;
+    margin:             0;
+    box-shadow:         0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index:            15;
+}
+.blocaoTxtBasico{
+    display:            flex;
+    flex-direction:     column;
+    width:              48%;
+}
+.formTxtDesc {
+    width:              100%;
+    height:             250px;
+    border-radius:      8px;
+    background-color:   var(--color-inputs);
+    border:             none;
+    outline:            0;
+    transition:         all 0.6s;
+    border-radius:      12px;
+    border:             none;
+    outline:            0;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+    padding:            16px;
+}
+.formTxtDesc:nth-child(2) {
+    height:             100px;
+}
+.formBlocao h3{
+    font-size:          22px;
+    color:              var(--color-secondary);
+    margin-top:         20px;
+    margin-bottom:      10px;
+    width:              100%;
+}
+.formAddImg{
+    width:              40px;
+    height:             40px;
+    cursor:             pointer;
+}
+.formPoliticasBlock{
+    display:            flex;
+    flex-direction:     column;
+    width:              33%;
+    height:             350px;
+    padding:            10px;
+    background-color:   var(--color-primaryVar1);
+    border-radius:      25px;
+}
+.formCarregarImg{
+    width:              100%;
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    justify-content:    space-between;
+    align-items:        end;
+    margin-bottom:      20px;
+}
+.formCarregarImgTxt{
+    width:              87%;
+    height:             40px;
+    border-radius:      8px;
+    background-color:   var(--color-inputs);
+    border:             none;
+    outline:            0;
+    transition:         all 0.6s;
+    margin-top:         20px;
+}
+.formUploadImg{
+    width:              40px;
+    height:             40px;
+    cursor:             pointer;
+}
+.formCentralizaBtn{
+    width:              100%;
+}
+.formNovaCatCid{
+    display:            flex;
+    flex-direction:     row;
+    width:              48%;
+    align-items:        center;
+    justify-content:    space-between;
+}
+.blocaoTxtCatCid{
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+    margin-top:         20px;
+}
+.criarCatCid{
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    justify-content:    space-between;
+    width:              100%;
+    margin-top:         20px;
+    border:             1px solid lightgray;
+    border-radius:      12px;
+    padding:            30px;
+    
+}
+.criarCatCid 
+.addImgCatCid {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        end;
+    justify-content:    space-between;
+    width:              48%;
+}
+.addImgCatCidTxt{
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+}
+.alinhaComboImg{
+    display:            flex;
+    flex-direction:     row;
+    width:              100%;
+    height:             40px;
+    justify-content:    space-between;
+    align-items:        start;
+    gap:                10px;
+}
+.formComboBox{
+    width:              88%;
+    height:             40px;
+}
+.alinhaTxtImg{
+    display:            flex;
+    flex-direction:     row;
+    width:              100%;
+    justify-content:    space-between;
+    gap:                10px;
+}
+.alinhaTxtImgTxt{
+    width:              88%;
+    height:             40px;
+    border-radius:      8px;
+    background-color:   var(--color-inputs);
+    border:             none;
+    outline:            0;
+    transition:         all 0.6s;
+}
+.formBtn {
+    margin:             30px auto 10px;
+    background-color:   var(--color-primary);
+    color:              var(--color-onPrimary);
+}
+
+@media (max-width:414px) {
+    .formContainer {
+      padding:          0 20px;
+    }
+    .blocoSXZ {
+        gap:            unset;
+    }
+    .formInputsContainer {
+        flex-direction: column;
+    }
+    .ndBtn,
+    .formCreate button,
+    .formBtn{
+        width:          100%;
+    }
+    .blocoSXZ:nth-child(4) {
+        gap:            10px;
+    }
+
+    .formHeader p{
+        font-size:      24px;
+    }
+    .formContainer h2{
+        font-size:      20px;
+    }
+    .blocaoTxtBasico,
+    .formNovaCatCid{
+        width:          100%;
+    }
+    .addImgCatCid{
+        width:          100%;
+    }
+    .formTxtAtributos{
+        width:          100%;
+    }
+    .formAtributosTxts{
+        width:          75%;
+    }
+    .formAtributos{
+        align-items:    center;
+    }
+    .formAtributos,
+    .formPoliticas,
+    .formBlocao{
+        padding:        20px;
+    }
+
+    .formPoliticasBloco{
+        padding:        0;
+        margin-top:     10px;
+    }
+
+    .formPoliticasBloco{
+        width:          100%;
+    }
+
+    .formCarregarImgTxt{
+        width:          60%;
+    }
+
+    .formComboBox{
+        width:          85%;
+    }
+
+    .alinhaTxtImg {
+        flex-direction: column;
+        width: 100%;
+    }
+    .alinhaTxtImg input {
+        width: 100%;
+    }
+   
+    .criarCatCid 
+    .addImgCatCid {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        end;
+    justify-content:    space-between;
+    width:              100%;
+    }
+    .formPoliticasBlock{
+        display:            flex;
+        flex-direction:     column;
+        width:              100%;
+    }
+    .formHeader h1 {
+        font-size: 28px;
+    }
+
+}
+  @media (min-width:415px) and (max-width: 796px) {
+    
+    .formContainer{
+        padding:        0px 32px;
+    }
+    .addImgCatCid{
+        width:          100%;
+        margin-top:     20px;
+    }
+    .formTxtAtributos{
+        width:          100%;
+    }
+    .formAtributosTxts{
+        width:          88%;
+    }
+    .formAtributos{
+        align-items:    center;
+    }
+    
+    .formAtributos,
+    .formPoliticas,
+    .formBlocao{
+        padding:        20px;
+    }
+    .formPoliticasBloco{
+        padding:        0;
+        margin-top:     10px;
+    }
+    .formPoliticasBloco{
+        width:          100%;
+    }
+    .formCarregarImgTxt{
+        width:          70%;
+    }
+    .formComboBox{
+        width:          86%;
+    }
+    .alinhaTxtImgTxt{
+        width:          85%;
+    }
+    .criarCatCid 
+    .addImgCatCid {
+    display:            flex;
+    flex-direction:     column;
+    }
+    .criarCatCid {
+        align-items:    end;
+    }
+    .formInputsContainer:nth-child(2) {
+        flex-direction: column;
+    }
+    .formInputsContainer:nth-child(3) {
+        flex-direction: column;
+    }
+    .formInputsContainer:nth-child(5) {
+        flex-direction: column;
+    }
+    .ndBtn,
+    .formCreate button,
+    .formBtn{
+        width:          100%;
+    }
+    .formPoliticasBlock {
+        width: 100%;
+    }
+    .blocaoTxtBasico,
+    .formNovaCatCid{
+        width:          100%;
+    }
+    .alinhaTxtImg {
+        flex-direction: column;
+        width: 100%;
+    }
+    .alinhaTxtImg input {
+        width: 100%;
+    }
+    .criarCatCid 
+    .addImgCatCid {
+    display:            flex;
+    flex-direction:     row;
+    align-items:        end;
+    justify-content:    space-between;
+    width:              100%;
+    }
+
+    .blocoSXZ {
+        gap:            unset;
+    }
+
+  }
+
+  @media (min-width:797px) and (max-width: 1279px) {
+    .formContainer {
+        padding:        0px 32px;
+    }
+
+    .formCarregarImgTxt{
+        width:          85%;
+    }
+  }
+  
+  @media(min-width: 1280px) {
+    .formContainer {
+      padding:          0px 150px;
+    }
+    .formHeader button {
+        position:       absolute;
+        left:           90px;
+    }
+  }

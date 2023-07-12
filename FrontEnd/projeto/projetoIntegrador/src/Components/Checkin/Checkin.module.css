@@ -1,0 +1,53 @@
+.checkinContainer {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+}
+.divisor {
+    margin:             10px 0;
+    border:             0.5px solid lightgray;
+    align-self:         stretch;
+}
+.check {
+    display:            flex;
+    flex-direction:     row;
+    justify-content:    space-between;
+    align-items:        center;
+}
+.checkinLabel {
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+}
+.check input {
+    border:             none;
+    outline:            none;
+    background-color:   transparent;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+    text-align:         end;
+}
+.checkButton {
+    width:              100%;
+    height:             40px;
+    border-radius:      25px;
+    background-color:   var(--color-primary);
+    color:              var(--color-onPrimary);
+    text-align:         center;
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        20px;
+    letter-spacing:     0.1px;
+    margin-top:         10px;
+}
+.checkButton:hover {
+    box-shadow:         var(--elevation1);
+    transition:         all .2s;
+}

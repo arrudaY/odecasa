@@ -1,0 +1,78 @@
+.reservaBody {
+    display:            flex;
+    flex-direction:     row;
+    width:              100%;
+    gap:                16px;
+    margin-bottom:      52px;
+}
+.telaReservaContainer {
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    justify-content:    space-between;
+}
+.telaReservaContainerEsq,
+.telaReservaContainerDir,
+.telaReservaDir {
+    display:            flex;
+    flex-direction:     column;
+}
+.telaReservaDir {
+    box-shadow:         var(--elevation1);
+    padding:            20px;
+    border-radius:      12px;
+    position:           sticky;
+    top:                85px;
+}
+.telaReservaContainerDir h1 {
+    color:              var(--color-secondary);
+    font-size:          22px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        28px;
+    padding:            20px 0 0;
+}
+.divisor {
+    margin:             24px 16px;
+    border:             0.5px solid lightgray;
+    align-self:         stretch;
+}
+@media (max-width: 769px) {
+    .reservaBody {
+        flex-direction: column;
+        padding:        0 20px;
+    }
+    .telaReservaContainerEsq, .telaReservaContainerDir {
+        width:          100%;
+    }
+}
+@media (min-width: 770px) and (max-width: 980px) {
+    .reservaBody {
+        padding:        0 32px;
+    }
+    .telaReservaContainerEsq,
+    .telaReservaContainerDir {
+        width:          50%;
+    }
+}
+@media (min-width: 981px) and (max-width: 1279px) {
+    .reservaBody {
+        padding:        0 32px;
+    }
+    .telaReservaContainerEsq {
+        width:          67%;
+    }
+    .telaReservaContainerDir{
+        width:          33%;
+    }
+}
+@media(min-width: 1280px) {
+    .reservaBody {
+        padding:        0 150px;
+    }
+    .telaReservaContainerEsq {
+        width:          67%;
+    }
+    .telaReservaContainerDir{
+        width:          33%;
+    }
+}

@@ -1,0 +1,109 @@
+.closeButton {
+    position:               absolute;
+    top:                    10px;
+    right:                  30px;
+    color:                  var(--color-5);
+    padding:                5px;
+    cursor:                 pointer;
+    font-weight:            bold;
+    font-size:              16px;
+}
+.closeButton:hover { 
+    color:                  var(--color-4);
+    opacity:                0.6;
+    transition:             all 0.5s;
+}
+.imageGrid {
+	display:                grid;
+	grid-template-columns:  repeat(4, 1fr);
+	grid-auto-rows:         200px;
+	gap:                    10px;
+}
+.imageGrid > img {
+	width:                  100%;
+	height:                 100%;
+	object-fit:             cover;
+}
+.mainImage {
+    grid-column:            span 2;
+    grid-row:               span 2;
+    border-radius:          25px 0px 0px 25px;
+}
+.imageGrid > img:nth-child(3) {
+    border-radius:          0px 25px 0px 0px;
+}
+.imageGrid > img:nth-child(5) {
+    border-radius:          0px 0px 25px 0px;
+}
+.detailsLink {
+    display:                flex;
+    flex-direction:         row;
+    align-items:            center;
+    justify-content:        center;
+    gap:                    8px;
+    position:               absolute;
+    bottom:                 10%;
+    right:                  11.5%;
+    background-color:       rgba(255, 255, 255, 0.8);
+    border-radius:          100px;
+    padding:                6px 24px;
+    font-size:              14px;
+    font-family:            'Roboto', sans-serif;
+    font-weight:            500;
+    line-height:            20px;
+    letter-spacing:         0.1px;
+    color:                  var(--color-secondary); /*TODO*/
+    cursor:                 pointer;
+}
+.detailsLink:hover {
+    background-color:       white;
+    box-shadow:             var(--elevation1);
+    transition:             all 0.2s;
+}
+
+.carousel {
+    width: 350px;
+    margin: 40px auto;
+}
+
+@media (max-width: 414px) {}
+
+@media (min-width: 415px) and (max-width: 1279px) {
+    .imageGrid {
+        grid-auto-rows:     150px;
+        padding:            0 32px;
+    }
+}
+@media(min-width: 1280px) {
+    .imageGrid {
+        padding:            0 150px;
+    }
+}
+
+
+
+
+/*
+@media (max-width: 1024px) {
+	.image-grid {
+		--num-cols: 2;
+		--row-height: 200px;
+	}
+}
+
+@media (max-width: 719px) {
+    .gallery {
+        max-width: 100%;
+        border-radius: 0px;
+        max-height: 100%;
+    }
+}
+
+@media (max-width: 414px) {
+    .gallery {
+        max-width: 100%;
+        border-radius: 0px;
+        max-height: 100%;
+    }
+}
+*/

@@ -1,0 +1,89 @@
+.politicaContainer {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+    margin-bottom:      50px;
+}
+.politicaContainer h2 {
+    color:              var(--color-secondary);
+    font-size:          22px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        28px;
+    font-weight:        400;
+}
+.divisor {
+    margin:             10px 16px;
+    border:             0.5px solid lightgray;
+    align-self:         stretch;
+}
+.politicaPoliticas {
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    gap:                30px;
+    padding:            20px 0px;
+}
+.politicaPoliticas p {
+    display:            flex;
+    color:              var(--color-text);
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+    text-align:         center;
+    max-width:          300px;
+}
+.politicaPoliticas h3 {
+    text-align:         center;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Overpass', sans-serif;
+    font-weight:        500;
+    line-height:        24px;
+    letter-spacing:     0.15px;
+    padding:            10px 0px;
+}
+.politicaRegras,
+.politicaSaudeSeg,
+.politicaCancelamento {
+    display:            flex;
+    flex-direction:     column;
+    align-items:        center;
+    justify-content:    flex-start;
+    width:              31%;
+}
+@media (max-width: 486px) {
+    .politicaContainer {
+        padding:        20px 20px 0px;
+    }
+    .politicaRegras,
+    .politicaSaudeSeg,
+    .politicaCancelamento {
+        width:          100%;
+    }
+}
+@media (min-width:487px) and (max-width: 980px) {
+    .politicaContainer {
+        padding:        20px 32px;
+    }
+    .politicaRegras,
+    .politicaSaudeSeg,
+    .politicaCancelamento {
+        width:          45%;
+    }
+}
+@media (min-width:981px) and (max-width: 1279px) {
+    .politicaContainer {
+        padding:        20px 32px;
+    }
+    .politicaRegras,
+    .politicaSaudeSeg,
+    .politicaCancelamento {
+        width:          30%;
+    }
+}
+@media(min-width: 1280px) {
+    .politicaContainer {
+        padding:        20px 150px;
+    }
+}

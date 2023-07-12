@@ -1,0 +1,76 @@
+.formReservaContainer {
+    width:              100%;
+}
+.formReservaContainer h1 {
+    color:              var(--color-secondary);
+    font-size:          22px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        28px;
+}
+.form {
+    display:            flex;
+    flex-wrap:          wrap;
+    gap:                20px;
+}
+.formReserva {
+    display:            flex;
+    flex-direction:     column;
+}
+.reservaLabel {
+    color:              var(--color-secondary);
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+}
+.reservaTxt {
+    width:              100%;
+    border-radius:      12px;
+    background-color:   var(--color-inputs);
+    border:             none;
+    outline:            0;
+    transition:         all 0.2s;
+    height:             46px;
+    color:              var(--color-secondary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+    padding-left:       16px;
+}
+.reservaTxt:focus {
+    box-shadow:         var(--elevation1);
+    transition:         all 0.2s;
+}
+@media (max-width: 769px) {
+    .formReservaContainer h1 {
+        padding:        20px 0 24px;
+    }
+    .form {
+        flex-direction: column;
+        gap:            10px;
+    }
+    .formReserva {
+        width:          100%;
+    }
+}
+@media (min-width: 770px) and (max-width: 1089px) {
+    .formReservaContainer h1 {
+        padding:        38px 0 24px;
+    }
+    .form {
+        flex-direction: column;
+        gap:            10px;
+    }
+    .formReserva {
+        width:          100%;
+    }
+}
+@media (min-width: 1090px) {
+    .formReservaContainer h1 {
+        padding:        38px 0 24px;
+    }
+    .formReserva {
+        width:          47%;
+    }
+}

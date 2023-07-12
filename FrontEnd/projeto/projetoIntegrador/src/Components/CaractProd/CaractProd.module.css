@@ -1,0 +1,64 @@
+.caractContainer {
+    display:                flex;
+    flex-direction:         column;
+    width:                  100%;
+}
+.caractContainer h2 {
+    color:                  var(--color-secondary);
+    font-size:              22px;
+    font-family:            'Overpass', sans-serif;
+    line-height:            28px;
+    font-weight:            400;
+}
+.divisor {
+    margin:                 10px 16px;
+    border:                 0.5px solid lightgray;
+    align-self:             stretch;
+}
+.caractCaracteristicas {
+    display:                flex;
+    flex-direction:         row;
+    flex-wrap:              wrap;
+    justify-content:        flex-start;
+    gap:                    20px;
+    margin:                 10px 0 0;
+}
+.caractCaracteristica {
+    display:                flex;
+    flex-direction:         row;
+    align-items:            center;
+    justify-content:        center;
+    gap:                    12px;
+    color:                  var(--color-secondary);
+    padding:                10px 24px;
+    border-radius:          25px;
+    background-color:       var(--color-primaryVar2);
+}
+.caractCaracteristica p {
+    color:                  var(--color-secondary);
+    font-size:              16px;
+    font-family:            'Roboto', sans-serif;
+    line-height:            20px;
+    letter-spacing:         0.25px;   
+}
+@media (max-width: 414px) {
+    .caractContainer {
+        padding:            20px;
+    }
+    .caractCaracteristicas {
+        gap:                16px;
+    }
+    .caractCaracteristica {
+        padding:            10px 16px;
+    }
+}
+@media (min-width: 415px) and (max-width: 1279px) {
+    .caractContainer {
+        padding:            20px 32px;
+    }
+}
+@media(min-width: 1280px) {
+    .caractContainer {
+        padding:            20px 150px;
+    }
+}

@@ -1,0 +1,86 @@
+.reservaContainer {
+    display:                flex;
+    flex-direction:         column;
+    width:                  100%;
+}
+.reservaContainer h2 {
+    color:                  var(--color-secondary);
+    font-size:              22px;
+    font-family:            'Overpass', sans-serif;
+    line-height:            28px;
+    font-weight:            400;
+}
+.divisor {
+    margin:                 10px 16px;
+    border:                 0.5px solid lightgray;
+    align-self:             stretch;
+}
+.innerContainer {
+    display:                flex;
+    flex-direction:         column;
+    align-items:            center;
+    background-color:       var(--color-primaryVar1);
+    border-radius:          25px;
+    padding:                30px 0;
+    gap:                    20px;
+}
+.reservaReserva {
+    display:                flex;
+    align-items:            center;
+    justify-content:        center;
+}
+.reservaConfirm {
+    display:                flex;
+    flex-direction:         row;
+    align-items:            center;
+    justify-content:        space-between;
+    width:                  664px;
+    margin:                 0 auto;
+}
+.reservaConfirm p {
+    width:                  312.02px;
+    color:                  var(--color-secondary);
+    font-size:              14px;
+    font-family:            'Roboto', sans-serif;
+    line-height:            20px;
+    letter-spacing:         0.25px;
+}
+.reservaBtn {
+    height:                 40px;
+    background-color:       var(--color-primary);
+    color:                  var(--color-onPrimary);
+    border:                 none;
+    border-radius:          25px;
+    text-align:             center;
+    font-size:              14px;
+    font-family:            'Roboto', sans-serif;
+    font-weight:            500;
+    line-height:            20px;
+    letter-spacing:         0.1px;
+    width:                  312.02px;
+}
+.reservaBtn:hover {
+    box-shadow:             var(--elevation1);
+}
+@media (max-width: 760px) {
+    .reservaContainer {
+        padding:            20px;
+    }
+    .reservaConfirm {
+        flex-direction:     column;
+        width:              100%;
+        align-items:        center;
+        justify-content:    center;
+        gap:                10px;
+    }
+}
+@media (min-width:761px) and (max-width: 1279px) {
+    .reservaContainer {
+        padding:            30px 32px;
+    }
+}
+@media(min-width: 1280px) {
+    .reservaContainer {
+        padding:            30px 150px;
+    }
+}

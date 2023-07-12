@@ -1,0 +1,20 @@
+.addressContainer {
+    display:            flex;
+    align-items:        center;
+    width:              100%;
+    color:              var(--color-secondary);
+    gap:                8px;
+    padding:            12px 0;
+}
+.addressContainer p {
+    display:            flex;
+    flex-direction:     row;
+    flex-wrap:          wrap;
+    align-items:        center;
+    justify-content:    flex-start;
+    color:              var(--color-text);
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+}

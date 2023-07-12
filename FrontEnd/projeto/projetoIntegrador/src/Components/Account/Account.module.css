@@ -1,0 +1,169 @@
+.accountContainer {
+    display:            flex;
+    flex-direction:     column;
+    height:             calc(100vh - 46px);
+    margin-top:         -80px;
+    background-color:   var(--color-primaryVar1);
+}
+.accountForm {
+    position:           absolute;
+    top:                55%;
+    left:               50%;
+    transform:          translate(-50%,-50%);
+    background-color:   white;
+    border-radius:      12px;
+    box-shadow:         var(--elevation1);
+}
+.accountTitle {
+    color:              var(--color-secondary);
+    text-align:         center;
+    font-size:          32px;
+    font-family:        'Overpass', sans-serif;
+    line-height:        40px;
+    margin-bottom:      20px;
+    font-weight:        400;
+}
+.accountTxt {
+    width:              100%;
+    border-radius:      12px;
+    background-color:   var(--color-inputs);
+    border:             none;
+    outline:            0;
+    transition:         all 0.2s;
+}
+.accountTxt,
+.accountTxt::placeholder,
+.accountTxt::-webkit-input-placeholder {
+    color:              var(--color-text);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        24px;
+    letter-spacing:     0.5px;
+}
+.accountTxt,
+.accountBtn {
+    height:             46px;
+}
+.accountTxt:focus {
+    box-shadow:         var(--elevation1);  
+}
+.accountPassword {
+    position:           relative;
+}
+.accountPassword span {
+    position:           absolute;
+    top:                12px;
+    right:              14px;
+    cursor:             pointer;
+}
+.accountPassword span svg {
+    width:              18px;
+    opacity:            0.7;
+}
+.accountTxt[type=text],
+.accountTxt[type=password],
+.accountTxt[type=email] {
+    padding:            0px 14px;
+}
+.accountLabel {
+    display:            none;
+    font-size:          16px;
+    margin-bottom:      0.2em;
+    line-height:        14px;
+    opacity:            0.8;
+}
+.inputs {
+    display:            flex;
+    flex-direction:     column;
+    gap:                14px;
+}
+.accountName {
+    display:            flex;
+    flex-direction:     column;
+    width:              100%;
+    gap:                14px;
+}
+.accountBtn {
+    width:              100%;
+    background-color:   var(--color-primary);
+    border-radius:      25px;
+    transition:         all 0.2s;
+    border:             none;
+    color:              var(--color-onPrimary);
+    font-size:          16px;
+    font-family:        'Roboto', sans-serif;
+    font-weight:        500;
+    line-height:        20px;
+    letter-spacing:     0.1px;
+}
+.accountBtn:hover {
+    box-shadow:         var(--elevation1);
+}
+.accountConfirm {
+    display:            flex;
+    flex-direction:     column;
+    text-align:         center;
+    gap:                30px;
+    padding-top:        14px;
+}
+.link {
+    color:              var(--color-primary);
+    padding:            5px 14px;
+    border-radius:      20px;
+    text-decoration:    none;
+}
+.accountConfirm .link{
+    text-decoration:    none;
+}
+.link:hover {
+    background-color:   var(--color-primaryVar1);
+}
+.navigate {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.navigate p {
+    color:              var(--color-secondary);
+    text-align:         center;
+    font-size:          14px;
+    font-family:        'Roboto', sans-serif;
+    line-height:        20px;
+    letter-spacing:     0.25px;
+    text-decoration:    none;
+}
+.accountError {
+    display:            block;
+    color:              var(--color-onError);
+    font-size:          12px;
+}
+@media (max-width: 414px) {
+    .accountContainer{
+        height:         calc(100vh - 46px);
+        margin-top:     -50px;
+    }
+    .accountForm {
+        width:          90%;
+        padding:        30px 10px;
+    }
+    .inputs {
+        gap:            16px;
+    }
+    .accountName {
+        gap:            16px;
+    }
+}
+@media (min-width:415px) and (max-width: 1279px) {
+    .accountForm {
+        width:          44.5%;
+        padding:        40px 20px;
+    }
+}
+@media(min-width: 1280px) {
+    .accountForm {
+        width:          24.6%;
+        padding:        40px 20px;
+    }
+}

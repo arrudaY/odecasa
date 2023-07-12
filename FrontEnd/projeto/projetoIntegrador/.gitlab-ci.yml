@@ -1,0 +1,44 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  AWS_REGION: "sa-east-1"  # Região da AWS
+  TF_STATE_BUCKET: "bucket-gp2"  # Nome do bucket do estado do Terraform
+  AWS_ACCESS_KEY_ID: "AKIAV4YTWNKPKD6RT6WF"  # Chave de acesso da AWS
+  AWS_SECRET_ACCESS_KEY: "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"  # Chave secreta de acesso da AWS
+
+
+build:
+  stage: build
+  script:
+    - cd FrontEnd/projeto/projetoIntegrador
+    - npm install
+    - npm run build
+
+deploy:
+  stage: deploy
+  image: 
+    name: amazon/aws-cli:latest
+    entrypoint: [""]
+  script:
+    - cd FrontEnd/projeto/projetoIntegrador
+    - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+    - export AWS_REGION=$AWS_REGION
+    - mkdir deployment
+    - ls
+    - cp cp -r dist deployment/
+    - cp appspec.yml deployment/
+    - chmod +x cleanup.sh
+    - chmod +x copyfiles.sh
+    - cp cleanup.sh deployment/
+    - cp coypfiles.sh deployment/  
+    - cd deployment
+    - yum install -y zip unzip
+    - zip -r app.zip .
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set region $AWS_REGION
+    - aws s3 cp my-application.zip s3://$TF_STATE_BUCKET/
+    - aws deploy create-deployment --region sa-east-1 --application-name g2-odecasa-dev --deployment-group-name front-dev --s3-location bucket=$TF_STATE_BUCKET,key=my-app.zip,bundleType=zip --ignore-application-stop-failures

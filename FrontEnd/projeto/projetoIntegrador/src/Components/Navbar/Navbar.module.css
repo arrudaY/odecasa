@@ -1,0 +1,165 @@
+.navbarContainer,
+.navbarContainerActive {
+  display:          flex;
+  flex-direction:   row;
+  justify-content:  space-between;
+  align-items:      center;
+  width:            100%;
+}
+.navbarContainer {
+  background-color: transparent; /*TODO*/
+}
+.navbarContainerActive{
+  background-color: rgba(255, 255, 255, 0.99);
+}
+.navBarLogo {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+}
+.navBarLogo h2 {
+  font-family:      'Vina Sans', cursive;
+  font-style:       normal;
+  font-weight:      400;
+  line-height:      28px;
+  font-size:        32px;
+  color:            var(--color-secondary);
+}
+.navBarLogo .link {
+  text-decoration:  none;
+}
+.navBarBotoes {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      flex-end;
+  gap:              10px;
+}
+.navBarBotoes button {
+  width:            fit-content;
+  height:           40px;
+  padding:          0px 24px;
+  border:           1px solid var(--color-secondary);
+  background-color: transparent;
+  color:            var(--color-secondary);
+  border-radius:    100px;
+  cursor:           pointer;
+  font-family:      'Roboto', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        14px;
+  line-height:      20px;
+}
+.navBarBotoes button + button {
+  width:            87px;
+  background-color: var(--color-secondary);
+  color:            var(--color-onSecondary);
+}
+.sidebarBTN {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  height:           36px;
+  width:            36px;
+  cursor:           pointer;
+  background-color: transparent;
+  color:            var(--color-secondary);
+  border-radius:    50%;
+}
+.wcMessage {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  justify-content:  center;
+  gap:              15px;
+  cursor:           pointer;
+  width:            fit-content;
+  height:           40px;
+  font-family:      'Overpass', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        16px;
+  line-height:      24px;
+  text-align:       center;
+  letter-spacing:   0.15px;
+  color:            var(--color-secondary);
+}
+.navBarAvatar {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  gap:              15px;
+  
+}
+.navBarWelcome {
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  justify-content:  center;
+  gap:              15px;
+  font-family:      'Overpass', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        16px;
+  line-height:      24px;
+  color:            var(--color-secondary);
+}
+.avatar {
+  background-color: var(--color-primary);
+  color:            var(--color-onPrimary);
+  border-radius:    50%;
+  font-size:        18px;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            40px;
+  height:           40px;
+  font-family:      'Roboto', sans-serif;
+  font-weight:      500;
+}
+.adminLabel {
+  font-family:      'Roboto', sans-serif;
+  font-style:       normal;
+  font-weight:      400;
+  font-size:        12px;
+  text-transform:   uppercase;
+  color:            var(--color-text);
+}
+
+@media (max-width: 500px) {
+  .adminLabel {
+    display: none;
+  }
+}
+@media (max-width:414px) {
+  .navbarContainer,
+  .navbarContainerActive {
+    padding:        0px 20px;
+    height:         50px;
+  }
+  .navBarLogo h2 {
+    font-size:      24px;
+  }
+  .navBarBotoes {
+    display:        none;
+  }
+}
+@media (min-width:415px) and (max-width: 1279px) {
+  .navbarContainer,
+  .navbarContainerActive {
+    padding:        0px 32px;
+    height:         80px;
+  }
+  .navBarLogo h2 {
+    font-size:      32px;
+  }
+}
+@media(min-width: 1280px) {
+  .navbarContainer,
+  .navbarContainerActive {
+    padding:        0px 150px;
+    height:         80px;
+  }
+  .navBarLogo h2 {
+    font-size:      32px;
+  }
+}

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@500&family=Roboto:wght@500&display=swap');
+.sidebarOpen {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      flex-start;
+  padding:          12px;
+  position:         fixed;
+  width:            90%;
+  height:           100%;
+  right:            0px;
+  top:              0px;
+  background-color: white;
+  border-radius:    16px 0px 0px 16px;
+  box-shadow:       var(--elevation1);
+  animation:        showSidebar .5s;
+}
+.sidebarClosed {
+  display:          none;
+}
+.closeBtn {
+  display:          flex;
+  flex-direction:   row;
+  justify-content:  flex-end;
+  align-items:      center;
+  padding:          16px;
+  height:           56px;
+  align-self:       flex-end;
+  border-radius:    100%;
+  background-color: white;
+}
+.menu {
+  width:            100%;
+  display:          flex;
+  flex-direction:   column;
+}
+.headline {
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  align-items:      stretch;
+}
+.headlineLogged {
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  align-items:      center;
+  gap:              20px;
+}
+.secao {
+  display:          block;
+  padding:          16px;
+  font-family:      'Overpass', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        14px;
+  line-height:      20px;
+  text-align:       left;
+  letter-spacing:   0.1px;
+}
+.sidebarBotoes {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  justify-content:  center;
+  gap:              10px;
+}
+.sidebarBtn {
+  box-sizing:       border-box;
+  background-color: var(--color-secondary);
+  color:            var(--color-onSecondary);
+  align-self:       stretch;
+  margin:           0px 16px;
+  height:           40px;  
+  border-radius:    100px;
+  cursor:           pointer;
+  font-family:      'Roboto', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        14px;
+  line-height:      20px;
+}
+.sidebarBtn + button {
+  border:           1px solid var(--color-secondary);
+  background-color: white;
+  color:            var(--color-secondary);
+}
+.avatar {
+  background-color: var(--color-primary);
+  color:            var(--color-onPrimary);
+  border-radius:    50%;
+  font-size:        28px;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            80px;
+  height:           80px;
+  font-family:      'Roboto', sans-serif;
+  font-weight:      500;
+}
+.navBarMensagem {
+  font-family:      'Overpass', sans-serif;
+  font-style:       normal;
+  font-weight:      500;
+  font-size:        16px;
+  line-height:      14px;
+  letter-spacing:   0.1px;
+  background-color: white;
+  color:            var(--color-secondary);
+  padding:          10px 0px;
+}
+.navBarMensagem + button {
+  background-color: white;
+  color:            var(--color-secondary);
+  border:           0.5px solid var(--color-secondary);
+  display:          flex;
+  flex-direction:   row;
+  align-items:      center;
+  justify-content:  center;
+  gap:              8px;
+  width:            fit-content;
+  padding:          0px 24px;
+  margin-bottom:    10px;
+}
+.divisor {
+  margin:           10px 16px;
+  border:           0.5px solid lightgray;
+  align-self:       stretch;
+}
+.navItem li:active {
+  background-color: var(--color-primaryVar2);
+}
+.navItem li {
+  display:            flex;
+  flex-direction:     row;
+  align-items:        center;
+  justify-content:    flex-start;
+  gap:                12px;
+  font-family:        'Roboto', sans-serif;
+  font-style:         normal;
+  font-weight:        500;
+  font-size:          16px;
+  line-height:        20px;
+  letter-spacing:     0.1px;
+  cursor:             pointer;
+  border-radius:      25px;
+  padding:            8px;
+  color:              var(--color-secondary);
+}
+.navItem li:hover {
+  background-color:   var(--color-primaryVar2);
+}
+@keyframes showSidebar {
+    from {
+      opacity:      0;
+      width:        0;
+    }
+    to {
+      opacity:      1;
+      width:        20rem;
+    }
+}
