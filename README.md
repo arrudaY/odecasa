@@ -5,6 +5,8 @@
 ## 📍  Sobre o projeto
 Projeto integrador do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).
 
+Clicando no banner acima, você assiste a uma demonstração do produto no YouTube ▶️.
+
 ## 🛠️  Problemas 
 Se você encontrar algum problema ou tiver alguma dúvida relacionada ao Ôdecasa, abra uma issue neste repositório.
 
