@@ -10,7 +10,7 @@ Projeto Integrador entregue como requisito para a certificação *Professional D
 
 ![Homepage](https://github.com/arrudaY/odecasa/raw/main/FrontEnd/projeto/projetoIntegrador/public/odcs.png)
 
-Essa experiência de aprendizagem enriquecedora simulou situações do mercado de trabalho, permitindo aos alunos aplicar as ferramentas aprendidas nas disciplinas para solucionar problemas de forma prática. A abordagem colaborativa do projeto, realizado por um grupo pequeno de 6 pessoas, estimulou habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo dos participantes.
+Essa experiência de aprendizagem enriquecedora simulou situações do mercado de trabalho, permitindo aos alunos aplicar as ferramentas aprendidas ao longo do curso para solucionar problemas de forma prática. A abordagem colaborativa do projeto, realizado por um grupo pequeno de 6 pessoas, estimulou habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo dos participantes.
 
 | Áreas | Tecnologias |
 | --- | --- |
