@@ -4,24 +4,11 @@
 
 *Ôdecasa é uma plataforma de compartilhamento de acomodações, conectando viajantes a experiências autênticas em todo o Brasil* 🧳🏠✨. 
 
-Projeto integrador entregue como requisito para certificação Professional Developer, do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).
-
 Clicando no banner acima, você assiste a uma demonstração do produto no YouTube ▶️.
 
 ## 📍  Sobre o projeto
 
-O Projeto Integrador foi realizado por um grupo de 6 pessoas, visando estimular habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo de cada membro. Essa abordagem colaborativa também proporciona uma oportunidade valiosa para o desenvolvimento de "soft skills".
-
-
-Para cumprir com todas as entregas propostas, dividas em 4 sprints de 10 dias cada, o grupo manteve-se engajado utilizando as ferramentas como:
-
-| Finalidade | Ferramentas |
-| --- | --- |
-| Workflow | ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white) ![Gitlab](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white) ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)  |
-| Comunicação| ![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white) ![Whatsapp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white) ![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white) |
-
-
-
+Projeto Integrador (PI) entregue como requisito para certificação Professional Developer, do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).  O PI é uma experiência rica de aprendizagem, uma vez que se propõe a ter certas condições e considerações que o tornam ideal para o aprendizado. Permite aplicar as ferramentas aprendidas nas diferentes disciplinas do curso.
 
 
 | Áreas | Tecnologias |
@@ -33,7 +20,15 @@ Para cumprir com todas as entregas propostas, dividas em 4 sprints de 10 dias ca
 | **Infrastructure Analyst** |![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) |
 
 
+O PI foi realizado por um grupo de 6 pessoas, visando estimular habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo de cada membro. Essa abordagem colaborativa também proporcionou uma oportunidade valiosa para o desenvolvimento de *soft skills*.
 
+
+Para cumprir com todas as entregas propostas, dividas em 4 sprints de 10 dias cada, o grupo manteve-se engajado utilizando ferramentas como:
+
+| Finalidade | Ferramentas |
+| --- | --- |
+| Workflow | ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white) ![Gitlab](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white) ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)  |
+| Comunicação| ![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white) ![Whatsapp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white) ![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white) |
 
 
 ## 🙌  Contribuindo
