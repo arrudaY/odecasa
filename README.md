@@ -12,7 +12,7 @@ Projeto Integrador entregue como requisito para certificação Professional Deve
 
 ![Homepage](https://github.com/arrudaY/odecasa/raw/main/FrontEnd/projeto/projetoIntegrador/public/odcs.png)
 
-O PI é uma experiência de aprendizagem enriquecedora, simulando situações do mercado de trabalho e permitindo a aplicação das ferramentas aprendidas nas diferentes disciplinas do curso para solucionar os problemas de forma prática. Essa abordagem promove uma aprendizagem mais completa e contextualizada, preparando os alunos para os desafios do mundo profissional. Além disso, ele foi desenvolvido por um grupo de 6 pessoas, visando estimular habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo de cada membro. Essa abordagem colaborativa também proporcionou uma oportunidade valiosa para o desenvolvimento de *soft skills*.
+O PI é uma experiência de aprendizagem enriquecedora, simulando situações do mercado de trabalho e permitindo a aplicação das ferramentas aprendidas nas diferentes disciplinas do curso para solucionar os problemas de forma prática. Essa abordagem promove uma aprendizagem mais completa e contextualizada, preparando os alunos para os desafios do mundo profissional. Além disso, ele foi desenvolvido por um grupo pequeno de 6 pessoas, visando estimular habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo de cada membro. Essa abordagem colaborativa também proporcionou uma oportunidade valiosa para o desenvolvimento de *soft skills*.
 
 | Áreas | Tecnologias |
 | --- | --- |
