@@ -8,8 +8,11 @@ Clicando no banner acima, você assiste a uma demonstração do produto no YouTu
 
 ## 📍  Sobre o projeto
 
-Projeto Integrador (PI) entregue como requisito para certificação Professional Developer, do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).  O PI é uma experiência rica de aprendizagem, uma vez que se propõe a ter certas condições e considerações que o tornam ideal para o aprendizado. Permite aplicar as ferramentas aprendidas nas diferentes disciplinas do curso.
+Projeto Integrador entregue como requisito para certificação Professional Developer, do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br). 
 
+![Homepage](https://github.com/arrudaY/odecasa/raw/main/FrontEnd/projeto/projetoIntegrador/public/odcs.png)
+
+O PI é uma experiência de aprendizagem enriquecedora, simulando situações do mercado de trabalho e permitindo a aplicação das ferramentas aprendidas nas diferentes disciplinas do curso para solucionar os problemas de forma prática. Essa abordagem promove uma aprendizagem mais completa e contextualizada, preparando os alunos para os desafios do mundo profissional. Além disso, ele foi desenvolvido por um grupo de 6 pessoas, visando estimular habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo de cada membro. Essa abordagem colaborativa também proporcionou uma oportunidade valiosa para o desenvolvimento de *soft skills*.
 
 | Áreas | Tecnologias |
 | --- | --- |
@@ -19,11 +22,7 @@ Projeto Integrador (PI) entregue como requisito para certificação Professional
 | **QA / Testing Analyst** | ![Jest](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-ED7547?style=for-the-badge&logo=Postman&logoColor=white) |
 | **Infrastructure Analyst** |![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) |
 
-
-O PI foi realizado por um grupo de 6 pessoas, visando estimular habilidades como comunicação, inovação e criatividade, aproveitando o conhecimento individual e coletivo de cada membro. Essa abordagem colaborativa também proporcionou uma oportunidade valiosa para o desenvolvimento de *soft skills*.
-
-
-Para cumprir com todas as entregas propostas, dividas em 4 sprints de 10 dias cada, o grupo manteve-se engajado utilizando ferramentas como:
+Foram utilizadas metodologias ágeis, como o Scrum, que se mostraram fundamentais para a execução bem-sucedida do projeto. A adoção dessas metodologias permitiu uma abordagem mais eficiente e adaptável ao longo do processo, promovendo a transparência, a colaboração e o foco no valor entregue. Através do Scrum, as equipes puderam dividir o projeto em ciclos iterativos (4 sprints de 10 dias cada), estabelecer prioridades claras, realizar reuniões diárias de acompanhamento e adaptar as estratégias conforme necessário. Essa abordagem ágil impulsionou a produtividade, facilitou a resolução de problemas e promoveu a entrega de um projeto de alta qualidade no prazo estabelecido. Para cumprir com todas as entregas propostas, o grupo manteve-se engajado utilizando ferramentas como:
 
 | Finalidade | Ferramentas |
 | --- | --- |
