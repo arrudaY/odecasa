@@ -6,7 +6,7 @@
 
 Ôdecasa é uma plataforma de compartilhamento de acomodações, conectando viajantes a experiências autênticas em todo o Brasil 🧳🏠✨. 
 
-Projeto integrador do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).
+Projeto integrador entregue como requisito para certificação de , do curso **Certified Tech Developer**, da [Digital House](https://digitalhouse.com/br).
 
 Clicando no banner acima, você assiste a uma demonstração do produto no YouTube ▶️.
 
@@ -31,15 +31,41 @@ Clicando no banner acima, você assiste a uma demonstração do produto no YouTu
 ![Gitlab](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white)
 
 
+## 🙌  Contribuindo
+
+Se você deseja contribuir para o desenvolvimento do Ôdecasa, siga as etapas abaixo:
+
+1. Faça um fork deste repositório.
+2. Crie uma branch para a sua nova funcionalidade:
+```git
+git checkout -b minha-nova-funcionalidade
+```
+3. Faça as alterações necessárias e adicione os devidos testes.
+4. Faça o commit de suas alterações:
+```
+git commit -m "Adicionando minha nova funcionalidade"
+```
+5. Envie suas alterações para o seu fork:
+```
+git push origin minha-nova-funcionalidade
+```
+6. Abra um pull request para este repositório original.
+   
+Agradecemos antecipadamente por suas contribuições!
+
+
 ## 🛠️  Problemas 
 Se você encontrar algum problema ou tiver alguma dúvida relacionada ao Ôdecasa, abra uma issue neste repositório.
+
 
 ## ⚖️  Licença
 Este projeto é licenciado sob a **Licença MIT**. Leia o arquivo [LICENSE](https://github.com/arrudaY/odecasa/blob/main/LICENSE) para obter mais informações.
 
+
 ## 🔗 Links adicionais
 
 - [Protótipo no Figma ⌝](https://www.figma.com/file/npXTfmLYjalOw52s0Cbn71/Projeto-Integrador?type=design&node-id=54196%3A34800&mode=design&t=KoIEizqanPtaMjE3-1)
+
 
 ## 🧑🏽‍💻  Contato
 Se você precisar, entre em contato com o time do Ôdecasa:
